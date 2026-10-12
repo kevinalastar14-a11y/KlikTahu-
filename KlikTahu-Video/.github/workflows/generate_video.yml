@@ -1,50 +1,68 @@
-name: Cinematic Video Generator
+name: KlikTahu Short — Build & (opsional) Upload
 
 on:
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: "Unggah ke YouTube setelah render selesai"
+        type: boolean
+        default: false
+      privacy:
+        description: "Status privasi video"
+        type: choice
+        options: [private, unlisted, public]
+        default: private
   schedule:
-    # Runs at a random time to avoid predictable bot patterns (reduces risk of being flagged)
-    - cron: '17 4 * * 1,4'
-  workflow_dispatch: # Allow manual trigger
+    # Senin & Kamis, 09:17 WIB (02:17 UTC). Slot upload mingguan yang wajar.
+    - cron: '17 2 * * 1,4'
+
+permissions:
+  contents: read
 
 jobs:
-  generate-and-publish:
+  build:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 90
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Random Delay to avoid GitHub Actions abuse detection
-        run: |
-          sleep $((RANDOM % 600))
-          
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Install System Dependencies (ImageMagick, FFmpeg)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick ffmpeg
-          # Fix ImageMagick security policy for MoviePy
-          sudo sed -i 's/none/read,write/g' /etc/ImageMagick-6/policy.xml
-
-      - name: Install Python Dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+        # Catatan: ffmpeg tidak perlu diinstal — imageio-ffmpeg membundel binernya.
 
-      - name: Generate Cinematic Video
+      - name: Render voice-over (edge-tts)
         run: |
-          python cinematic_engine.py
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          if [ -f narration/01_hook.mp3 ]; then
+            echo "narration/ sudah ada di repo — melewati sintesis."
+          else
+            python voice_over.py
+          fi
 
-      - name: Upload Video Artifact
+      - name: Build video (1080x1920 @ 60 fps)
+        run: python cinematic_engine.py --render --target-mb 235
+
+      - name: Verifikasi hasil
+        run: python tools/verify_video.py KlikTahu_Shorts_1080x1920.mp4
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cinematic-video
-          path: KlikTahu_Cinematic.mp4
-          retention-days: 5
+          name: kliktahu-short
+          path: KlikTahu_Shorts_1080x1920.mp4
+          retention-days: 14
+          compression-level: 0
+
+      - name: Upload ke YouTube (opsional)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.upload }}
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python tools/youtube_upload.py --privacy "${{ inputs.privacy }}"

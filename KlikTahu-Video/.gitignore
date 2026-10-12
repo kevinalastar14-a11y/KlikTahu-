@@ -1,0 +1,17 @@
+# Hasil render & artefak sementara
+build/
+*.mp4
+!preview_720p.mp4
+*.wav
+x264pass*
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Kredensial (jangan pernah di-commit)
+.env
+client_secret*.json
+token.json

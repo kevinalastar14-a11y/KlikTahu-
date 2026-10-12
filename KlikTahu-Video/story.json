@@ -1,0 +1,44 @@
+{
+  "topic": "Membuat ide lebih mudah dipahami dengan progressive disclosure",
+  "hook": {
+    "headline": ["SEMUA", "SEKALIGUS?"],
+    "narration": "Pernah melihat begitu banyak hal, tetapi tak mengingat satu pun?",
+    "caption": "Banyak yang terlihat. Sedikit yang tinggal."
+  },
+  "agitation": {
+    "headline": ["TERLALU BANYAK", "PADA SAAT YANG SAMA."],
+    "labels": ["JUDUL", "ANGKA", "PENJELASAN"],
+    "narration": "Saat judul, angka, dan penjelasan berebut perhatian, pikiran tak tahu harus mulai dari mana. Pesan penting pun tenggelam.",
+    "caption": "Ketika semua muncul bersamaan, pesan utama tenggelam."
+  },
+  "body": [
+    {
+      "title": "SATU IDE DULU",
+      "support": "Beri ruang agar makna terlihat.",
+      "narration": "Mulai dari satu gagasan. Beri ruang agar ia benar-benar terlihat.",
+      "caption": "Mulai dari satu gagasan. Beri ruang untuk memahaminya."
+    },
+    {
+      "title": "BUKA LANGKAH BERIKUTNYA",
+      "support": "Hubungkan tanpa membanjiri.",
+      "narration": "Lalu buka penjelasannya, tepat saat perhatian sudah siap mengikutinya.",
+      "caption": "Ungkapkan penjelasan saat perhatian siap."
+    },
+    {
+      "title": "BERI JEDA",
+      "support": "Diam juga bagian dari cerita.",
+      "narration": "Tahan sejenak. Jeda kecil memberi makna waktu untuk mendarat.",
+      "caption": "Jeda memberi waktu bagi makna untuk mendarat."
+    }
+  ],
+  "micro_climax": {
+    "headline": ["INFORMASI", "MENJADI", "PEMAHAMAN."],
+    "nodes": ["SATU IDE", "URUTAN", "JEDA"],
+    "narration": "Kini tiap langkah terhubung: informasi berubah menjadi pemahaman, dan pemahaman menjadi cerita.",
+    "caption": "Saat terhubung, tiap langkah membentuk satu cerita."
+  },
+  "outro": {
+    "narration": "Jadi, sebelum menambahkan apa pun, tanyakan: perlu muncul sekaligus?",
+    "caption": "Pesan berikutnya dimulai dengan satu pertanyaan."
+  }
+}

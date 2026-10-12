@@ -1,4 +1,8 @@
 import os
+import PIL.Image
+if not hasattr(PIL.Image, 'ANTIALIAS'):
+    PIL.Image.ANTIALIAS = PIL.Image.LANCZOS
+
 from moviepy.editor import *
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
@@ -133,4 +137,4 @@ if __name__ == "__main__":
     
     pipeline.create_outro_loop("Terapkan ini sekarang, dan...", hook, duration=3.0)
     
-    # pipeline.render() # Uncomment to render when ImageMagick is properly configured
+    pipeline.render()

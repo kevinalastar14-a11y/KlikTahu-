@@ -22,7 +22,7 @@ import numpy as np
 SR = 48_000
 
 
-def clamp(x: float, lo: float = 0.0, hi: float = 1.0) -> float:
+def clamp01(x: float, lo: float = 0.0, hi: float = 1.0) -> float:
     return lo if x < lo else hi if x > hi else x
 
 
@@ -34,11 +34,14 @@ def ffmpeg_exe() -> str:
 #  I/O & utilitas sinyal
 # --------------------------------------------------------------------------- #
 def decode_audio(path: str, sr: int = SR, mono: bool = True) -> np.ndarray:
-    """Decode file audio apa pun menjadi float32 [-1, 1]."""
+    """Decode file audio apa pun menjadi float32 [-1, 1] (mono) atau (n, 2) stereo."""
     cmd = [ffmpeg_exe(), "-v", "error", "-i", str(path),
            "-ac", "1" if mono else "2", "-ar", str(sr), "-f", "f32le", "-"]
     raw = subprocess.run(cmd, capture_output=True, check=True).stdout
-    return np.frombuffer(raw, dtype="<f4").astype(np.float32)
+    x = np.frombuffer(raw, dtype="<f4").astype(np.float32)
+    if not mono:
+        x = x.reshape(-1, 2)
+    return x
 
 
 def encode_wav(path: str, stereo: np.ndarray, sr: int = SR) -> None:
@@ -170,28 +173,6 @@ def normalize_peak(x: np.ndarray, target_db: float = -1.0) -> np.ndarray:
     if peak <= 1e-9:
         return x
     return x * (10 ** (target_db / 20.0) / peak)
-
-
-def normalize_voice(x: np.ndarray, target_rms_db: float = -20.0,
-                   ceiling_db: float = -2.0) -> np.ndarray:
-    """
-    Samakan tingkat keras tiap klip narasi.
-
-    TTS kadang mengembalikan level yang jauh berbeda antar kalimat (pernah
-    terjadi selisih > 20 dB). Normalisasi berbasis RMS membuat semua beat
-    terdengar sama kuat, dengan plafon peak agar tidak clipping.
-    """
-    if x.size == 0:
-        return x
-    rms = float(np.sqrt(np.mean(x.astype(np.float64) ** 2)))
-    if rms < 1e-7:
-        return x
-    y = x * (10 ** ((target_rms_db - 20 * math.log10(rms)) / 20))
-    peak = float(np.max(np.abs(y)))
-    ceiling = 10 ** (ceiling_db / 20.0)
-    if peak > ceiling:
-        y *= ceiling / peak
-    return y.astype(np.float32)
 
 
 def measure_lufs(x: np.ndarray, sr: int = SR) -> float:
@@ -384,15 +365,10 @@ def build_mix(total_dur: float, vo_events, sfx_events, sr: int = SR,
         if j <= i:
             continue
         seg = clip[: j - i] * g
-        # panning konstan-power; SFX yang di-pan diberi lebar stereo (Haas 6 ms)
-        a = clamp((pan + 1) / 2) * math.pi / 2
-        gl, gr = math.cos(a), math.sin(a)
-        left[i:j] += seg * gl
-        right[i:j] += seg * gr
-        if pan != 0.0:
-            haas = min(j - i, int(0.006 * sr))
-            if i + haas + haas <= n:
-                right[i + haas: i + 2 * haas] += seg[:haas] * gr * 0.35
+        # panning konstan-power: SFX tersebar di bidang stereo, VO tetap di tengah
+        a = clamp01((pan + 1) / 2) * math.pi / 2
+        left[i:j] += seg * math.cos(a)
+        right[i:j] += seg * math.sin(a)
 
     left *= duck_gain
     right *= duck_gain
@@ -402,10 +378,8 @@ def build_mix(total_dur: float, vo_events, sfx_events, sr: int = SR,
     mix = normalize_peak(mix, -1.2)
 
     loud = measure_lufs(mix.mean(axis=1), sr)
-    corr_db = max(-6.0, min(6.0, target_lufs - loud))   # batasi koreksi agar tidak ekstrem
-    gain = 10 ** (corr_db / 20.0)
+    # koreksi menuju target, dibatasi maksimum 12 dB agar tidak 'meledak'
+    gain = 10 ** (max(-12.0, min(12.0, target_lufs - loud)) / 20.0)
     mix = soft_limit(mix * gain, 0.75)
-    # -1.6 dBFS: menyisakan headroom untuk codec lossy (AAC) yang bisa
-    # menaikkan puncak antar-sample sedikit di atas level sumbernya.
-    mix = normalize_peak(mix, -1.6)
+    mix = normalize_peak(mix, -0.8)
     return mix.astype(np.float32)

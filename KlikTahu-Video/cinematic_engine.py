@@ -4,7 +4,7 @@ cinematic_engine.py — KlikTahu Video Engine (YouTube Shorts, 1080x1920 @ 60 fp
 Alur:
     naskah (script_kliktahu.py) + voice-over (narration/) -> timeline
     timeline -> frame (latar hidup, grafis, tipografi sinkron suara)
-    frame -> ffmpeg (x264, bitrate dihitung dari target ukuran file) -> mp4
+    frame -> ffmpeg (x264 2-pass, target ukuran file presisi) -> mp4
 
 Contoh pemakaian:
     python cinematic_engine.py --still 2.4,9.0 --still-out build/stills
@@ -134,7 +134,7 @@ def load_narration(beats: list[Beat], verbose: bool = True) -> None:
             continue
         audio = ad.decode_audio(str(path))
         audio = ad.trim_silence(audio)
-        b.vo_clip = ad.normalize_voice(ad.fade(ad.eq_voice(audio), 6, 16))
+        b.vo_clip = ad.fade(ad.eq_voice(audio), 6, 16)
         b.vo_dur = len(b.vo_clip) / ad.SR
         b.estimated = False
         found += 1
@@ -825,6 +825,11 @@ def build_audio(beats: list[Beat], out_path: Path, verbose: bool = True) -> Path
             else:
                 sfx_events.append((b.start + (0.0 if j else b.lead_in * 0.5), key, -12.0,
                                    0.35 if j % 2 else -0.35))
+        # penutup: kartu merek muncul tepat setelah VO selesai
+        if b.key == "outro":
+            card_t = b.start + b.lead_in + b.vo_dur
+            sfx_events.append((card_t + 0.12, "whoosh_soft", -16.0, -0.25))
+            sfx_events.append((card_t + 0.30, "pop", -13.0, 0.0))
         # transisi: whoosh tiap potong
         if b.index > 0:
             sfx_events.append((max(0.0, b.start - TRANSITION * 0.55), "whoosh", -15.0,
@@ -879,6 +884,9 @@ def encode_video(renderer: Renderer, total: float, audio_path: Path, out_path: P
     else:
         v_kbps = None
 
+    # Batas Level 4.2 (High profile) — stream harus patuh agar aman di semua decoder.
+    LEVEL_MAXRATE_K = 62_500
+    LEVEL_MAXBUF_K = 78_125
     w, h = int(WIDTH * scale) // 2 * 2, int(HEIGHT * scale) // 2 * 2
     vf = f"scale={w}:{h}:flags=lanczos" if scale != 1.0 else None
 
@@ -893,14 +901,17 @@ def encode_video(renderer: Renderer, total: float, audio_path: Path, out_path: P
         if vf:
             cmd += ["-vf", vf]
         cmd += ["-c:v", "libx264", "-preset", preset, "-profile:v", "high",
-                "-level:v", "5.1", "-pix_fmt", "yuv420p", "-g", str(FPS * 2),
+                "-level:v", "4.2", "-pix_fmt", "yuv420p", "-g", str(FPS * 2),
                 "-bf", "3", "-x264-params", "force-cfr=1:scenecut=0:rc-lookahead=60",
                 "-threads", "0"]
         if crf is not None:
             cmd += ["-crf", str(crf)]
+            if p >= passes:
+                cmd += ["-maxrate", "60000k", "-bufsize", "78000k"]
         else:
-            cmd += ["-b:v", f"{v_kbps}k", "-maxrate", f"{int(v_kbps * 1.35)}k",
-                    "-bufsize", f"{int(v_kbps * 2.4)}k"]
+            maxrate = min(int(v_kbps * 1.3), LEVEL_MAXRATE_K)
+            bufsize = min(int(v_kbps * 1.5), LEVEL_MAXBUF_K)
+            cmd += ["-b:v", f"{v_kbps}k", "-maxrate", f"{maxrate}k", "-bufsize", f"{bufsize}k"]
         if p < passes:
             cmd += [f"-pass", str(p), "-passlogfile", str(BUILD_DIR / "x264pass"), "-an", "-f", "null", "/dev/null"]
         else:

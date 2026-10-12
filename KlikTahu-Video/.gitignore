@@ -1,17 +1,16 @@
-# Hasil render & artefak sementara
+# Output render & artefak kerja
 build/
 *.mp4
-!preview_720p.mp4
-*.wav
+*.raw
 x264pass*
-
-# Python
 __pycache__/
 *.pyc
-venv/
-.venv/
 
-# Kredensial (jangan pernah di-commit)
+# Narasi lokal yang belum ingin dikomit (hapus dari .gitignore bila ingin disertakan)
+# narration/*.mp3
+# narration/*.json
+
+# Kredensial
 .env
 client_secret*.json
 token.json

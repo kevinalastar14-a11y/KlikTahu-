@@ -1,0 +1,50 @@
+name: Cinematic Video Generator
+
+on:
+  schedule:
+    # Runs at a random time to avoid predictable bot patterns (reduces risk of being flagged)
+    - cron: '17 4 * * 1,4'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Random Delay to avoid GitHub Actions abuse detection
+        run: |
+          sleep $((RANDOM % 600))
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install System Dependencies (ImageMagick, FFmpeg)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick ffmpeg
+          # Fix ImageMagick security policy for MoviePy
+          sudo sed -i 's/none/read,write/g' /etc/ImageMagick-6/policy.xml
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate Cinematic Video
+        run: |
+          python cinematic_engine.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cinematic-video
+          path: KlikTahu_Cinematic.mp4
+          retention-days: 5

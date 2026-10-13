@@ -12,9 +12,7 @@ Isi:
 from __future__ import annotations
 
 import math
-import struct
 import subprocess
-import wave
 
 import imageio_ffmpeg
 import numpy as np
@@ -44,15 +42,21 @@ def decode_audio(path: str, sr: int = SR, mono: bool = True) -> np.ndarray:
     return x
 
 
-def encode_wav(path: str, stereo: np.ndarray, sr: int = SR) -> None:
-    """Tulis WAV 16-bit (PCM) dari array (n, 2) float."""
-    data = np.clip(stereo, -1.0, 1.0)
-    pcm = (data * 32767.0).astype("<i2")
-    with wave.open(str(path), "wb") as w:
-        w.setnchannels(2)
-        w.setsampwidth(2)
-        w.setframerate(sr)
-        w.writeframes(pcm.tobytes())
+def encode_m4a(stereo: np.ndarray, path: str, kbps: int = 320, sr: int = SR) -> str:
+    """
+    Encode audio final ke AAC-LC dalam wadah MP4 (.m4a) — format yang memang
+    ditujukan untuk telinga manusia, bukan PCM/WAV.
+
+    Data dialirkan lewat pipe sebagai float32 mentah, jadi tidak ada file WAV
+    perantara sama sekali di mana pun.
+    """
+    cmd = [ffmpeg_exe(), "-y", "-v", "error",
+           "-f", "f32le", "-ar", str(sr), "-ac", "2", "-i", "pipe:0",
+           "-c:a", "aac", "-b:a", f"{kbps}k", "-ar", str(sr), "-ac", "2",
+           "-movflags", "+faststart", str(path)]
+    data = np.clip(stereo, -1.0, 1.0).astype("<f4").tobytes()
+    subprocess.run(cmd, input=data, check=True)
+    return str(path)
 
 
 def silence_bounds(x: np.ndarray, sr: int = SR, thresh_db: float = -46.0,
@@ -330,12 +334,14 @@ SFX_BUILDERS = {
 #  Penyusun mix
 # --------------------------------------------------------------------------- #
 def build_mix(total_dur: float, vo_events, sfx_events, sr: int = SR,
-              target_lufs: float = -13.5) -> np.ndarray:
+              target_lufs: float = -14.0, master_audio: bool = True):
     """
     Susun audio final stereo (n, 2).
 
     vo_events : [(start_detik, np.array mono)]  — sudah di-EQ & dinormalisasi
     sfx_events: [(start_detik, key, gain_db, pan)]
+
+    Mengembalikan (stereo_final, laporan_mastering).
     """
     n = int(math.ceil((total_dur + 0.25) * sr))
     vo = np.zeros(n, dtype=np.float32)
@@ -374,12 +380,15 @@ def build_mix(total_dur: float, vo_events, sfx_events, sr: int = SR,
     right *= duck_gain
 
     mix = np.stack([vo + left, vo + right], axis=1)
-    mix = soft_limit(mix * 0.92, 0.68)
-    mix = normalize_peak(mix, -1.2)
+    mix = soft_limit(mix * 0.9, 0.85)
+    mix = normalize_peak(mix, -3.0)          # headroom untuk tahap mastering
 
-    loud = measure_lufs(mix.mean(axis=1), sr)
-    # koreksi menuju target, dibatasi maksimum 12 dB agar tidak 'meledak'
-    gain = 10 ** (max(-12.0, min(12.0, target_lufs - loud)) / 20.0)
-    mix = soft_limit(mix * gain, 0.75)
-    mix = normalize_peak(mix, -0.8)
-    return mix.astype(np.float32)
+    report = dict(lufs_in=measure_lufs(mix.mean(axis=1), sr), lufs_out=float("nan"),
+                  true_peak_dbtp=float("nan"))
+    if master_audio:
+        # diimpor di dalam fungsi: audio_master memakai modul ini (hindari siklus)
+        import audio_master
+        mix, report = audio_master.master(mix, sr, target_lufs=target_lufs,
+                                          true_peak_db=-1.0)
+        report["mono_fold_db"] = audio_master.mono_fold_check(mix)
+    return mix.astype(np.float32), report

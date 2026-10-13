@@ -1,5 +1,7 @@
 # KlikTahu Video Engine — dependensi produksi
 # Semuanya tersedia di PyPI, tanpa dependensi sistem (ffmpeg dibundel imageio-ffmpeg).
+# Audio: AAC encoder & pengukuran loudness ditangani ffmpeg bawaan imageio-ffmpeg
+# (tidak ada dependensi berat seperti librosa/scipy, dan tidak ada file WAV perantara)
 pillow>=10.4.0
 numpy>=1.26.0
 imageio-ffmpeg>=0.5.1

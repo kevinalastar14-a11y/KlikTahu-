@@ -803,7 +803,8 @@ def clamp01(x: float) -> float:
 # --------------------------------------------------------------------------- #
 #  Audio render
 # --------------------------------------------------------------------------- #
-def build_audio(beats: list[Beat], out_path: Path, verbose: bool = True) -> Path:
+def build_audio(beats: list[Beat], out_path: Path, verbose: bool = True,
+                kbps: int = 320) -> Path:
     vo_events = []
     sfx_events = []
     for b in beats:
@@ -835,13 +836,16 @@ def build_audio(beats: list[Beat], out_path: Path, verbose: bool = True) -> Path
             sfx_events.append((max(0.0, b.start - TRANSITION * 0.55), "whoosh", -15.0,
                                -0.45 if b.index % 2 else 0.45))
     total = timeline_duration(beats)
-    mix = ad.build_mix(total, vo_events, sfx_events)
+    mix, report = ad.build_mix(total, vo_events, sfx_events)
+    out_path = out_path.with_suffix(".m4a")
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    ad.encode_wav(str(out_path), mix)
+    ad.encode_m4a(mix, str(out_path), kbps=kbps)
     if verbose:
-        loud = ad.measure_lufs(mix.mean(axis=1))
-        print(f"[audio] {out_path.name}: {total:.2f}s, ~{loud:.1f} LUFS (perkiraan), "
-              f"peak {np.max(np.abs(mix)):.3f}")
+        print(f"[audio] {out_path.name}: {total:.2f}s AAC {kbps} kbps "
+              f"({out_path.stat().st_size / 1024:.0f} KB)")
+        print(f"[audio] loudness {report['lufs_in']:.2f} -> {report['lufs_out']:.2f} LUFS, "
+              f"true peak {report['true_peak_dbtp']:.2f} dBTP, "
+              f"mono-fold {report.get('mono_fold_db', 0):+.2f} dB")
     return out_path
 
 
@@ -915,8 +919,11 @@ def encode_video(renderer: Renderer, total: float, audio_path: Path, out_path: P
         if p < passes:
             cmd += [f"-pass", str(p), "-passlogfile", str(BUILD_DIR / "x264pass"), "-an", "-f", "null", "/dev/null"]
         else:
-            cmd += ["-c:a", "aac", "-b:a", f"{audio_kbps}k", "-ar", str(ad.SR),
-                    "-ac", "2", "-movflags", "+faststart", "-shortest", str(out_path)]
+            if str(audio_path).endswith(".m4a"):
+                cmd += ["-c:a", "copy"]        # sudah AAC: jangan disentuh lagi
+            else:
+                cmd += ["-c:a", "aac", "-b:a", f"{audio_kbps}k", "-ar", str(ad.SR), "-ac", "2"]
+            cmd += ["-movflags", "+faststart", "-shortest", str(out_path)]
         if verbose:
             print(f"[encode] pass {p}/{passes} -> {out_path.name if p == passes else 'stats'}"
                   + (f"  target {v_kbps / 1000:.1f} Mbps" if v_kbps else f"  crf {crf}"))
@@ -960,6 +967,8 @@ def main(argv=None) -> int:
     ap.add_argument("--audio-kbps", type=int, default=320)
     ap.add_argument("--passes", type=int, default=1,
                     help="1 = ABR sekali jalan (cukup pada bitrate tinggi), 2 = presisi ukuran")
+    ap.add_argument("--audio-only", action="store_true",
+                    help="hanya bangun & master audio (AAC .m4a), tanpa render video")
     ap.add_argument("--sample", type=float, default=None,
                     help="batasi render ke N detik pertama (uji kualitas/bitrate)")
     args = ap.parse_args(argv)
@@ -973,6 +982,11 @@ def main(argv=None) -> int:
         dump_stills(renderer, times, Path(args.still_out))
         return 0
 
+    if args.audio_only:
+        out = build_audio(beats, BUILD_DIR / "mix", kbps=args.audio_kbps)
+        print(f"[audio] selesai: {out}")
+        return 0
+
     if args.render or args.preview:
         preview = args.preview and not args.render
         if args.sample:
@@ -981,7 +995,7 @@ def main(argv=None) -> int:
             renderer.beats = beats
             renderer.starts = [b.start for b in beats]
             renderer.total = total
-        audio_path = build_audio(beats, BUILD_DIR / "mix.wav")
+        audio_path = build_audio(beats, BUILD_DIR / "mix", kbps=args.audio_kbps)
         encode_video(
             renderer, total, audio_path, Path(args.out),
             target_mb=None if (preview or args.crf) else args.target_mb,

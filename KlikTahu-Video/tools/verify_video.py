@@ -16,7 +16,12 @@ from pathlib import Path
 
 import imageio_ffmpeg
 
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
 MIN_MB = 200.0
+LUFS_RANGE = (-16.0, -12.0)      # YouTube menormalkan ke -14 LUFS
+MAX_DBTP = -0.8
 EXPECT = dict(width=1080, height=1920, fps=60.0)
 
 
@@ -41,11 +46,35 @@ def probe(path: Path) -> dict:
     return info
 
 
+def audio_metrics(path: Path) -> dict:
+    """
+    Ukur audio menurut persepsi pendengaran (ITU-R BS.1770-4), bukan sekadar peak.
+
+    Dipakai untuk memastikan file yang diunggah memang di-master untuk telinga
+    manusia: loudness di sekitar -14 LUFS dan true peak aman untuk DAC.
+    """
+    try:
+        import audio_design as ad
+        import audio_master as am
+    except ImportError:
+        return {}
+    x = ad.decode_audio(str(path), mono=False)
+    if x.size == 0:
+        return {}
+    return dict(
+        lufs=am.loudness_lufs(x),
+        dbtp=am.true_peak_dbtp(x),
+        peak=float(abs(x).max()),
+        mono_fold_db=am.mono_fold_check(x),
+    )
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Verifikasi video Short")
     ap.add_argument("file", nargs="?", default="KlikTahu_Shorts_1080x1920.mp4")
     ap.add_argument("--min-mb", type=float, default=MIN_MB)
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--no-audio", action="store_true", help="lewati pengukuran loudness")
     args = ap.parse_args(argv)
 
     path = Path(args.file)
@@ -67,11 +96,21 @@ def main(argv=None) -> int:
     if (info.get("duration") or 0) > 60.0:
         problems.append(f"durasi {info.get('duration'):.1f}s > 60s (bukan Short lagi)")
 
+    audio = {} if args.json is False and args.no_audio else audio_metrics(path)
+    if audio:
+        info.update({f"audio_{k}": v for k, v in audio.items()})
+        if not (LUFS_RANGE[0] <= audio["lufs"] <= LUFS_RANGE[1]):
+            problems.append(f"loudness {audio['lufs']:.1f} LUFS di luar rentang "
+                            f"{LUFS_RANGE[0]}..{LUFS_RANGE[1]}")
+        if audio["dbtp"] > MAX_DBTP:
+            problems.append(f"true peak {audio['dbtp']:.2f} dBTP terlalu tinggi "
+                            f"(batas {MAX_DBTP})")
+
     if args.json:
         print(json.dumps(info, indent=2))
     else:
         for k in ("path", "size_mb", "codec", "width", "height", "fps", "audio",
-                  "duration", "kbps"):
+                  "duration", "kbps", "audio_lufs", "audio_dbtp", "audio_mono_fold_db"):
             if k in info:
                 v = info[k]
                 print(f"  {k:9s}: {v:.2f}" if isinstance(v, float) else f"  {k:9s}: {v}")

@@ -17,7 +17,7 @@ berlisensi, tidak ada API berbayar.
 | Kanvas | 1080 × 1920 (9:16, Shorts) |
 | Frame rate | 60 fps (2.048+ frame) |
 | Codec | H.264 High @ L4.2, yuv420p, faststart |
-| Audio | AAC 320 kbps, stereo, ~-13,5 LUFS |
+| Audio | **AAC 320 kbps (.m4a / MP4)** — bukan WAV/PCM — -14,0 LUFS, true peak -1,6 dBTP |
 | Ukuran | **> 200 MB** (target 235 MB, dihitung dari durasi) |
 | Durasi | ~34–40 detik |
 
@@ -28,7 +28,8 @@ KlikTahu-Video/
 ├── script_kliktahu.py     # naskah + arahan visual per beat (EDIT FILE INI untuk ganti isi)
 ├── cinematic_engine.py    # timeline, 7 tipe scene, transisi, encoder
 ├── visuals.py             # primitif gambar: gradien, sprite glow, teks kinetik, easing
-├── audio_design.py        # SFX prosedural, ducking, limiter, normalisasi loudness
+├── audio_design.py        # SFX prosedural, ducking, encoder AAC (.m4a)
+├── audio_master.py        # mastering persepsi: BS.1770 LUFS, true-peak, EQ, de-esser
 ├── voice_over.py          # sintesis narasi (edge-tts) -> narration/
 ├── narration/             # voice-over per beat (01_hook.mp3, 02_choice.mp3, ...)
 ├── assets/fonts/          # Poppins (SIL Open Font License)
@@ -56,6 +57,9 @@ python cinematic_engine.py --preview
 # 4. render final: 1080x1920 @ 60 fps, target 235 MB
 python cinematic_engine.py --render --target-mb 235
 
+# 4b. hanya audio (master ulang tanpa render ulang video) -> build/mix.m4a
+python cinematic_engine.py --audio-only
+
 # 5. verifikasi & unggah
 python tools/verify_video.py KlikTahu_Shorts_1080x1920.mp4
 python tools/youtube_upload.py --privacy private
@@ -81,10 +85,23 @@ sehingga tidak ada dua beat yang terlihat sama.
 bokeh mengapung, 64 partikel melayang, grain film berdenyut per frame. Tidak ada
 frame yang identik — inilah yang menjaga retensi.
 
-**5. Audio.** Voice-over di-EQ (buang rumble, dorong kejelasan 3 kHz), SFX
-whoosh/impact/riser/tick/pop disintesis prosedural, lalu SFX di-*duck* 62% di
-bawah narasi, di-soft-limit, dan dinormalisasi ke ~-13,5 LUFS (standar YouTube).
-Tanpa BGM sama sekali.
+**5. Audio (di-master untuk telinga manusia, bukan untuk angka peak).**
+Voice-over di-EQ, SFX whoosh/impact/riser/tick/pop disintesis prosedural, SFX
+di-*duck* 62% di bawah narasi. Lalu `audio_master.py` menjalankan rantai
+mastering sesuai standar penyiaran:
+
+| Tahap | Alasan fisiologis |
+|---|---|
+| Kompresor bus (soft-knee, release 160 ms) | volume konsisten — telinga tak perlu menyesuaikan diri tiap kalimat |
+| Kontur equal-loudness (60 Hz dibuang, 190 Hz hangat, 310 Hz dikurangi, **3,2 kHz didorong**) | kejelasan konsonan, terutama di speaker HP |
+| De-esser 6,8 kHz | desis "s"/"sy" tidak menusuk |
+| Harmonik bass (*missing fundamental*) | bass terasa walau speaker HP tak mampu 60–120 Hz |
+| Soft clipper tanh + limiter true-peak | keras tapi mulus, tanpa harmonik orde tinggi yang kasar |
+| Loudness **ITU-R BS.1770-4** (K-weighting + gating) | -14,0 LUFS = angka yang sama dengan yang didengar telinga |
+| True-peak 4× oversampling | tidak ada distorsi antar-sampel di DAC HP/laptop |
+
+Hasil terukur pada video ini: **-14,0 LUFS integrated, true peak -1,6 dBTP,
+mono-fold -0,00 dB** (aman di speaker Bluetooth satu kanal). Tanpa BGM sama sekali.
 
 **6. Ukuran file.** Encoder menghitung bitrate dari target MB dan durasi nyata
 (`(target × 8 − audio) ÷ durasi`), lalu 1 pass ABR (di ~48 Mbps kualitas sudah

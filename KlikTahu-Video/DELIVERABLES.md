@@ -2,6 +2,34 @@
 
 Semua hasil produksi short ini, lengkap dengan lokasi dan spesifikasinya.
 
+## Tautan GitHub
+
+| Apa | Tautan |
+|---|---|
+| Branch kerja | https://github.com/kevinalastar14-a11y/KlikTahu-/tree/arena/97a5a3a6-kliktahu |
+| **Preview 720p (bisa diputar langsung di GitHub)** | https://github.com/kevinalastar14-a11y/KlikTahu-/blob/arena/97a5a3a6-kliktahu/KlikTahu-Video/preview_720p.mp4 |
+| Kode mesin video | https://github.com/kevinalastar14-a11y/KlikTahu-/tree/arena/97a5a3a6-kliktahu/KlikTahu-Video |
+| Naskah & arahan visual | https://github.com/kevinalastar14-a11y/KlikTahu-/blob/arena/97a5a3a6-kliktahu/KlikTahu-Video/script_kliktahu.py |
+| Catatan rilis (release) | https://github.com/kevinalastar14-a11y/KlikTahu-/releases/tag/short-01-v1 |
+| Jalankan render di GitHub (Actions) | https://github.com/kevinalastar14-a11y/KlikTahu-/actions/workflows/generate_video.yml |
+
+### Di mana file video 247 MB-nya?
+
+GitHub **menolak berkas > 100 MB** di dalam repositori, dan sandbox produksi hanya
+bisa mengunggah lewat `api.github.com` (host `uploads.github.com` yang dipakai
+GitHub untuk lampiran rilis diblokir). Karena itu master disediakan lewat
+**GitHub Actions**, yang merender di server GitHub sendiri:
+
+1. Buka <https://github.com/kevinalastar14-a11y/KlikTahu-/actions/workflows/generate_video.yml>
+2. **Run workflow** → pilih branch `arena/97a5a3a6-kliktahu` → **Run workflow**
+3. Setelah selesai (±10–20 menit), unduh **Artifact `kliktahu-short`** —
+   di dalamnya ada `KlikTahu_Shorts_1080x1920.mp4` (235,5 MiB, siap unggah ke YouTube).
+   Artifact disimpan 14 hari.
+
+Video yang bisa langsung diputar tanpa unduhan ada di `KlikTahu-Video/preview_720p.mp4`
+(di-commit ke repo, diputar inline oleh GitHub), dan versi delivery 90 MB ada di
+Google Drive di bawah ini.
+
 ## Lokasi di Google Drive
 
 **Folder:** `KlikTahu_Produksi / Shorts / kliktahu-3-detik-pertama`

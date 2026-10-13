@@ -65,12 +65,14 @@ python tools/verify_video.py KlikTahu_Shorts_1080x1920.mp4
 python tools/youtube_upload.py --privacy private
 ```
 
-Pratinjau gerak (720p, diputar langsung oleh GitHub):
-[`preview_720p.mp4`](preview_720p.mp4) — 2,1 MB, 38,8 detik.
+Pratinjau gerak 720p (2,1 MB, 60 fps, 38,8 detik) ada di
+[`preview_720p.mp4`](preview_720p.mp4). Pada halaman GitHub, pilih **Raw** atau
+**Download raw file** untuk membuka/mengunduhnya.
 
 Hasil produksi short #01 sudah diarsipkan di Google Drive
-(`KlikTahu_Produksi/Shorts/kliktahu-3-detik-pertama`) — rincian berkas dan
-spesifikasinya ada di [`DELIVERABLES.md`](DELIVERABLES.md).
+(`KlikTahu_Produksi/Shorts/kliktahu-3-detik-pertama`). Master 235,5 MiB tidak
+terlampir di GitHub karena batas berkas 100 MB; cara render ulang dan rincian
+berkasnya ada di [`DELIVERABLES.md`](DELIVERABLES.md).
 
 ## Cara Kerja
 

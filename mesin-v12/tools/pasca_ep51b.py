@@ -45,13 +45,13 @@ def main():
     print("  ->", out_m4a, os.path.getsize(out_m4a), "B")
 
     print("=== thumbnail ===")
-    th = frame(2.2)
+    th = frame(2.8)
     th.save(os.path.join(ROOT, "dist", f"{NAME}_thumb.jpg"), quality=92)
-    alt = frame(15.34)          # 22 anak sanca (angka 22 penuh)
+    alt = frame(23.0)          # 22 anak sanca (penghitung + lingkaran anakan penuh)
     alt.save(os.path.join(ROOT, "dist", f"{NAME}_thumb_alt.jpg"), quality=92)
 
     print("=== lembar pratinjau ===")
-    times = [2.2, 7.7, 20.5, 31.5, 37.4, 47.0, 60.5, 69.0, 82.0, 90.0, 96.5, 100.6]
+    times = [2.8, 7.7, 20.5, 31.5, 37.4, 47.0, 60.5, 69.0, 82.0, 90.0, 96.5, 100.6]
     tw, thh = 270, 480
     cols, rows = 4, 3
     pad, top = 12, 52

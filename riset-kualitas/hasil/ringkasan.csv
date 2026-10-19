@@ -1,0 +1,4 @@
+file,duration_s,ar,motion_mean,static_pct,event_density,luma_mean,luma_dr,clip_black,entropy,grain,flat_pct,edge_p99,colorfulness,saturation_pct
+KlikTahu_Ep50_Orionid_v2.mp4,123.75,9:16,0.718,27.96,0.22,182.37,232.21,0.0,4.243,5.365,57.02,110.77,26.03,20.56
+sancorp_kosmik_1080p60.mp4,53.97,16:9,4.817,15.61,0.54,33.23,146.35,62.21,3.013,2.292,41.19,29.14,20.92,19.73
+sancorp_mcp_1080p60_v2.mp4,56.0,16:9,5.58,1.49,0.91,26.2,165.27,6.54,3.867,2.713,43.01,52.61,38.77,74.73

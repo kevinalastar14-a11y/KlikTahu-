@@ -1,0 +1,130 @@
+{
+ "title": "Kuping Tiba-Tiba Berdenging? Itu Suara dari Dalam Telingamu",
+ "channel": "KlikTahu",
+ "header_badge": "SAINS · TUBUH",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "mesin": "v11",
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_kuping43",
+   "accent": "#B0413E",
+   "shake": 0.0,
+   "lines": [
+    "KUPING TIBA-TIBA",
+    "BERDENGING?"
+   ],
+   "vo": "Hening, lalu tiba-tiba nging di satu telinga, dan beberapa detik kemudian hilang. Bukan kebetulan, dan bukan dari luar. Bunyi itu dibuat oleh telingamu sendiri.",
+   "speed": 1.1
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "koklea43",
+   "accent": "#2F6FB5",
+   "trans": "punch",
+   "badge": "DI DALAM ADA RUMAH SIPUT",
+   "hl": "RUMAH SIPUT",
+   "vo": "Di dalam telinga ada rumah siput kecil bernama koklea, berisi ribuan sel rambut halus. Tiap kelompok menangkap satu nada, lalu mengubah getaran jadi sinyal listrik untuk otak.",
+   "speed": 1.09
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "salah43",
+   "accent": "#C2761B",
+   "trans": "slide",
+   "badge": "SEL RAMBUT SALAH TEMBAK",
+   "hl": "SALAH TEMBAK",
+   "vo": "Kadang, sekelompok sel rambut menyala sendiri tanpa ada suara dari luar. Otak menerimanya sebagai nada tinggi, lalu memudar dalam hitungan detik. Ini sangat umum, dan tidak berbahaya.",
+   "speed": 1.09
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "hening43",
+   "accent": "#1F7A6B",
+   "trans": "glitch",
+   "badge": "EKSPERIMEN RUANG HENING",
+   "hl": "RUANG HENING",
+   "vo": "Tahun seribu sembilan ratus lima puluh tiga, delapan puluh orang berpendengaran normal dimasukkan ke ruang kedap suara. Sembilan puluh empat persen mendengar dengung atau desis. Bunyi itu selalu ada, hanya tertutup suara sekitar.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "konser43",
+   "accent": "#8C2F39",
+   "trans": "punch",
+   "badge": "SETELAH KONSER, KOK LAMA?",
+   "hl": "KONSER,",
+   "vo": "Setelah konser atau earphone kencang, dengungnya lebih lama. Sel rambut kelelahan, dan biasanya pulih dalam satu sampai dua hari. Tapi kalau rusak berulang, sel rambut manusia tidak tumbuh lagi.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "otak43",
+   "accent": "#5B4A8C",
+   "trans": "slide",
+   "badge": "OTAK MENGISI YANG HILANG",
+   "hl": "YANG HILANG",
+   "vo": "Saat sel rambut untuk nada tertentu rusak, kiriman ke otak di nada itu hilang. Otak lalu mengeraskan saraf di sekitarnya untuk menutup kekosongan. Hasilnya, dengung yang tidak mau pergi.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "who43",
+   "accent": "#B2542A",
+   "trans": "glitch",
+   "badge": "BATAS AMAN MENURUT WHO",
+   "hl": "BATAS AMAN",
+   "vo": "Batas aman dari Badan Kesehatan Dunia: delapan puluh desibel, empat puluh jam seminggu. Tiap naik tiga desibel, waktunya terpotong separuh. Earphone volume penuh bisa seratus desibel, amannya cuma dua puluh menit seminggu.",
+   "speed": 1.09
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "tips43",
+   "accent": "#2E7D4F",
+   "trans": "punch",
+   "badge": "JAGA TELINGAMU",
+   "hl": "TELINGAMU",
+   "vo": "Jadi, pasang volume maksimal enam puluh persen dan beri telinga jeda. Periksa ke dokter THT bila dengung berhari-hari, hanya di satu sisi, berdenyut seirama jantung, atau disertai pusing berputar.",
+   "speed": 1.09
+  },
+  {
+   "id": "rangkuman",
+   "type": "fact",
+   "visual": "rangkuman43",
+   "accent": "#B0413E",
+   "trans": "slide",
+   "badge": "INGAT TIGA HAL INI",
+   "hl": "TIGA HAL",
+   "vo": "Ingat: nging sebentar itu normal. Dengung setelah konser adalah peringatan. Dan sel rambut tidak tumbuh lagi, jadi jaga volumenya. Kirim ke teman yang earphone-nya selalu kencang.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#B0413E",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: WHO · Heller & Bergman 1953 · Georgetown Univ. · Halodoc",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

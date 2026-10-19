@@ -1,0 +1,111 @@
+{
+ "title": "Kenapa Perut Bunyi?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · PENCERNAAN",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.8,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_perut",
+   "accent": "#3E7A4E",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "PERUT BUNYI?"
+   ],
+   "vo": "Tengah hari yang sunyi, tiba-tiba perutmu bunyi keras. Semua orang menoleh. Tenang, itu bukan cuma tanda lapar. Kenapa perut bisa bunyi?",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "peristaltik",
+   "accent": "#4E6E2F",
+   "trans": "flash",
+   "badge": "PERUT PUNYA OTOT SENDIRI",
+   "vo": "Di dalam perut dan usus ada otot polos yang berkontraksi bergelombang sepanjang hari. Gerakannya mengaduk makanan, cairan, dan gas, lalu mendorongnya perlahan ke bawah. Benturan itulah yang kita dengar sebagai bunyi perut.",
+   "speed": 1.07
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "mmc",
+   "accent": "#2F6FB5",
+   "trans": "bands",
+   "badge": "KENAPA JUSTRU SAAT LAPAR",
+   "vo": "Saat lapar, otak mengaktifkan mode sapu bersih. Setiap satu sampai dua jam, usus berkontraksi bergelombang besar untuk menyapu sisa makanan yang tertinggal. Gelombang kuat bertemu gas dan cairan, dan bunyinya jadi paling keras.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2b",
+   "type": "fact",
+   "visual": "gas",
+   "accent": "#8C6D1F",
+   "trans": "iris",
+   "badge": "GASNYA DARI MANA",
+   "vo": "Gasnya datang dari dua sumber: udara yang tertelan saat makan dan minum, serta hasil fermentasi bakteri usus. Ketika gelembung gas melewati cairan, muncul bunyi krucuk yang khas.",
+   "speed": 1.09
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "pemicu",
+   "accent": "#B2542A",
+   "trans": "zoom",
+   "badge": "PEMICU BUNYI EKSTRA",
+   "vo": "Bunyi ekstra biasanya dipicu kebiasaan: makan terlambat, minum kurang, minuman bersoda, susu saat perut kosong, kopi tanpa sarapan, dan makan terlalu cepat sehingga banyak udara ikut tertelan.",
+   "speed": 1.1
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "mitos",
+   "accent": "#7A3F4E",
+   "trans": "flash",
+   "badge": "MITOS YANG SERING DIPERCAYA",
+   "vo": "Ada dua mitos yang perlu diluruskan. Perut bunyi bukan berarti pasti lapar, karena pencernaan tetap bekerja saat kenyang. Dan bunyi perut bukan bukti cacingan; semua orang mengalaminya beberapa kali sehari.",
+   "speed": 1.1
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "redakan",
+   "accent": "#1F7A4D",
+   "trans": "rise",
+   "badge": "CARA MEREDAKAN",
+   "vo": "Cara meredakannya sederhana: makan teratur jangan ditunda, kunyah pelan, kurangi minuman bersoda dan permen karet, cukupi air putih, serta jalan ringan sesudah makan agar gas tidak menggenang.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "waspada",
+   "accent": "#8C2F39",
+   "trans": "bands",
+   "badge": "KAPAN PERLU WASPADA",
+   "vo": "Periksa ke dokter bila bunyi perut disertai nyeri hebat, diare berhari-hari, berat badan terus turun, atau rasa tersumbat setelah makan. Itu bisa jadi tanda gangguan pencernaan yang perlu ditangani.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#3E7A4E",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: NIH · Mayo Clinic · StatPearls",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+{
+  "title": "Bintang Jatuh Itu Bukan Bintang - Fakta Meteor & Komet",
+  "channel": "KlikTahu",
+  "header_badge": "ANTARIKSA · METEOR & KOMET",
+  "bg_element": "none",
+  "lead_in": 0.6,
+  "tail_intro": 0.8,
+  "tail_fact": 0.9,
+  "tail_outro": 1.2,
+  "scenes": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "visual": "intro_meteor",
+      "accent": "#2C4A6E",
+      "shake": 0.0,
+      "lines": [
+        "ITU BUKAN",
+        "BINTANG JATUH"
+      ],
+      "vo": "Setiap malam, ratusan titik cahaya melintas di langit kita. Warga menyebutnya bintang jatuh dan mengucapkan keinginan. Sayangnya, itu bukan bintang, dan ceritanya jauh lebih seru.",
+      "speed": 1.11
+    },
+    {
+      "id": "f1",
+      "type": "fact",
+      "visual": "jalur39",
+      "accent": "#2E6E8C",
+      "trans": "flash",
+      "badge": "METEOROID · METEOR · METEORIT",
+      "vo": "Selama masih di angkasa, kerikil ini bernama meteoroid, seukuran butir pasir. Begitu masuk atmosfer dan menyala jadi garis cahaya, dia menjadi meteor. Yang sampai ke tanah bernama meteorit.",
+      "speed": 1.09
+    },
+    {
+      "id": "f2",
+      "type": "fact",
+      "visual": "nyala39",
+      "accent": "#8C6D1F",
+      "trans": "iris",
+      "badge": "MENUKIK 66 KM TIAP DETIK",
+      "vo": "Yang menyalakan meteor bukan batunya, melainkan udara di sekitarnya. Menukik sampai enam puluh enam kilometer setiap detik, udara di depannya termampatkan, memanas luar biasa, lalu mengikis batu itu jadi jejak cahaya.",
+      "speed": 1.09
+    },
+    {
+      "id": "f3",
+      "type": "fact",
+      "visual": "warna39",
+      "accent": "#6B4A8C",
+      "trans": "flash",
+      "badge": "WARNA = KODE UNSUR KIMIA",
+      "vo": "Warna jejaknya juga kode rasa: magnesium hijau terang, besi kuning oranye, kalsium oranye kemerahan, nikel hijau kebiruan. Persis kembang api, sama-sama unsur yang dibakar. Meteor hijau di Yogyakarta kemarin kaya magnesium.",
+      "speed": 1.09
+    },
+    {
+      "id": "f4",
+      "type": "fact",
+      "visual": "hujan39",
+      "accent": "#B2542A",
+      "trans": "iris",
+      "badge": "ORIONIDS: PUNCAK 21-22 OKTOBER",
+      "vo": "Pertengahan Oktober ini, bumi menyeberangi jejak debu komet Halley. Hasilnya hujan meteor Orionid, puncaknya dua puluh meteor setiap jam. Kerikil kecil tampil megah karena tumben lari paling cepat sepanjang tahun.",
+      "speed": 1.09
+    },
+    {
+      "id": "f5",
+      "type": "fact",
+      "visual": "beda39",
+      "accent": "#1F7A4D",
+      "trans": "flash",
+      "badge": "KOMET VS ASTEROID VS METEOR",
+      "vo": "Biar tidak tertukar: komet bola es dan debu yang berekor saat mendekati matahari, asteroid batu raksasa di antara Mars dan Jupiter, dan meteor bukan benda, melainkan peristiwa kilatannya.",
+      "speed": 1.09
+    },
+    {
+      "id": "f6",
+      "type": "fact",
+      "visual": "mitos39",
+      "accent": "#8C2F39",
+      "trans": "iris",
+      "badge": "MITOS: PERTANDA BURUK",
+      "vo": "Soal mitos, bintang betulan itu bola gas raksasa berjarak bertahun-cahaya. Kalau bintang sungguhan jatuh, semua tamat. Yang melintas hanya kerikil terbakar jauh di atas. Ramalannya tidak ada.",
+      "speed": 1.09
+    },
+    {
+      "id": "f7",
+      "type": "fact",
+      "visual": "nonton39",
+      "accent": "#2C4A6E",
+      "trans": "flash",
+      "badge": "PANDUAN NONTON ORIONIDS",
+      "vo": "Puncaknya jatuh pada dua puluh satu sampai dua puluh dua Oktober. Pilih tempat gelap jauh dari lampu kota, biarkan mata beradaptasi dua puluh menit, lalu nikmati dengan mata telanjang.",
+      "speed": 1.09
+    },
+    {
+      "id": "rangkuman",
+      "type": "fact",
+      "visual": "rangkuman39b",
+      "accent": "#2C4A6E",
+      "trans": "flash",
+      "badge": "INGAT TIGA HAL INI",
+      "vo": "Jadi ingat tiga hal. Bintang jatuh itu kerikil angkasa yang menyala. Warnanya mengungkap unsur kimianya. Dan Orionid pekan ini momen terbaiknya. Patut dilihat, bukan ditakuti.",
+      "speed": 1.1
+    },
+    {
+      "id": "outro",
+      "type": "outro",
+      "accent": "#2C4A6E",
+      "trans": "iris",
+      "lines": [
+        "SEKARANG",
+        "KAMU TAHU"
+      ],
+      "cta": "IKUTI",
+      "foot": "Fakta sains & antariksa, tiap hari",
+      "foot2": "Simpan video ini · bagikan ke teman",
+      "src": "Sumber: Kompas/BRIN · NASA (Media Indonesia) · IDN Times",
+      "vo": "Ikuti KlikTahu.",
+      "speed": 1.13
+    }
+  ]
+}

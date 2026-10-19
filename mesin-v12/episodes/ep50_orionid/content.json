@@ -1,0 +1,127 @@
+{
+ "title": "Hujan Meteor Orionid 21-22 Oktober: Jam Berapa & Arah Mana (Tanpa Teleskop)",
+ "channel": "KlikTahu",
+ "header_badge": "LANGIT · ORIONID",
+ "bg_element": "none",
+ "lead_in": 0.2,
+ "tail_intro": 0.45,
+ "tail_fact": 0.5,
+ "tail_outro": 0.9,
+ "mesin": "v12",
+ "v12": {
+  "metafora": "komet -> butir debu -> garis cahaya -> jam & arah -> orbit yang menyilang -> kembali ke komet",
+  "loop": true,
+  "loop_blend": 0.7,
+  "energi": {
+   "intro": 0.55,
+   "f1": 0.45,
+   "f2": 0.5,
+   "f3": 0.4,
+   "f4": 0.5,
+   "f5": 1.0,
+   "outro": 0.3
+  }
+ },
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "babak": "hook",
+   "visual": "komet50",
+   "accent": "#1F2A5A",
+   "shake": 0.0,
+   "lines": [
+    "SERPIHAN KOMET HALLEY",
+    "TERBAKAR KAMIS DINI HARI"
+   ],
+   "vo": "Komet Halley baru kembali tahun dua ribu enam puluh satu. Tapi Kamis dini hari, dua puluh dua Oktober... serpihannya terbakar di atas rumahmu.",
+   "speed": 1.09
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "babak": "agitation",
+   "visual": "salahjam50",
+   "accent": "#8A3B2E",
+   "trans": "match",
+   "badge": "SALAH JAM, TIDAK LIHAT APA-APA",
+   "hl": "SALAH JAM",
+   "vo": "Namanya hujan meteor Orionid. Puncaknya cuma satu malam. Dan kebanyakan orang gagal melihatnya... bukan karena mendung, tapi karena menengadah di jam yang salah: saat Bulan masih terang.",
+   "speed": 1.09,
+   "hold": 0.8
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "babak": "body",
+   "visual": "debu50",
+   "accent": "#B07A12",
+   "trans": "morph",
+   "badge": "DEBU SEUKURAN PASIR, 66 KM/DETIK",
+   "hl": "66 KM/DETIK",
+   "vo": "Yang kamu lihat bukan bintang jatuh. Itu butiran debu seukuran pasir... sisa Komet Halley, ratusan tahun lalu. Debu itu menabrak udara dengan kecepatan enam puluh enam kilometer per detik... lalu terbakar jadi garis cahaya.",
+   "speed": 1.09,
+   "hold": 0.8
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "babak": "body",
+   "visual": "jam50",
+   "accent": "#1F7A6B",
+   "trans": "morph",
+   "badge": "TUNGGU BULAN TERBENAM: 02.00-05.00 WIB",
+   "hl": "02.00-05.00",
+   "vo": "Jamnya: Rabu malam, dua puluh satu Oktober. Tunggu Bulan terbenam, lewat tengah malam. Waktu terbaik: pukul dua sampai lima pagi WIB... tiga sampai enam WITA. Di langit gelap, sekitar dua puluh meteor per jam.",
+   "speed": 1.09,
+   "hold": 0.8
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "babak": "body",
+   "visual": "arah50",
+   "accent": "#6A4FB3",
+   "trans": "morph",
+   "badge": "TIMUR, DEKAT ORION, LIHAT KE SAMPING",
+   "hl": "KE SAMPING",
+   "vo": "Arahnya timur, lalu makin tinggi ke atas kepala. Cari rasi Orion: tiga bintang sejajar. Tapi jangan menatap tepat ke sana. Lihat sedikit ke samping... di situ ekor meteornya paling panjang. Tanpa teleskop. Matikan layar HP dua puluh menit.",
+   "speed": 1.09,
+   "hold": 0.8
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "babak": "micro_climax",
+   "visual": "orbit50",
+   "accent": "#C0542B",
+   "trans": "morph",
+   "badge": "BUMI MENYEBERANGI SUNGAI DEBU HALLEY",
+   "hl": "SUNGAI DEBU",
+   "vo": "Sekarang, satukan semuanya. Komet Halley mengelilingi Matahari tujuh puluh enam tahun sekali... dan meninggalkan sungai debu di jalurnya. Setiap tahun, di tanggal yang sama, Bumi menyeberangi sungai itu. Jadi ini bukan kebetulan. Ini janji langit, setiap Oktober. Kamu nonton dari kota mana?",
+   "speed": 1.09,
+   "hold": 1.2
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "babak": "loop",
+   "visual": "loop50",
+   "accent": "#1F2A5A",
+   "trans": "morph",
+   "lines": [
+    "KOMET YANG SAMA",
+    "KEMBALI 2061"
+   ],
+   "cta": "",
+   "foot": "",
+   "foot2": "",
+   "src": "Sumber: IMO · NASA · BRIN · timeanddate",
+   "vo": "Dan debu yang terbakar di atas kepalamu malam itu... datang dari komet yang sama. Komet yang baru kembali... tahun dua ribu enam puluh satu.",
+   "speed": 1.09,
+   "loop_ke": "intro"
+  }
+ ],
+ "vo_chain": "v12",
+ "vo_format_sumber": "wav_pcm_24k (bukan mp3 32k)"
+}

@@ -1,0 +1,125 @@
+{
+ "title": "Kenapa Hujan Bisa Turun?",
+ "channel": "KlikTahu",
+ "header_badge": "BUMI · SIKLUS AIR",
+ "bg_element": "none",
+ "lead_in": 0.3,
+ "tail_intro": 0.8,
+ "tail_fact": 0.8,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_hujan",
+   "accent": "#2E6E8C",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "HUJAN BISA TURUN?"
+   ],
+   "vo": "Hujan turun lagi. Air ini datangnya dari mana? Jawabannya: dari air yang sama yang kau pakai kemarin. Ini perjalanannya.",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "uap",
+   "accent": "#B2542A",
+   "trans": "flash",
+   "badge": "MATAHARI MENGUAPKAN AIR",
+   "vo": "Semuanya mulai dari matahari. Panasnya menguapkan air laut dan sungai. Uapnya ringan, naik ke langit. Tiap tahun, lebih dari lima ratus ribu kilometer kubik air menguap dari bumi.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "embun",
+   "accent": "#4A5A8C",
+   "trans": "dive",
+   "dive_at": [
+    540,
+    1010
+   ],
+   "badge": "DINGIN DI ATAS: LAHIRNYA AWAN",
+   "vo": "Makin tinggi udara makin dingin, enam koma lima derajat per kilometer. Di ketinggian tertentu, uap mengembun di serpihan debu jadi butiran super kecil. Kumpulan butiran itulah awan.",
+   "speed": 1.08
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "putihgelap",
+   "accent": "#5A4A8C",
+   "trans": "speed",
+   "badge": "KENAPA AWAN BISA PUTIH DAN GELAP",
+   "vo": "Kenapa awan putih? Butiran airnya memantulkan semua warna cahaya sama rata, jadi tampak putih. Kalau awannya tebal, cahaya tersangkut di dalam, warnanya jadi gelap. Itu tanda hujan dekat.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "gabung",
+   "accent": "#1F7A4D",
+   "trans": "thud",
+   "badge": "BUTIRAN BERGABUNG JADI TETES",
+   "vo": "Di dalam awan, butiran bertabrakan dan bergabung. Dari butiran halus sampai tetes sejuta kali lebih besar. Begitu terlalu berat diangkat udara, tetes mulai jatuh.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "skala",
+   "accent": "#2E6E8C",
+   "trans": "glint",
+   "badge": "SKALA SEBENARNYA",
+   "vo": "Ini skala sebenarnya. Butiran awan hanya nol koma nol dua milimeter. Tetes hujan seratus kali lebih lebar, sekitar dua milimeter. Begitu ukurannya pas, gravitasi menang, hujan turun.",
+   "speed": 1.1
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "bentuk",
+   "accent": "#B03A2E",
+   "trans": "auto",
+   "badge": "BENTUK TETES HUJAN BUKAN AIR MATA",
+   "vo": "Tetes hujan ternyata tidak berbentuk air mata. Saat jatuh, tekanan udara menekan bagian bawahnya sampai rata. Bentuknya seperti kubah kecil, dan jatuh sampai sembilan meter tiap detik.",
+   "speed": 1.1
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "siklus",
+   "accent": "#8C4A1F",
+   "trans": "ambient",
+   "badge": "SIKLUS TANPA AKHIR",
+   "vo": "Air hujan mengalir ke sungai, menuju laut, lalu menguap lagi. Siklus ini berputar miliaran tahun. Jadi, air yang kau minum hari ini kemungkinan besar pernah diminum dinosaurus.",
+   "speed": 1.1
+  },
+  {
+   "id": "f8",
+   "type": "fact",
+   "visual": "rangkuman",
+   "accent": "#2E6E8C",
+   "trans": "iris",
+   "badge": "RANGKUMAN 15 DETIK",
+   "vo": "Jadi ingat: matahari menguapkan, langit mendinginkan, awan menggumpal, tetes bergabung, lalu jatuh. Awan gelap artinya hujan dekat. Air di bumi tak pernah habis, hanya ganti tempat.",
+   "speed": 1.11
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#2E6E8C",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan saat musim hujan",
+   "src": "Sumber: USGS · NOAA SciJinks · Met Office · Britannica",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

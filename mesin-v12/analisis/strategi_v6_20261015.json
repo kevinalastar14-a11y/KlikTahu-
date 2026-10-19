@@ -1,0 +1,1112 @@
+{
+ "tanggal": "2026-10-15",
+ "mode": "LIVE (Wikipedia pageviews + pesaing YouTube + autocomplete v5)",
+ "peringkat": [
+  {
+   "tema": "serangga",
+   "pilar": "HEWAN",
+   "wiki": {
+    "level30": 52.3,
+    "momentum": -0.129,
+    "hari": 59,
+    "puncak7": 67,
+    "artikel": [
+     "Nyamuk",
+     "Semut"
+    ]
+   },
+   "pesaing": {
+    "n": 4,
+    "median_views_top10": 174,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 2,
+    "juara": {
+     "judul": "7 FAKTA Mengapa Nyamuk Betina Lebih Sering Menggigit? Nyamuk Jantan Ngapain? @elrigreatest",
+     "views": 320,
+     "umur_bln": null,
+     "kanal": "Elri Greatest"
+    },
+    "judul_top": [
+     "KENAPA NYAMUK SUKA MENGGIGIT KITA? TERNYATA BUKAN KARENA DARAH SAJA!",
+     "7 FAKTA Mengapa Nyamuk Betina Lebih Sering Menggigit? Nyamuk Jantan Ngapain? @el",
+     "Kenapa Nyamuk Suka Menggigit? 🤔🦟",
+     "KENAPA NYAMUK MENGGIGIT MANUSIA???"
+    ]
+   },
+   "sudut": [
+    [
+     "PRAKTIS",
+     2,
+     [
+      "kenapa semut tidak boleh dibunuh",
+      "kenapa semut tidak boleh dibunuh dalam islam"
+     ]
+    ],
+    [
+     "PRIBADI",
+     2,
+     [
+      "kenapa semut tiba tiba muncul banyak",
+      "kenapa semut kalau jalan selalu bertabrakan"
+     ]
+    ],
+    [
+     "BAHAYA",
+     1,
+     [
+      "kenapa semut tidak mati saat jatuh dari ketinggian"
+     ]
+    ]
+   ],
+   "hook": [
+    "Semua yang perlu kamu tahu soal semut, dalam satu menit.",
+    "Semut: tiga hal yang jarang dijelaskan.",
+    "Simpan video ini sebelum kamu mengalami semut."
+   ],
+   "artikel": [
+    "Nyamuk",
+    "Semut"
+   ],
+   "komponen": {
+    "permintaan": 0.36,
+    "wiki": 0.764,
+    "celah": 0.25,
+    "visual": 0.255,
+    "pilar": 0.92,
+    "momen": 0.0
+   },
+   "skor_v6": 42.2,
+   "skor_views_v5": 124.1
+  },
+  {
+   "tema": "ular & reptil",
+   "pilar": "HEWAN",
+   "wiki": null,
+   "pesaing": {
+    "n": 7,
+    "median_views_top10": 156519,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 6,
+    "juara": {
+     "judul": "Cicak Cicak di Dinding - Lagu Anak Indonesia Populer",
+     "views": 765372754,
+     "umur_bln": null,
+     "kanal": "Creatifun"
+    },
+    "judul_top": [
+     "Ternyata ada faktor ini yang menyebabkan Cicak dapat berjalan di tembok",
+     "Cicak Cicak di Dinding - Lagu Anak Indonesia Populer - nursery rhyme Indonesia -",
+     "Autotomi Pada Cicak - Tanggal Merah Cari Tau",
+     "Cicak Cicak Di Dinding! Hisyam Temukan Cicak Raksasa😱🦎 | Lagu Anak Lucu & Edukat",
+     "Cicak Cicak di Dinding - Lagu Anak Indonesia Populer",
+     "The geckos on the wall have a special trick to escape from predators."
+    ]
+   },
+   "sudut": [
+    [
+     "PRAKTIS",
+     3,
+     [
+      "kenapa ular weling tidak boleh dibunuh",
+      "kenapa ular weling tidak boleh dibunuh menurut islam",
+      "kenapa ular tidak boleh dibunuh di dalam rumah menurut islam"
+     ]
+    ],
+    [
+     "PRIBADI",
+     1,
+     [
+      "kenapa ular sering masuk rumah"
+     ]
+    ]
+   ],
+   "hook": [
+    "Semua yang perlu kamu tahu soal ular, dalam satu menit.",
+    "Ular: tiga hal yang jarang dijelaskan.",
+    "Simpan video ini sebelum kamu mengalami ular."
+   ],
+   "artikel": [
+    "Ular",
+    "Cicak"
+   ],
+   "komponen": {
+    "permintaan": 0.34,
+    "wiki": 0.35,
+    "celah": 0.595,
+    "visual": 0.182,
+    "pilar": 0.92,
+    "momen": 0.0
+   },
+   "skor_v6": 39.6,
+   "skor_views_v5": 117.5
+  },
+  {
+   "tema": "piramida & mesir",
+   "pilar": "MISTERI",
+   "wiki": {
+    "level30": 1.4,
+    "momentum": -0.568,
+    "hari": 58,
+    "puncak7": 1,
+    "artikel": [
+     "Piramida_Giza"
+    ]
+   },
+   "pesaing": {
+    "n": 2,
+    "median_views_top10": 223017,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 2,
+    "juara": {
+     "judul": "TEORI MISTERI PEMBANGUNAN PIRAMIDA MESIR | Nat Geo Indonesia",
+     "views": 223017,
+     "umur_bln": null,
+     "kanal": "Nat Geo Indonesia"
+    },
+    "judul_top": [
+     "MISTERI PIRAMIDA NON MADAL",
+     "TEORI MISTERI PEMBANGUNAN PIRAMIDA MESIR | Nat Geo Indonesia"
+    ]
+   },
+   "sudut": [],
+   "hook": [
+    "Piramida dibuat? Padahal jawabannya bukan yang kamu kira.",
+    "Semua orang pernah mengalami piramida dibuat. Hampir tidak ada yang tahu kenapa.",
+    "Kelihatannya sepele: piramida dibuat. Tapi yang terjadi di baliknya luar biasa."
+   ],
+   "artikel": [
+    "Piramida_Giza"
+   ],
+   "komponen": {
+    "permintaan": 0.363,
+    "wiki": 0.0,
+    "celah": 0.619,
+    "visual": 0.318,
+    "pilar": 1.0,
+    "momen": 0.0
+   },
+   "skor_v6": 36.7,
+   "skor_views_v5": 125.3
+  },
+  {
+   "tema": "burung terbang",
+   "pilar": "HEWAN",
+   "wiki": {
+    "level30": 37.5,
+    "momentum": -0.258,
+    "hari": 59,
+    "puncak7": 41,
+    "artikel": [
+     "Burung"
+    ]
+   },
+   "pesaing": {
+    "n": 10,
+    "median_views_top10": 969,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 8,
+    "juara": {
+     "judul": "Kenapa Ayam Tidak Bisa Terbang Seperti Burung? Padahal Sama-sama Punya Sayap!",
+     "views": 17766,
+     "umur_bln": null,
+     "kanal": "Tanya Jawab DBL"
+    },
+    "judul_top": [
+     "🎬 Kenapa Burung Bisa Terbang? 🐦✨ Penjelasan Mudah untuk Anak!",
+     "Bagaimana Burung Bisa Terbang?",
+     "Tahukah Kamu, Mengapa Burung Bisa Terbang? | Seri Belajar Sains dan Pengetahuan ",
+     "Kenapa Burung Bisa Terbang? 🐦 Rahasia Sayap Ajaib | Cerita Sains Anak",
+     "Kenapa Burung Bisa Terbang - Adit Membaca Sains di CERIA (Cerdas dan Bahagia)",
+     "WHY CAN BIRDS FLY? THIS IS THE ANSWER!"
+    ]
+   },
+   "sudut": [
+    [
+     "PRAKTIS",
+     2,
+     [
+      "kenapa burung lovebird tidak boleh dilepas",
+      "kenapa gelang tridatu tidak boleh dipakai di tangan kiri"
+     ]
+    ],
+    [
+     "PADAHAL",
+     1,
+     [
+      "kenapa burung bisa terbang padahal ada gravitasi"
+     ]
+    ],
+    [
+     "MITOS",
+     1,
+     [
+      "burung terbang malam hari pertanda apa"
+     ]
+    ]
+   ],
+   "hook": [
+    "Semua yang perlu kamu tahu soal burung bisa terbang, dalam satu menit.",
+    "Burung bisa terbang: tiga hal yang jarang dijelaskan.",
+    "Simpan video ini sebelum kamu mengalami burung bisa terbang."
+   ],
+   "artikel": [
+    "Burung"
+   ],
+   "komponen": {
+    "permintaan": 0.228,
+    "wiki": 0.58,
+    "celah": 0.25,
+    "visual": 0.291,
+    "pilar": 0.92,
+    "momen": 0.0
+   },
+   "skor_v6": 34.8,
+   "skor_views_v5": 78.7
+  },
+  {
+   "tema": "anjing",
+   "pilar": "HEWAN",
+   "wiki": null,
+   "pesaing": {
+    "n": 5,
+    "median_views_top10": 3185,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 5,
+    "juara": {
+     "judul": "Kenapa anjing sangat setia pada manusia?",
+     "views": 26269,
+     "umur_bln": null,
+     "kanal": "Kompas.com"
+    },
+    "judul_top": [
+     "Mengapa Anjing Keluarkan Air Liur?",
+     "Kenapa anjing sangat setia pada manusia?",
+     "Mengapa Anjing Begitu Setia pada Manusia? Jawabannya Bikin Terharu!",
+     "kenapa anjing tidak bisa lepas klau kawin",
+     "Jawaban Kenapa Anjing Kawin Susah Lepas??"
+    ]
+   },
+   "sudut": [
+    [
+     "PRAKTIS",
+     1,
+     [
+      "kenapa anjing tidak boleh makan coklat"
+     ]
+    ],
+    [
+     "PADAHAL",
+     1,
+     [
+      "kenapa anjing haram tapi diciptakan"
+     ]
+    ]
+   ],
+   "hook": [
+    "Semua yang perlu kamu tahu soal anjing najis, dalam satu menit.",
+    "Anjing najis: tiga hal yang jarang dijelaskan.",
+    "Simpan video ini sebelum kamu mengalami anjing najis."
+   ],
+   "artikel": [
+    "Anjing"
+   ],
+   "komponen": {
+    "permintaan": 0.327,
+    "wiki": 0.35,
+    "celah": 0.329,
+    "visual": 0.218,
+    "pilar": 0.92,
+    "momen": 0.0
+   },
+   "skor_v6": 34.7,
+   "skor_views_v5": 113.0
+  },
+  {
+   "tema": "lubang hitam",
+   "pilar": "LANGIT",
+   "wiki": null,
+   "pesaing": {
+    "n": 5,
+    "median_views_top10": 402942,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 2,
+    "juara": {
+     "judul": "Lubang Hitam 101 | National Geographic",
+     "views": 12420713,
+     "umur_bln": null,
+     "kanal": "National Geographic"
+    },
+    "judul_top": [
+     "Apa Itu Black Hole Sebenarnya?",
+     "Lubang Hitam 101 | National Geographic",
+     "What If the Sun Was Replaced by a Black Hole!?",
+     "Two Giant Black Holes Will Collide, Earth \"Affected\"",
+     "Apa itu lubang hitam? Mari kita belajar bersama! "
+    ]
+   },
+   "sudut": [],
+   "hook": [
+    "Lubang hitam? Padahal jawabannya bukan yang kamu kira.",
+    "Semua orang pernah mengalami lubang hitam. Hampir tidak ada yang tahu kenapa.",
+    "Kelihatannya sepele: lubang hitam. Tapi yang terjadi di baliknya luar biasa."
+   ],
+   "artikel": [
+    "Lubang_hitam"
+   ],
+   "komponen": {
+    "permintaan": 0.254,
+    "wiki": 0.35,
+    "celah": 0.659,
+    "visual": 0.455,
+    "pilar": 0.21,
+    "momen": 0.0
+   },
+   "skor_v6": 33.5,
+   "skor_views_v5": 87.8
+  },
+  {
+   "tema": "es & salju",
+   "pilar": "BUMI & CUACA",
+   "wiki": {
+    "level30": 17.0,
+    "momentum": -0.14,
+    "hari": 59,
+    "puncak7": 23,
+    "artikel": [
+     "Salju",
+     "Es"
+    ]
+   },
+   "pesaing": {
+    "n": 6,
+    "median_views_top10": 190,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 5,
+    "juara": {
+     "judul": "Why Does Ice Float? 🧊",
+     "views": 35477,
+     "umur_bln": null,
+     "kanal": "for your kids"
+    },
+    "judul_top": [
+     "kenapa es batu mengapung? | fakta unik dunia sains yang jarang diketahui !!!",
+     "Kenapa Es mengapung di air ?",
+     "Mengapa Es Mengapung?",
+     "🧊 Kenapa Es Mengapung, Padahal Benda Padat Biasanya Tenggelam?",
+     "Kenapa Es Bisa Mengapung di Air? Ini Penjelasan Ilmiahnya! #FaktaSains #NgabTau",
+     "Why Does Ice Float? 🧊"
+    ]
+   },
+   "sudut": [],
+   "hook": [
+    "Salju? Padahal jawabannya bukan yang kamu kira.",
+    "Semua orang pernah mengalami salju. Hampir tidak ada yang tahu kenapa.",
+    "Kelihatannya sepele: salju. Tapi yang terjadi di baliknya luar biasa."
+   ],
+   "artikel": [
+    "Salju",
+    "Es"
+   ],
+   "komponen": {
+    "permintaan": 0.433,
+    "wiki": 0.306,
+    "celah": 0.25,
+    "visual": 0.4,
+    "pilar": 0.457,
+    "momen": 0.0
+   },
+   "skor_v6": 33.3,
+   "skor_views_v5": 149.6
+  },
+  {
+   "tema": "tekanan darah",
+   "pilar": "TUBUH",
+   "wiki": null,
+   "pesaing": {
+    "n": 15,
+    "median_views_top10": 23820,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 10,
+    "juara": {
+     "judul": "Ketika Tekanan Darah Rendah Menerpa - Animasi Organ Tubuh - Animasi Dolewak",
+     "views": 849339,
+     "umur_bln": null,
+     "kanal": "Dolewak"
+    },
+    "judul_top": [
+     "Tekanan Darah Selalu Rendah, Inilah Penyebab Tubuh Alami Hipotensi: Dehidrasi & ",
+     "Gejala Darah Rendah Remaja dan Dewasa",
+     "Tensi Rendah VS Darah Rendah, Beda atau Sama? | Health Corner",
+     "Ketika Tekanan Darah Rendah Menerpa - Animasi Organ Tubuh - Animasi Dolewak",
+     "Penyebab Kadar Gula Darah Rendah, Pernah Merasakannya? | Kata Dokter",
+     "Gula Darah Rendah atau Hipoglikemia- Kenali Gejala, Penyebab, dan Pencegahannya "
+    ]
+   },
+   "sudut": [
+    [
+     "PRAKTIS",
+     5,
+     [
+      "kenapa darah tinggi tidak boleh suntik kb",
+      "kenapa darah tinggi tidak boleh donor darah",
+      "kenapa darah rendah tidak boleh makan semangka"
+     ]
+    ],
+    [
+     "PRIBADI",
+     5,
+     [
+      "kenapa darah tinggi terus",
+      "kenapa darah rendah sering pusing",
+      "kenapa darah rendah tiba tiba kambuh"
+     ]
+    ]
+   ],
+   "hook": [
+    "Semua yang perlu kamu tahu soal darah tinggi, dalam satu menit.",
+    "Darah tinggi: tiga hal yang jarang dijelaskan.",
+    "Simpan video ini sebelum kamu mengalami darah tinggi."
+   ],
+   "artikel": [
+    "Hipertensi"
+   ],
+   "komponen": {
+    "permintaan": 0.253,
+    "wiki": 0.35,
+    "celah": 0.466,
+    "visual": 0.5,
+    "pilar": 0.446,
+    "momen": 0.0
+   },
+   "skor_v6": 32.8,
+   "skor_views_v5": 87.5
+  },
+  {
+   "tema": "pelangi",
+   "pilar": "BUMI & CUACA",
+   "wiki": null,
+   "pesaing": {
+    "n": 12,
+    "median_views_top10": 4403,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 11,
+    "juara": {
+     "judul": "PROSES TERJADINYA PELANGI ( Animasi Mudah di pahami)",
+     "views": 115876,
+     "umur_bln": null,
+     "kanal": "Rini Susilawati"
+    },
+    "judul_top": [
+     "🌈 Kenapa Ada Pelangi Setelah Hujan? | Caca & Ciro - Cerita Anak Ceria",
+     "How Rainbows Are Formed | Easy-to-Understand Natural Phenomena Lessons for Presc",
+     "🌈 Bagaimana Pelangi Terbentuk? | Siklus Terjadinya Pelangi untuk Anak | NAA Kids",
+     "PROSES TERJADINYA PELANGI ( Animasi Mudah di pahami)",
+     "Proses Terjadinya Pelangi",
+     "PROSES TERJADINYA PELANGI"
+    ]
+   },
+   "sudut": [
+    [
+     "PRAKTIS",
+     2,
+     [
+      "kenapa pelangi tidak boleh ditunjuk",
+      "kenapa pelangi gak boleh ditunjuk"
+     ]
+    ],
+    [
+     "PADAHAL",
+     1,
+     [
+      "kenapa pelangi muncul padahal tidak hujan"
+     ]
+    ]
+   ],
+   "hook": [
+    "Semua yang perlu kamu tahu soal pelangi, dalam satu menit.",
+    "Pelangi: tiga hal yang jarang dijelaskan.",
+    "Simpan video ini sebelum kamu mengalami pelangi."
+   ],
+   "artikel": [
+    "Pelangi"
+   ],
+   "komponen": {
+    "permintaan": 0.315,
+    "wiki": 0.35,
+    "celah": 0.351,
+    "visual": 0.464,
+    "pilar": 0.457,
+    "momen": 0.0
+   },
+   "skor_v6": 32.6,
+   "skor_views_v5": 108.9
+  },
+  {
+   "tema": "cegukan",
+   "pilar": "TUBUH",
+   "wiki": null,
+   "pesaing": {
+    "n": 7,
+    "median_views_top10": 34388,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 0,
+    "juara": {
+     "judul": "Kenapa Kita Cegukan?",
+     "views": 1283293,
+     "umur_bln": null,
+     "kanal": "Kok Bisa?"
+    },
+    "judul_top": [
+     "Hiccups? Here’s Why They Happen and How to Stop Them",
+     "Constant Hiccups? Here's How to Deal With Them",
+     "Kenapa Kita Cegukan?",
+     "Persistent hiccups, a sign of this illness?",
+     "tips hilangkan cegukan tanpa minum air #lifehacks #tipsandtricks",
+     "Cegukan Tak Kunjung Henti, Benarkah Pertanda Penyakit Serius? | Dr.Tirta #drtirt"
+    ]
+   },
+   "sudut": [
+    [
+     "PRIBADI",
+     13,
+     [
+      "kenapa cegukan terus",
+      "kenapa cegukan terus menerus",
+      "kenapa cegukan tiba tiba"
+     ]
+    ],
+    [
+     "ANAK",
+     3,
+     [
+      "kenapa bayi cegukan dan cara mengatasinya",
+      "kenapa bayi cegukan",
+      "kenapa bayi cegukan setelah minum asi"
+     ]
+    ],
+    [
+     "PADAHAL",
+     1,
+     [
+      "kenapa cegukan terus menerus padahal sudah minum"
+     ]
+    ],
+    [
+     "PRAKTIS",
+     1,
+     [
+      "kenapa bayi cegukan dan cara mengatasinya"
+     ]
+    ]
+   ],
+   "hook": [
+    "Pernah mengalami cegukan? Ini yang terjadi di dalam tubuhmu.",
+    "Kalau kamu sering cegukan, video ini untukmu.",
+    "Cegukan bukan kebetulan. Ada mekanismenya."
+   ],
+   "artikel": [
+    "Cegukan"
+   ],
+   "komponen": {
+    "permintaan": 0.311,
+    "wiki": 0.35,
+    "celah": 0.491,
+    "visual": 0.182,
+    "pilar": 0.446,
+    "momen": 0.0
+   },
+   "skor_v6": 32.0,
+   "skor_views_v5": 107.2
+  },
+  {
+   "tema": "menangis & emosi",
+   "pilar": "TUBUH",
+   "wiki": {
+    "level30": 6.0,
+    "momentum": -0.24,
+    "hari": 59,
+    "puncak7": 10,
+    "artikel": [
+     "Menangis",
+     "Stres"
+    ]
+   },
+   "pesaing": {
+    "n": 7,
+    "median_views_top10": 13421,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 2,
+    "juara": {
+     "judul": "BIARKAN KU MENANGIS//cipta Is Haryanto// Dipopulerkan Oleh Titiek Sandhora !! COVER BY RIA",
+     "views": 1167243,
+     "umur_bln": null,
+     "kanal": "Agus Guser Official"
+    },
+    "judul_top": [
+     "Mengapa Kau Menangis - Muppet",
+     "Kenapa kamu menangis?",
+     "Kenapa kamu menangis🙁?||#liriklagu #artilagu ",
+     "Kenapa kamu menangis? @mirazi._.v4mp ",
+     "MENGAPA KAU MENANGIS-(Irama Cha Cha)-Cover-ERNIA BRIA-BINTANG MALAKA Chanell (BM",
+     "Kenapa kamu menangis?? :(#fypシ゚viral #alyashort #cihuyy #anjay #janganlupasubscr"
+    ]
+   },
+   "sudut": [
+    [
+     "PRIBADI",
+     4,
+     [
+      "kenapa menangis setelah tahu siapa aku",
+      "kenapa bayi menangis terus tiap malam",
+      "kenapa saya gampang stress"
+     ]
+    ],
+    [
+     "ANAK",
+     1,
+     [
+      "kenapa bayi menangis terus tiap malam"
+     ]
+    ]
+   ],
+   "hook": [
+    "Pernah mengalami nangis? Ini yang terjadi di dalam tubuhmu.",
+    "Kalau kamu sering nangis, video ini untukmu.",
+    "Nangis bukan kebetulan. Ada mekanismenya."
+   ],
+   "artikel": [
+    "Menangis",
+    "Stres"
+   ],
+   "komponen": {
+    "permintaan": 0.497,
+    "wiki": 0.022,
+    "celah": 0.427,
+    "visual": 0.218,
+    "pilar": 0.446,
+    "momen": 0.0
+   },
+   "skor_v6": 31.6,
+   "skor_views_v5": 171.4
+  },
+  {
+   "tema": "angin & badai",
+   "pilar": "BUMI & CUACA",
+   "wiki": null,
+   "pesaing": {
+    "n": 6,
+    "median_views_top10": 38781,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 0,
+    "juara": {
+     "judul": "Beda Angin Puting Beliung dan Tornado, Apa Saja Tanda-tanda Kemunculannya?",
+     "views": 453006,
+     "umur_bln": null,
+     "kanal": "Kompas.com"
+    },
+    "judul_top": [
+     "What Are They? Causes of Tornadoes",
+     "Apakah Angin Tornado Bisa Terjadi di Indonesia?",
+     "Beda Angin Puting Beliung dan Tornado, Apa Saja Tanda-tanda Kemunculannya?",
+     "Beda Angin Puting Beliung dan Tornado, Apa Saja Tanda-tanda Kemunculannya?",
+     "(Tanyageografi) Video pembelajaran: Angin puting beliung",
+     "Angin Puting Beliung | EDU PAPO RTV"
+    ]
+   },
+   "sudut": [],
+   "hook": [
+    "Ada angin? Padahal jawabannya bukan yang kamu kira.",
+    "Semua orang pernah mengalami ada angin. Hampir tidak ada yang tahu kenapa.",
+    "Kelihatannya sepele: ada angin. Tapi yang terjadi di baliknya luar biasa."
+   ],
+   "artikel": [
+    "Puting_beliung",
+    "Angin"
+   ],
+   "komponen": {
+    "permintaan": 0.229,
+    "wiki": 0.35,
+    "celah": 0.5,
+    "visual": 0.391,
+    "pilar": 0.457,
+    "momen": 0.0
+   },
+   "skor_v6": 31.6,
+   "skor_views_v5": 79.1
+  },
+  {
+   "tema": "laut dalam",
+   "pilar": "BUMI & CUACA",
+   "wiki": null,
+   "pesaing": {
+    "n": 3,
+    "median_views_top10": 19784,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 1,
+    "juara": {
+     "judul": "The Ocean's Biggest Unsolved Mystery",
+     "views": 505258,
+     "umur_bln": null,
+     "kanal": "Kok Bisa?"
+    },
+    "judul_top": [
+     "The Ocean's Biggest Unsolved Mystery",
+     "SUARA APA YANG TERDENGAR DARI DASAR LAUT?! 😨 Misteri Sinyal yang Bikin Ilmuwan P",
+     "Misteri Laut Dalam | Hewan - Hewan Penghuni Laut Terdalam di Bumi"
+    ]
+   },
+   "sudut": [],
+   "hook": [
+    "Laut dalam gelap? Padahal jawabannya bukan yang kamu kira.",
+    "Semua orang pernah mengalami laut dalam gelap. Hampir tidak ada yang tahu kenapa.",
+    "Kelihatannya sepele: laut dalam gelap. Tapi yang terjadi di baliknya luar biasa."
+   ],
+   "artikel": [
+    "Palung_Mariana",
+    "Laut_dalam"
+   ],
+   "komponen": {
+    "permintaan": 0.257,
+    "wiki": 0.35,
+    "celah": 0.454,
+    "visual": 0.318,
+    "pilar": 0.457,
+    "momen": 0.0
+   },
+   "skor_v6": 31.0,
+   "skor_views_v5": 88.7
+  },
+  {
+   "tema": "air laut & ombak",
+   "pilar": "BUMI & CUACA",
+   "wiki": null,
+   "pesaing": {
+    "n": 8,
+    "median_views_top10": 2203,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 8,
+    "juara": {
+     "judul": "Kenapa Air Laut Rasanya Asin?",
+     "views": 2082314,
+     "umur_bln": null,
+     "kanal": "Kok Bisa?"
+    },
+    "judul_top": [
+     "Kenapa Air Laut Rasanya Asin?",
+     "Yuk Cari Tau: Kenapa Air Laut Asin?",
+     "Kenapa Air Laut Asin? 🌊| SeKiLas",
+     "Kenapa Air Laut Asin? 🌊 | Belajar Sains Seru untuk Anak TK & PAUD",
+     "Kenapa Air Laut Asin Tapi Air Hujan Tidak?",
+     "Kenapa Air Laut Asin  | Seri Sali saliha Juga Tau | Animasi Anak"
+    ]
+   },
+   "sudut": [
+    [
+     "PADAHAL",
+     2,
+     [
+      "kenapa air laut asin tapi ikan tidak asin",
+      "kenapa air laut kok asin"
+     ]
+    ],
+    [
+     "PRAKTIS",
+     2,
+     [
+      "kenapa harus ada ombak di laut",
+      "kenapa harus ada ombak"
+     ]
+    ]
+   ],
+   "hook": [
+    "Ada ombak? Padahal jawabannya bukan yang kamu kira.",
+    "Semua orang pernah mengalami ada ombak. Hampir tidak ada yang tahu kenapa.",
+    "Kelihatannya sepele: ada ombak. Tapi yang terjadi di baliknya luar biasa."
+   ],
+   "artikel": [
+    "Air_laut",
+    "Pasang_surut"
+   ],
+   "komponen": {
+    "permintaan": 0.326,
+    "wiki": 0.35,
+    "celah": 0.304,
+    "visual": 0.318,
+    "pilar": 0.457,
+    "momen": 0.0
+   },
+   "skor_v6": 30.6,
+   "skor_views_v5": 112.7
+  },
+  {
+   "tema": "uban & rambut",
+   "pilar": "TUBUH",
+   "wiki": {
+    "level30": 8.0,
+    "momentum": -0.323,
+    "hari": 57,
+    "puncak7": 9,
+    "artikel": [
+     "Uban",
+     "Rambut"
+    ]
+   },
+   "pesaing": {
+    "n": 14,
+    "median_views_top10": 56329,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 2,
+    "juara": {
+     "judul": "HOW TO GET RID OF GRAY HAIR | Dr. Tirta 😌 #health #drtirta #education #healthinfo",
+     "views": 253373,
+     "umur_bln": null,
+     "kanal": "Info KesehatanID"
+    },
+    "judul_top": [
+     "Kecil-kecil Ubanan!? Jadi Uban itu Genetik atau Tanda Penuaan? | SeKiLas",
+     "Benarkah Kebiasaan Merokok Bisa Sebabkan Uban di Usia Muda Inilah Penyebab Rambu",
+     "Penyebab Tumbuh Uban di Usia Muda akibat Pola Hidup Tidak Sehat, Simak Penjelasa",
+     "Penyebab Tumbuh Uban di Usia Muda, Salah Satunya Rokok",
+     "INILAH ALASAN UBAN MUNCUL DI USIA MUDA !!",
+     "Fakta & Mitos Uban di Usia Muda"
+    ]
+   },
+   "sudut": [
+    [
+     "PRAKTIS",
+     2,
+     [
+      "kenapa uban tidak boleh dicabut menurut islam",
+      "kenapa uban tidak boleh dicabut"
+     ]
+    ],
+    [
+     "PRIBADI",
+     2,
+     [
+      "kenapa rambut rontok terus",
+      "kenapa rambut rontok terus menerus"
+     ]
+    ]
+   ],
+   "hook": [
+    "Semua yang perlu kamu tahu soal uban gatal, dalam satu menit.",
+    "Uban gatal: tiga hal yang jarang dijelaskan.",
+    "Simpan video ini sebelum kamu mengalami uban gatal."
+   ],
+   "artikel": [
+    "Uban",
+    "Rambut"
+   ],
+   "komponen": {
+    "permintaan": 0.467,
+    "wiki": 0.0,
+    "celah": 0.525,
+    "visual": 0.045,
+    "pilar": 0.446,
+    "momen": 0.0
+   },
+   "skor_v6": 30.2,
+   "skor_views_v5": 161.1
+  },
+  {
+   "tema": "kedutan",
+   "pilar": "TUBUH",
+   "wiki": null,
+   "pesaing": {
+    "n": 17,
+    "median_views_top10": 31612,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 4,
+    "juara": {
+     "judul": "Pengobatan Gangguan Saraf Kedutan Sebelah di Wajah | Sehat Yuk Eps.18",
+     "views": 114831,
+     "umur_bln": null,
+     "kanal": "Kompas.com"
+    },
+    "judul_top": [
+     "5 Myths and Meanings of a Lower Lip Twitch: Is It Really a Good Sign?",
+     "Arti Kedutan Bibir Bawah",
+     "Meaning of a Lower Left Lip Twitch as a Sign of Good Fortune, Different from the",
+     "Pengobatan Gangguan Saraf Kedutan Sebelah di Wajah | Sehat Yuk Eps.18",
+     "MEANING OF LEFT LOWER LIP WRINKLES #shorts",
+     "The Meaning of Twitching or Twitching in the Lower Left Lip"
+    ]
+   },
+   "sudut": [
+    [
+     "PRIBADI",
+     2,
+     [
+      "kenapa pipi kiri kedutan terus",
+      "kenapa alis kiri kedutan terus"
+     ]
+    ]
+   ],
+   "hook": [
+    "Pernah mengalami bibir atas kedutan? Ini yang terjadi di dalam tubuhmu.",
+    "Kalau kamu sering bibir atas kedutan, video ini untukmu.",
+    "Bibir atas kedutan bukan kebetulan. Ada mekanismenya."
+   ],
+   "artikel": [
+    "Kedutan"
+   ],
+   "komponen": {
+    "permintaan": 0.248,
+    "wiki": 0.35,
+    "celah": 0.486,
+    "visual": 0.182,
+    "pilar": 0.446,
+    "momen": 0.0
+   },
+   "skor_v6": 29.8,
+   "skor_views_v5": 85.7
+  },
+  {
+   "tema": "batuk flu pilek",
+   "pilar": "TUBUH",
+   "wiki": {
+    "level30": 16.1,
+    "momentum": 0.138,
+    "hari": 59,
+    "puncak7": 20,
+    "artikel": [
+     "Batuk",
+     "Influenza"
+    ]
+   },
+   "pesaing": {
+    "n": 17,
+    "median_views_top10": 96561,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 1,
+    "juara": {
+     "judul": "CARA KURANGI BATUK BERDAHAK SECARA ALAMI TANPA OBAT! #youtubehealth #dokter #batukberdahak",
+     "views": 1163357,
+     "umur_bln": null,
+     "kanal": "dr. Kevin Mak"
+    },
+    "judul_top": [
+     "Penyebab Batuk Tak Kunjung Sembuh | DokterSehat",
+     "Interesting Facts - Persistent Phlegmy Cough, This Might Be the Cause",
+     "Jangan sepelekan, Alami Batuk Kering Tak Kunjung Sembuh Bisa Jadi Tanda Penyakit",
+     "CARA KURANGI BATUK BERDAHAK SECARA ALAMI TANPA OBAT! #youtubehealth #dokter #bat",
+     "Why Do I Still Have a Cough After Taking TB Medication?",
+     "Batuk Tak Kunjung Henti Bisa Jadi Penumpukan Lendir di Paru-paru, Berikut Cara A"
+    ]
+   },
+   "sudut": [
+    [
+     "ANAK",
+     2,
+     [
+      "kenapa batuk tidak sembuh sembuh pada anak",
+      "kenapa anak flu berulang"
+     ]
+    ],
+    [
+     "PADAHAL",
+     1,
+     [
+      "kenapa batuk tidak sembuh sembuh padahal sudah minum obat"
+     ]
+    ],
+    [
+     "PRIBADI",
+     1,
+     [
+      "kenapa mata berair terus saat flu"
+     ]
+    ]
+   ],
+   "hook": [
+    "Anak bertanya kenapa bintang bersinar? Ini jawaban yang bisa kamu jelaskan dalam satu menit.",
+    "Pertanyaan anak kecil yang bikin orang dewasa bingung: kenapa bintang bersinar?",
+    "Jelaskan bintang bersinar ke anakmu dengan cara ini."
+   ],
+   "artikel": [
+    "Batuk",
+    "Influenza"
+   ],
+   "komponen": {
+    "permintaan": 0.228,
+    "wiki": 0.389,
+    "celah": 0.562,
+    "visual": 0.045,
+    "pilar": 0.446,
+    "momen": 0.0
+   },
+   "skor_v6": 29.8,
+   "skor_views_v5": 78.6
+  },
+  {
+   "tema": "aurora",
+   "pilar": "LANGIT",
+   "wiki": null,
+   "pesaing": {
+    "n": 9,
+    "median_views_top10": 1765,
+    "unggahan_12bln": 0,
+    "umur_median_bln": null,
+    "judul_cocok": 0,
+    "juara": {
+     "judul": "PROSES TERJADINYA KEINDAHAN AURORA",
+     "views": 194889,
+     "umur_bln": null,
+     "kanal": "Red White Channel"
+    },
+    "judul_top": [
+     "Bagaimana Aurora Terjadi?",
+     "Apa penyebab fenomena ‘aurora borealis’? 🤔",
+     "PROSES TERJADINYA KEINDAHAN AURORA",
+     "Auroras Caused by Solar Wind | How Are Auroras Formed?",
+     "IPA FISIKA : bagaimana fenomena aurora terjadi ?",
+     "13:00 Why Do They Only Appear at the Poles"
+    ]
+   },
+   "sudut": [],
+   "hook": [
+    "Ada aurora? Padahal jawabannya bukan yang kamu kira.",
+    "Semua orang pernah mengalami ada aurora. Hampir tidak ada yang tahu kenapa.",
+    "Kelihatannya sepele: ada aurora. Tapi yang terjadi di baliknya luar biasa."
+   ],
+   "artikel": [
+    "Aurora"
+   ],
+   "komponen": {
+    "permintaan": 0.284,
+    "wiki": 0.35,
+    "celah": 0.289,
+    "visual": 0.527,
+    "pilar": 0.21,
+    "momen": 0.0
+   },
+   "skor_v6": 28.5,
+   "skor_views_v5": 98.0
+  }
+ ],
+ "perf": {
+  "TUBUH": 0.81,
+  "BUMI & CUACA": 0.83,
+  "HEWAN": 0.92,
+  "LANGIT": 1.46,
+  "TEKNOLOGI": 0.34
+ }
+}

@@ -1,0 +1,111 @@
+{
+ "title": "Kenapa Kaki Sering Kesemutan dan Kram?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · SARAF & OTOT",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_kaki",
+   "accent": "#1F7A6B",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "KRAM & KESEMUTAN?"
+   ],
+   "vo": "Berjongkok sebentar, lalu berdiri, kaki tiba-tiba seperti disengat ribuan jarum halus. Kesemutan memang aneh, dan kram bisa lebih kejam lagi. Kenapa kaki bisa kesemutan dan kram?",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "saraf",
+   "accent": "#2F6FB5",
+   "trans": "flash",
+   "badge": "KESEMUTAN = SINYAL TERSANGKUT",
+   "vo": "Kesemutan datang dari saraf. Saraf itu seperti kabel listrik yang menghubungkan otak ke kaki. Saat kau berjongkok atau duduk bersila, saraf tertekan, sinyalnya kacau, dan kulit terasa seperti disentuh listrik halus.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "ototkram",
+   "accent": "#6B4A8C",
+   "trans": "iris",
+   "badge": "KRAM = OTOT TAK MAU LEPAS",
+   "vo": "Kram beda urusan. Ini kontraksi otot yang tidak terkendali: serat otot tiba-tiba menggenggam keras dan menolak lepas. Rasanya sakit tajam dan bisa bertahan puluhan detik.",
+   "speed": 1.09
+  },
+  {
+   "id": "f2b",
+   "type": "fact",
+   "visual": "mineral",
+   "accent": "#8C6D1F",
+   "trans": "bands",
+   "badge": "ELEKTROLIT KUNCI KEDUANYA",
+   "vo": "Kuncinya sama: elektrolit. Natrium, kalium, magnesium, dan kalsium menjaga sinyal saraf jalan dan otot tetap rileks. Banyak berkeringat tanpa menggantinya membuat keduanya mudah terjadi.",
+   "speed": 1.08
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "malam",
+   "accent": "#B2542A",
+   "trans": "zoom",
+   "badge": "KENAPA SERING MALAM HARI",
+   "vo": "Saat serangan datang: ubah posisi dan gerakkan kaki sampai kesemutan hilang. Untuk kram, tarik ujung kaki ke arah wajah, pijat otot yang mengeras, dan minum air yang cukup.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "atasi",
+   "accent": "#B03A2E",
+   "trans": "rise",
+   "badge": "LANGSUNG ATASI BEGITU DATANG",
+   "vo": "Saat serangan datang: ubah posisi dan gerakkan kaki sampai kesemutan hilang. Untuk kram, tarik ujung kaki ke arah wajah, pijat ototnya, dan minum air yang cukup.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "cegah",
+   "accent": "#1F7A4D",
+   "trans": "flash",
+   "badge": "PENCEGAHAN SEHARI-HARI",
+   "vo": "Cegah sejak awal: cukupi air dan elektrolit, regangkan kaki sebelum tidur dan sebelum olahraga, serta jangan pertahankan satu posisi terlalu lama.",
+   "speed": 1.1
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "waspada_kaki",
+   "accent": "#8C2F39",
+   "trans": "bands",
+   "badge": "KAPAN PERLU KE DOKTER",
+   "vo": "Waspada bila kesemutan datang tanpa sebab dan terus-menerus, disertai kelemahan, atau kram hampir tiap malam. Itu bisa tanda gangguan saraf atau elektrolit, bukan sekadar lelah biasa.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#1F7A6B",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: NINDS · AAFP · StatPearls · Mayo Clinic",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

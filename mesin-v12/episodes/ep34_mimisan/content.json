@@ -1,0 +1,122 @@
+{
+ "title": "Kenapa Mimisan?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · HIDUNG & DARAH",
+ "bg_element": "none",
+ "lead_in": 0.3,
+ "tail_intro": 0.8,
+ "tail_fact": 0.8,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_mimisan",
+   "accent": "#8C2F39",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "MIMISAN?"
+   ],
+   "vo": "Hidungmu tiba-tiba menetes darah. Tenang, mimisan itu hampir selalu jinak. Tapi cara menanganinya sering salah besar. Kenapa bisa mimisan?",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "anatomi",
+   "accent": "#B03A2E",
+   "trans": "dive",
+   "dive_at": [540, 1150],
+   "badge": "TITIK RAPUH DI DEPAN HIDUNG",
+   "vo": "Di dinding depan hidung ada titik bernama pleksus Kiesselbach. Empat pembuluh darah bertemu di sana, tertutup selaput yang sangat tipis. Sentuhan kecil saja bisa memecahkannya. Sembilan dari sepuluh mimisan lahir di titik ini.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "penyebab",
+   "accent": "#8C4A1F",
+   "trans": "flash",
+   "badge": "EMPAT PEMICU SEHARI-HARI",
+   "vo": "Penyebabnya sehari-hari: udara kering dari AC, kebiasaan mencolek hidung, flu yang membuat selaputnya radang, atau bersin dan meniup hidung terlalu keras. Anak paling sering, karena selaputnya tipis dan jarinya lincah.",
+   "speed": 1.08
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "tengadah",
+   "accent": "#5A4A8C",
+   "trans": "speed",
+   "badge": "TENGADAH = MITOS YANG SALAH",
+   "vo": "Saat mimisan, banyak orang langsung tengadah. Itu mitos yang salah. Darah malah mengalir ke tenggorokan, ditelan, bikin mual sampai muntah. Pendarahannya juga tidak berhenti.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "carabenar",
+   "accent": "#1F7A4D",
+   "trans": "thud",
+   "badge": "CARA BENAR LANGKAH DEMI LANGKAH",
+   "vo": "Cara benarnya: duduk, kepala sedikit condong ke depan, cubit bagian lunak hidung tepat di bawah tulang. Tahan sepuluh menit penuh tanpa dilepas, napas lewat mulut. Kompres dingin juga membantu.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "angka",
+   "accent": "#2E6E8C",
+   "trans": "glint",
+   "badge": "ANGKA YANG MENENANGKAN",
+   "vo": "Angkanya menenangkan: sembilan dari sepuluh mimisan datang dari titik depan tadi, dan sebagian besar berhenti hanya dengan cubitan benar dan hidung yang lembap.",
+   "speed": 1.10
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "cegah",
+   "accent": "#4A5A8C",
+   "trans": "auto",
+   "badge": "SUPAYA JARANG KAMBUH",
+   "vo": "Supaya jarang kambuh: lumasi lubang hidung dengan vaselin tipis atau semprot air garam, jaga kamar tidak terlalu kering, dan potong kuku anak. Colek hidung musuh utamanya.",
+   "speed": 1.10
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "batas34",
+   "accent": "#8C2F39",
+   "trans": "bands",
+   "badge": "KAPAN HARUS KE DOKTER",
+   "vo": "Lalu kapan ke dokter? Bila cubitan dua puluh menit tak berhenti, darah banyak sampai pusing lemas, mimisan setelah benturan kepala, atau datang hampir tiap hari. Peminum pengencer darah jangan menunggu lama.",
+   "speed": 1.10
+  },
+  {
+   "id": "f8",
+   "type": "fact",
+   "visual": "rangkuman34",
+   "accent": "#8C2F39",
+   "trans": "ambient",
+   "badge": "RANGKUMAN 15 DETIK",
+   "vo": "Jadi ingat: titik rapuh di depan hidung penyebabnya. Tengadah itu mitos. Duduk, tunduk, cubit sepuluh menit, dan jaga hidung lembap.",
+   "speed": 1.11
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#8C2F39",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke orang tua muda",
+   "src": "Sumber: KidsHealth · TeachMeSurgery · Lecturio · Medanta",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

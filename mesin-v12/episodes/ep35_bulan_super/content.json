@@ -1,0 +1,115 @@
+{
+ "title": "Supermoon 2026 & Ilusi Bulan Raksasa",
+ "channel": "KlikTahu",
+ "header_badge": "ANGKASA · BULAN & ORBIT",
+ "bg_element": "moon",
+ "lead_in": 0.3,
+ "tail_intro": 0.8,
+ "tail_fact": 0.55,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_super",
+   "accent": "#1C2E5E",
+   "shake": 0.0,
+   "lines": [
+    "SUPERMOON",
+    "2026!"
+   ],
+   "vo": "Tanggal 24 November dan 24 Desember dua ribu dua puluh enam, langit kita punya tamu spesial: supermoon, purnama terbesar tahun ini. Yang Desember bahkan terdekat sejak 2019. Tapi tunggu. Bulan raksasa di horizon itu sebagian cuma ilusi. Ini sainsnya.",
+   "speed": 1.13
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "jarak",
+   "accent": "#1F5E8C",
+   "trans": "dive",
+   "dive_at": [
+    540,
+    1150
+   ],
+   "badge": "ORBIT BULAN ITU ELIPS",
+   "vo": "Rata-rata Bulan berjarak 384 ribu kilometer. Tapi orbitnya elips. Titik terdekat cuma 356 ribu, titik terjauh sampai 407 ribu kilometer. Selisihnya 50 ribu kilometer. Lebih dari keliling Bumi.",
+   "speed": 1.1
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "ukuran",
+   "accent": "#8C5A1F",
+   "trans": "glint",
+   "badge": "SEBESAR APA BEDANYA?",
+   "vo": "Karena lebih dekat, purnama di titik terdekat tampak sampai 14 persen lebih besar dan 30 persen lebih terang daripada purnama terjauh. Kecil di kertas, tapi mata bisa merasakannya.",
+   "speed": 1.1
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "ilusi",
+   "accent": "#6E2E8C",
+   "trans": "whip",
+   "badge": "BULAN RAKSASA DI HORIZON = ILUSI",
+   "vo": "Lalu kenapa bulan terlihat raksasa saat terbit di horizon? Itu ilusi otak. Ukuran sebenarnya tidak berubah. Foto saja, hasilnya sama. Otak menilai langit di horizon lebih jauh, jadi otak membesar-besarkan bulan. Sampai tiga kali lebih besar di mata.",
+   "speed": 1.11
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "supermoon",
+   "accent": "#B03A2E",
+   "trans": "thud",
+   "badge": "JADWAL SUPERMOON 2026",
+   "vo": "Supermoon terjadi saat purnama bertepatan dengan titik terdekat itu. 24 November 2026, purnama super pertama. Lalu 24 Desember, purnama terdekat sejak 2019. Hanya 357 ribu kilometer dari kita.",
+   "speed": 1.1
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "aman",
+   "accent": "#1F7A4D",
+   "trans": "auto",
+   "badge": "PERLU TAKUT? TIDAK.",
+   "vo": "Supermoon bukan tanda bencana. Pengaruh gravitasinya nyaris sama dengan purnama biasa. Pasang laut naik beberapa senti saja. Aman dinikmati.",
+   "speed": 1.1
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "tips",
+   "accent": "#8C6A1F",
+   "trans": "glint",
+   "badge": "CARA MENIKMATINYA",
+   "vo": "Catat pukul 18.45-an, hadap timur saat bulan terbit. Di horizon ia tampak paling raksasa. Genangan air memberi refleksi gratis, dan binokular biasa sudah cukup untuk menampakkan kawah.",
+   "speed": 1.09
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "rangkuman35",
+   "accent": "#1C2E5E",
+   "trans": "ambient",
+   "badge": "RANGKUMAN 20 DETIK",
+   "vo": "Jadi. Orbit bulan itu elips. Supermoon artinya purnama di titik terdekat. Dan bulan raksasa di horizon itu ilusi otak. Tanggal merahnya: 24 November dan 24 Desember 2026.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#1C2E5E",
+   "trans": "iris",
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · ajak yang lain lihat bulannya",
+   "src": "Sumber: NASA · EarthSky · timeanddate.com",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13,
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ]
+  }
+ ]
+}

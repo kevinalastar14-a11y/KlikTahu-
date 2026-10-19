@@ -1,0 +1,130 @@
+{
+ "title": "Gunung Padang: Piramida Tertua di Dunia? Ini Kata Buktinya",
+ "channel": "KlikTahu",
+ "header_badge": "MISTERI · SITUS PURBA",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "mesin": "v11",
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_padang44",
+   "accent": "#8A5A2B",
+   "shake": 0.0,
+   "lines": [
+    "GUNUNG PADANG",
+    "PIRAMIDA TERTUA?"
+   ],
+   "vo": "Di Cianjur ada bukit berundak batu yang disebut piramida tertua di dunia, lebih tua dari Mesir. Benarkah? Jawabannya ternyata tersimpan di batunya sendiri.",
+   "speed": 1.1
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "teras44",
+   "accent": "#4E7A3A",
+   "trans": "punch",
+   "badge": "LIMA TERAS DI PUNCAK BUKIT",
+   "hl": "LIMA TERAS",
+   "vo": "Situs Gunung Padang di Cianjur, Jawa Barat, punya lima teras batu di puncak bukit, dicapai lewat sekitar tiga ratus tujuh puluh anak tangga. Inilah situs megalitikum terbesar di Asia Tenggara.",
+   "speed": 1.09
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "kolom44",
+   "accent": "#B5542C",
+   "trans": "slide",
+   "badge": "BATU RAPI TANPA DIPAHAT",
+   "hl": "TANPA DIPAHAT",
+   "vo": "Batunya berupa tiang bersegi lima atau enam, rapi seperti dipahat. Padahal itu kekar kolom: lava yang mendingin akan menyusut, lalu retak sendiri menjadi prisma, mirip lumpur kering yang retak.",
+   "speed": 1.09
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "susun44",
+   "accent": "#2F6FB5",
+   "trans": "glitch",
+   "badge": "MANUSIA YANG MENYUSUN",
+   "hl": "MENYUSUN",
+   "vo": "Yang dikerjakan leluhur adalah menyusunnya. Tiang batu dipindahkan, ditegakkan, lalu dirangkai menjadi dinding dan teras. Bahkan ada satu batu yang berbunyi seperti alat musik saat dipukul, disebut batu kecapi.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "klaim44",
+   "accent": "#8C2F39",
+   "trans": "punch",
+   "badge": "KLAIM 27.000 TAHUN",
+   "hl": "27.000 TAHUN",
+   "vo": "Tahun dua ribu dua puluh tiga, sebuah jurnal internasional memuat klaim besar: lapisan terdalam bukit ini dibentuk manusia hingga dua puluh tujuh ribu tahun lalu. Jauh lebih tua dari piramida Giza.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "dicabut44",
+   "accent": "#5B4A8C",
+   "trans": "slide",
+   "badge": "KENAPA DICABUT?",
+   "hl": "DICABUT?",
+   "vo": "Maret dua ribu dua puluh empat, artikel itu dicabut. Alasannya, yang diuji karbon hanyalah tanah, tanpa arang, tulang, atau alat buatan manusia. Tanah tua di bawah rumah tidak membuat rumahnya ikut tua.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "umur44",
+   "accent": "#1F7A6B",
+   "trans": "glitch",
+   "badge": "JADI, BERAPA UMURNYA?",
+   "hl": "UMURNYA?",
+   "vo": "Arang di bawah dinding teras menunjuk sekitar dua ribu tahun lalu. Tim pemugaran tahun dua ribu dua puluh lima menyebut lapisan yang lebih tua, sekitar enam ribu Sebelum Masehi. Penelitiannya masih berjalan.",
+   "speed": 1.09
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "uji44",
+   "accent": "#C2761B",
+   "trans": "punch",
+   "badge": "CARA ILMUWAN MENGUJI",
+   "hl": "MENGUJI",
+   "vo": "Aturannya sederhana. Umur bangunan diukur dari jejak manusia di lapisan yang sama, seperti arang, gerabah, atau alat batu, lalu diuji ulang oleh ilmuwan lain. Klaim sebesar apa pun harus lolos tahap ini.",
+   "speed": 1.09
+  },
+  {
+   "id": "rangkuman",
+   "type": "fact",
+   "visual": "rangkuman44",
+   "accent": "#8A5A2B",
+   "trans": "slide",
+   "badge": "INGAT TIGA HAL INI",
+   "hl": "TIGA HAL",
+   "vo": "Ingat: bentuk batunya karya alam. Susunan terasnya karya leluhur. Dan umurnya ditentukan bukti, bukan sensasi. Tanpa jadi piramida pun, Gunung Padang sudah luar biasa. Kirim ke teman pecinta misteri.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#8A5A2B",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: Archaeological Prospection · Archaeology Mag. · Kompas",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

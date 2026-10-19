@@ -1,0 +1,48 @@
+name: Sinkron Metadata Release
+
+# Perbarui aset METADATA.md di Release TANPA me-render ulang video.
+# Dipicu oleh push yang hanya mengubah metadata (METADATA.md / pustaka/) atau file ini.
+# Untuk setiap folder episode yang punya METADATA.md, aset METADATA.md pada rilis
+# TERBARUS milik episode itu ditimpa dengan versi terbaru (--clobber).
+
+on:
+  push:
+    branches: [arena/01a0cc99-kliktahu-shorts]
+    paths:
+      - 'episodes/*/METADATA.md'
+      - 'pustaka/**'
+      - '.github/workflows/metadata.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metadata-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sinkron:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Timpa aset METADATA.md di rilis terbarus tiap episode
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for cfg in episodes/*/config.env; do
+            slug=$(basename "$(dirname "$cfg")")
+            meta="episodes/$slug/METADATA.md"
+            [ -f "$meta" ] || { echo "[$slug] tidak ada METADATA.md - lewati"; continue; }
+            out=$(grep -E '^OUT_NAME=' "$cfg" | cut -d= -f2 | tr -d '"' | tr -d ' ')
+            [ -n "$out" ] || { echo "[$slug] OUT_NAME kosong - lewati"; continue; }
+            tag=$(gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=100" \
+                  --jq "[.[] | select(.tag_name | startswith(\"${out}-\"))][0].tag_name" || true)
+            if [ -z "$tag" ] || [ "$tag" = "null" ]; then
+              echo "[$slug] belum ada rilis $out-* - lewati"
+              continue
+            fi
+            echo "[$slug] timpa METADATA.md di rilis $tag"
+            gh release upload "$tag" "$meta" --clobber --repo "$GITHUB_REPOSITORY"
+          done
+          echo "sinkronisasi metadata selesai."

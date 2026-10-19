@@ -1,0 +1,8804 @@
+{
+ "tanggal": "2026-10-15",
+ "panggilan": 278,
+ "pohon": {
+  "gigi & mulut": {
+   "inti": "gigi berlubang",
+   "skor_tumbuh_v3": 258.3,
+   "cabang": {
+    "kenapa gigi berlubang anak": {
+     "kenapa gigi anak berlubang": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa gigi geraham anak berlubang": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa gigi berlubang anak sakit": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "gigi berlubang anak": {
+     "gigi berlubang anak": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang anak 4 tahun": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang anak 3 tahun": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang anak kecil": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang anak 2 tahun": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang anak 5 tahun": {
+      "pos": 5,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa gigi berlubang bayi": {
+     "kenapa gigi bayi berlubang": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa gigi berlubang bayi sakit": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "gigi berlubang bayi": {
+     "gigi berlubang bayi": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi geraham bayi berlubang": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi depan bayi berlubang": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "penyebab gigi bayi berlubang": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang bayi 0-3 bulan": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang bayi 0-6 bulan": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang bayi 0-1 bulan": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang bayi 0-10 bulan": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa gigi berlubang malam": {
+     "kenapa gigi berlubang setiap malam sakit": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa gigi berlubang malam hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "gigi berlubang malam": {
+     "gigi berlubang setiap malam sakit": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "sakit gigi berlubang malam hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang ngilu saat malam hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa gigi berlubang setiap malam sakit": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "cara mengatasi sakit gigi berlubang malam hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang malam hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang malam-malam": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa gigi berlubang pagi": {
+     "kenapa gigi berlubang pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "gigi berlubang pagi": {
+     "gigi berlubang pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gigi berlubang pagi-pagi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa gigi anak berlubang": {
+     "kenapa gigi anak berlubang": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi anak mudah berlubang": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi geraham anak berlubang": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi anak 3 tahun berlubang": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi anak 4 tahun berlubang": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi anak berlubang tumbuh daging": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi anak berlubang sakit": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa gigi berlubang anak sakit": {
+     "gigi berlubang anak sakit": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi anak sakit padahal tidak berlubang": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa gigi berlubang bisa sakit": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "cara mengatasi gigi berlubang anak": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "mata": {
+   "inti": "mata berair",
+   "skor_tumbuh_v3": 224.4,
+   "cabang": {
+    "kenapa mata berair anak": {
+     "kenapa mata anak berair": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata anak berair terus": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata anak berair dan belekan": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata anak berair sebelah": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata anak kucing berair": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata anak bayi berair": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair terus": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair dan belekan": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mata berair anak": {
+     "mata berair anak": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair anak 2 tahun": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair anak kecil": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair anak bayi": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata anak berair dan belekan": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata anak berair dan belekan tapi tidak merah": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata anak berair": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata anak berair dan belekan": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "penyebab mata anak berair dan belekan": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mata berair bayi": {
+     "kenapa mata bayi berair": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata bayi berair sebelah": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata bayi berair dan belekan": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata bayi berair terus": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata bayi berair dan bertahi": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair dan belekan": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair terus": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata bayi selalu berair": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mata berair bayi": {
+     "mata berair bayi": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair bayi 4 bulan": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair bayi 2 bulan": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair bayi baru lahir": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair bayi 3 bulan": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata bayi berair dan belekan tapi tidak merah": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "obat mata bayi berair dan belekan": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "cara mengatasi mata bayi berair dan belekan": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata bayi berair": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata anak bayi berair dan belekan": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mata berair malam": {
+     "kenapa mata berair saat malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kalau malam mata berair": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa setiap malam mata berair": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair malam hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair malam-malam": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mata berair malam": {
+     "mata berair malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair saat malam hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair malam-malam": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mata berair pagi": {
+     "kenapa setiap pagi mata berair": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mata berair pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mata berair pagi": {
+     "mata berair pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mata berair waktu pagi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "penyebab mata berair di pagi hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa mata anak berair": {
+     "kenapa mata anak berair dan belekan": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak berair": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak berair terus": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak berair sebelah": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak berair sebelah kanan": {
+      "pos": 6,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak berair sebelah kiri": {
+      "pos": 7,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak berair dan merah": {
+      "pos": 9,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak berair dan bertahi": {
+      "pos": 10,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "mata anak ayam berair kenapa": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak kucing berair": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak bayi berair": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak bengkak": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata bayi selalu berair": {
+      "pos": 6,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "penyebab mata anak berair dan belekan": {
+      "pos": 7,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa mata anak berair dan belekan": {
+     "kenapa mata anak berair dan belekan": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak kucing berair dan belekan": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mata anak 2 tahun berair dan belekan": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "mata anak berair dan belekan": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "mata anak berair dan belekan tapi tidak merah": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "mata anak berair dan belekan terus": {
+      "pos": 7,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "mata anak berair dan belekan sebelah": {
+      "pos": 9,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "obat mata anak berair dan belekan": {
+      "pos": 5,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "penyebab mata anak berair dan belekan": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "perut & pencernaan": {
+   "inti": "perut bunyi",
+   "skor_tumbuh_v3": 201.1,
+   "cabang": {
+    "kenapa perut bunyi anak": {
+     "kenapa perut anak bunyi seperti ada air": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut anak bunyi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut anak bunyi krucuk krucuk": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut anak bunyi terus": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi anak kucing": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi anak kecil": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi anak 1 tahun": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "perut bunyi anak": {
+     "perut anak bunyi seperti ada air": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut anak bunyi dan muntah": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut anak bunyi saat diare": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut anak bunyi kruk kruk": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut anak bunyi krucuk": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "bunyi perut kembung pada anak": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi kruyuk kruyuk": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa perut bunyi bayi": {
+     "kenapa perut bayi bunyi": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi bunyi krucuk krucuk": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi bunyi saat menyusu": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi bunyi seperti lapar": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi bunyi kruk kruk": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi bunyi seperti orang lapar": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi suka bunyi": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi selalu bunyi": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut anak bayi berbunyi": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "perut bunyi bayi": {
+     "perut bunyi bayi": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi bayi baru lahir": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bayi bunyi saat menyusu": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bayi bunyi krucuk": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bayi bunyi kruk kruk": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bayi bunyi kruyuk kruyuk": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "bunyi perut kembung pada bayi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bayi bunyi seperti orang lapar": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "bunyi perut bayi kembung": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa perut bunyi malam": {
+     "kenapa perut bunyi malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi tengah malam": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi terus saat malam": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi di tengah malam": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut sering bunyi saat malam hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi malam minggu": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "perut bunyi malam": {
+     "perut bunyi malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi tengah malam": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi setiap malam": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi malam hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi tengah malam": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi malam minggu": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi malam jumat": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi malam-malam": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa perut bunyi pagi": {
+     "kenapa perut bunyi pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi pagi pagi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "perut bunyi pagi": {
+     "perut bunyi pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi pagi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi di pagi hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut bunyi pagi hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi saat pagi hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut bunyi pagi pagi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa perut anak bunyi seperti ada air": {
+     "kenapa perut anak bunyi seperti ada air": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa perut anak kecil bunyi seperti ada air": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "perut anak bunyi seperti ada air": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa perut bayi bunyi krucuk krucuk": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa perut anak bayi berbunyi": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa perut bunyi anak-anak": {
+     "kenapa perut bunyi anak-anak kecil": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "megalodon": {
+   "inti": "megalodon",
+   "skor_tumbuh_v3": 176.8,
+   "cabang": {
+    "kenapa megalodon anak": {
+     "kenapa megalodon anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa megalodon anaknya": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa megalodon anak kecil": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "megalodon anak": {
+     "megalodon anak": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anaknya megalodon": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gambar megalodon anak tk": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "gambar hiu megalodon anak tk": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "ukuran anak megalodon": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon anak kecil": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "ikan megalodon": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "lagu anak megalodon": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa megalodon bayi": {
+     "kenapa megalodon bayinya": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa megalodon bayi terbang": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "megalodon bayi": {
+     "megalodon bayi": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "ukuran bayi megalodon": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon hantu megalodon": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon anak": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa megalodon malam": {
+     "kenapa megalodon malam-malam": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa megalodon malam hari": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "megalodon malam": {
+     "megalodon radio malam": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon nun": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon mangap": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa megalodon pagi": {
+     "kenapa megalodon pagi-pagi": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa megalodon pagi hari": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "megalodon pagi": {
+     "megalodon pagina": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon pagi-pagi": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "megalodon pagi hari": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa megalodon anak-anak": {
+     "kenapa hiu megalodon bisa punah": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa hiu megalodon punah": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa megalodon bisa punah": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa megalodon punah": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "mimpi & tidur": {
+   "inti": "mimpi",
+   "skor_tumbuh_v3": 167.2,
+   "cabang": {
+    "kenapa mimpi anak": {
+     "kenapa mimpi anak meninggal": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi anak kecil terus": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi anak hilang": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi anak tenggelam": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi anak kecil": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi seperti nyata": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi bisa terjadi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi selalu jadi kenyataan": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimpi anak": {
+     "mimpi anak digigit ular": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak kecil perempuan": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak kecil": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak bayi": {
+      "pos": 4,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak tenggelam": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak hilang": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak meninggal menurut islam": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak tenggelam tapi selamat": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi anak meninggal": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mimpi bayi": {
+     "kenapa mimpi bayi terus": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi bayi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi bayi meninggal": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi bayi perempuan": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi bayi terus menerus": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi bayi kembar": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimpi bayi": {
+     "mimpi bayi laki2": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi bayi perempuan": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi bayi": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi bayi kembar": {
+      "pos": 4,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi bayi meninggal": {
+      "pos": 4,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi bayi laki laki": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi bayi buang air besar": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mimpi malam": {
+     "kenapa mimpi setiap malam": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi selalu malam": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa setiap malam mimpi terus": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa setiap malam mimpi buruk terus": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa setiap malam mimpi orang yang sama": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi malam hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi malam lailatul qadar": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi malam jumat": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi malam ini": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimpi malam": {
+     "mimpi malam": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam jadi siang": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam takbiran": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam satu suro": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam drama china": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam laste": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam drama": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi malam ratudrama": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mimpi pagi": {
+     "kenapa mimpi di pagi hari aneh": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi di pagi hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa tidur pagi mimpi buruk": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa tidur pagi mimpi aneh": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi buruk di pagi hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi pagi semua burung": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi pagi semua": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi pagi semua semua": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimpi pagi hari": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimpi pagi": {
+     "mimpi pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi pagi hari pertanda apa": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi pagi": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi pagi hari jam 6": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi pagi hari gigi bawah copot": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi pagi hari menurut islam": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mentari pagi mimpi": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi manis pagi pagi ambyar": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimpi pulang pagi": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa mimpi anak meninggal": {
+     "kenapa mimpi anak meninggal": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimpi anak kecil meninggal": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimpi anak meninggal dunia": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa mimpi seperti nyata": {
+     "kenapa mimpi seperti nyata": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimpi terasa seperti nyata": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimpi buruk seperti nyata": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa sering mimpi seperti nyata": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimpi mantan seperti nyata": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimpi terasa nyata": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "baterai & hp": {
+   "inti": "baterai cepat",
+   "skor_tumbuh_v3": 129.2,
+   "cabang": {
+    "kenapa baterai cepat anak": {
+     "kenapa baterai cepat anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa baterai cepat anak habis": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "baterai cepat anak": {
+     "baterai cepat anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "baterai cepat anak kecil": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa baterai cepat bayi": {
+     "kenapa baterai cepat bayi cepat habis": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa baterai cepat bayi habis": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa baterai cepat malam": {
+     "kenapa baterai cepat malam terus": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "baterai cepat malam": {
+     "baterai cepat malam samsung": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa baterai cepat pagi": {
+     "kenapa baterai cepat habis": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa baterai kita cepat habis": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa baterai hp cepat boros": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa tiba tiba baterai cepat habis": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "cara agar baterai tetap awet": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "baterai cepat pagi": {
+     "baterai hemat": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "baterai turun saat tidak digunakan": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "baterai hp cepat turun": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa baterai cepat anak-anak": {
+     "kenapa baterai lambat naik": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa baterai lama mengisi": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:baterai cepat anak-anak": {
+     "baterai cepat": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "kulit": {
+   "inti": "jerawat",
+   "skor_tumbuh_v3": 116.5,
+   "cabang": {
+    "kenapa jerawat anak": {
+     "kenapa jerawat tumbuh di anak rambut": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa jerawat anak tumbuh": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "jerawat anak": {
+     "jerawat anak kecil": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat anak remaja": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat anak 12 tahun": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat anak": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat anak smp": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat anak sd": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "obat jerawat anak remaja": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "obat jerawat anak sd": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa jerawat bayi": {
+     "jerawat bayi kenapa": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "jerawat bayi": {
+     "jerawat bayi": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat bayi di pipi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat bayi di kepala": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat bayi (neonatal acne)": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat bayi baru lahir": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat bayi di muka": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat pada bayi": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat pada bayi baru lahir": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa jerawat malam": {
+     "kenapa jerawat malam hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "jerawat malam": {
+     "jerawat malam": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "obat jerawat malam": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "salep jerawat malam": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "cream jerawat malam": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "krim malam jerawat terbaik": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat malam hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat malam jumat": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa jerawat pagi": {
+     "kenapa jerawat pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "jerawat pagi": {
+     "jerawat kena matahari pagi": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jerawat pagi pembuka rezeki": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa jerawat tumbuh di anak rambut": {
+     "kenapa jerawat tumbuh di anak rambut": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa jerawat tumbuh di anak rambutnya": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa jerawat tumbuh di anak rambut panjang": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa jerawat tumbuh di anak rambut gimbal": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa jerawat anak tumbuh": {
+     "kenapa jerawat tumbuh di anak rambut": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak kecil tumbuh jerawat": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak remaja tumbuh jerawat": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa jerawat anak tumbuh lagi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "kucing": {
+   "inti": "kucing",
+   "skor_tumbuh_v3": 111.7,
+   "cabang": {
+    "kenapa kucing anak": {
+     "kenapa kucing anaknya banyak": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing anaknya dimakan": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing anaknya 1": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing anaknya dipindah pindah": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak kucing mengeong terus": {
+      "pos": 5,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak kucing tidak mau makan dan lemas": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak kucing dimakan induknya": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak kucing dipindah pindah oleh induknya": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kucing anak": {
+     "kucing anak": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing anak-anak": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing anak tk": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing anak kecil": {
+      "pos": 4,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing anakan persia": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing anak kucing meong-meong": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing anak kucing": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing anakan": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa kucing bayi": {
+     "kenapa kucing bayi mengeong terus": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing bayi lemas": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi kucing lemas dan tidak mau menyusu": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi kucing rentan mati": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi kucing mengeong terus": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi kucing tidak mau menyusu": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi kucing matanya belekan": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kucing bayi": {
+     "kucing bayi": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing bayi lucu": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing bayi makan apa": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing bayi mulai makan umur berapa": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing bayi nangis": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing bayi meong meong": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing bayi yang lucu": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa kucing malam": {
+     "kenapa kucing malam malam mengeong": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing berantem malam hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing mengeong malam hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing meong meong malam hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing berisik di malam hari": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing suka mengeong di malam hari": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing melamun terus": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kucing malam": {
+     "kucing malam": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing malam hari": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing malam malam mengeong": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing malam minggu miko": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing malamute": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing malam pertama": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing malam-malam": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing malam-malam pac-man": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa kucing pagi": {
+     "kenapa kucing pagi pagi mengeong terus": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing pagi pagi manja": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing bangun pagi": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kucing pagi takut": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kucing pagi": {
+     "kucing pagi": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing pagi hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing mengeong pagi hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing berantem pagi hari pertanda apa": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing selamat pagi": {
+      "pos": 5,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing pagi dan sore": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kucing senam pagi": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "panggil kucing": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "cara panggil kucing": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa kucing anaknya banyak": {
+     "kenapa kucing anaknya banyak": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kucing melahirkan anaknya banyak": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kucing hamil anaknya banyak": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kucing anaknya banyak sekali": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kucing anaknya banyak banget": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa anak kucing tidak mau makan dan lemas": {
+     "kenapa anak kucing tidak mau makan dan lemas": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "anak kucing tidak mau makan dan lemas": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "obat anak kucing tidak mau makan dan lemas": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "cara mengatasi anak kucing tidak mau makan dan lemas": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "anak kucing sakit tidak mau makan dan lemas": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak kucing tiba2 lemas dan tidak mau makan": {
+      "pos": 7,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak kucing lemas tapi mau makan": {
+      "pos": 8,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "kram & kesemutan": {
+   "inti": "kram",
+   "skor_tumbuh_v3": 108.0,
+   "cabang": {
+    "kenapa kram anak": {
+     "kenapa anak kram perut": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kaki anak kram": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kram bisa terjadi": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kram anak": {
+     "anak kram perut": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anak kram kaki": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anak kram": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram perut anak kecil": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram pada anak kecil": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram perut pada anak": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram kaki pada anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram channel": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram adalah": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram rahim": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa kram bayi": {
+     "kenapa kram bayi kembung": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kram bayi": {
+     "bayi kram perut": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "bayi kram": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kaki bayi kram": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram usus pada bayi": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "ciri bayi kram perut": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa kram malam": {
+     "kenapa kaki kram malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa perut kram malam hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kram di malam hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa betis sering kram malam hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kram perut setiap malam": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kram malam": {
+     "kram malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram malam sepi melamar kerinduan": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram malam": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kaki kram malam hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram perut malam hari saat hamil": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram nya malam lukisan cintaku": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram extreme": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram channel": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram parah": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa kram pagi": {
+     "kenapa perut kram pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kaki kram di pagi hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kaki kram tiap pagi": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kram pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kram pagi": {
+     "kram pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram pagi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram pagi artinya": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "perut kram pagi hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kram perut pagi hari saat hamil": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa anak kram perut": {
+     "kenapa anak kram perut": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "cara mengatasi kram perut pada anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa suka kram perut": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kram perut pada anak": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa kram bisa terjadi": {
+     "kenapa kram bisa terjadi": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kram kaki bisa terjadi": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kram otot bisa terjadi": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kram betis bisa terjadi": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kram perut bisa terjadi": {
+      "pos": 6,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kram haid bisa terjadi": {
+      "pos": 7,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa bisa terjadi kram usus": {
+      "pos": 10,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa bisa terjadi kram perut": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "demam & imun": {
+   "inti": "demam",
+   "skor_tumbuh_v3": 99.7,
+   "cabang": {
+    "kenapa demam anak": {
+     "kenapa demam anak naik turun": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam anak tidak turun": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam anak tidak turun padahal sudah minum obat": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam anak naik turun padahal sudah minum obat": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam anak hilang timbul": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak demam sering kaget": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak demam kakinya dingin": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "demam anak": {
+     "demam anak naik turun": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam anak tidak turun": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam anak": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam anak naik turun selama 5 hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam anak naik turun selama 3 hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam anak tak kunjung sembuh": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam anak naik turun selama 7 hari": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam anak tidak kunjung turun": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa demam bayi": {
+     "kenapa demam bayi tidak turun-turun padahal sudah minum obat": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam bayi naik turun": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam bayi 1 tahun naik turun": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam bayi tidak turun turun": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam bayi hilang timbul": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi demam di kepala saja": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi demam sering terkejut": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi demam setelah imunisasi": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi demam": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam tidak turun": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "demam bayi": {
+     "demam bayi berapa derajat": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam bayi": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam bayi naik turun": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam bayi suhu berapa": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam bayi 39 derajat": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam bayi sampai 39": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam bayi tidak turun": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam bayi setelah imunisasi": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa demam malam": {
+     "kenapa demam malam saja": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam malam hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa malam demam siang tidak": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa malam demam naik": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa malam demam pagi tidak": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak demam malam": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam tidak turun": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bisa terjadi demam": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam naik turun": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "demam malam": {
+     "demam malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam hari pada anak": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam hari saja": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam hari gejala apa": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam kelam": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam kanak kanak": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam minggu": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa demam pagi": {
+     "kenapa pagi demam": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam setiap pagi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa malam demam pagi tidak": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak demam di pagi hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa demam pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "demam pagi": {
+     "demam pagi dan sore gejala penyakit apa": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam pagi hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam pagi dan sore": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam pagi dan malam": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam pagi hari pada anak": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam di pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam berulang": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam malam": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam dewasa": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "demam tiap malam": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa demam anak naik turun": {
+     "kenapa demam anak naik turun": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun padahal sudah minum obat": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun sudah 4 hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun terus": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun selama 3 hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun saat batuk pilek": {
+      "pos": 6,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun selama 1 minggu": {
+      "pos": 7,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun disertai batuk": {
+      "pos": 8,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun setelah imunisasi": {
+      "pos": 9,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam anak naik turun sudah 5 hari": {
+      "pos": 10,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 7 hari": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa demam tidak turun": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:demam anak naik turun": {
+     "demam anak naik turun": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 5 hari": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 3 hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 4 hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 1 minggu": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 2 hari": {
+      "pos": 6,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 3 hari disertai batuk pilek": {
+      "pos": 7,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 5 hari disertai batuk": {
+      "pos": 8,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 7 hari": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam anak naik turun selama 1 minggu disertai batuk pilek": {
+      "pos": 10,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "mengatasi demam anak yang naik turun": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "anak demam seminggu naik turun": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "demam pada anak naik turun": {
+      "pos": 7,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "pusing & migrain": {
+   "inti": "pusing",
+   "skor_tumbuh_v3": 97.5,
+   "cabang": {
+    "kenapa pusing anak": {
+     "kenapa anak pusing": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak pusing dan muntah": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak pusing terus": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa pusing anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pusing anak": {
+     "pusing anak": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing anak kecil": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing anak tidak mau makan": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing anak sakit": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anak pusing dan muntah": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "obat pusing anak": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anak pusing tanya-tanya": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "lagu anak pusing 7 keliling": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anak pusing": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa pusing bayi": {
+     "kenapa pusing bayi baru lahir": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa pusing malam": {
+     "kenapa pusing malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa pusing setiap malam": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa kepala pusing malam hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa pusing dari malam sampai pagi": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kepala pusing tengah malam": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pusing malam": {
+     "pusing malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing malam hari kenapa": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing setiap malam": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing setiap malam kenapa": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing di malam hari tanda hamil": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing malam": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "lagu pusing malam": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa pusing pagi": {
+     "kenapa pusing pagi": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa pagi pusing dan mual": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa pusing dari pagi sampai malam": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa setiap pagi pusing dan mual": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bangun pagi pusing dan mual": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa pusing pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pusing pagi": {
+     "pusing pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing pagi hari tanda hamil": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing pagi hari kenapa": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing pagi pagi kenapa": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing pagi hari saat hamil": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kepala pusing pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pusing di pagi hari": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mentari pagi pusing": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mentari pagi pusing sendiri": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa anak pusing": {
+     "kenapa anak pusing dan sakit perut": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak pusing": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak pusing terus": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak pusing dan muntah": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak pusing dan mual": {
+      "pos": 6,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak pusing kepala": {
+      "pos": 8,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak pusing dan lemas": {
+      "pos": 9,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak pusing setiap hari": {
+      "pos": 10,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak sering pusing": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa pusing anak-anak": {
+     "kenapa anak anak pusing": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak anak sering pusing": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak anak tiba tiba pusing": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa kepala saya pusing terus": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa pusing tidak hilang hilang": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "hujan & awan": {
+   "inti": "hujan",
+   "skor_tumbuh_v3": 94.0,
+   "cabang": {
+    "kenapa hujan anak": {
+     "kenapa musim hujan anak gampang sakit": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan mulu": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan tidak berhenti": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan bisa turun": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "hujan anak": {
+     "hujan anak tk": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan anak": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan anak kecil": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan anak panah": {
+      "pos": 4,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anak hujan hujanan": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan anak-anak": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan anak-anak mandi hujan": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa hujan bayi": {
+     "kenapa saat hujan bayi harus digendong": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan bisa turun": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan tidak berhenti": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan mulu": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bisa terjadi hujan": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "hujan bayi": {
+     "hujan bayi": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "bayi hujan hujanan": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jas hujan bayi": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "jas hujan bayi 1 tahun": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "musim hujan bayi mandi kah": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan sangat deras bayi ingin bermain": {
+      "pos": 5,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "sakura hujan bayi": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan penidur bayi": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa hujan malam": {
+     "kenapa hujan malam terus": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan malam ini": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan malam hari": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan malam": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan selalu malam hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan malam minggu": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "hujan malam": {
+     "hujan malam ini sampai jam berapa": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan malam hari": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan malam ini": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan malam": {
+      "pos": 4,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan malam minggu lirik": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan malam minggu": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan malam minggu karaoke": {
+      "pos": 3,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa hujan pagi": {
+     "kenapa hujan pagi terus": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan pagi": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa jarang hujan pagi": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan dari pagi sampai malam": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan pagi yang gelap": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa hujan pagi yg gelap": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "hujan pagi": {
+     "hujan pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan pagi": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan pagi ini sampai jam berapa": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan pagi ini": {
+      "pos": 4,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan pagi ini dimana saja": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan pagi yang gelap": {
+      "pos": 5,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan pagi bikin mama lela emosi": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hujan pagi hari di desa": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa musim hujan anak gampang sakit": {
+     "kenapa musim hujan anak gampang sakit": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa hujan mulu": {
+     "kenapa hujan mulu": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa hujan mulu 2026": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa hujan mulu 2025": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa sekarang hujan mulu": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa bogor hujan mulu": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa jakarta hujan mulu": {
+      "pos": 6,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "google kenapa hujan mulu": {
+      "pos": 7,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa indonesia hujan mulu": {
+      "pos": 8,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa bandung hujan mulu": {
+      "pos": 9,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa januari hujan. mulu": {
+      "pos": 10,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa hujan bisa turun": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "hantu & supranatural": {
+   "inti": "misteri hantu",
+   "skor_tumbuh_v3": 91.8,
+   "cabang": {
+    "kenapa misteri hantu anak": {
+     "kenapa misteri hantu anak kecil": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa misteri hantu anak stm": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa misteri hantu anak sekolah": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa misteri hantu anak-anak": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "misteri hantu anak": {
+     "misteri hantu anak sekolah": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "misteri hantu anak kecil bernama lala": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "upin ipin misteri hantu anak patung": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "diary misteri sara hantu anak kecil": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa misteri hantu bayi": {
+     "hantu bayi hantu bayi hantu bayi": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hantu bayi hantu bayi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "hantu bayi hantu bayi hantu": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa misteri hantu malam": {
+     "kenapa misteri hantu malam jumat": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "misteri hantu malam": {
+     "live misteri hantu malam ini": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "misteri hantu kuyang malam mencekam": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "misteri hantu tengah malam": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "misteri hantu misteri hantu": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "misteri mencari hantu": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa misteri hantu pagi": {
+     "apakah hantu ada di dunia nyata": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "apakah benar ada hantu": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "apakah ada hantu di sini": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "misteri hantu pagi": {
+     "misteri hantu pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "misteri hantu pagi-pagi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa misteri hantu anak kecil": {
+     "misteri hantu anak kecil bernama lala": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak kecil bisa melihat hantu": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "hantu anak kecil gentayangan": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "hantu anak kecil terseram": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kisah hantu anak kecil": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:misteri hantu anak sekolah": {
+     "misteri hantu anak sekolah": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "hantu anak sekolah hantu anak sekolah": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "misteri hantu di sekolah": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  },
+  "mimisan & hidung": {
+   "inti": "mimisan",
+   "skor_tumbuh_v3": 89.4,
+   "cabang": {
+    "kenapa mimisan anak": {
+     "kenapa mimisan anak": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak mimisan terus": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak mimisan tiba tiba": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan sebelah kiri": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan terus terusan": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan bisa terjadi": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimisan anak": {
+     "mimisan anak karena apa": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan anak": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan anak 2 tahun": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan anak 3 tahun": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan anak kecil kenapa": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan anak kecil": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan anak-anak": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "obat mimisan anak": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "anak mimisan terus": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mimisan bayi": {
+     "kenapa bayi mimisan": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bayi mimisan tiba tiba": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan bayi baru lahir": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimisan bayi": {
+     "mimisan bayi 1 tahun": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan bayi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan bayi 2 tahun": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "bayi mimisan kenapa": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "bayi mimisan": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan pada bayi 1 tahun": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan pada anak": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan kenapa": {
+      "pos": 5,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mimisan malam": {
+     "kenapa mimisan malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan tengah malam": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan setiap malam": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak mimisan malam hari": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa tiba tiba mimisan malam hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan malam-malam": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimisan malam": {
+     "mimisan malam hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan malam hari pada anak": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan malam hari karena apa": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan tengah malam": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "pap mimisan malam hari": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan malam jumat": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan malam takbiran": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan malam-malam": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "kenapa mimisan pagi": {
+     "kenapa mimisan pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan pagi": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa anak mimisan pagi hari": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa bangun pagi mimisan": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "kenapa mimisan pagi-pagi": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "mimisan pagi": {
+     "mimisan pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan pagi hari pada anak": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan pagi hari karena apa": {
+      "pos": 3,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan pagi pagi kenapa": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan pagi hari pertanda apa": {
+      "pos": 5,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan di pagi hari": {
+      "pos": 1,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan kenapa": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan obatnya apa": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     },
+     "mimisan tiap hari": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L1"
+      ]
+     }
+    },
+    "pendalam:kenapa mimisan anak": {
+     "kenapa mimisan anak": {
+      "pos": 1,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak mimisan terus": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak mimisan tiba tiba": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak mimisan sebelah kiri": {
+      "pos": 8,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak mimisan sebelah kanan": {
+      "pos": 9,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak mimisan terus menerus": {
+      "pos": 10,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimisan sebelah kiri": {
+      "pos": 2,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimisan terus terusan": {
+      "pos": 3,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa mimisan bisa terjadi": {
+      "pos": 4,
+      "sumber": [
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    },
+    "pendalam:kenapa anak mimisan tiba tiba": {
+     "kenapa anak mimisan tiba tiba": {
+      "pos": 1,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak bisa mimisan tiba tiba": {
+      "pos": 2,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak sering mimisan tiba tiba": {
+      "pos": 2,
+      "sumber": [
+       "g",
+       "yt"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "anak mimisan tiba tiba": {
+      "pos": 4,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak tiba tiba mimisan sebelah": {
+      "pos": 8,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     },
+     "kenapa anak tiba tiba mimisan di malam hari": {
+      "pos": 9,
+      "sumber": [
+       "g"
+      ],
+      "lapis": [
+       "L2"
+      ]
+     }
+    }
+   }
+  }
+ },
+ "keluarga": [
+  {
+   "tema": "mimpi & tidur",
+   "jml": 205,
+   "kuat": 91,
+   "jaring": 10,
+   "kedalaman": 3,
+   "peluang": 0.55,
+   "yt": 103,
+   "niat": 18,
+   "vis": 5,
+   "skor": 321.8,
+   "tumbuh": 429.6,
+   "skor_keluarga": 480.1,
+   "skor_views": 540.8,
+   "momen": "STABIL",
+   "status": "Ep21+25",
+   "rencana_seri": [
+    "kenapa susah tidur",
+    "kenapa mimpi seperti nyata",
+    "kenapa mimpi bayi kembar",
+    "kenapa mimpi malam hari",
+    "kenapa mimpi buruk tidak boleh diceritakan",
+    "kenapa mimpi mantan padahal tidak memikirkannya"
+   ]
+  },
+  {
+   "tema": "kucing",
+   "jml": 168,
+   "kuat": 78,
+   "jaring": 10,
+   "kedalaman": 3,
+   "peluang": 0.42,
+   "yt": 106,
+   "niat": 12,
+   "vis": 6,
+   "skor": 271.2,
+   "tumbuh": 563.4,
+   "skor_keluarga": 605.5,
+   "skor_views": 494.0,
+   "momen": "STABIL",
+   "status": "Ep23",
+   "rencana_seri": [
+    "kenapa kucing pagi hari",
+    "kenapa macan takut sama kucing",
+    "kenapa harimau takut sama kucing",
+    "kenapa kucing tidak mau makan",
+    "kenapa anak kucing tidak mau makan dan lemas",
+    "kenapa bayi kucing lemas dan tidak mau menyusu"
+   ]
+  },
+  {
+   "tema": "perut & pencernaan",
+   "jml": 153,
+   "kuat": 65,
+   "jaring": 9,
+   "kedalaman": 3,
+   "peluang": 0.73,
+   "yt": 64,
+   "niat": 34,
+   "vis": 100,
+   "skor": 254.3,
+   "tumbuh": 432.4,
+   "skor_keluarga": 480.2,
+   "skor_views": 468.4,
+   "momen": "NAIK",
+   "status": "Ep28",
+   "rencana_seri": [
+    "kenapa perut kembung terus",
+    "kenapa perut bunyi anak-anak",
+    "kenapa perut bunyi krucuk krucuk",
+    "kenapa perut bunyi terus",
+    "kenapa perut kembung",
+    "kenapa maag sering kambuh padahal sudah makan"
+   ]
+  },
+  {
+   "tema": "demam & imun",
+   "jml": 149,
+   "kuat": 63,
+   "jaring": 10,
+   "kedalaman": 3,
+   "peluang": 0.58,
+   "yt": 72,
+   "niat": 11,
+   "vis": 53,
+   "skor": 230.6,
+   "tumbuh": 378.9,
+   "skor_keluarga": 424.2,
+   "skor_views": 429.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa anak demam malam",
+    "kenapa demam pagi hari",
+    "kenapa demam anak naik turun",
+    "kenapa bayi demam di kepala saja",
+    "kenapa demam malam saja",
+    "kenapa pagi demam"
+   ]
+  },
+  {
+   "tema": "mata",
+   "jml": 160,
+   "kuat": 69,
+   "jaring": 10,
+   "kedalaman": 3,
+   "peluang": 0.68,
+   "yt": 73,
+   "niat": 25,
+   "vis": 13,
+   "skor": 258.7,
+   "tumbuh": 384.9,
+   "skor_keluarga": 434.7,
+   "skor_views": 424.4,
+   "momen": "STABIL",
+   "status": "Ep31",
+   "rencana_seri": [
+    "kenapa mata bayi berair",
+    "kenapa mata kabur",
+    "kenapa mata kabur tiba-tiba",
+    "kenapa mata minus",
+    "kenapa mata kedutan",
+    "kenapa mata berair"
+   ]
+  },
+  {
+   "tema": "hujan & awan",
+   "jml": 140,
+   "kuat": 69,
+   "jaring": 9,
+   "kedalaman": 3,
+   "peluang": 0.31,
+   "yt": 78,
+   "niat": 13,
+   "vis": 15,
+   "skor": 230.9,
+   "tumbuh": 320.3,
+   "skor_keluarga": 354.5,
+   "skor_views": 407.8,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa hujan mulu",
+    "kenapa awan berwarna putih",
+    "kenapa hujan malam minggu",
+    "kenapa hujan bisa turun",
+    "kenapa hujan terus",
+    "kenapa hujan tidak berhenti"
+   ]
+  },
+  {
+   "tema": "gigi & mulut",
+   "jml": 124,
+   "kuat": 61,
+   "jaring": 9,
+   "kedalaman": 3,
+   "peluang": 0.61,
+   "yt": 72,
+   "niat": 10,
+   "vis": 21,
+   "skor": 203.3,
+   "tumbuh": 463.1,
+   "skor_keluarga": 503.7,
+   "skor_views": 373.8,
+   "momen": "STABIL",
+   "status": "Ep30",
+   "rencana_seri": [
+    "kenapa gigi berlubang sakit",
+    "kenapa gigi goyang sakit",
+    "kenapa bau mulut",
+    "kenapa gusi berdarah",
+    "kenapa gigi berlubang bisa sakit",
+    "kenapa gigi goyang"
+   ]
+  },
+  {
+   "tema": "pusing & migrain",
+   "jml": 122,
+   "kuat": 69,
+   "jaring": 8,
+   "kedalaman": 3,
+   "peluang": 0.35,
+   "yt": 51,
+   "niat": 11,
+   "vis": 0,
+   "skor": 200.0,
+   "tumbuh": 278.0,
+   "skor_keluarga": 309.5,
+   "skor_views": 318.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa kepala sering pusing",
+    "kenapa pusing anak-anak",
+    "kenapa pusing malam hari",
+    "kenapa pusing pagi hari",
+    "kenapa anak sering pusing",
+    "kenapa pusing bisa terjadi"
+   ]
+  },
+  {
+   "tema": "mimisan & hidung",
+   "jml": 109,
+   "kuat": 73,
+   "jaring": 10,
+   "kedalaman": 3,
+   "peluang": 0.33,
+   "yt": 42,
+   "niat": 10,
+   "vis": 3,
+   "skor": 189.2,
+   "tumbuh": 277.7,
+   "skor_keluarga": 312.9,
+   "skor_views": 299.4,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa mimisan",
+    "kenapa hidung berdarah",
+    "kenapa hidung berdarah tiba2",
+    "kenapa mimisan malam hari",
+    "kenapa mimisan pagi hari",
+    "kenapa mimisan sebelah kiri"
+   ]
+  },
+  {
+   "tema": "kulit",
+   "jml": 100,
+   "kuat": 55,
+   "jaring": 7,
+   "kedalaman": 3,
+   "peluang": 0.32,
+   "yt": 56,
+   "niat": 8,
+   "vis": 2,
+   "skor": 167.0,
+   "tumbuh": 238.2,
+   "skor_keluarga": 265.1,
+   "skor_views": 290.4,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa jerawat tumbuh terus",
+    "kenapa jerawat anak tumbuh",
+    "kenapa jerawat malam hari",
+    "kenapa jerawat pagi hari",
+    "kenapa jerawat muncul terus",
+    "kenapa jerawat tumbuh di anak rambutnya"
+   ]
+  },
+  {
+   "tema": "kram & kesemutan",
+   "jml": 111,
+   "kuat": 65,
+   "jaring": 9,
+   "kedalaman": 3,
+   "peluang": 0.36,
+   "yt": 40,
+   "niat": 6,
+   "vis": 0,
+   "skor": 179.9,
+   "tumbuh": 229.7,
+   "skor_keluarga": 263.2,
+   "skor_views": 281.6,
+   "momen": "STABIL",
+   "status": "Ep29",
+   "rencana_seri": [
+    "kenapa tangan sering kesemutan",
+    "kenapa kram bisa terjadi",
+    "kenapa kesemutan bisa terjadi",
+    "kenapa kram bayi kembung",
+    "kenapa kram pagi hari",
+    "kenapa kram perut"
+   ]
+  },
+  {
+   "tema": "megalodon",
+   "jml": 72,
+   "kuat": 48,
+   "jaring": 9,
+   "kedalaman": 3,
+   "peluang": 0.14,
+   "yt": 54,
+   "niat": 5,
+   "vis": 0,
+   "skor": 133.8,
+   "tumbuh": 331.2,
+   "skor_keluarga": 358.7,
+   "skor_views": 254.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa megalodon anak-anak",
+    "kenapa megalodon bayinya",
+    "kenapa megalodon malam-malam",
+    "kenapa megalodon pagi-pagi",
+    "kenapa megalodon anaknya",
+    "kenapa megalodon bayi terbang"
+   ]
+  },
+  {
+   "tema": "baterai & hp",
+   "jml": 79,
+   "kuat": 29,
+   "jaring": 6,
+   "kedalaman": 3,
+   "peluang": 0.82,
+   "yt": 59,
+   "niat": 13,
+   "vis": 5,
+   "skor": 133.2,
+   "tumbuh": 167.5,
+   "skor_keluarga": 198.5,
+   "skor_views": 252.8,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa baterai cepat habis",
+    "kenapa hp cepat panas",
+    "kenapa baterai cepat anak-anak",
+    "kenapa baterai lambat naik",
+    "kenapa sinyal hp tidak muncul",
+    "kenapa gerinda cepat panas"
+   ]
+  },
+  {
+   "tema": "hantu & supranatural",
+   "jml": 67,
+   "kuat": 38,
+   "jaring": 8,
+   "kedalaman": 3,
+   "peluang": 0.37,
+   "yt": 55,
+   "niat": 4,
+   "vis": 3,
+   "skor": 119.7,
+   "tumbuh": 158.1,
+   "skor_keluarga": 186.1,
+   "skor_views": 239.8,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa hantu",
+    "kenapa misteri hantu anak kecil",
+    "kenapa misteri hantu malam jumat",
+    "apakah hantu ada di dunia nyata",
+    "apakah benar ada hantu",
+    "kenapa hantu berbeda di setiap negara"
+   ]
+  },
+  {
+   "tema": "uban & rambut",
+   "jml": 46,
+   "kuat": 21,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.59,
+   "yt": 30,
+   "niat": 2,
+   "vis": 0,
+   "skor": 76.0,
+   "tumbuh": 87.0,
+   "skor_keluarga": 92.4,
+   "skor_views": 131.2,
+   "momen": "TURUN",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa uban terasa gatal",
+    "kenapa rambut rontok parah",
+    "kenapa ketombe bikin gatal",
+    "kenapa rambut rontok",
+    "kenapa rambut rontok banyak sekali",
+    "kenapa ketombe gatal"
+   ]
+  },
+  {
+   "tema": "gerhana",
+   "jml": 39,
+   "kuat": 16,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.67,
+   "yt": 25,
+   "niat": 3,
+   "vis": 2,
+   "skor": 69.4,
+   "tumbuh": 76.1,
+   "skor_keluarga": 81.3,
+   "skor_views": 114.4,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa gerhana matahari tidak boleh dilihat secara langsung",
+    "kenapa gerhana matahari tidak boleh dilihat"
+   ]
+  },
+  {
+   "tema": "situs misteri indonesia",
+   "jml": 39,
+   "kuat": 12,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.46,
+   "yt": 29,
+   "niat": 0,
+   "vis": 0,
+   "skor": 63.6,
+   "tumbuh": 84.1,
+   "skor_keluarga": 87.7,
+   "skor_views": 114.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa situs tidak dapat dijangkau",
+    "kenapa situs di chrome tidak bisa dibuka"
+   ]
+  },
+  {
+   "tema": "internet & sinyal",
+   "jml": 38,
+   "kuat": 9,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.66,
+   "yt": 23,
+   "niat": 11,
+   "vis": 0,
+   "skor": 65.6,
+   "tumbuh": 84.0,
+   "skor_keluarga": 89.0,
+   "skor_views": 102.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa internet lambat",
+    "kenapa sinyal hilang",
+    "kenapa internet laptop lambat",
+    "kenapa internet cepat habis",
+    "kenapa sinyal hilang tiba tiba",
+    "kenapa sinyal hilang di iphone"
+   ]
+  },
+  {
+   "tema": "bintang & galaksi",
+   "jml": 31,
+   "kuat": 13,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.52,
+   "yt": 18,
+   "niat": 0,
+   "vis": 1,
+   "skor": 54.5,
+   "tumbuh": 75.5,
+   "skor_keluarga": 78.7,
+   "skor_views": 86.8,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa bintang kelap kelip",
+    "kenapa bintang tidak masuk ke pendapatan",
+    "kenapa bintang di fb berkurang",
+    "kenapa bintang persija 1",
+    "kenapa bintang bisa jatuh",
+    "kenapa bintang fb tidak muncul"
+   ]
+  },
+  {
+   "tema": "listrik & magnet",
+   "jml": 28,
+   "kuat": 18,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.5,
+   "yt": 13,
+   "niat": 10,
+   "vis": 2,
+   "skor": 61.0,
+   "tumbuh": 79.9,
+   "skor_keluarga": 82.7,
+   "skor_views": 84.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa listrik mahal",
+    "kenapa magnet bisa menempel",
+    "kenapa listrik turun terus",
+    "kenapa listrik berbahaya",
+    "kenapa listrik bisa konslet",
+    "kenapa magnet bisa menarik besi"
+   ]
+  },
+  {
+   "tema": "piramida & mesir",
+   "jml": 31,
+   "kuat": 16,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.32,
+   "yt": 16,
+   "niat": 0,
+   "vis": 0,
+   "skor": 54.5,
+   "tumbuh": 66.7,
+   "skor_keluarga": 68.7,
+   "skor_views": 84.0,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa piramida dibuat",
+    "kenapa piramida berbentuk segitiga",
+    "kenapa piramida dibangun",
+    "kenapa piramida terbalik",
+    "kenapa piramida segitiga",
+    "kenapa piramida teks berita terbalik"
+   ]
+  },
+  {
+   "tema": "air laut & ombak",
+   "jml": 33,
+   "kuat": 9,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.76,
+   "yt": 18,
+   "niat": 0,
+   "vis": 1,
+   "skor": 52.2,
+   "tumbuh": 64.8,
+   "skor_keluarga": 69.8,
+   "skor_views": 83.8,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa air laut asin",
+    "kenapa ada ombak di laut",
+    "kenapa ada ombak",
+    "kenapa air laut asin abu nawas",
+    "kenapa air laut asin menurut islam",
+    "kenapa air laut ada ombaknya"
+   ]
+  },
+  {
+   "tema": "serangga",
+   "jml": 30,
+   "kuat": 8,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.7,
+   "yt": 20,
+   "niat": 0,
+   "vis": 2,
+   "skor": 47.6,
+   "tumbuh": 70.3,
+   "skor_keluarga": 74.5,
+   "skor_views": 83.6,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa nyamuk makan darah",
+    "kenapa semut tidak boleh dibunuh",
+    "kenapa nyamuk suka warna hitam",
+    "kenapa nyamuk diciptakan",
+    "kenapa semut kalau jalan selalu bertabrakan",
+    "kenapa nyamuk suka golongan darah o"
+   ]
+  },
+  {
+   "tema": "petir",
+   "jml": 26,
+   "kuat": 14,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.42,
+   "yt": 17,
+   "niat": 0,
+   "vis": 5,
+   "skor": 48.4,
+   "tumbuh": 68.3,
+   "skor_keluarga": 70.5,
+   "skor_views": 83.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa petir bisa terjadi",
+    "kenapa petir menyambar pohon",
+    "kenapa petir bisa menyambar manusia",
+    "kenapa petir bersuara keras",
+    "kenapa petir menyambar pohon kelapa",
+    "kenapa petir menyambar"
+   ]
+  },
+  {
+   "tema": "pelangi",
+   "jml": 29,
+   "kuat": 15,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.52,
+   "yt": 15,
+   "niat": 1,
+   "vis": 4,
+   "skor": 52.4,
+   "tumbuh": 66.8,
+   "skor_keluarga": 69.8,
+   "skor_views": 82.8,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa pelangi bisa muncul",
+    "kenapa pelangi muncul",
+    "kenapa pelangi tidak boleh ditunjuk",
+    "kenapa pelangi warna warni",
+    "kenapa bisa terjadi pelangi",
+    "kenapa pelangi muncul setelah hujan"
+   ]
+  },
+  {
+   "tema": "cegukan",
+   "jml": 27,
+   "kuat": 12,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.48,
+   "yt": 16,
+   "niat": 12,
+   "vis": 0,
+   "skor": 57.0,
+   "tumbuh": 82.4,
+   "skor_keluarga": 85.0,
+   "skor_views": 82.2,
+   "momen": "TURUN",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa cegukan terus",
+    "kenapa cegukan terus menerus",
+    "kenapa cegukan bisa terjadi",
+    "kenapa cegukan tidak berhenti berhenti",
+    "kenapa cegukan terjadi",
+    "kenapa cegukan"
+   ]
+  },
+  {
+   "tema": "es & salju",
+   "jml": 25,
+   "kuat": 11,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.36,
+   "yt": 16,
+   "niat": 0,
+   "vis": 5,
+   "skor": 43.5,
+   "tumbuh": 54.0,
+   "skor_keluarga": 55.8,
+   "skor_views": 76.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa salju bisa turun",
+    "kenapa salju tidak turun di indonesia",
+    "kenapa salju berwarna putih",
+    "kenapa es kristal lama mencair",
+    "kenapa salju",
+    "kenapa ada musim salju"
+   ]
+  },
+  {
+   "tema": "matahari",
+   "jml": 22,
+   "kuat": 9,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.32,
+   "yt": 16,
+   "niat": 1,
+   "vis": 5,
+   "skor": 43.0,
+   "tumbuh": 65.1,
+   "skor_keluarga": 66.5,
+   "skor_views": 73.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa matahari tidak padam",
+    "kenapa matahari tenggelam",
+    "kenapa matahari panas",
+    "kenapa matahari warna merah",
+    "kenapa harus takut pada matahari",
+    "kenapa matahari bisa tenggelam"
+   ]
+  },
+  {
+   "tema": "ngorok",
+   "jml": 24,
+   "kuat": 11,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.08,
+   "yt": 16,
+   "niat": 3,
+   "vis": 1,
+   "skor": 45.2,
+   "tumbuh": 70.7,
+   "skor_keluarga": 71.1,
+   "skor_views": 73.6,
+   "momen": "NAIK",
+   "status": "Ep27",
+   "rencana_seri": [
+    "kenapa ngorok",
+    "kenapa ngorok bisa terjadi",
+    "kenapa orang ngorok",
+    "kenapa ngorok saat tidur",
+    "kenapa kucing ngorok",
+    "kenapa tidur ngorok"
+   ]
+  },
+  {
+   "tema": "jantung & dada",
+   "jml": 27,
+   "kuat": 10,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.74,
+   "yt": 14,
+   "niat": 3,
+   "vis": 0,
+   "skor": 46.9,
+   "tumbuh": 60.7,
+   "skor_keluarga": 64.7,
+   "skor_views": 70.8,
+   "momen": "TURUN",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa jantung berdebar kencang",
+    "kenapa dada sesak",
+    "kenapa jantung berdebar kencang dan cemas",
+    "kenapa jantung berdebar-debar",
+    "kenapa dada sesak dan susah bernafas",
+    "kenapa jantung berdebar tanpa sebab"
+   ]
+  },
+  {
+   "tema": "kuping",
+   "jml": 24,
+   "kuat": 11,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.62,
+   "yt": 14,
+   "niat": 2,
+   "vis": 3,
+   "skor": 43.7,
+   "tumbuh": 65.2,
+   "skor_keluarga": 68.2,
+   "skor_views": 70.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa kuping berdenging",
+    "kenapa kuping keluar nanah",
+    "kenapa kuping berdenging sebelah kiri",
+    "kenapa kuping keluar cairan",
+    "kenapa kuping berdenging sebelah kanan",
+    "kenapa telinga berbau busuk"
+   ]
+  },
+  {
+   "tema": "menangis & emosi",
+   "jml": 25,
+   "kuat": 11,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.4,
+   "yt": 14,
+   "niat": 1,
+   "vis": 0,
+   "skor": 43.8,
+   "tumbuh": 63.2,
+   "skor_keluarga": 65.2,
+   "skor_views": 68.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa kau menangis setelah mengetahui identitasku",
+    "kenapa menangis",
+    "kenapa menangis setelah tahu siapa aku",
+    "kenapa gampang stress",
+    "kenapa menangis saat kuberhenti mengejar drama china",
+    "kenapa selalu cemas berlebihan"
+   ]
+  },
+  {
+   "tema": "tekanan darah",
+   "jml": 26,
+   "kuat": 12,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.62,
+   "yt": 11,
+   "niat": 2,
+   "vis": 3,
+   "skor": 47.0,
+   "tumbuh": 63.5,
+   "skor_keluarga": 66.7,
+   "skor_views": 68.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa darah tinggi",
+    "kenapa darah rendah",
+    "kenapa darah tinggi susah turun",
+    "kenapa bisa darah rendah",
+    "kenapa darah tinggi naik",
+    "kenapa tekanan darah rendah"
+   ]
+  },
+  {
+   "tema": "angin & badai",
+   "jml": 23,
+   "kuat": 14,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.65,
+   "yt": 12,
+   "niat": 1,
+   "vis": 2,
+   "skor": 44.8,
+   "tumbuh": 54.5,
+   "skor_keluarga": 57.5,
+   "skor_views": 68.2,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa ada angin",
+    "kenapa puting beliung terjadi",
+    "kenapa ada angin kencang",
+    "kenapa bisa terjadi angin puting beliung",
+    "kenapa puting beliung bisa terjadi",
+    "kenapa dinamakan puting beliung"
+   ]
+  },
+  {
+   "tema": "bulan",
+   "jml": 21,
+   "kuat": 7,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.52,
+   "yt": 14,
+   "niat": 1,
+   "vis": 5,
+   "skor": 38.5,
+   "tumbuh": 50.3,
+   "skor_keluarga": 52.5,
+   "skor_views": 65.6,
+   "momen": "STABIL",
+   "status": "Ep24",
+   "rencana_seri": [
+    "kenapa bulan bercahaya",
+    "kenapa bulan berwarna merah",
+    "kenapa bulan bisa bercahaya",
+    "kenapa bulan mengikuti kita",
+    "kenapa bulan merah",
+    "kenapa bulan februari hanya 28 hari"
+   ]
+  },
+  {
+   "tema": "segitiga bermuda",
+   "jml": 19,
+   "kuat": 8,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.47,
+   "yt": 14,
+   "niat": 1,
+   "vis": 3,
+   "skor": 35.7,
+   "tumbuh": 47.4,
+   "skor_keluarga": 49.2,
+   "skor_views": 62.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "apakah misteri segitiga bermuda sudah terpecahkan"
+   ]
+  },
+  {
+   "tema": "ular & reptil",
+   "jml": 19,
+   "kuat": 7,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.63,
+   "yt": 15,
+   "niat": 1,
+   "vis": 0,
+   "skor": 35.3,
+   "tumbuh": 58.6,
+   "skor_keluarga": 61.0,
+   "skor_views": 60.6,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa ular weling tidak boleh dibunuh",
+    "kenapa ular takut garam",
+    "kenapa ular masuk rumah",
+    "kenapa ular tidak punya kaki",
+    "kenapa ular ganti kulit",
+    "kenapa ular sawah tidak berbisa pada zaman dahulu"
+   ]
+  },
+  {
+   "tema": "batuk flu pilek",
+   "jml": 25,
+   "kuat": 11,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.72,
+   "yt": 10,
+   "niat": 2,
+   "vis": 0,
+   "skor": 42.0,
+   "tumbuh": 65.3,
+   "skor_keluarga": 68.9,
+   "skor_views": 60.2,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa batuk tidak sembuh",
+    "kenapa flu berulang ulang",
+    "kenapa batuk tidak sembuh sembuh",
+    "kenapa flu berulang ulang kali telah kukatakan",
+    "kenapa batuk tidak kunjung sembuh",
+    "kenapa anak flu berulang"
+   ]
+  },
+  {
+   "tema": "gempa bumi",
+   "jml": 19,
+   "kuat": 8,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.37,
+   "yt": 13,
+   "niat": 2,
+   "vis": 0,
+   "skor": 39.3,
+   "tumbuh": 56.4,
+   "skor_keluarga": 57.8,
+   "skor_views": 60.2,
+   "momen": "STABIL",
+   "status": "Ep22",
+   "rencana_seri": [
+    "kenapa gempa bisa terjadi",
+    "kenapa gempa bumi bisa terjadi",
+    "kenapa gempa",
+    "kenapa gempa bumi",
+    "kenapa gempa terus",
+    "kenapa gempa terjadi"
+   ]
+  },
+  {
+   "tema": "laut dalam",
+   "jml": 18,
+   "kuat": 9,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.39,
+   "yt": 13,
+   "niat": 0,
+   "vis": 0,
+   "skor": 35.7,
+   "tumbuh": 46.3,
+   "skor_keluarga": 47.7,
+   "skor_views": 58.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa laut dalam gelap di dunia",
+    "kenapa laut dalam gelap"
+   ]
+  },
+  {
+   "tema": "aurora",
+   "jml": 23,
+   "kuat": 14,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.57,
+   "yt": 7,
+   "niat": 0,
+   "vis": 1,
+   "skor": 43.9,
+   "tumbuh": 53.2,
+   "skor_keluarga": 55.8,
+   "skor_views": 57.8,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa ada aurora",
+    "kenapa bisa ada aurora",
+    "kenapa ada aurora di langit",
+    "kenapa ada aurora di bumi",
+    "kenapa ada aurora borealis",
+    "kenapa ada aurora merah di film sore"
+   ]
+  },
+  {
+   "tema": "burung terbang",
+   "jml": 24,
+   "kuat": 5,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.92,
+   "yt": 9,
+   "niat": 1,
+   "vis": 3,
+   "skor": 37.1,
+   "tumbuh": 52.5,
+   "skor_keluarga": 56.9,
+   "skor_views": 54.0,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa burung bisa terbang",
+    "kenapa burung bisa terbang hsr",
+    "kenapa burung unta tidak bisa terbang",
+    "kenapa burung bisa terbang sedangkan ayam tidak",
+    "kenapa gelang tridatu tidak boleh dipakai di tangan kiri",
+    "kenapa burung bisa terbang tebak tebakan"
+   ]
+  },
+  {
+   "tema": "kapal & mengapung",
+   "jml": 19,
+   "kuat": 10,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.79,
+   "yt": 9,
+   "niat": 3,
+   "vis": 0,
+   "skor": 38.9,
+   "tumbuh": 47.6,
+   "skor_keluarga": 50.6,
+   "skor_views": 53.8,
+   "momen": "TURUN",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa kapal tidak tenggelam",
+    "kenapa es batu mengapung",
+    "kenapa kapal tidak tenggelam padahal terbuat dari besi",
+    "kenapa kapal titanic tenggelam",
+    "kenapa kapal tidak tenggelam padahal berat",
+    "kenapa es mengapung di air"
+   ]
+  },
+  {
+   "tema": "anjing",
+   "jml": 20,
+   "kuat": 4,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.8,
+   "yt": 12,
+   "niat": 0,
+   "vis": 1,
+   "skor": 32.4,
+   "tumbuh": 48.5,
+   "skor_keluarga": 51.7,
+   "skor_views": 52.8,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa anjing haram",
+    "kenapa anjing kawin tidak bisa lepas",
+    "kenapa anjing najis",
+    "kenapa anjing tidak boleh makan coklat",
+    "kenapa anjing kalo kawin susah lepas",
+    "kenapa anjing najis di dalam islam"
+   ]
+  },
+  {
+   "tema": "kuku",
+   "jml": 20,
+   "kuat": 15,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.2,
+   "yt": 4,
+   "niat": 1,
+   "vis": 0,
+   "skor": 37.1,
+   "tumbuh": 70.6,
+   "skor_keluarga": 71.4,
+   "skor_views": 46.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa kuku jempol kaki bergelombang",
+    "kenapa kuku berlubang kecil",
+    "kenapa kuku patah",
+    "kenapa kuku jempol kaki sakit",
+    "kenapa kuku bisa cantengan",
+    "kenapa kuku berlubang"
+   ]
+  },
+  {
+   "tema": "pesawat",
+   "jml": 16,
+   "kuat": 5,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.94,
+   "yt": 9,
+   "niat": 3,
+   "vis": 0,
+   "skor": 32.4,
+   "tumbuh": 43.1,
+   "skor_keluarga": 46.1,
+   "skor_views": 45.8,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa pesawat bisa terbang",
+    "kenapa pesawat takut turbulensi pesawat",
+    "kenapa pesawat bisa terbang padahal berat",
+    "kenapa pesawat mainan tidak bisa terbang",
+    "kenapa pesawat bisa terbang di udara",
+    "kenapa pesawat berat bisa terbang"
+   ]
+  },
+  {
+   "tema": "ufo & alien",
+   "jml": 17,
+   "kuat": 10,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.47,
+   "yt": 6,
+   "niat": 0,
+   "vis": 3,
+   "skor": 31.8,
+   "tumbuh": 42.0,
+   "skor_keluarga": 43.6,
+   "skor_views": 45.4,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa lemon dijuluki alien",
+    "kenapa fang alien",
+    "kenapa lemon disebut alien",
+    "kenapa alien stage tidak ada round 4",
+    "kenapa alien di film war of the world mati",
+    "kenapa alien makannya berantakan"
+   ]
+  },
+  {
+   "tema": "gula & makanan",
+   "jml": 14,
+   "kuat": 5,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.93,
+   "yt": 10,
+   "niat": 0,
+   "vis": 1,
+   "skor": 26.5,
+   "tumbuh": 29.6,
+   "skor_keluarga": 32.2,
+   "skor_views": 43.8,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa makan pedas bisa diare",
+    "kenapa gula darah bisa rendah",
+    "kenapa makan pedas sedikit langsung diare",
+    "kenapa gula darah bisa tinggi",
+    "kenapa makan pedas bikin nagih",
+    "kenapa makan pedas"
+   ]
+  },
+  {
+   "tema": "planet & roket",
+   "jml": 12,
+   "kuat": 10,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.58,
+   "yt": 5,
+   "niat": 0,
+   "vis": 7,
+   "skor": 29.5,
+   "tumbuh": 49.6,
+   "skor_keluarga": 51.0,
+   "skor_views": 43.6,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "bagaimana roket bekerja",
+    "kenapa mars merah",
+    "bagaimana roket mendarat ke bumi",
+    "bagaimana roket menembus atmosfer",
+    "kenapa planet mars merah",
+    "kenapa permukaan mars merah"
+   ]
+  },
+  {
+   "tema": "langit & senja",
+   "jml": 14,
+   "kuat": 4,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.79,
+   "yt": 2,
+   "niat": 2,
+   "vis": 14,
+   "skor": 26.7,
+   "tumbuh": 47.5,
+   "skor_keluarga": 49.7,
+   "skor_views": 39.4,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa langit biru",
+    "kenapa langit merah",
+    "kenapa langit biru padahal luar angkasa gelap",
+    "kenapa langit merah di malam hari",
+    "kenapa langit biru pada siang hari",
+    "kenapa langit merah saat maghrib"
+   ]
+  },
+  {
+   "tema": "dinosaurus",
+   "jml": 14,
+   "kuat": 9,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.43,
+   "yt": 5,
+   "niat": 0,
+   "vis": 0,
+   "skor": 30.8,
+   "tumbuh": 39.1,
+   "skor_keluarga": 40.3,
+   "skor_views": 39.0,
+   "momen": "STABIL",
+   "status": "Ep26",
+   "rencana_seri": [
+    "kenapa dinosaurus punah",
+    "kenapa dinosaurus harus punah",
+    "kenapa dinosaurus musnah",
+    "kenapa dinosaurus punah menurut islam",
+    "kenapa dinosaurus punah jokes",
+    "kenapa dinosaurus bisa punah"
+   ]
+  },
+  {
+   "tema": "gusi & rahang",
+   "jml": 12,
+   "kuat": 5,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.58,
+   "yt": 4,
+   "niat": 1,
+   "vis": 11,
+   "skor": 23.6,
+   "tumbuh": 49.5,
+   "skor_keluarga": 50.9,
+   "skor_views": 38.4,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa rahang bunyi saat buka mulut",
+    "kenapa rahang bunyi saat makan",
+    "kenapa rahang bunyi ketika membuka mulut",
+    "kenapa rahang berbunyi saat membuka mulut",
+    "kenapa rahang bunyi",
+    "kenapa rahang sakit ketika buka mulut"
+   ]
+  },
+  {
+   "tema": "lubang hitam",
+   "jml": 11,
+   "kuat": 6,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.82,
+   "yt": 3,
+   "niat": 0,
+   "vis": 0,
+   "skor": 25.1,
+   "tumbuh": 57.8,
+   "skor_keluarga": 59.6,
+   "skor_views": 29.0,
+   "momen": "STABIL",
+   "status": "SEGAR",
+   "rencana_seri": []
+  },
+  {
+   "tema": "gunung api",
+   "jml": 10,
+   "kuat": 6,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.7,
+   "yt": 2,
+   "niat": 2,
+   "vis": 1,
+   "skor": 24.1,
+   "tumbuh": 30.7,
+   "skor_keluarga": 32.1,
+   "skor_views": 27.0,
+   "momen": "NAIK",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa gunung meletus",
+    "kenapa gunung meletus bisa meletus",
+    "kenapa gunung meletus ada kilat",
+    "kenapa bisa terjadi gunung meletus",
+    "kenapa gunung meletus menurut islam",
+    "kenapa gunung meletus secara bersamaan"
+   ]
+  },
+  {
+   "tema": "kedutan",
+   "jml": 5,
+   "kuat": 0,
+   "jaring": 0,
+   "kedalaman": 1,
+   "peluang": 0.4,
+   "yt": 5,
+   "niat": 2,
+   "vis": 0,
+   "skor": 14.3,
+   "tumbuh": 23.2,
+   "skor_keluarga": 23.6,
+   "skor_views": 20.2,
+   "momen": "TURUN",
+   "status": "SEGAR",
+   "rencana_seri": [
+    "kenapa tangan kanan kedutan",
+    "kenapa bibir atas kedutan",
+    "kenapa tangan kiri kedutan",
+    "kenapa pipi kiri kedutan terus",
+    "kenapa alis kiri kedutan terus"
+   ]
+  }
+ ]
+}

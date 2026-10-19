@@ -1,0 +1,103 @@
+{
+ "title": "Perjalanan ke Dasar Laut Terdalam di Bumi",
+ "channel": "KlikTahu",
+ "header_badge": "LAUT DALAM · PALUNG MARIANA",
+ "bg_element": "none",
+ "lead_in": 1.0,
+ "tail_intro": 1.7,
+ "tail_fact": 1.8,
+ "tail_outro": 3.0,
+ "mesin": "long16x9",
+ "scenes": [
+  {
+   "id": "b01",
+   "type": "intro",
+   "visual": "v02_intro",
+   "accent": "#56CCF2",
+   "bab": "Pembuka",
+   "vo": "Bayangkan kamu berdiri di geladak kapal, di tengah Samudra Pasifik. Di bawah kakimu, ada air sedalam hampir sebelas kilometer. Hari ini, kita akan menyelam sampai ke dasarnya, titik terdalam di planet Bumi. Setiap beberapa ratus meter, dunia di sekitarmu akan berubah. Cahaya menghilang, air makin dingin, dan tekanannya cukup kuat untuk meremukkan kapal selam biasa. Di sepanjang jalan, kita akan bertemu makhluk yang bisa membuat cahaya sendiri, bangkai kapal paling terkenal di dunia, dan sesuatu di dasar laut yang tidak seharusnya ada di sana. Anehnya, peta permukaan Bulan justru lebih lengkap daripada peta dasar laut kita sendiri. Tarik napas dalam-dalam. Kita mulai menyelam.",
+   "speed": 1.09
+  },
+  {
+   "id": "b02",
+   "type": "fact",
+   "visual": "v02_matahari",
+   "accent": "#F2C94C",
+   "bab": "Zona Matahari",
+   "vo": "Kita mulai dari permukaan. Di beberapa meter pertama, sesuatu yang aneh terjadi pada warna. Air laut menyerap cahaya merah lebih dulu, lalu jingga, lalu kuning. Karena itu, di kedalaman dua puluh meter, darah dari luka kecil pun terlihat hijau kehitaman, bukan merah. Di sini, tekanan juga mulai terasa. Setiap turun sepuluh meter, tekanan air bertambah satu atmosfer, sama dengan berat seluruh udara di atas kepala kita. Itu sebabnya telingamu terasa sakit saat menyelam di kolam yang dalam. Penyelam rekreasi biasanya hanya boleh turun sampai empat puluh meter. Tapi perjalanan kita masih sangat panjang. Di kedalaman dua ratus meter, hanya tersisa sekitar satu persen cahaya matahari. Di sinilah zona matahari berakhir.",
+   "speed": 1.09
+  },
+  {
+   "id": "b03",
+   "type": "fact",
+   "visual": "v02_senja",
+   "accent": "#56CCF2",
+   "bab": "Zona Senja",
+   "vo": "Selamat datang di zona senja. Di sini, cahaya tinggal biru redup, seperti langit sesaat setelah matahari terbenam. Tumbuhan tidak bisa hidup, karena cahayanya terlalu lemah untuk fotosintesis. Tapi zona ini justru penuh kehidupan. Ikan lentera, udang, dan ubur-ubur bersembunyi di sini sepanjang siang, agar tidak terlihat oleh pemangsa. Begitu malam tiba, miliaran hewan ini berenang naik ke dekat permukaan untuk makan, lalu turun lagi sebelum pagi. Para ilmuwan menyebutnya migrasi hewan terbesar di Bumi, dan itu terjadi setiap malam. Semakin dalam, air semakin dingin. Di kedalaman seribu meter, suhu air tinggal sekitar empat derajat Celsius, dan cahaya matahari hilang sepenuhnya.",
+   "speed": 1.09
+  },
+  {
+   "id": "b04",
+   "type": "fact",
+   "visual": "v02_malam",
+   "accent": "#BB6BD9",
+   "bab": "Zona Tengah Malam",
+   "vo": "Mulai dari sini, kita masuk ke zona tengah malam. Gelap total, selamanya. Tidak ada satu pun sinar matahari yang pernah sampai ke sini. Tapi tunggu dulu. Lihat kilatan-kilatan kecil itu. Di laut dalam, sekitar tujuh puluh enam persen hewan bisa membuat cahaya sendiri, lewat reaksi kimia di tubuhnya. Namanya bioluminesensi. Cahaya dipakai untuk memancing mangsa, mencari pasangan, atau mengecoh pemangsa. Salah satu yang paling terkenal adalah ikan pemancing, yang punya umpan bercahaya di atas kepalanya. Mangsa yang penasaran mendekat, lalu hap! Di zona ini juga ada tamu dari permukaan. Paus sperma bisa menyelam lebih dari dua ribu meter, dan menahan napas lebih dari satu jam, untuk memburu cumi-cumi raksasa yang panjangnya bisa sekitar dua belas meter.",
+   "speed": 1.09
+  },
+  {
+   "id": "b05",
+   "type": "fact",
+   "visual": "v02_titanic",
+   "accent": "#F2994A",
+   "bab": "Titanic dan Salju Laut",
+   "vo": "Terus turun. Di kedalaman sekitar tiga ribu tujuh ratus meter, kita sampai di kedalaman rata-rata lautan di Bumi. Sedikit di bawahnya, di tiga ribu delapan ratus meter, terbaring bangkai kapal paling terkenal di dunia, Titanic. Kapal itu tenggelam pada tahun seribu sembilan ratus dua belas, dan baru ditemukan tujuh puluh tiga tahun kemudian. Di kedalaman ini, tekanan air sudah sekitar tiga ratus delapan puluh kali tekanan di permukaan. Coba bayangkan sebuah gelas styrofoam dibawa turun ke sini. Tekanan air memeras semua udara di dalam busanya, dan gelas itu menyusut menjadi seukuran gelas mainan. Di sekeliling kita, butiran putih melayang turun pelan-pelan, seperti hujan salju. Itu salju laut, sisa makhluk dari atas yang menjadi makanan bagi penghuni laut dalam.",
+   "speed": 1.09
+  },
+  {
+   "id": "b06",
+   "type": "fact",
+   "visual": "v02_ventilasi",
+   "accent": "#EB5757",
+   "bab": "Air Panas di Dasar Laut",
+   "vo": "Di bawah empat ribu meter, kita memasuki zona abisal. Dasar lautnya luas dan datar, ditutupi lumpur halus yang terkumpul selama jutaan tahun. Suhunya hanya sekitar dua derajat, hampir membeku. Tapi di beberapa tempat di dasar laut dalam, ada kejutan. Dari retakan di dasar laut, menyembur air panas berwarna hitam, dengan suhu lebih dari empat ratus derajat Celsius. Airnya tidak mendidih, karena tekanan di sini sangat besar. Namanya ventilasi hidrotermal. Yang lebih mengejutkan, di sekitarnya ada kehidupan yang ramai. Cacing tabung, kepiting, dan udang hidup tanpa sinar matahari sama sekali. Mereka bergantung pada bakteri yang mengubah zat kimia dari perut Bumi menjadi makanan. Penemuan ini mengubah cara ilmuwan memandang kehidupan, bahkan di planet lain.",
+   "speed": 1.09
+  },
+  {
+   "id": "b07",
+   "type": "fact",
+   "visual": "v02_hadal",
+   "accent": "#6FCF97",
+   "bab": "Zona Hadal",
+   "vo": "Lewat enam ribu meter, kita masuk ke zona hadal, yang dinamai dari Hades, dewa dunia bawah dalam mitologi Yunani. Zona ini hanya ada di palung, yaitu jurang sempit yang terbentuk saat satu lempeng Bumi menunjam ke bawah lempeng lainnya. Indonesia juga punya jurang laut yang sangat dalam. Yang terdalam, Palung Weber di Laut Banda, Maluku, dalamnya lebih dari tujuh ribu dua ratus meter. Bahkan di kedalaman seperti ini, masih ada ikan. Pada tahun dua ribu dua puluh tiga, ilmuwan merekam ikan siput di kedalaman delapan ribu tiga ratus tiga puluh enam meter, ikan terdalam yang pernah terekam kamera. Tubuhnya lembek dan pucat, tanpa sisik keras. Para ilmuwan menduga, sedikit di bawah kedalaman ini, ikan sudah tidak bisa hidup lagi.",
+   "speed": 1.09
+  },
+  {
+   "id": "b08",
+   "type": "fact",
+   "visual": "v02_terdalam",
+   "accent": "#F2C94C",
+   "bab": "Titik Terdalam di Bumi",
+   "vo": "Dan akhirnya, sepuluh ribu sembilan ratus tiga puluh lima meter. Kita tiba di Challenger Deep, bagian terdalam Palung Mariana, titik terdalam di Bumi. Seberapa dalam itu? Kalau Gunung Everest, gunung tertinggi di dunia, ditaruh di sini, puncaknya masih terendam lebih dari dua kilometer di bawah permukaan. Tekanannya lebih dari seribu kali tekanan di permukaan. Artinya, setiap sentimeter persegi tubuhmu ditekan beban sekitar satu ton, seperti sebuah mobil yang bertumpu di ujung jarimu. Airnya dingin, sekitar satu sampai empat derajat, dan gelapnya total. Tapi dasar palung ini tidak kosong. Ada makhluk mirip udang, bernama amfipoda, yang hidup dan berkembang biak di sini, dengan tubuh yang sudah menyesuaikan diri dengan tekanan luar biasa.",
+   "speed": 1.09
+  },
+  {
+   "id": "b09",
+   "type": "fact",
+   "visual": "v02_manusia",
+   "accent": "#56CCF2",
+   "bab": "Manusia di Dasar Palung",
+   "vo": "Lalu, pernahkah manusia sampai ke sini? Pernah. Pada tahun seribu sembilan ratus enam puluh, Jacques Piccard dan Don Walsh turun dengan kapal selam Trieste. Perjalanan turunnya memakan waktu hampir lima jam. Di tengah jalan, jendelanya retak, sehingga mereka hanya bisa berada di dasar sekitar dua puluh menit. Lima puluh dua tahun kemudian, sutradara film Titanic, James Cameron, turun sendirian dalam waktu dua setengah jam lebih. Tapi ada temuan yang membuat sedih. Pada tahun dua ribu delapan belas, ilmuwan melaporkan sebuah kantong plastik di kedalaman sepuluh ribu delapan ratus sembilan puluh delapan meter. Sampah dari daratan ternyata sudah sampai ke titik terdalam di planet kita, tempat yang hampir tidak pernah dikunjungi manusia.",
+   "speed": 1.09
+  },
+  {
+   "id": "b10",
+   "type": "outro",
+   "visual": "v02_naik",
+   "accent": "#6FCF97",
+   "bab": "Kembali ke Permukaan",
+   "vo": "Sekarang, saatnya naik kembali ke permukaan. Perjalanan kita tadi melewati lima lapisan laut. Zona matahari, tempat warna menghilang satu per satu. Zona senja, tempat migrasi terbesar di Bumi terjadi setiap malam. Zona tengah malam, yang diterangi cahaya makhluk hidup. Zona abisal, dengan air panas yang tidak mendidih. Dan zona hadal, tempat tekanannya seberat mobil di ujung jari. Anehnya, sampai hari ini baru sekitar seperempat dasar laut yang sudah dipetakan secara rinci. Artinya, sebagian besar dasar laut di planet kita belum pernah kita lihat dengan jelas. Siapa tahu makhluk apa lagi yang menunggu di sana. Kalau kamu suka perjalanan seperti ini, ikuti KlikTahu, dan tulis di kolom komentar, ke mana kita harus pergi berikutnya.",
+   "speed": 1.09
+  }
+ ]
+}

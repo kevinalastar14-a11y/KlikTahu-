@@ -1,0 +1,111 @@
+{
+ "title": "Kenapa Mata Kedutan?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · OTOT & SARAF",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_kedut",
+   "accent": "#2E6E8C",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "MATA KEDUTAN?"
+   ],
+   "vo": "Tengah kerja, kelopak matamu tiba-tiba berkedut sendiri. Detik, menit, kadang berhari-hari. Tenang, ini bukan tanda buruk. Kenapa mata bisa kedutan?",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "ototkelopa",
+   "accent": "#2E6E8C",
+   "trans": "flash",
+   "badge": "KEDUTAN = OTOT, BUKAN PERTANDA",
+   "vo": "Kedutan itu otot, bukan pertanda. Otot bulat di kelopak mata menyusut sendiri tanpa perintah otak. Kedutannya kecil dan cepat, makanya terasa seperti kulit berdenyut.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "pemicu_mata",
+   "accent": "#6B4A8C",
+   "trans": "iris",
+   "badge": "EMPAT PEMICU UTAMA",
+   "vo": "Pemicunya biasanya sehari-hari: kafein berlebihan, kurang tidur, stres, dan mata lelah menatap layar terlalu lama. Makin banyak pemicunya, makin sering kedutan datang.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2b",
+   "type": "fact",
+   "visual": "impuls",
+   "accent": "#8C6D1F",
+   "trans": "bands",
+   "badge": "MEKANISMENYA, DARI NOL",
+   "vo": "Dari nol begini: saraf mengirim impuls kecil ke otot. Saat tubuh lelah atau mineral seperti magnesium berkurang, otot jadi mudah terangsang dan menembakkan impuls sendiri. Itulah kedutan.",
+   "speed": 1.07
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "mitos_kedut",
+   "accent": "#B2542A",
+   "trans": "zoom",
+   "badge": "MITOS: KEDUTAN = RAMALAN",
+   "vo": "Kedutan sama sekali tidak meramal masa depan. Kedutan kanan bukan rezeki, kedutan kiri bukan sial. Itu cuma posisi otot yang sedang lelah kebetulan.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "atasi_kedut",
+   "accent": "#B03A2E",
+   "trans": "rise",
+   "badge": "LANGSUNG ATASI BEGITU KEDUTAN",
+   "vo": "Saat kedutan datang: kompres hangat di kelopak, tirukan tidur yang cukup, kurangi kopi dan teh berkafein, serta istirahatkan mata dari layar.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "rule2020",
+   "accent": "#1F7A4D",
+   "trans": "flash",
+   "badge": "ATURAN 20-20-20 + MAGNESIUM",
+   "vo": "Cegah dengan aturan 20-20-20: tiap 20 menit, alihkan pandangan sejauh 6 meter selama 20 detik. Cukupi air, dan lengkapi magnesium dari pisang, kacang, dan sayur hijau.",
+   "speed": 1.10
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "waspada_mata",
+   "accent": "#8C2F39",
+   "trans": "bands",
+   "badge": "KAPAN PERLU KE DOKTER",
+   "vo": "Waspada bila kedutan berhari-hari sampai menutup mata, menyebar ke sisi wajah, atau disertai mata turap. Kondisi itu perlu diperiksa dokter.",
+   "speed": 1.10
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#2E6E8C",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: AAO · StatPearls (Eyelid Myokymia) · Mayo Clinic · NINDS",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

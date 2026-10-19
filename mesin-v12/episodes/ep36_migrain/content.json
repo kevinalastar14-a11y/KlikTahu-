@@ -1,0 +1,125 @@
+{
+ "title": "Kenapa Migrain?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · OTAK & SARAF",
+ "bg_element": "none",
+ "lead_in": 0.3,
+ "tail_intro": 0.8,
+ "tail_fact": 0.8,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_migrain",
+   "accent": "#3A2E6E",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "MIGRAIN?"
+   ],
+   "vo": "Sakit kepala berdenyut sebelah, mata tak tahan cahaya? Itu bisa jadi migrain. Bukan sakit kepala biasa. Ini yang terjadi di otakmu.",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "gelombang36",
+   "accent": "#2E4A8C",
+   "trans": "dive",
+   "dive_at": [
+    540,
+    1150
+   ],
+   "badge": "GELOMBANG YANG MENYAPU OTAK",
+   "vo": "Otak penderita migrain hiper-reaktif. Sekali terpicu, lahir gelombang listrik yang menyapu otak pelan-pelan: cortical spreading depression. Gelombang ini pemicu aura.",
+   "speed": 1.1
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "aura36",
+   "accent": "#6E2E8C",
+   "trans": "whip",
+   "badge": "AURA: PERINGATAN DARI OTAK",
+   "vo": "Satu dari tiga penderita merasakan aura: kilatan cahaya, zigzag, kesemutan, sampai bicara pelo. Durasinya lima sampai enam puluh menit, sebelum sakitnya datang.",
+   "speed": 1.1
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "cgrp36",
+   "accent": "#1F5E8C",
+   "trans": "glint",
+   "badge": "CGRP: MOLEKUL KUNCI NYERI",
+   "vo": "Gelombang itu mengaktifkan saraf trigeminal, yang melepas CGRP, molekul pembuluh darah. Pembuluh di selaput otak membesar, meradang. Hasilnya nyeri berdenyut sebelah. Obat migrain terbaru memblokir CGRP ini.",
+   "speed": 1.1
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "pemicu36",
+   "accent": "#8C4A1F",
+   "trans": "flash",
+   "badge": "PEMICU YANG SEHARI-HARI",
+   "vo": "Pemicunya: stres, tidur kacau, lewat jam makan, kafein, cahaya berkedip, sampai hormon sebelum haid. Beda orang, beda daftarnya.",
+   "speed": 1.11
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "angka36",
+   "accent": "#1F7A4D",
+   "trans": "auto",
+   "badge": "ANGKA YANG MENGEJUTKAN",
+   "vo": "Wanita tiga kali lebih sering kena. Kalau orangtuamu migrain, risikomu sampai lima puluh persen. Dan migrain menyumbang sembilan puluh persen beban disabilitas sakit kepala dunia.",
+   "speed": 1.11
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "tangani36",
+   "accent": "#2E6E8C",
+   "trans": "speed",
+   "badge": "TANGANI BENAR - HINDARI JEBAKAN",
+   "vo": "Tangani sejak awal: obat paling efektif saat gejala baru mulai, ruang gelap sepi, air cukup. Tapi kebanyakan obat pereda justru memicu sakit kepala baru. Lebih dari seperlima beban sakit kepala dunia.",
+   "speed": 1.11
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "batas36",
+   "accent": "#8C2F39",
+   "trans": "thud",
+   "badge": "KAPAN HARUS KE DOKTER",
+   "vo": "Segera ke dokter bila sakit kepala datang seperti guntur, terburuk seumur hidup. Demam dan kaku leher. Lumpuh atau pelo mendadak: tanda stroke. Juga setelah benturan kepala, atau sakit baru di atas lima puluh.",
+   "speed": 1.12
+  },
+  {
+   "id": "f8",
+   "type": "fact",
+   "visual": "rangkuman36",
+   "accent": "#3A2E6E",
+   "trans": "ambient",
+   "badge": "RANGKUMAN 15 DETIK",
+   "vo": "Jadi ingat. Migrain mulai dari gelombang di otak. Aura itu peringatan awal. CGRP kuncinya. Obat berlebih justru jebakan.",
+   "speed": 1.12
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#3A2E6E",
+   "trans": "iris",
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke yang sering migrain",
+   "src": "Sumber: Mayo Clinic · IHME GBD 2023 · PubMed",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13,
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ]
+  }
+ ]
+}

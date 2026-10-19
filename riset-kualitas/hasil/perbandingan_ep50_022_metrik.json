@@ -1,0 +1,36 @@
+{
+ "sebelum": {
+  "luma_mean": 180.67,
+  "luma_dr": 234.1,
+  "entropy": 4.252,
+  "banding_levels": 38,
+  "grain": 3.39,
+  "flat_pct": 53.5,
+  "edge_p99": 48.0,
+  "clip_white": 0.23,
+  "clip_black": 0.11,
+  "krem_rgb": [
+   237.8,
+   233.4,
+   223.4
+  ],
+  "warna_geser_delta": 0.0
+ },
+ "sesudah": {
+  "luma_mean": 178.8,
+  "luma_dr": 232.1,
+  "entropy": 4.362,
+  "banding_levels": 42,
+  "grain": 3.35,
+  "flat_pct": 34.8,
+  "edge_p99": 46.5,
+  "clip_white": 0.21,
+  "clip_black": 0.0,
+  "krem_rgb": [
+   236.1,
+   231.7,
+   221.5
+  ],
+  "warna_geser_delta": 1.94
+ }
+}

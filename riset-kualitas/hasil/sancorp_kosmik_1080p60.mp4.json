@@ -1,0 +1,59 @@
+{
+ "file": "sancorp_kosmik_1080p60.mp4",
+ "size_mb": 83.28,
+ "duration_s": 53.97,
+ "kbps": 12945,
+ "vcodec": "h264",
+ "width": 1920,
+ "height": 1080,
+ "fps": 60.0,
+ "ar": "16:9",
+ "audio_codec": null,
+ "frames": 648,
+ "motion_mean": 4.817,
+ "motion_p10": 0.185,
+ "motion_p50": 3.928,
+ "motion_p90": 10.593,
+ "motion_p99": 19.882,
+ "static_pct": 15.61,
+ "event_density": 0.54,
+ "luma_mean": 33.23,
+ "luma_p1": 0.53,
+ "luma_p99": 146.88,
+ "luma_dr": 146.35,
+ "clip_black": 62.21,
+ "clip_white": 0.07,
+ "midtone_pct": 27.34,
+ "entropy": 3.013,
+ "grain": 2.292,
+ "flat_pct": 41.19,
+ "edge_p99": 29.14,
+ "sharpness": 404.2,
+ "colorfulness": 20.92,
+ "saturation_pct": 19.73,
+ "palette": [
+  {
+   "hex": "#101010",
+   "pct": 67.7
+  },
+  {
+   "hex": "#301010",
+   "pct": 2.6
+  },
+  {
+   "hex": "#707070",
+   "pct": 2.6
+  },
+  {
+   "hex": "#505050",
+   "pct": 2.1
+  },
+  {
+   "hex": "#303030",
+   "pct": 2.1
+  }
+ ],
+ "audio": {
+  "has_audio": false
+ }
+}

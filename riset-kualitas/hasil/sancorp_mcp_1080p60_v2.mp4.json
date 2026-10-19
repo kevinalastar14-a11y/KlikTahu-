@@ -1,0 +1,82 @@
+{
+ "file": "sancorp_mcp_1080p60_v2.mp4",
+ "size_mb": 39.89,
+ "duration_s": 56.0,
+ "kbps": 5974,
+ "vcodec": "h264",
+ "width": 1920,
+ "height": 1080,
+ "fps": 60.0,
+ "ar": "16:9",
+ "audio_codec": "aac",
+ "audio_layout": "stereo",
+ "frames": 672,
+ "motion_mean": 5.58,
+ "motion_p10": 0.529,
+ "motion_p50": 1.283,
+ "motion_p90": 12.889,
+ "motion_p99": 88.621,
+ "static_pct": 1.49,
+ "event_density": 0.91,
+ "luma_mean": 26.2,
+ "luma_p1": 3.83,
+ "luma_p99": 169.1,
+ "luma_dr": 165.27,
+ "clip_black": 6.54,
+ "clip_white": 0.0,
+ "midtone_pct": 18.87,
+ "entropy": 3.867,
+ "grain": 2.713,
+ "flat_pct": 43.01,
+ "edge_p99": 52.61,
+ "sharpness": 527.6,
+ "colorfulness": 38.77,
+ "saturation_pct": 74.73,
+ "palette": [
+  {
+   "hex": "#101010",
+   "pct": 58.1
+  },
+  {
+   "hex": "#301010",
+   "pct": 18.4
+  },
+  {
+   "hex": "#501010",
+   "pct": 4.4
+  },
+  {
+   "hex": "#701010",
+   "pct": 1.9
+  },
+  {
+   "hex": "#503030",
+   "pct": 1.5
+  }
+ ],
+ "audio": {
+  "has_audio": true,
+  "lufs": -12.75,
+  "true_peak_dbtp": 2.42,
+  "lra": 4.2,
+  "rms_dbfs": -13.61,
+  "noise_floor_db": -25.5,
+  "speech_p95_db": -8.5,
+  "stereo_corr": 0.917,
+  "side_mid": 0.2081,
+  "bands_db": {
+   "<80": -2.0,
+   "80-120": -7.5,
+   "120-300": -9.7,
+   "300-1k": -14.6,
+   "1-2k": -22.2,
+   "2-4k": -22.4,
+   "4-8k": -21.2,
+   "8-16k": -18.6,
+   "16-24k": -18.3
+  },
+  "presence_2_8k": -21.8,
+  "air_8_24k": -18.5,
+  "low_lt300": -0.4
+ }
+}

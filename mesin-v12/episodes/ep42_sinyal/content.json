@@ -1,0 +1,130 @@
+{
+ "title": "Sinyal Penuh Tapi Internet Lemot? Ini Sebabnya",
+ "channel": "KlikTahu",
+ "header_badge": "SAINS · TEKNOLOGI",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_sinyal42",
+   "accent": "#2F6FB5",
+   "shake": 0.0,
+   "lines": [
+    "SINYAL PENUH,",
+    "TAPI KOK LEMOT?"
+   ],
+   "vo": "Sinyal penuh empat garis, tapi video terus berputar dan pesan tidak terkirim. Kamu tidak sendirian. Jawabannya ada di menara yang mungkin kamu lewati setiap hari.",
+   "speed": 1.1
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "garis42",
+   "accent": "#2F6FB5",
+   "trans": "punch",
+   "badge": "GARIS SINYAL BUKAN KECEPATAN",
+   "vo": "Pertama, garis sinyal di pojok layar itu bukan ukuran kecepatan. Garis itu hanya menunjukkan seberapa kuat HP-mu mendengar menara terdekat. Terdengar jelas, belum tentu dilayani cepat.",
+   "speed": 1.09,
+   "hl": "BUKAN KECEPATAN"
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "antre42",
+   "accent": "#C2761B",
+   "trans": "slide",
+   "badge": "SATU MENARA, RIBUAN ORANG",
+   "vo": "Satu menara melayani semua orang di sekitarnya, dan kapasitasnya dibagi bersama. Di konser, di stadion, atau malam hari saat semua orang menonton video, jalurnya macet. Sinyalmu tetap penuh, tapi jatahmu mengecil.",
+   "speed": 1.09,
+   "hl": "RIBUAN ORANG"
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "tembus42",
+   "accent": "#1F7A6B",
+   "trans": "glitch",
+   "badge": "SINYAL ITU GELOMBANG RADIO",
+   "vo": "Sinyal sebenarnya gelombang radio yang tak terlihat. Dinding beton, besi, dan air menyerapnya. Makin tebal penghalangnya, makin lemah yang sampai. Itu sebabnya di lift dan basement sinyal langsung hilang.",
+   "speed": 1.09,
+   "hl": "GELOMBANG RADIO"
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "wifi42",
+   "accent": "#5B4A8C",
+   "trans": "punch",
+   "badge": "WIFI PUNYA DUA JALUR",
+   "vo": "Di rumah, wifi punya dua jalur. Jalur dua koma empat gigahertz menembus jauh tapi lebih lambat. Jalur lima gigahertz jauh lebih cepat, tapi mudah kalah oleh dinding. Dekat router pilih lima, jauh pilih dua koma empat.",
+   "speed": 1.09,
+   "hl": "DUA JALUR"
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "micro42",
+   "accent": "#B2542A",
+   "trans": "slide",
+   "badge": "MUSUH TAK TERDUGA: MICROWAVE",
+   "vo": "Ada juga musuh yang tidak terduga, yaitu microwave. Ia bekerja di frekuensi yang hampir sama dengan wifi dua koma empat gigahertz. Saat microwave menyala, wifi di dekatnya bisa tersendat.",
+   "speed": 1.09,
+   "hl": "MICROWAVE"
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "padam42",
+   "accent": "#8C2F39",
+   "trans": "glitch",
+   "badge": "MATI LAMPU, SINYAL IKUT HILANG",
+   "vo": "Lalu kenapa sinyal hilang saat mati lampu? Menara juga butuh listrik. Baterai cadangannya biasanya bertahan tiga sampai lima jam. Setelah habis, menara padam, dan semua orang pindah ke menara lain yang jadi penuh sesak.",
+   "speed": 1.09,
+   "hl": "IKUT HILANG"
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "tips42",
+   "accent": "#2E7D4F",
+   "trans": "punch",
+   "badge": "BIAR INTERNET LEBIH LANCAR",
+   "vo": "Jadi, dekati jendela, taruh router di tempat tinggi dan terbuka, dan jauhkan dari microwave. Kalau masih lemot, nyalakan lalu matikan mode pesawat, supaya HP mencari menara yang lebih lega.",
+   "speed": 1.09,
+   "hl": "LEBIH LANCAR"
+  },
+  {
+   "id": "rangkuman",
+   "type": "fact",
+   "visual": "rangkuman42",
+   "accent": "#2F6FB5",
+   "trans": "slide",
+   "badge": "INGAT TIGA HAL INI",
+   "vo": "Ingat: garis sinyal itu kekuatan, bukan kecepatan. Menara dibagi ramai-ramai, dan gelombang radio kalah oleh dinding. Kirim video ini ke teman yang selalu menyalahkan HP-nya.",
+   "speed": 1.1,
+   "hl": "TIGA HAL"
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#2F6FB5",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: T-Mobile · Telkomsel/CNN Indonesia · Vodafone · FCC",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ],
+ "mesin": "v11"
+}

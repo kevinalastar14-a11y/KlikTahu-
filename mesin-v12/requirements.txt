@@ -1,0 +1,12 @@
+# KlikTahu — dependensi mesin produksi
+# Hanya tiga paket ini (tidak ada dependensi lain). Dipasang oleh CI selftest
+# dan oleh tools/render_lokal.sh.
+#
+# Versi terbaru saat diperbarui (6 Okt 2026) dan sudah diuji lulus:
+#   pillow 12.3.0 · numpy 2.4.6/2.5.3 · imageio-ffmpeg 0.6.0
+#
+# Catatan versi Python: numpy 2.5.x hanya menyediakan wheel untuk Python 3.12+.
+# Di Python 3.11 pakai numpy 2.4.x (batas >=2.4 di bawah sudah mencakup keduanya).
+pillow>=12.3,<13
+numpy>=2.4,<3
+imageio-ffmpeg>=0.6,<1

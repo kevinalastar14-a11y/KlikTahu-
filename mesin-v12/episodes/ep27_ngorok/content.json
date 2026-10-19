@@ -1,0 +1,111 @@
+{
+ "title": "Kenapa Orang Ngorok?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · TIDUR",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.8,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_ngorok",
+   "accent": "#1F4E79",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "ORANG NGOROK?"
+   ],
+   "vo": "Tengah malam. Kamar sunyi, tapi ada bunyi seperti mesin kecil. Suaranya datang dari orang yang tidur paling pulas. Kenapa orang bisa ngorok?",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "vibrate",
+   "accent": "#6B4A8C",
+   "trans": "flash",
+   "badge": "DENGKURAN = GETARAN",
+   "vo": "Ngorok bukan bunyi dari hidung, melainkan getaran. Saat tidur, otot di tenggorokan mengendur. Udara yang dipaksa lewat membuat jaringan lunak bergetar, dan getaran itulah yang kita dengar sebagai dengkuran.",
+   "speed": 1.1
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "airway",
+   "accent": "#2F6FB5",
+   "trans": "bands",
+   "badge": "JALAN NAPAS MENYEMPIT",
+   "vo": "Saat bangun, otot tenggorokan menjaga jalan napas terbuka lebar. Saat tidur dalam, otot itu rileks dan lidah jatuh sedikit ke belakang. Jalan napas menyempit, udara menekan celah yang sempit, dan getaran makin kencang.",
+   "speed": 1.09
+  },
+  {
+   "id": "f2b",
+   "type": "fact",
+   "visual": "triggers",
+   "accent": "#8C6D1F",
+   "trans": "iris",
+   "badge": "PEMICU YANG PALING SERING",
+   "vo": "Beberapa pemicu membuat getaran makin besar: berat badan berlebih, alkohol sebelum tidur, hidung tersumbat karena flu atau alergi, rokok, dan tidur telentang yang membuat lidah jatuh ke belakang.",
+   "speed": 1.08
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "apnea",
+   "accent": "#B03A2E",
+   "trans": "zoom",
+   "badge": "KAPAN BERBAHAYA",
+   "vo": "Ngorok biasa tidak berbahaya. Yang perlu diwaspadai adalah ngorok dengan henti napas: jalan napas tertutup total sepuluh detik atau lebih, lalu tubuh tersentak mencari udara. Namanya apnea tidur obstruktif.",
+   "speed": 1.08
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "body_effect",
+   "accent": "#B2542A",
+   "trans": "flash",
+   "badge": "EFEK KE SELURUH TUBUH",
+   "vo": "Setiap napas berhenti, oksigen turun dan jantung dipaksa bekerja lebih keras. Otak terbangun sebentar untuk membuka jalan napas, berkali-kali sepanjang malam. Keesokan harinya tubuh lelah, meski durasi tidur terlihat cukup.",
+   "speed": 1.1
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "fixes",
+   "accent": "#1F7A4D",
+   "trans": "rise",
+   "badge": "CARA MEREDAKAN",
+   "vo": "Kabar baiknya, ngorok biasa bisa diredakan. Tidur miring, jaga berat badan, hindari alkohol sebelum tidur, dan rawat hidung yang tersumbat. Menghilangkan pemicunya sering kali langsung memperkecil dengkuran.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "doctor",
+   "accent": "#8C2F39",
+   "trans": "bands",
+   "badge": "TANDA HARUS KE DOKTER",
+   "vo": "Periksa ke dokter bila dengkuran disertai tercekik, henti napas, atau kantuk berlebihan di siang hari. Pemeriksaan tidur bisa merekam apa yang terjadi, supaya penanganan tepat sebelum jantung ikut rusak.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#1F4E79",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: NIH · AASM · Sleep Foundation · Lancet Respir Med",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13,
+   "trans": "iris"
+  }
+ ]
+}

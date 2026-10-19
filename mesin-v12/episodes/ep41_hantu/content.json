@@ -1,0 +1,121 @@
+{
+  "title": "Itu Bukan Hantu, Itu Otakmu - Sains di Balik Penampakan",
+  "channel": "KlikTahu",
+  "header_badge": "SAINS · MISTERI & SUPRANATURAL",
+  "bg_element": "none",
+  "lead_in": 0.6,
+  "tail_intro": 0.8,
+  "tail_fact": 0.9,
+  "tail_outro": 1.2,
+  "scenes": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "visual": "intro_hantu",
+      "accent": "#5B4A8C",
+      "shake": 0.0,
+      "lines": [
+        "ITU BUKAN HANTU,",
+        "ITU OTAKMU"
+      ],
+      "vo": "Sosok samar di sudut ruangan, merinding tanpa sebab, atau terbangun tidak bisa gerak. Semua pernah mengalaminya, dan sains punya jawabannya.",
+      "speed": 1.11
+    },
+    {
+      "id": "f1",
+      "type": "fact",
+      "visual": "tindih41",
+      "accent": "#2C4A6E",
+      "trans": "flash",
+      "badge": "TINDIHAN: KUNCI MIMPI YANG LUPA DIBUKA",
+      "vo": "Mulai dari yang paling seram: ketindihan. Saat bermimpi, otak mengunci otot tubuh supaya kita tidak menendang-nendang benda nyata. Tindihan terjadi saat kesadaran sudah bangun, tapi kunci itu belum dibuka.",
+      "speed": 1.09
+    },
+    {
+      "id": "f2",
+      "type": "fact",
+      "visual": "wajah41",
+      "accent": "#8C6D1F",
+      "trans": "iris",
+      "badge": "MELIHAT WAJAH DI TEMPAT SEPI",
+      "vo": "Melihat wajah di gorden atau jaket yang digantung? Namanya pareidolia. Detektor wajah di otak kita rajin banget, sampai pola biasa dilahirkan jadi wajah seram.",
+      "speed": 1.09
+    },
+    {
+      "id": "f3",
+      "type": "fact",
+      "visual": "dengar41",
+      "accent": "#B2542A",
+      "trans": "flash",
+      "badge": "MERINDING? ADA TERSANGKANYA",
+      "vo": "Suara sembilan belas hertz itu di bawah batas dengar manusia. Tidak sadar mendengarnya, tapi tubuh merespons: gelisah, merinding, hormon stres naik, bahkan mata ikut bergetar sampai melihat sosok samar. Sumbernya kipas, pipa, atau jalan raya.",
+      "speed": 1.09
+    },
+    {
+      "id": "f4",
+      "type": "fact",
+      "visual": "gelap41",
+      "accent": "#2E6E8C",
+      "trans": "iris",
+      "badge": "GELAP: MATA KURANG DATA",
+      "vo": "Di tempat gelap, mata kekurangan data. Otak benci kekosongan, jadi alarm kuno bernama amigdala menyala duluan, mengisi dengan dugaan terburuk.",
+      "speed": 1.09
+    },
+    {
+      "id": "f5",
+      "type": "fact",
+      "visual": "sugest41",
+      "accent": "#6B4A8C",
+      "trans": "flash",
+      "badge": "CERITA SERAM ITU MENULAR",
+      "vo": "Sekali rumah diceritakan berhantu, semua penghuninya jadi waspada, dan bunyi kecil pun dikumpulkan jadi bukti. Kalau orang diberi tahu harus mendengar apa, mereka akan mendengar itu juga.",
+      "speed": 1.09
+    },
+    {
+      "id": "f6",
+      "type": "fact",
+      "visual": "tes41",
+      "accent": "#1F7A4D",
+      "trans": "iris",
+      "badge": "CEK SENDIRI SEBELUM KESIMPULAN",
+      "vo": "Kalau rumahmu terasa aneh, cek dulu sumbernya: kipas, pipa, instalasi listrik. Dan kalau tindihan datang, gerakkan ujung jari, kuncinya akan lepas sendiri.",
+      "speed": 1.09
+    },
+    {
+      "id": "f7",
+      "type": "fact",
+      "visual": "mitos41",
+      "accent": "#8C2F39",
+      "trans": "flash",
+      "badge": "KALAU BEGITU, HANTU ITU ADA DONG?",
+      "vo": "Rasa takut itu warisan yang menyelamatkan. Tapi sampai hari ini belum ada bukti penampakan yang lolos uji. Video yang beredar banyak yang ketahuan editan. Takut boleh, tertipu jangan.",
+      "speed": 1.09
+    },
+    {
+      "id": "rangkuman",
+      "type": "fact",
+      "visual": "rangkuman41b",
+      "accent": "#5B4A8C",
+      "trans": "flash",
+      "badge": "INGAT TIGA HAL INI",
+      "vo": "Jadi ingat: tindihan itu kunci mimpi yang lupa dibuka, wajah misterius itu pareidolia, dan merinding bisa jadi infrasonik sembilan belas hertz. Rumah paling berhantu ada di kepala kita.",
+      "speed": 1.1
+    },
+    {
+      "id": "outro",
+      "type": "outro",
+      "accent": "#5B4A8C",
+      "trans": "iris",
+      "lines": [
+        "SEKARANG",
+        "KAMU TAHU"
+      ],
+      "cta": "IKUTI",
+      "foot": "Fakta sains & misteri, tiap hari",
+      "foot2": "Simpan video ini · bagikan ke teman",
+      "src": "Sumber: CNN Indonesia · Halodoc · Ars Technica/Frontiers",
+      "vo": "Ikuti KlikTahu.",
+      "speed": 1.13
+    }
+  ]
+}

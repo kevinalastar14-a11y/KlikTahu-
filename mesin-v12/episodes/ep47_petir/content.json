@@ -1,0 +1,130 @@
+{
+ "title": "Kenapa Petir Sering Menyambar Pohon?",
+ "channel": "KlikTahu",
+ "header_badge": "BUMI · CUACA",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "mesin": "v11",
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_petir47",
+   "accent": "#3B4A8C",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA PETIR SUKA",
+    "MENYAMBAR POHON?"
+   ],
+   "vo": "Saat hujan petir, pohon sering jadi sasaran. Batangnya bisa terbelah, bahkan meledak. Kenapa harus pohon? Dan kenapa berteduh di bawahnya justru berbahaya?",
+   "speed": 1.1
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "bogor47",
+   "accent": "#1F7A6B",
+   "trans": "punch",
+   "badge": "KITA TINGGAL DI NEGERI PETIR",
+   "hl": "NEGERI PETIR",
+   "vo": "Kita tinggal di negeri petir. Menurut Guinness World Records, Bogor punya hari petir terbanyak di dunia, sekitar tiga ratus dua puluh dua hari dalam setahun. Hampir setiap hari!",
+   "speed": 1.09
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "panas47",
+   "accent": "#C2761B",
+   "trans": "slide",
+   "badge": "LIMA KALI PANAS MATAHARI",
+   "hl": "LIMA KALI",
+   "vo": "Satu sambaran memanaskan udara sampai sekitar tiga puluh ribu derajat, kira-kira lima kali lebih panas dari permukaan matahari. Udara yang memuai mendadak itulah yang kita dengar sebagai guntur.",
+   "speed": 1.09
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "turun47",
+   "accent": "#2F6FB5",
+   "trans": "glitch",
+   "badge": "PETIR MERABA JALAN",
+   "hl": "MERABA",
+   "vo": "Petir tidak langsung melesat ke tanah. Ia merambat turun bertahap, berkelok-kelok, seperti meraba jalan. Baru saat tinggal puluhan meter dari tanah, sasarannya ditentukan.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "sambut47",
+   "accent": "#8C2F39",
+   "trans": "punch",
+   "badge": "YANG TINGGI MENANG",
+   "hl": "TINGGI",
+   "vo": "Saat itu, benda-benda di bawah ikut mengirim percikan listrik ke atas, menyambut petir. Yang paling tinggi, paling cepat bertemu. Pohon yang tinggi dan berdiri sendirian sering menang.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "getah47",
+   "accent": "#B5542C",
+   "trans": "slide",
+   "badge": "GETAHNYA MENDIDIH",
+   "hl": "MENDIDIH",
+   "vo": "Pohon hidup penuh air dan getah. Arus petir mengalir lewat lapisan basah di bawah kulit kayu. Getahnya mendidih jadi uap dalam sekejap, dan tekanannya bisa meledakkan kulit kayu.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "samping47",
+   "accent": "#5B4A8C",
+   "trans": "glitch",
+   "badge": "JANGAN BERTEDUH DI SINI",
+   "hl": "JANGAN",
+   "vo": "Karena itu, jangan berteduh di bawah pohon. Arus bisa melompat dari batang ke orang di dekatnya. Tempat aman adalah di dalam bangunan, atau di dalam mobil beratap logam.",
+   "speed": 1.09
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "mitos47",
+   "accent": "#1F5F8B",
+   "trans": "punch",
+   "badge": "MENYAMBAR DUA KALI?",
+   "hl": "DUA KALI?",
+   "vo": "Katanya, petir tidak menyambar tempat yang sama dua kali. Itu mitos. Gedung Empire State di New York disambar lebih dari dua puluh kali setiap tahun.",
+   "speed": 1.09
+  },
+  {
+   "id": "rangkuman",
+   "type": "fact",
+   "visual": "rangkuman47",
+   "accent": "#3B4A8C",
+   "trans": "slide",
+   "badge": "INGAT TIGA HAL INI",
+   "hl": "TIGA HAL",
+   "vo": "Ingat: benda tinggi paling sering disambar. Pohon bisa meledak karena getahnya mendidih. Dengar guntur? Segera masuk ke bangunan. Kirim ke teman yang suka berteduh di bawah pohon.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#3B4A8C",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: NOAA · NWS · Guinness World Records · IPB",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

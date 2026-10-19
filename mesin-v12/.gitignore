@@ -1,0 +1,57 @@
+# ===========================================================================
+#  .gitignore KlikTahu — apa pun yang bisa dibuat ulang / besar / rahasia
+#  TIDAK masuk repo. Aturan ini bagian dari keamanan akun (AGEN.md §14).
+# ===========================================================================
+
+# --- artefak render (dibuat ulang tiap kali) -------------------------------
+build/
+frames/
+frames*/
+parts/
+part_*.mp4
+video_master.mp4
+dist/
+*.mp4
+*.mov
+*.mkv
+*.webm
+
+# --- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# --- naskah & timeline kerja (salinan di akar, asli ada di episodes/) ------
+/content.json
+/timeline.json
+/list.txt
+
+# --- audio mentah & hasil olahan (lihat docs/audio-manifest.md) ------------
+audio/
+audio_proc/
+audio_tmp/
+episodes/*/audio_raw/*
+long/*/audio_raw/*
+
+# --- dokumen pribadi -------------------------------------------------------
+docs/*.local
+*.local.md
+
+# --- KEAMANAN: jangan pernah commit rahasia / kredensial -------------------
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*token*.txt
+*secret*
+credentials*.json
+service-account*.json
+.netrc
+.git-credentials
+
+# --- unggahan & pratinjau lokal --------------------------------------------
+uploads/
+*.log

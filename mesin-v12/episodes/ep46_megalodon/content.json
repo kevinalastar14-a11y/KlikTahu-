@@ -1,0 +1,130 @@
+{
+ "title": "Megalodon Masih Hidup? Giginya yang Menjawab",
+ "channel": "KlikTahu",
+ "header_badge": "HEWAN · PURBA",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "mesin": "v11",
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_mega46",
+   "accent": "#1F5F8B",
+   "shake": 0.0,
+   "lines": [
+    "MEGALODON",
+    "MASIH HIDUP?"
+   ],
+   "vo": "Hiu raksasa megalodon sering disebut masih bersembunyi di laut dalam. Benarkah? Jawabannya ada pada benda kecil yang ia tinggalkan di mana-mana: giginya.",
+   "speed": 1.1
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "gigi46",
+   "accent": "#B5542C",
+   "trans": "punch",
+   "badge": "NAMANYA BERARTI GIGI BESAR",
+   "hl": "GIGI BESAR",
+   "vo": "Megalodon artinya gigi besar. Giginya bisa setinggi hampir tujuh belas sentimeter, seukuran telapak tangan orang dewasa, dan bergerigi seperti pisau roti.",
+   "speed": 1.09
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "ukuran46",
+   "accent": "#2F6FB5",
+   "trans": "slide",
+   "badge": "SEBESAR APA TUBUHNYA?",
+   "hl": "SEBESAR APA",
+   "vo": "Tulang hiu dari tulang rawan, jadi jarang menjadi fosil. Dari rangkaian ruas tulang punggung di Belgia, satu megalodon diperkirakan enam belas meter. Perkiraan terbesarnya dua puluh empat meter.",
+   "speed": 1.09
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "ganti46",
+   "accent": "#1F7A6B",
+   "trans": "glitch",
+   "badge": "GIGINYA TERUS BERGANTI",
+   "hl": "TERUS BERGANTI",
+   "vo": "Seperti hiu lain, giginya tersusun berlapis. Setiap gigi yang lepas langsung diganti gigi di belakangnya. Seumur hidup, seekor hiu bisa melepas ribuan gigi ke dasar laut.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "berhenti46",
+   "accent": "#8C2F39",
+   "trans": "punch",
+   "badge": "LALU GIGINYA BERHENTI",
+   "hl": "BERHENTI",
+   "vo": "Gigi megalodon hanya ditemukan di batuan berumur puluhan juta tahun. Yang termuda, tiga koma enam juta tahun. Setelah itu, tidak ada lagi. Tidak ada satu pun gigi segar di laut zaman sekarang.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "dalam46",
+   "accent": "#3B4A8C",
+   "trans": "slide",
+   "badge": "SEMBUNYI DI LAUT DALAM?",
+   "hl": "LAUT DALAM?",
+   "vo": "Bagaimana kalau ia bersembunyi di laut dalam? Megalodon berdarah hangat, suhu tubuhnya sekitar dua puluh tujuh derajat, dan butuh makan sangat banyak. Laut dalam terlalu dingin dan terlalu miskin makanan.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "punah46",
+   "accent": "#5B4A8C",
+   "trans": "glitch",
+   "badge": "KENAPA PUNAH?",
+   "hl": "PUNAH?",
+   "vo": "Menjelang punahnya, laut mendingin dan muka air turun. Mangsanya, paus, pindah ke perairan dingin. Hiu putih yang lebih kecil ikut berebut mangsa yang sama.",
+   "speed": 1.09
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "palsu46",
+   "accent": "#C2761B",
+   "trans": "punch",
+   "badge": "DOKUMENTER PALSU",
+   "hl": "PALSU",
+   "vo": "Lalu kenapa banyak yang percaya? Tahun dua ribu tiga belas, sebuah tayangan televisi memakai aktor sebagai ilmuwan. Dalam jajak pendapatnya, tujuh puluh tiga persen penonton mengira megalodon belum punah.",
+   "speed": 1.09
+  },
+  {
+   "id": "rangkuman",
+   "type": "fact",
+   "visual": "rangkuman46",
+   "accent": "#1F5F8B",
+   "trans": "slide",
+   "badge": "INGAT TIGA HAL INI",
+   "hl": "TIGA HAL",
+   "vo": "Ingat: hiu melepas ribuan gigi seumur hidup. Gigi megalodon berhenti muncul tiga koma enam juta tahun lalu. Jadi, ia sudah punah. Kirim ke teman yang masih percaya megalodon hidup.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#1F5F8B",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: NHM London · PNAS 2023 · Nature Comms 2022",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

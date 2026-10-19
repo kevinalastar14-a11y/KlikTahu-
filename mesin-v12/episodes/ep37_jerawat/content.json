@@ -1,0 +1,116 @@
+{
+ "title": "Kenapa Jerawat Muncul?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · KULIT & PORI",
+ "bg_element": "none",
+ "lead_in": 0.3,
+ "tail_intro": 0.8,
+ "tail_fact": 0.8,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_jerawat",
+   "accent": "#8C3A2E",
+   "shake": 0.0,
+   "lines": ["KENAPA", "JERAWAT?"],
+   "vo": "Titik merah di hidung, lagi. Sembilan dari sepuluh remaja pernah di sana. Tapi tahukah kamu, jerawat itu bukan tanda wajah kotor? Ini sainsnya.",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "peta37",
+   "accent": "#8C5A2E",
+   "trans": "dive",
+   "dive_at": [540, 1150],
+   "badge": "JERAWAT LAHIR DI PORI",
+   "vo": "Di bawah kulitmu ada ribuan pori. Setiap pori berisi folikel rambut plus kelenjar minyak. Jerawat lahir di sini, lewat empat langkah.",
+   "speed": 1.10
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "sebum37",
+   "accent": "#8C6A1F",
+   "trans": "flash",
+   "badge": "LANGKAH 1: HORMON",
+   "vo": "Langkah satu: hormon. Saat pubertas, androgen naik, kelenjar minyak bekerja keras. Hasilnya, sebum berlebih membanjiri pori.",
+   "speed": 1.10
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "sumbat37",
+   "accent": "#6E4A2E",
+   "trans": "glint",
+   "badge": "LANGKAH 2: SUMBATAN",
+   "vo": "Langkah dua: sel kulit mati menumpuk dan menyumbat pori. Komedo hitam itu bukan kotoran. Itu minyak yang teroksidasi oleh udara.",
+   "speed": 1.10
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "bakteri37",
+   "accent": "#8C2F39",
+   "trans": "whip",
+   "badge": "LANGKAH 3 & 4: BAKTERI + PERADANGAN",
+   "vo": "Langkah tiga dan empat: bakteri Cutibacterium acnes makan minyak tadi dan berkembang biak. Sistem imun menyerang, pori meradang. Jadilah jerawat merah bengkak.",
+   "speed": 1.10
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "mitos37",
+   "accent": "#5A4A8C",
+   "trans": "speed",
+   "badge": "MITOS: KULIT KOTOR & COKELAT",
+   "vo": "Jadi, jerawat bukan tanda kulit kotor. Mencuci terlalu sering malah membuatnya marah. Dan mitos cokelat? Gula berlebihlah yang memicu hormon minyak, bukan cokelatnya.",
+   "speed": 1.10
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "pencet37",
+   "accent": "#8C2F39",
+   "trans": "thud",
+   "badge": "JANGAN DIPENCET",
+   "vo": "Jangan dipencet. Tekanan mendorong bakteri lebih dalam, menularkan ke pori sekitar, dan meninggalkan cekungan permanen. Zona hidung sampai bibir bahkan terhubung ke pembuluh otak.",
+   "speed": 1.10
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "benar37",
+   "accent": "#1F7A4D",
+   "trans": "auto",
+   "badge": "CARA BENAR MERAWAT",
+   "vo": "Cara benar: cuci wajah lembut dua kali sehari, pakai benzoil peroksida atau asam salisilat, kompres hangat, dan tutup dengan pimple patch.",
+   "speed": 1.10
+  },
+  {
+   "id": "f8",
+   "type": "fact",
+   "visual": "rangkuman37",
+   "accent": "#8C3A2E",
+   "trans": "ambient",
+   "badge": "RANGKUMAN 15 DETIK",
+   "vo": "Ingat: hormon, sumbatan, bakteri, peradangan. Jangan dipencet, rawat dengan benar. Kalau jerawat batu menetap, dokter kulit solusinya.",
+   "speed": 1.11
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#8C3A2E",
+   "trans": "iris",
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · tahan tanganmu dari jerawat",
+   "src": "Sumber: AAD · Halodoc · Jurnal Acne Vulgaris",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13,
+   "lines": ["SEKARANG", "KAMU TAHU"]
+  }
+ ]
+}

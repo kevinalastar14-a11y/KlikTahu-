@@ -1,0 +1,82 @@
+{
+ "file": "KlikTahu_Ep50_Orionid_v2.mp4",
+ "size_mb": 90.05,
+ "duration_s": 123.75,
+ "kbps": 6104,
+ "vcodec": "h264",
+ "width": 1080,
+ "height": 1920,
+ "fps": 60.0,
+ "ar": "9:16",
+ "audio_codec": "aac",
+ "audio_layout": "stereo",
+ "frames": 1485,
+ "motion_mean": 0.718,
+ "motion_p10": 0.283,
+ "motion_p50": 0.575,
+ "motion_p90": 1.128,
+ "motion_p99": 3.405,
+ "static_pct": 27.96,
+ "event_density": 0.22,
+ "luma_mean": 182.37,
+ "luma_p1": 20.02,
+ "luma_p99": 252.23,
+ "luma_dr": 232.21,
+ "clip_black": 0.0,
+ "clip_white": 0.1,
+ "midtone_pct": 25.16,
+ "entropy": 4.243,
+ "grain": 5.365,
+ "flat_pct": 57.02,
+ "edge_p99": 110.77,
+ "sharpness": 1869.3,
+ "colorfulness": 26.03,
+ "saturation_pct": 20.56,
+ "palette": [
+  {
+   "hex": "#F0F0F0",
+   "pct": 27.1
+  },
+  {
+   "hex": "#F0F0D0",
+   "pct": 22.1
+  },
+  {
+   "hex": "#101030",
+   "pct": 18.4
+  },
+  {
+   "hex": "#F0D0D0",
+   "pct": 12.0
+  },
+  {
+   "hex": "#D0D0D0",
+   "pct": 8.1
+  }
+ ],
+ "audio": {
+  "has_audio": true,
+  "lufs": -14.0,
+  "true_peak_dbtp": -2.04,
+  "lra": 2.9,
+  "rms_dbfs": -17.18,
+  "noise_floor_db": -47.9,
+  "speech_p95_db": -12.2,
+  "stereo_corr": 1.0,
+  "side_mid": 0.0011,
+  "bands_db": {
+   "<80": -26.7,
+   "80-120": -13.9,
+   "120-300": -2.1,
+   "300-1k": -6.0,
+   "1-2k": -14.1,
+   "2-4k": -18.0,
+   "4-8k": -15.4,
+   "8-16k": -22.7,
+   "16-24k": -42.5
+  },
+  "presence_2_8k": -16.7,
+  "air_8_24k": -32.6,
+  "low_lt300": -1.8
+ }
+}

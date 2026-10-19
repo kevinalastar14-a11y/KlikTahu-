@@ -1,0 +1,50 @@
+Lisensi Kepemilikan Penuh / All Rights Reserved
+Copyright (c) 2026 KlikTahu (pemilik channel: https://github.com/chronoidchannel-stack)
+
+=======================================================================
+BAHASA INDONESIA
+=======================================================================
+
+Seluruh isi repositori ini — termasuk tetapi tidak terbatas pada kode sumber
+mesin produksi (render.py, diagrams.py, mesin_*.py, sfx.py, dan lain-lain),
+naskah, data analisis, metadata, judul, deskripsi, serta seluruh materi video
+channel KlikTahu — adalah hak milik pemilik channel KlikTahu. Semua hak
+dilindungi undang-undang.
+
+Dengan mengakses repositori ini Anda boleh:
+  a. melihat, membaca, dan menjalankan kode untuk keperluan pembelajaran
+     pribadi; serta
+  b. mengutip potongan singkat dengan menyebutkan sumbernya.
+
+Anda TIDAK boleh, tanpa izin tertulis dari pemilik:
+  a. menyalin, mempublikasikan ulang, atau mendistribusikan seluruh atau
+     sebagian besar kode ini (termasuk mengunggahnya ke repositori lain);
+  b. memakai kode, naskah, atau data ini untuk membuat produk, channel,
+     layanan, atau karya turunan — komersial maupun tidak;
+  c. menjual, menyewakan, atau melisensikan ulang kode ini.
+
+Perangkat lunak ini disediakan "sebagaimana adanya", tanpa jaminan apa pun.
+
+Komponen pihak ketiga di dalam repositori ini memiliki lisensinya sendiri dan
+TIDAK tercakup oleh ketentuan di atas — lihat docs/ATTRIBUSI.md
+(font Poppins: SIL Open Font License 1.1; citra M87*: EHT Collaboration,
+CC BY 4.0).
+
+=======================================================================
+ENGLISH
+=======================================================================
+
+All contents of this repository — including the production engine source code
+(render.py, diagrams.py, mesin_*.py, sfx.py, etc.), scripts, analysis data,
+metadata, titles, descriptions, and all KlikTahu channel video material — are
+the property of the KlikTahu channel owner. All rights reserved.
+
+You may view, read, and run the code for personal learning, and quote short
+excerpts with attribution. You may NOT copy, republish, or redistribute
+substantially all of this code, use it to build a competing product, channel,
+or service, or sell or sublicense it, without prior written permission.
+
+The software is provided "as is", without warranty of any kind.
+
+Third-party components are licensed separately and are NOT covered by the
+terms above — see docs/ATTRIBUSI.md.

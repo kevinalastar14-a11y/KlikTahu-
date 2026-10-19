@@ -1,0 +1,130 @@
+{
+ "title": "Kenapa Luar Angkasa Gelap Padahal Ada Matahari?",
+ "channel": "KlikTahu",
+ "header_badge": "ANTARIKSA · CAHAYA",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "mesin": "v11",
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_langit45",
+   "accent": "#C2761B",
+   "shake": 0.0,
+   "lines": [
+    "ANGKASA GELAP,",
+    "PADAHAL ADA MATAHARI?"
+   ],
+   "vo": "Matahari bersinar sangat terang, tapi luar angkasa di sekitarnya gelap gulita. Padahal cahayanya melintas di sana setiap detik. Kenapa bisa begitu?",
+   "speed": 1.1
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "senter45",
+   "accent": "#2F6FB5",
+   "trans": "punch",
+   "badge": "CAHAYA TAK TERLIHAT DI JALAN",
+   "hl": "TAK TERLIHAT",
+   "vo": "Cahaya baru terlihat saat masuk ke matamu. Sinar senter di kamar yang bersih hampir tak terlihat. Tapi saat ada asap atau debu, sinarnya tampak jelas, karena butiran itu memantulkan cahaya ke matamu.",
+   "speed": 1.09
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "biru45",
+   "accent": "#1F6FA8",
+   "trans": "slide",
+   "badge": "UDARA MEMBUAT LANGIT BIRU",
+   "hl": "LANGIT BIRU",
+   "vo": "Di Bumi, molekul udara memantulkan cahaya matahari ke segala arah. Warna biru paling mudah terpantul. Jadi, ke arah mana pun kamu memandang, langit tampak biru.",
+   "speed": 1.09
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "tinggi45",
+   "accent": "#3B4A8C",
+   "trans": "glitch",
+   "badge": "MAKIN TINGGI, MAKIN GELAP",
+   "hl": "MAKIN GELAP",
+   "vo": "Naik ke ketinggian puluhan kilometer, udara makin tipis. Langit berubah biru tua, lalu hitam. Di Bulan yang hampir tanpa udara, langit tetap hitam walau matahari bersinar di siang hari.",
+   "speed": 1.09
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "putih45",
+   "accent": "#B5542C",
+   "trans": "punch",
+   "badge": "MATAHARI SEBENARNYA PUTIH",
+   "hl": "PUTIH",
+   "vo": "Udara juga mengubah warna matahari. Karena sebagian cahaya biru tersebar ke langit, matahari tampak kekuningan. Dari luar angkasa, astronaut melihatnya putih terang.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "olbers45",
+   "accent": "#5B4A8C",
+   "trans": "slide",
+   "badge": "TEKA-TEKI LANGIT MALAM",
+   "hl": "LANGIT MALAM",
+   "vo": "Tapi ada teka-teki yang lebih besar. Kalau alam semesta tak terbatas dan penuh bintang, ke arah mana pun kita memandang pasti ada bintang. Langit malam seharusnya seterang matahari.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "umur45",
+   "accent": "#8C2F39",
+   "trans": "glitch",
+   "badge": "ALAM SEMESTA PUNYA UMUR",
+   "hl": "PUNYA UMUR",
+   "vo": "Jawabannya, alam semesta berumur sekitar tiga belas koma delapan miliar tahun. Cahaya dari bintang yang terlalu jauh belum sempat sampai. Dan alam semesta terus mengembang, meregangkan cahaya lama sampai tak terlihat mata.",
+   "speed": 1.09
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "cmb45",
+   "accent": "#1F7A6B",
+   "trans": "punch",
+   "badge": "SEBENARNYA TIDAK GELAP",
+   "hl": "TIDAK GELAP",
+   "vo": "Faktanya, luar angkasa tidak benar-benar gelap. Ia dipenuhi sisa cahaya awal alam semesta, yang sudah teregang menjadi gelombang mikro. Mata kita saja yang tidak bisa melihatnya.",
+   "speed": 1.09
+  },
+  {
+   "id": "rangkuman",
+   "type": "fact",
+   "visual": "rangkuman45",
+   "accent": "#C2761B",
+   "trans": "slide",
+   "badge": "INGAT TIGA HAL INI",
+   "hl": "TIGA HAL",
+   "vo": "Ingat: cahaya baru terlihat saat memantul ke mata. Tanpa udara, langit hitam walau ada matahari. Dan langit malam gelap karena alam semesta punya umur. Kirim ke teman yang suka menatap langit.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#C2761B",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: NASA · NOAA/NWS · Royal Observatory Greenwich",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

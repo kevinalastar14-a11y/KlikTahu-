@@ -1,0 +1,55 @@
+name: Analisis kata kunci (mendalam)
+
+# Sapuan real-time Google+YouTube Autocomplete (butuh internet penuh -> dijalankan
+# di runner). Hasil di-commit balik ke branch dengan [skip ci] supaya tidak memicu
+# render atau memicu analisis lagi (tanpa loop).
+on:
+  push:
+    branches: [arena/01a0cc99-kliktahu-shorts]
+    paths: ['analisis/**']
+  schedule:
+    # sekali sehari 21.00 UTC = 04.00 WIB (dulu tiap 6 jam; dikurangi agar pemakaian Actions wajar)
+    - cron: '0 21 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analisis-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sapu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sapuan mendalam (Google + YouTube Autocomplete)
+        run: |
+          set -euo pipefail
+          python3 analisis/sapuan_mendalam.py | tee /tmp/sapuan.log
+      - name: Pemeta peluang (pohon topik v4, bercabang)
+        run: |
+          set -euo pipefail
+          python3 analisis/pemeta_peluang.py | tee /tmp/pemeta.log
+      - name: Analisis v5 (velocity + kalender momen + pabrik metadata)
+        run: |
+          set -euo pipefail
+          python3 analisis/mesin_v5.py | tee /tmp/v5.log
+      - name: Analisis v6 (papan strategi - wiki + pesaing YouTube + sudut/hook + kalender)
+        run: |
+          set -euo pipefail
+          python3 analisis/mesin_v6.py --uji
+          python3 analisis/mesin_v6.py | tee /tmp/v6.log
+      - name: Simpan hasil ke branch ([skip ci])
+        run: |
+          set -euo pipefail
+          git config user.name "KlikTahu Bot"
+          git config user.email "bot@kliktahu.local"
+          git add analisis/*.json analisis/*.md
+          git commit -m "analisis v6 real-time $(date -u +%F' '%H:%M UTC) [skip ci]" || echo "tidak ada perubahan"
+          git push origin HEAD:${{ github.ref_name }}

@@ -1,0 +1,103 @@
+{
+ "title": "Apa yang Terjadi Kalau Kamu Masuk ke Lubang Hitam?",
+ "channel": "KlikTahu",
+ "header_badge": "ANTARIKSA · LUBANG HITAM",
+ "bg_element": "none",
+ "lead_in": 1.0,
+ "tail_intro": 1.7,
+ "tail_fact": 1.8,
+ "tail_outro": 3.0,
+ "mesin": "long16x9",
+ "scenes": [
+  {
+   "id": "b01",
+   "type": "intro",
+   "visual": "v01_intro",
+   "accent": "#F2994A",
+   "bab": "Pembuka",
+   "vo": "Bayangkan kamu naik pesawat luar angkasa, lalu terbang lurus menuju sebuah lubang hitam. Tidak ada yang menahanmu, dan tidak ada jalan pulang. Apa yang akan kamu lihat? Apa yang akan kamu rasakan? Dan apa yang dilihat teman-temanmu yang menonton dari jauh? Jawabannya ternyata jauh lebih aneh dari film fiksi ilmiah mana pun. Di video ini, kita akan ikut jatuh pelan-pelan, dari luar angkasa yang tenang, sampai ke titik tanpa jalan kembali, dan lebih dalam lagi. Semuanya berdasarkan fisika yang sudah diuji, dan pengamatan nyata dari teleskop di seluruh dunia. Siap? Kencangkan sabuk pengamanmu.",
+   "speed": 1.09
+  },
+  {
+   "id": "b02",
+   "type": "fact",
+   "visual": "v01_apa",
+   "accent": "#56CCF2",
+   "bab": "Apa Itu Lubang Hitam?",
+   "vo": "Pertama, apa sebenarnya lubang hitam itu? Lubang hitam bukan lubang, dan bukan juga penyedot debu raksasa. Ia adalah benda dengan gravitasi yang sangat kuat, sampai cahaya pun tidak bisa lolos. Coba bayangkan melempar bola ke atas. Makin kencang lemparanmu, makin tinggi bola terbang. Untuk lepas sepenuhnya dari Bumi, sebuah roket perlu melaju sekitar sebelas kilometer per detik. Itu yang disebut kecepatan lepas. Sekarang, bayangkan benda yang kecepatan lepasnya melebihi kecepatan cahaya, yaitu tiga ratus ribu kilometer per detik. Karena tidak ada yang lebih cepat dari cahaya, tidak ada yang bisa keluar. Kuncinya bukan seberapa berat, tapi seberapa padat. Kalau seluruh Bumi dipadatkan sampai seukuran kelereng, Bumi pun akan menjadi lubang hitam.",
+   "speed": 1.09
+  },
+  {
+   "id": "b03",
+   "type": "fact",
+   "visual": "v01_lahir",
+   "accent": "#EB5757",
+   "bab": "Lahir dari Bintang Mati",
+   "vo": "Lalu, dari mana lubang hitam berasal? Kebanyakan lahir dari kematian bintang raksasa. Bintang hidup dari keseimbangan. Gravitasi menarik semuanya ke dalam, sementara reaksi nuklir di intinya mendorong ke luar. Saat bahan bakarnya habis, dorongan itu berhenti. Bintang dengan massa lebih dari dua puluh kali Matahari pun runtuh, lalu meledak dahsyat sebagai supernova. Lapisan luarnya terlempar ke angkasa. Tapi kalau inti yang tersisa lebih berat dari sekitar tiga kali Matahari, tidak ada gaya yang bisa menahannya. Inti itu terus runtuh, dan lahirlah lubang hitam. Para ilmuwan memperkirakan, di galaksi kita saja ada sekitar seratus juta lubang hitam. Hampir semuanya gelap dan diam, sehingga sangat sulit ditemukan.",
+   "speed": 1.09
+  },
+  {
+   "id": "b04",
+   "type": "fact",
+   "visual": "v01_piringan",
+   "accent": "#F2C94C",
+   "bab": "Seperti Apa Wujudnya?",
+   "vo": "Kembali ke perjalanan kita. Dari kejauhan, lubang hitam tidak terlihat seperti apa-apa. Ia hitam total. Yang terlihat justru sekelilingnya. Gas dan debu yang tertarik berputar mengelilinginya membentuk piringan, saling bergesekan, dan memanas sampai jutaan derajat. Piringan inilah yang bersinar terang. Gravitasinya juga membelokkan cahaya. Bintang-bintang di belakangnya tampak bergeser dan melengkung, seperti dilihat lewat kaca pembesar raksasa. Bahkan cahaya dari bagian belakang piringan ikut dibelokkan ke atas dan ke bawah, sehingga piringan terlihat seperti melingkari lubang hitam. Di bagian tengah, ada bayangan gelap. Itulah wilayah di mana cahaya sudah tidak bisa kembali ke matamu.",
+   "speed": 1.09
+  },
+  {
+   "id": "b05",
+   "type": "fact",
+   "visual": "v01_foto",
+   "accent": "#F2994A",
+   "bab": "Foto Asli Lubang Hitam",
+   "vo": "Semua ini bukan sekadar teori. Pada tahun dua ribu sembilan belas, para astronom memamerkan foto pertama lubang hitam dalam sejarah. Mereka menggabungkan teleskop radio di berbagai benua menjadi satu teleskop seukuran Bumi, yang disebut Event Horizon Telescope. Sasarannya adalah lubang hitam di pusat galaksi M87, sekitar lima puluh lima juta tahun cahaya dari kita. Beratnya sekitar enam koma lima miliar kali Matahari. Hasilnya, sebuah cincin jingga yang terang, dengan bayangan gelap di tengahnya, persis seperti ramalan teori Einstein. Tiga tahun kemudian, tim yang sama memotret lubang hitam di pusat galaksi kita sendiri, Sagitarius A bintang. Letaknya dua puluh tujuh ribu tahun cahaya dari Bumi, dengan massa sekitar empat juta kali Matahari.",
+   "speed": 1.09
+  },
+  {
+   "id": "b06",
+   "type": "fact",
+   "visual": "v01_waktu",
+   "accent": "#BB6BD9",
+   "bab": "Waktu Melambat",
+   "vo": "Makin dekat ke lubang hitam, sesuatu yang aneh mulai terjadi pada waktu. Menurut teori relativitas Einstein, gravitasi yang kuat memperlambat waktu. Ini bukan khayalan. Satelit GPS di atas Bumi pun harus mengoreksi jamnya setiap hari karena efek ini. Di dekat lubang hitam, efeknya jauh lebih ekstrem. Bagimu yang sedang jatuh, jam tanganmu berdetak normal. Tapi teman-temanmu yang menonton dari jauh melihat hal yang berbeda. Gerakanmu tampak makin lambat. Cahaya darimu makin merah, lalu makin redup. Bagi mereka, kamu seperti membeku di tepi lubang hitam, lalu perlahan menghilang. Mereka tidak akan pernah melihatmu benar-benar masuk.",
+   "speed": 1.09
+  },
+  {
+   "id": "b07",
+   "type": "fact",
+   "visual": "v01_horizon",
+   "accent": "#EB5757",
+   "bab": "Titik Tanpa Jalan Kembali",
+   "vo": "Batas itu disebut horizon peristiwa, titik tanpa jalan kembali. Horizon peristiwa bukan permukaan padat. Tidak ada dinding, dan tidak ada benturan. Ia hanyalah batas yang tak terlihat. Di luar batas ini, dengan roket yang cukup kuat, kamu masih bisa kabur. Tapi begitu melewatinya, semua arah menuju ke satu tempat, yaitu pusat lubang hitam. Mundur pun sama saja dengan maju ke dalam. Ukurannya bergantung pada massa. Lubang hitam seberat sepuluh Matahari punya horizon selebar kota, sekitar enam puluh kilometer. Sementara horizon Sagitarius A bintang lebarnya jutaan kilometer, jauh lebih besar dari Matahari kita.",
+   "speed": 1.09
+  },
+  {
+   "id": "b08",
+   "type": "fact",
+   "visual": "v01_spageti",
+   "accent": "#6FCF97",
+   "bab": "Tubuh Ditarik Seperti Mi",
+   "vo": "Lalu, apakah kamu selamat melewati horizon? Jawabannya bergantung pada ukuran lubang hitamnya. Gravitasi menarik kakimu sedikit lebih kuat daripada kepalamu, karena kakimu lebih dekat. Di Bumi, perbedaannya kecil sekali. Tapi di dekat lubang hitam kecil, perbedaan tarikan ini menjadi luar biasa. Tubuhmu ditarik memanjang dan ditekan menipis, seperti mi yang ditarik. Para ilmuwan menyebutnya spagetifikasi. Pada lubang hitam seberat sepuluh Matahari, ini terjadi jauh sebelum kamu mencapai horizon. Anehnya, lubang hitam raksasa justru lebih ramah. Tarikannya berubah jauh lebih pelan, sehingga kamu bisa melewati horizon Sagitarius A bintang tanpa merasakan apa-apa. Setidaknya, untuk sementara.",
+   "speed": 1.09
+  },
+  {
+   "id": "b09",
+   "type": "fact",
+   "visual": "v01_dalam",
+   "accent": "#56CCF2",
+   "bab": "Apa Isi Lubang Hitam?",
+   "vo": "Lalu, apa yang ada di dalamnya? Jujur saja, tidak ada yang tahu pasti. Karena tidak ada cahaya yang bisa keluar, kita tidak bisa mengamatinya. Teori Einstein meramalkan semua materi akhirnya terjepit di satu titik di pusat, yang disebut singularitas, tempat kepadatan menjadi tak terhingga. Tapi banyak fisikawan percaya, di sana hukum fisika yang kita kenal sudah tidak berlaku, dan kita butuh teori baru untuk menjelaskannya. Satu hal lagi yang mengejutkan datang dari Stephen Hawking. Ia menghitung bahwa lubang hitam ternyata perlahan memancarkan energi, lalu menyusut. Tapi sangat, sangat lambat. Lubang hitam seberat Matahari butuh waktu jauh lebih lama dari umur alam semesta untuk menguap habis.",
+   "speed": 1.09
+  },
+  {
+   "id": "b10",
+   "type": "outro",
+   "visual": "v01_aman",
+   "accent": "#6FCF97",
+   "bab": "Apakah Bumi Aman?",
+   "vo": "Jadi, apakah Bumi terancam? Tenang saja. Lubang hitam terdekat yang diketahui, Gaia BH satu, berada sekitar seribu lima ratus enam puluh tahun cahaya dari kita. Matahari juga tidak akan pernah menjadi lubang hitam, karena terlalu ringan. Kelak, ia akan menjadi katai putih. Mari kita ingat lagi perjalanan tadi. Lubang hitam adalah benda yang sangat padat, sampai cahaya pun tidak bisa lolos. Di dekatnya, waktu melambat, dan dari jauh kamu terlihat membeku. Horizon peristiwa adalah titik tanpa jalan kembali. Dan lubang hitam kecil justru lebih berbahaya daripada yang raksasa. Kalau kamu suka perjalanan seperti ini, ikuti KlikTahu, dan tulis di kolom komentar, topik apa yang ingin kamu jelajahi berikutnya.",
+   "speed": 1.09
+  }
+ ]
+}

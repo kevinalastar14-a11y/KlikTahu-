@@ -1,0 +1,65 @@
+name: Selftest (uji ringan, tanpa render video)
+
+# Sesuai aturan keamanan akun (AGEN.md §14): GitHub Actions dipakai HANYA untuk
+# membangun/menguji perangkat lunak — bukan untuk merender video. Workflow ini
+# menjalankan uji mandiri mesin (< 5 menit, tanpa render penuh, tanpa cron).
+#
+# Render video dijalankan lokal: `tools/render_lokal.sh <shorts|long> <slug>`.
+
+# 15 Okt 2026: HANYA manual (workflow_dispatch). Tidak ada pemicu push/PR sama sekali -> nol menit Actions
+# otomatis, nol risiko akun ditandai karena pola pemakaian. Jalankan uji lokal: `python3 -m compileall -q . && for m in
+# mesin_v12 mesin_v12_ep50 vo_manusia; do python3 $m.py --uji 2>/dev/null || python3 $m.py; done`.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: selftest-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  uji:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Pasang dependensi
+        run: pip install -q -r requirements.txt
+
+      - name: Cek sintaks semua modul Python
+        run: python -m compileall -q .
+
+      - name: Selftest mesin gambar
+        run: |
+          set -euo pipefail
+          python mesin_v11.py
+          python diagrams.py
+          python sfx.py
+
+      - name: Selftest mesin analisis (offline)
+        run: |
+          set -euo pipefail
+          python analisis/pemeta_peluang.py --uji
+          python analisis/mesin_v5.py --uji
+          python analisis/mesin_v6.py --uji
+          python analisis/sapuan_mendalam.py --uji
+
+      - name: Cek berkas wajib ada
+        run: |
+          set -euo pipefail
+          for f in AGEN.md PUSTAKA.md requirements.txt \
+                   fonts/Poppins-Bold.ttf fonts/Poppins-Regular.ttf fonts/OFL.txt \
+                   tools/render_lokal.sh; do
+            [ -f "$f" ] || { echo "HILANG: $f"; exit 1; }
+          done
+          bash -n tools/render_lokal.sh
+          echo "semua berkas wajib ada dan skrip render valid"

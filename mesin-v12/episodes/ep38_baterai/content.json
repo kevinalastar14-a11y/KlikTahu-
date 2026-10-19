@@ -1,0 +1,121 @@
+{
+ "title": "Kenapa Baterai Cepat Habis Padahal Nggak Dipakai?",
+ "channel": "KlikTahu",
+ "header_badge": "TEKNOLOGI · HP & BATERAI",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_bat",
+   "accent": "#9A5B1F",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "BATRE CEPAT HABIS?"
+   ],
+   "vo": "Lagi ditaruh doang, nggak dibuka, tapi persen baterai turun terus. Kok bisa? Karena HP punya penyedot yang kerja diam-diam. Ini penjelasan paling lengkapnya.",
+   "speed": 1.11
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "ion38",
+   "accent": "#2E6E8C",
+   "trans": "flash",
+   "badge": "LITHIUM-ION: 500 SIKLUS LALU TUA",
+   "vo": "Baterai kerja dengan geseran ion litium bolak-balik. Tiap siklus penuh, dia aus sedikit. Umurnya sekitar lima ratus siklus. Lewat itu, kapasitas turun drastis.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "sedot38",
+   "accent": "#8C6D1F",
+   "trans": "iris",
+   "badge": "EMPAT PENYEDOT DIAM-DIAM",
+   "vo": "Layar mati bukan berarti kosong. Aplikasi tetap jalan di latar, GPS terus mencari lokasi, notifikasi menyalakan layar, dan sinyal lemah bikin HP nyari menara terus. Itu penyedot paling licik.",
+   "speed": 1.09
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "panas38",
+   "accent": "#B2542A",
+   "trans": "bands",
+   "badge": "PANAS = MUSUH UTAMA",
+   "vo": "Musuh utamanya: panas. Cas sambil main game berat, ditaruh di kasur, ditinggal di mobil terik. Suhu tinggi merusak kimia baterai secara permanen. Kalau HP hangat, lepas casing tebalnya.",
+   "speed": 1.08
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "mitos38",
+   "accent": "#6B4A8C",
+   "trans": "zoom",
+   "badge": "MITOS: CAS SEMALAMAN ITU AMAN",
+   "vo": "Cas semalaman itu bukan penyebab utama. HP modern berhenti mengisi sendiri saat penuh. Masalahnya, baterai dipaksa seratus persen terus selagi hangat. Zona aman: dua puluh sampai delapan puluh persen.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "hantu38",
+   "accent": "#8C2F39",
+   "trans": "flash",
+   "badge": "PERSEN HANTU & MATI MENDADAK",
+   "vo": "Mati mendadak padahal persen masih ada? Itu indikator yang bohong. Baterai tua punya resistansi tinggi dan kalibrasi meleset. Persen melompat-lompat adalah tanda klasiknya.",
+   "speed": 1.09
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "hemat38",
+   "accent": "#1F7A4D",
+   "trans": "rise",
+   "badge": "YANG BENAR-BENAR MENGOBAT",
+   "vo": "Yang benar-benar menghemat: mode hemat baterai, layar redup plus dark mode, GPS mati saat nggak dipakai, dan batasi aplikasi latar. Update sistem bikin baterai lebih efisien.",
+   "speed": 1.08
+  },
+  {
+   "id": "f7",
+   "type": "fact",
+   "visual": "ganti38",
+   "accent": "#B03A2E",
+   "trans": "bands",
+   "badge": "TANDA BATERAI HARUS DIGANTI",
+   "vo": "Tanda harus ganti: kapasitas sehat di bawah delapan puluh persen, boros sejak bangun tidur, mati mendadak, dan paling bahaya, bentuk menggembung. Kembung artinya ganti segera.",
+   "speed": 1.09
+  },
+  {
+   "id": "rangkuman",
+   "type": "fact",
+   "visual": "rangkuman38b",
+   "accent": "#9A5B1F",
+   "trans": "flash",
+   "badge": "INGAT EMPAT HAL INI",
+   "vo": "Jadi ingat: penyedot diam-diam itu nyata, panas musuh utama, cas semalaman aman asal jaga zona dua puluh sampai delapan puluh persen. Persen yang melompat, tanda baterai tua.",
+   "speed": 1.10
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#9A5B1F",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: Kompas · cekhape · netcellindo · Halodoc",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

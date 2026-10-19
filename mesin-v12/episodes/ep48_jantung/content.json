@@ -1,0 +1,130 @@
+{
+  "title": "Kenapa Jantung Tiba-tiba Berdebar Kencang?",
+  "channel": "KlikTahu",
+  "header_badge": "TUBUH · JANTUNG",
+  "bg_element": "none",
+  "lead_in": 0.6,
+  "tail_intro": 0.8,
+  "tail_fact": 0.9,
+  "tail_outro": 1.2,
+  "mesin": "v11",
+  "scenes": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "visual": "intro_debar48",
+      "accent": "#B23A48",
+      "shake": 0.0,
+      "lines": [
+        "JANTUNG TIBA-TIBA",
+        "BERDEBAR KENCANG?"
+      ],
+      "vo": "Lagi santai, tiba-tiba jantung berdebar kencang. Dag, dig, dug, sampai terasa di leher. Padahal tidak habis lari. Sebenarnya, apa yang sedang terjadi di dadamu?",
+      "speed": 1.1
+    },
+    {
+      "id": "f1",
+      "type": "fact",
+      "visual": "pemacu48",
+      "accent": "#1F7A6B",
+      "trans": "punch",
+      "badge": "JANTUNG PUNYA PEMACU SENDIRI",
+      "hl": "PEMACU",
+      "vo": "Jantungmu punya pemacu alami, sekelompok sel kecil di serambi kanan. Ia mengirim sinyal listrik enam puluh sampai seratus kali per menit saat istirahat. Dalam sehari, sekitar seratus ribu detak.",
+      "speed": 1.09
+    },
+    {
+      "id": "f2",
+      "type": "fact",
+      "visual": "alarm48",
+      "accent": "#B23A48",
+      "trans": "slide",
+      "badge": "ALARM BAHAYA MENYALA",
+      "hl": "ALARM",
+      "vo": "Saat kaget, cemas, atau takut, otak menyalakan alarm bahaya. Kelenjar di atas ginjal melepas adrenalin ke dalam darah. Pemacu jantung pun menembak lebih cepat, dan setiap detak jadi lebih kuat.",
+      "speed": 1.09
+    },
+    {
+      "id": "f3",
+      "type": "fact",
+      "visual": "pemicu48",
+      "accent": "#8A5A2B",
+      "trans": "glitch",
+      "badge": "BUKAN CUMA RASA TAKUT",
+      "hl": "BUKAN CUMA",
+      "vo": "Pemicunya bukan cuma rasa takut. Kafein dalam kopi, teh pekat, dan minuman energi membuat jantung lebih mudah terpacu. Kurang tidur dan kurang minum juga bisa memicunya.",
+      "speed": 1.09
+    },
+    {
+      "id": "f4",
+      "type": "fact",
+      "visual": "diam48",
+      "accent": "#3B4A8C",
+      "trans": "punch",
+      "badge": "KENAPA TERASA SAAT DIAM?",
+      "hl": "SAAT DIAM?",
+      "vo": "Kenapa sering terasa justru saat diam? Malam hari sepi, tanpa kesibukan, jadi otak mulai memperhatikan detak yang biasanya tidak terasa. Tidur miring ke kiri, jantung lebih dekat ke dinding dada.",
+      "speed": 1.09
+    },
+    {
+      "id": "f5",
+      "type": "fact",
+      "visual": "lompat48",
+      "accent": "#1F7A6B",
+      "trans": "slide",
+      "badge": "JANTUNG SEPERTI MELOMPAT",
+      "hl": "MELOMPAT",
+      "vo": "Kadang jantung terasa seperti melompat. Biasanya itu detak ekstra yang datang terlalu cepat. Lalu ada jeda sebentar, dan detak berikutnya terasa lebih keras. Ini sangat umum, dan biasanya tidak berbahaya.",
+      "speed": 1.09
+    },
+    {
+      "id": "f6",
+      "type": "fact",
+      "visual": "tenang48",
+      "accent": "#2F6FB5",
+      "trans": "glitch",
+      "badge": "TARIK NAPAS PELAN",
+      "hl": "PELAN",
+      "vo": "Kalau datang karena cemas, tarik napas pelan, lalu buang lebih panjang. Napas yang lambat membantu tubuh keluar dari mode siaga. Kurangi kafein, cukup tidur, dan minum air yang cukup.",
+      "speed": 1.09
+    },
+    {
+      "id": "f7",
+      "type": "fact",
+      "visual": "waspada48",
+      "accent": "#C0392B",
+      "trans": "punch",
+      "badge": "KAPAN HARUS KE DOKTER?",
+      "hl": "KE DOKTER?",
+      "vo": "Tapi, segera cari pertolongan medis kalau debaran disertai nyeri dada, sesak napas, pusing berat, atau pingsan. Periksakan juga kalau debaran makin sering, atau tidak kunjung berhenti.",
+      "speed": 1.09
+    },
+    {
+      "id": "rangkuman",
+      "type": "fact",
+      "visual": "rangkuman48",
+      "accent": "#B23A48",
+      "trans": "slide",
+      "badge": "INGAT TIGA HAL INI",
+      "hl": "TIGA HAL",
+      "vo": "Ingat: debaran tiba-tiba biasanya karena adrenalin. Kafein dan kurang tidur bisa memicunya. Kalau disertai nyeri dada atau pingsan, segera ke dokter. Kirim ke teman yang jantungnya suka dag dig dug.",
+      "speed": 1.1
+    },
+    {
+      "id": "outro",
+      "type": "outro",
+      "accent": "#B23A48",
+      "trans": "iris",
+      "lines": [
+        "SEKARANG",
+        "KAMU TAHU"
+      ],
+      "cta": "IKUTI",
+      "foot": "Fakta sains & misteri, tiap hari",
+      "foot2": "Simpan video ini · bagikan ke teman",
+      "src": "Sumber: NHS · Cleveland Clinic · BHF · AHA",
+      "vo": "Ikuti KlikTahu.",
+      "speed": 1.13
+    }
+  ]
+}

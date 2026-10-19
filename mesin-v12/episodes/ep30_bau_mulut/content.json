@@ -1,0 +1,111 @@
+{
+ "title": "Kenapa Mulut Bau Padahal Rajin Sikat Gigi?",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH · MULUT & BAKTERI",
+ "bg_element": "none",
+ "lead_in": 0.6,
+ "tail_intro": 0.8,
+ "tail_fact": 0.9,
+ "tail_outro": 1.2,
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "visual": "intro_mulut",
+   "accent": "#8C4A2F",
+   "shake": 0.0,
+   "lines": [
+    "KENAPA",
+    "MULUT BAU?"
+   ],
+   "vo": "Kamu rajin sikat gigi, tapi pas bicara dekat orang, mereka mundur pelan. Mulutmu bau, dan ini bukan soal malas. Kenapa mulut bisa bau?",
+   "speed": 1.12
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "visual": "sumberbau",
+   "accent": "#2F6FB5",
+   "trans": "flash",
+   "badge": "BAU = GAS DARI BAKTERI",
+   "vo": "Mulutmu rumah bagi miliaran bakteri. Mereka mencerna sisa makanan dan protein yang menempel di gigi dan lidah, lalu membuang gas berbau khas belerang.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "visual": "pagihari",
+   "accent": "#4A4A8C",
+   "trans": "iris",
+   "badge": "KENAPA PAGI PALING PARAH",
+   "vo": "Bau paling parah datang pagi hari. Saat tidur, air liur berkurang drastis. Padahal air liur adalah pencuci alami yang membasuh bakteri. Mulut kering semalaman, bakteri berpesta.",
+   "speed": 1.08
+  },
+  {
+   "id": "f2b",
+   "type": "fact",
+   "visual": "lidah",
+   "accent": "#8C6D1F",
+   "trans": "bands",
+   "badge": "MITOS: SIKAT GIGI ITU CUKUP",
+   "vo": "Di sinilah mitosnya runtuh. Penyebab utama bau itu bukan gigi, tapi lidah. Permukaannya berkarpet, memerangkap bakteri. Sikat gigi saja seperti menyapu lantai tanpa membersihkan karpet.",
+   "speed": 1.08
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "visual": "pemicu_mulut",
+   "accent": "#B2542A",
+   "trans": "zoom",
+   "badge": "PEMICU YANG MENAMBAH BAU",
+   "vo": "Ada pemicu tambahan. Gigi berlubang dan sariawan jadi markas baru. Batu kecil di amandel juga berbau. Kurang minum, rokok, kopi, dan terlalu lama lapar ikut memperparah.",
+   "speed": 1.08
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "visual": "atasi_mulut",
+   "accent": "#B03A2E",
+   "trans": "rise",
+   "badge": "LANGSUNG ATASI BEGITU BAU",
+   "vo": "Begitu bau datang: bersihkan lidah dengan sikat atau alat garuk, minum air yang cukup, dan kunyah permen karet bebas gula supaya air liur mengalir lagi.",
+   "speed": 1.09
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "visual": "cegah_mulut",
+   "accent": "#1F7A4D",
+   "trans": "flash",
+   "badge": "RUTINITAS PENCEGAHAN",
+   "vo": "Cegah dengan rutinitas: sikat gigi dua kali sehari plus lidahnya, cukupi air, kurangi rokok dan kopi berlebihan, jangan tunda makan terlalu lama.",
+   "speed": 1.1
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "visual": "doktergigi",
+   "accent": "#8C2F39",
+   "trans": "bands",
+   "badge": "KAPAN PERLU KE DOKTER GIGI",
+   "vo": "Waspada bila bau tidak kunjung hilang walau mulut bersih. Bisa gigi berlubang, sariawan lama, atau gusi bermasalah. Kalau anak baunya dari hidung, segera periksa ke dokter.",
+   "speed": 1.1
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "accent": "#8C4A2F",
+   "trans": "iris",
+   "lines": [
+    "SEKARANG",
+    "KAMU TAHU"
+   ],
+   "cta": "IKUTI",
+   "foot": "Fakta sains & misteri, tiap hari",
+   "foot2": "Simpan video ini · bagikan ke teman",
+   "src": "Sumber: NIH (NIDCR) · Mayo Clinic · AAFP · StatPearls (Halitosis)",
+   "vo": "Ikuti KlikTahu.",
+   "speed": 1.13
+  }
+ ]
+}

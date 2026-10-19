@@ -1,207 +1,274 @@
 {
- "title": "Ular Masuk Rumah Saat Musim Hujan? Bukan Karena Banjir",
- "channel": "KlikTahu",
- "header_badge": "HEWAN · MUSIM HUJAN",
- "bg_element": "none",
- "lead_in": 0.3,
- "tail_intro": 0.6,
- "tail_fact": 0.8,
- "tail_outro": 0.9,
- "mesin": "v12",
- "v12": {
-  "metafora": "tetes hujan -> telur -> anak ular -> tiga panah -> rumah -> hujan lagi (lingkaran)",
-  "loop": true,
-  "periode_mesh_s": 12.0,
-  "energi": {
-   "intro": 0.6,
-   "f1": 0.5,
-   "f2": 0.4,
-   "f3": 0.5,
-   "f4": 0.6,
-   "f5": 1.0,
-   "f6": 0.7,
-   "outro": 0.3
+  "title": "Ular Masuk Rumah Saat Hujan? Bukan Cuma Banjir",
+  "channel": "KlikTahu",
+  "header_badge": "HEWAN · MUSIM HUJAN",
+  "bg_element": "none",
+  "lead_in": 0.24,
+  "tail_intro": 0.5,
+  "tail_fact": 0.54,
+  "tail_outro": 0.92,
+  "mesin": "v12",
+  "modul": "mesin_v13_ep51b",
+  "vo_chain": "v12",
+  "v12": {
+    "metafora": "pintu -> habitat tergenang -> anakan sanca -> variasi reproduksi -> akses rumah -> tiga skenario -> respons aman -> pintu",
+    "loop": true,
+    "loop_blend": 0.72,
+    "periode_mesh_s": 12.0,
+    "skip_default_bg_decor": true,
+    "background": {
+      "mode": "custom",
+      "base": "#F2ECDF",
+      "colors": [
+        "#7E8F86",
+        "#C08A5E",
+        "#A8B6AE",
+        "#D8CBB4"
+      ],
+      "weights": [
+        0.1,
+        0.06,
+        0.05,
+        0.04
+      ],
+      "cahaya": 0.045,
+      "seed": 51
+    },
+    "ambient": "hujan_ringan",
+    "ambient_db": -33.0,
+    "energi": {
+      "intro": 0.62,
+      "f1": 0.5,
+      "f2": 0.46,
+      "f3": 0.4,
+      "f4": 0.54,
+      "f5": 0.96,
+      "f6": 0.62,
+      "outro": 0.28
+    }
   },
-  "loop_blend": 0.8
- },
- "scenes": [
-  {
-   "id": "intro",
-   "type": "intro",
-   "babak": "hook",
-   "visual": "hujan_ular50",
-   "accent": "#1F4E5F",
-   "shake": 0.0,
-   "lines": [
-    "ULAR MASUK RUMAH",
-    "BUKAN KARENA BANJIR"
-   ],
-   "vo": "Musim hujan baru mulai, dan ular sudah muncul di dalam rumah. Bukan karena banjir.",
-   "speed": 1.09,
-   "anchor_out": {
-    "elemen": "tetes",
-    "x": 540,
-    "y": 760,
-    "skala": 1.0
-   }
-  },
-  {
-   "id": "f1",
-   "type": "fact",
-   "babak": "agitation",
-   "visual": "rumah_biasa50",
-   "accent": "#8A3B2E",
-   "trans": "match",
-   "badge": "BISA RUMAHMU",
-   "hl": "RUMAHMU",
-   "vo": "Setiap tahun polanya sama. Hujan pertama turun, lalu kabar ular di kamar mandi, di plafon, di balik lemari, mulai bermunculan. Rumah yang dipilih biasanya terlihat biasa saja. Bisa rumah tetanggamu. Bisa rumahmu.",
-   "speed": 1.09,
-   "hold": 0.8,
-   "anchor_in": {
-    "elemen": "tetes"
-   },
-   "anchor_out": {
-    "elemen": "rumah",
-    "x": 540,
-    "y": 900,
-    "skala": 1.0
-   }
-  },
-  {
-   "id": "f2",
-   "type": "fact",
-   "babak": "body",
-   "visual": "kalender_telur50",
-   "accent": "#B07A12",
-   "trans": "morph",
-   "badge": "TELUR MENETAS SAAT HUJAN",
-   "hl": "MENETAS",
-   "vo": "Alasan pertama ada di kalender. Ular bertelur di akhir kemarau. Tiga sampai empat bulan kemudian, tepat saat hujan pertama, telur itu menetas. Jadi yang datang bukan satu ular dewasa, tapi belasan anak ular yang baru lahir, semuanya mencari tempat sembunyi.",
-   "speed": 1.09,
-   "hold": 0.9,
-   "anchor_in": {
-    "elemen": "rumah"
-   },
-   "anchor_out": {
-    "elemen": "panah1",
-    "x": 300,
-    "y": 1150,
-    "skala": 1.0
-   }
-  },
-  {
-   "id": "f3",
-   "type": "fact",
-   "babak": "body",
-   "visual": "tikus50",
-   "accent": "#1F7A6B",
-   "trans": "morph",
-   "badge": "ULAR MENGIKUTI TIKUS",
-   "hl": "TIKUS",
-   "vo": "Alasan kedua, makanan. Begitu hujan turun, katak, cicak, dan tikus ikut ramai. Tikus lari mencari tempat kering, dan tempat kering terdekat adalah rumahmu. Ular tidak mengincar rumahmu. Ular mengikuti tikus.",
-   "speed": 1.09,
-   "hold": 0.8,
-   "anchor_in": {
-    "elemen": "panah1"
-   },
-   "anchor_out": {
-    "elemen": "panah2",
-    "x": 540,
-    "y": 1150,
-    "skala": 1.0
-   }
-  },
-  {
-   "id": "f4",
-   "type": "fact",
-   "babak": "body",
-   "visual": "kering_hangat50",
-   "accent": "#6A4FB3",
-   "trans": "morph",
-   "badge": "CARI TEMPAT KERING",
-   "hl": "KERING",
-   "vo": "Alasan ketiga, kering dan hangat. Lubang tanah tempat ular tinggal terendam air. Plafon, tumpukan barang, dan sela pot yang lembap tapi tidak tergenang, menjadi pengganti yang sempurna.",
-   "speed": 1.09,
-   "hold": 0.8,
-   "anchor_in": {
-    "elemen": "panah2"
-   },
-   "anchor_out": {
-    "elemen": "panah3",
-    "x": 780,
-    "y": 1150,
-    "skala": 1.0
-   }
-  },
-  {
-   "id": "f5",
-   "type": "fact",
-   "babak": "micro_climax",
-   "visual": "tiga_panah50",
-   "accent": "#C0542B",
-   "trans": "match",
-   "badge": "TIGA PANAH, SATU RUMAH",
-   "hl": "SATU RUMAH",
-   "vo": "Sekarang gabungkan ketiganya. Telur menetas saat hujan. Mangsa berkumpul di rumah yang kering. Tempat sembunyi sudah tersedia. Tiga panah itu mengarah ke satu titik. Rumah yang punya celah, punya tikus, dan punya tumpukan barang. Rumahmu punya yang mana?",
-   "speed": 1.09,
-   "hold": 1.2,
-   "anchor_in": {
-    "elemen": "panah3"
-   },
-   "anchor_out": {
-    "elemen": "rumah",
-    "x": 540,
-    "y": 1000,
-    "skala": 1.1
-   }
-  },
-  {
-   "id": "f6",
-   "type": "fact",
-   "babak": "payoff",
-   "visual": "balik_urutan50",
-   "accent": "#1F7A6B",
-   "trans": "morph",
-   "badge": "BALIK URUTANNYA",
-   "hl": "BALIK",
-   "vo": "Kabar baiknya, urutannya bisa dibalik. Tutup celah di bawah pintu dan saluran air. Singkirkan tumpukan barang. Dan kalau tidak ada tikus, ular tidak punya alasan untuk datang. Kalau sudah terlanjur ada, jangan dipukul. Menjauh, tutup pintu ruangan, lalu telepon damkar.",
-   "speed": 1.09,
-   "hold": 0.8,
-   "anchor_in": {
-    "elemen": "rumah"
-   },
-   "anchor_out": {
-    "elemen": "rumah",
-    "x": 540,
-    "y": 1000,
-    "skala": 1.0
-   }
-  },
-  {
-   "id": "outro",
-   "type": "outro",
-   "babak": "loop",
-   "visual": "loop_hujan50",
-   "accent": "#1F4E5F",
-   "trans": "morph",
-   "lines": [
-    "HUJAN PERTAMA",
-    "SEBENTAR LAGI"
-   ],
-   "cta": "",
-   "foot": "",
-   "foot2": "",
-   "src": "Sumber: BRIN (Amir Hamidy) · BMKG · Damkar",
-   "vo": "Karena semuanya dimulai dari hal yang sama, yang sebentar lagi turun lagi. Hujan pertama.",
-   "speed": 1.09,
-   "anchor_in": {
-    "elemen": "rumah"
-   },
-   "loop_ke": "intro"
-  }
- ],
- "vo_chain": "v12",
- "ambient": "hujan",
- "sfx_layout": "v12",
- "modul": "mesin_v12_ep51"
+  "scenes": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "babak": "hook",
+      "visual": "ambang_hujan60",
+      "accent": "#2F6F63",
+      "badge": "HUJAN PERTAMA",
+      "lines": [
+        "ULAR MASUK RUMAH",
+        "SAAT HUJAN?"
+      ],
+      "hl": "HUJAN",
+      "vo": "Ular masuk rumah saat hujan. Apa selalu karena banjir?",
+      "speed": 1.09,
+      "anchor_out": {
+        "elemen": "ambang pintu",
+        "x": 540,
+        "y": 1180,
+        "skala": 1.0
+      },
+      "catatan": "Tiga jalur yang sering dicampur"
+    },
+    {
+      "id": "f1",
+      "type": "fact",
+      "babak": "agitation",
+      "visual": "habitat_tergenang60",
+      "accent": "#3C7A6E",
+      "trans": "match",
+      "badge": "KEMUNGKINAN PERTAMA",
+      "lines": [
+        "BANJIR BUKAN",
+        "SATU-SATUNYA"
+      ],
+      "hl": "BUKAN",
+      "vo": "Saat habitatnya tergenang, sebagian ular bisa berpindah mencari perlindungan. Tapi kalau ular terlihat di rumahmu, banjir bukan satu-satunya kemungkinan.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "ambang",
+        "x": 540,
+        "y": 1180,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "telur",
+        "x": 540,
+        "y": 1010,
+        "skala": 0.9
+      },
+      "catatan": "Air naik, ular cari tempat kering"
+    },
+    {
+      "id": "f2",
+      "type": "fact",
+      "babak": "body",
+      "visual": "anakan_sanca60",
+      "accent": "#A85F3C",
+      "trans": "morph",
+      "badge": "SATU KASUS LOKAL",
+      "lines": [
+        "22 ANAK SANCA",
+        "SUKABUMI · DES 2025"
+      ],
+      "hl": "22",
+      "vo": "Anakan punya cerita sendiri. Di Sukabumi, dua puluh dua anak sanca ditemukan pada Desember dua ribu dua puluh lima. Pakar BRIN menyebut itu masa penetasan sanca, bukan bukti semua ular menetas saat hujan.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "telur",
+        "x": 540,
+        "y": 1010,
+        "skala": 0.9
+      },
+      "anchor_out": {
+        "elemen": "telur retak",
+        "x": 540,
+        "y": 1120,
+        "skala": 0.7
+      },
+      "catatan": "Satu kasus, bukan semua kasus"
+    },
+    {
+      "id": "f3",
+      "type": "fact",
+      "babak": "body",
+      "visual": "dua_cara60",
+      "accent": "#6E7F4E",
+      "trans": "morph",
+      "badge": "CARA BERBIAK",
+      "lines": [
+        "DUA CARA BERBIAK",
+        "WAKTUNYA BEDA"
+      ],
+      "hl": "BEDA",
+      "vo": "Kebanyakan ular bertelur, tapi beberapa jenis melahirkan. Waktu berbiak dan menetas juga berbeda. Jadi hujan bukan tombol yang membuat semua spesies keluar serempak.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "telur retak",
+        "x": 540,
+        "y": 1120,
+        "skala": 0.7
+      },
+      "anchor_out": {
+        "elemen": "garis waktu",
+        "x": 540,
+        "y": 1120,
+        "skala": 1.0
+      },
+      "catatan": "Waktu berbiak tidak serempak"
+    },
+    {
+      "id": "f4",
+      "type": "fact",
+      "babak": "body",
+      "visual": "jalur_masuk60",
+      "accent": "#8A6A4A",
+      "trans": "match",
+      "badge": "YANG BISA DIPERIKSA",
+      "lines": [
+        "JALUR MASUK",
+        "BISA BERAGAM"
+      ],
+      "hl": "JALUR",
+      "vo": "Jalur masuk dan lingkungan sekitar juga berperan. Celah pintu, saluran pembuangan, tumpukan barang, atau mangsa di sekitar rumah. Tikus cuma salah satu kemungkinan.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "garis waktu",
+        "x": 540,
+        "y": 1120,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "rumah",
+        "x": 540,
+        "y": 1120,
+        "skala": 1.0
+      },
+      "catatan": "Periksa satu per satu, jangan cuma satu"
+    },
+    {
+      "id": "f5",
+      "type": "fact",
+      "babak": "micro_climax",
+      "visual": "tiga_skenario60",
+      "accent": "#B0562F",
+      "trans": "morph",
+      "badge": "RANGKAI PETUNJUKNYA",
+      "lines": [
+        "TIGA SKENARIO",
+        "BUKAN SATU ATURAN"
+      ],
+      "hl": "TIGA",
+      "vo": "Rangkai petunjuknya. Genangan bisa mengusik habitat. Masa penetasan menjelaskan sebagian anakan. Celah rumah memberi akses. Tiga skenario berbeda, bukan satu aturan untuk semua ular. Di rumahmu, celah mana yang bisa ditutup dengan aman?",
+      "speed": 1.09,
+      "hold": 0.65,
+      "anchor_in": {
+        "elemen": "rumah",
+        "x": 540,
+        "y": 1120,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "pintu",
+        "x": 540,
+        "y": 1180,
+        "skala": 1.0
+      },
+      "catatan": "Tiga petunjuk, tiga skenario"
+    },
+    {
+      "id": "f6",
+      "type": "fact",
+      "babak": "micro_climax",
+      "visual": "aman_ular60",
+      "accent": "#3B6B57",
+      "trans": "morph",
+      "badge": "KALAU BERTEMU",
+      "lines": [
+        "JAGA JARAK",
+        "HUBUNGI PETUGAS"
+      ],
+      "hl": "JAGA JARAK",
+      "vo": "Kalau melihat ular, menjauh. Jauhkan anak dan hewan peliharaan. Jangan dekati, pukul, atau menangkapnya. Hubungi Damkar atau penyelamat satwa setempat. Kalau tergigit, segera ke fasilitas kesehatan. Jangan pasang torniket ketat, menyayat, atau mengisap luka.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "pintu",
+        "x": 540,
+        "y": 1180,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "pintu dan hujan",
+        "x": 540,
+        "y": 1180,
+        "skala": 1.0
+      },
+      "catatan": "Jauhkan diri, hubungi petugas"
+    },
+    {
+      "id": "outro",
+      "type": "outro",
+      "babak": "seamless_outro",
+      "visual": "loop_ambang60",
+      "accent": "#2F6F63",
+      "trans": "morph",
+      "badge": "HUJAN PERTAMA",
+      "lines": [
+        "ULAR MASUK RUMAH",
+        "SAAT HUJAN?"
+      ],
+      "hl": "HUJAN",
+      "src": "Sumber: BRIN · BMKG · Damkar · WHO",
+      "vo": "Jadi, apa yang menentukan ular muncul di rumah saat hujan?",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "pintu dan hujan",
+        "x": 540,
+        "y": 1180,
+        "skala": 1.0
+      },
+      "loop_ke": "intro",
+      "catatan": "Tiga jalur yang sering dicampur"
+    }
+  ]
 }

@@ -7,7 +7,37 @@ import mesin_util
 import mesin_v11   # v11: adegan + transisi punch/slide/glitch + beat kamera (mendaftar ke diagrams.VISUALS)
 import mesin_fx                     # FX 2026: finishing sinematik, blur gerak, derau kamera
 import mesin_v12                    # v12 KONTINUITAS: kamera kontinu, aksen campur, loop, cue kata
-import mesin_v12_ep51               # Episode 51: dunia 'rumah potong' (daftar visual saat impor)
+
+
+def _muat_modul_episode():
+    """Impor modul visual yang ditulis di content.json (meta.modul).
+
+    Sebelumnya render.py mengimpor satu modul episode secara hard-code, sehingga episode
+    berikutnya (mis. Ep51b) jatuh ke jalur intro/fakta generik dan berhenti dengan KeyError.
+    """
+    import importlib
+    kandidat = [os.path.join(os.getcwd(), "content.json"),
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), "content.json")]
+    nama = ""
+    for c in kandidat:
+        try:
+            with open(c, encoding="utf-8") as f:
+                nama = str(json.load(f).get("modul") or "").strip()
+            if nama:
+                break
+        except Exception:
+            continue
+    if nama:
+        try:
+            importlib.import_module(nama)
+            return nama
+        except Exception as e:      # jangan hening: tampilkan sebabnya
+            print(f"[render] modul '{nama}' gagal dimuat: {e.__class__.__name__}: {e}", file=sys.stderr)
+    import mesin_v12_ep51       # kompatibilitas episode lama
+    return "mesin_v12_ep51"
+
+
+MODUL = _muat_modul_episode()   # daftarkan visual/BEAT/EVENTS12 episode saat impor
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 BUILD = os.environ.get("KT_BUILD") or os.path.join(BASE, "..", "build")
@@ -1698,9 +1728,12 @@ def _finish(img, tl, total, scenes, meta):
         # grading filmic hangat + vinyet + butiran film deterministik per frame
         img = mesin_fx.bloom(img, thr=0.72, kuat=float(os.environ.get("KT_BLOOM", "0.34")))
         img = mesin_fx.grade(img, "krem")
-        if os.environ.get("KT_FINISH", "") == "v13":
-            # V13: pendar dari detail + lindung highlight + kontras lokal + vinyet hangat + dither + grain
+        _fin = os.environ.get("KT_FINISH", "")
+        if _fin in ("v13", "v14"):
+            # V13/V14: pendar dari detail + lindung highlight + kontras lokal + vinyet + dither + grain
             img = _vignette(img, float(os.environ.get("KT_VIG", "0.085")))
+            if _fin == "v14":
+                return mesin_fx.finishing_v14(img, int(round(tl * 60)))
             return mesin_fx.finishing_v13(img, int(round(tl * 60)))
         img = _vignette(img, float(os.environ.get("KT_VIG", "0.115")))
         return mesin_fx.grain(img, int(round(tl * 60)), float(os.environ.get("KT_GRAIN", "3.6")) * 1.1)

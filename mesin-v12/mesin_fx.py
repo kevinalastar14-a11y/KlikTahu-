@@ -769,3 +769,41 @@ def finishing_v13(img, seed=0):
     a = v13_dither(a, seed)
     a = v13_grain(a, seed)
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
+
+def _zoom_ch(ch, k):
+    w, h = ch.size
+    cw, chh = max(2, int(w / k)), max(2, int(h / k))
+    x0, y0 = (w - cw) // 2, (h - chh) // 2
+    return ch.crop((x0, y0, x0 + cw, y0 + chh)).resize((w, h), Image.BICUBIC)
+
+
+def v14_ca(img, kuat=0.0016):
+    """Aberasi kromatik radial sangat tipis: R ditarik, B dilepas (~1 px di tepi)."""
+    if not AKTIF or kuat <= 0:
+        return img
+    r, g, b = img.split()
+    r = _zoom_ch(r, 1.0 + kuat)
+    b = _zoom_ch(b, 1.0 - kuat)
+    return Image.merge("RGB", (r, g, b))
+
+
+def v14_split(a, kuat=2.1):
+    """Split-tone filmik: bayangan sejuk, highlight hangat (<= 1% agar palet tetap)."""
+    lum = (a[..., 0] * 0.299 + a[..., 1] * 0.587 + a[..., 2] * 0.114) / 255.0
+    hi = np.clip((lum - 0.52) / 0.48, 0.0, 1.0)[..., None] ** 1.4
+    lo = np.clip((0.52 - lum) / 0.52, 0.0, 1.0)[..., None] ** 1.4
+    a = a + hi * np.array([kuat * 1.15, kuat * 0.55, -kuat * 0.85], dtype=np.float32)
+    a = a + lo * np.array([-kuat * 0.75, -kuat * 0.15, kuat * 1.05], dtype=np.float32)
+    return a
+
+
+def finishing_v14(img, seed=0):
+    """V14: rantai V13 + CA radial + split-tone filmik. Warna dasar tetap KlikTahu."""
+    if not AKTIF:
+        return img
+    img = finishing_v13(img, seed)
+    img = v14_ca(img, float(os.environ.get("KT_CA", "0.0016")))
+    a = np.asarray(img, dtype=np.float32)
+    a = v14_split(a, float(os.environ.get("KT_SPLIT", "2.1")))
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))

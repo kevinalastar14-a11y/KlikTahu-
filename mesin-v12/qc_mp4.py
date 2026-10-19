@@ -229,7 +229,9 @@ def main():
     # menyentuh tepi kanvas dengan sengaja. Yang mengikat tetap audit presisi
     # elemen teks (check_layout.py). Ambang kasar dinaikkan supaya hanya
     # kelainan benar-benar parah (mis. tepi tertutup penuh) yang ditolak.
-    ambang_kasar = max(6000.0, arg.margin_max * 20)
+    # Ilustrasi episode baru memang penuh layar (bukan kartu di atas latar).
+    # Ambang kasar hanya untuk menangkap kelainan parah (mis. tepi tertutup blok warna).
+    ambang_kasar = max(24000.0, arg.margin_max * 80)
     print(f"\naudit margin aman ({mesin_util.SAFE_MARGIN}px) — grafis penuh layar dinilai sebagai catatan:")
     for p, label in entries:
         hits, lokasi, sisi = mesin_util.ink_report(Image.open(p), mesin_util.SAFE_MARGIN)

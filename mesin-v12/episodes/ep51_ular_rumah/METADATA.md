@@ -1,53 +1,68 @@
-# KlikTahu - Ep51 - Metadata + Analisis Kata Kunci
-**Judul video:** Ular Masuk Rumah Saat Musim Hujan? Bukan Karena Banjir
-**Tanggal produksi:** 19 Oktober 2026 - **Target durasi:** 120-130 s - 1080x1920 - 60 fps - VO pria (TTS Arena voice-00, master .m4a), tanpa subtitle, SFX sintetis + ambient hujan halus, TANPA musik - **standar produksi v12** (5 babak + loop mulus)
+# KlikTahu · Ep51 v2 · Metadata + Catatan Riset
+
+**Judul:** Ular Masuk Rumah Saat Hujan? Bukan Cuma Banjir
+**Produksi:** 19–20 Oktober 2026 · **Tayang:** Selasa, 20 Oktober 2026, 18.30–20.30 WIB
+**Format:** 1080×1920 · 60 fps · ±101,5 s · VO `voice-00` (TTS) → rantai `vo_manusia.py` (tanpa potong/atempo) · master `.m4a` AAC · SFX sintetis + ambient hujan · **tanpa musik**
+**Dasar:** `analisis/EP51_RISET_ULANG_18_OKT_2026.md` (commit `6324e12`) — **bukan** analisis AI sebelumnya.
 
 ---
 
-## 0. Dasar keputusan (analisis LIVE 15 Okt 2026, `analisis/LAPORAN_15_OKT_2026.md`)
-- Papan v6 LIVE: ular & reptil skor 39,6 dengan **celah pesaing 0,59** dan **median views pesaing 157 rb** (bukti permintaan nyata). Serangga #1 (42,2) ditolak karena median pesaing hanya 174 views.
-- Momen: BMKG - musim hujan mulai pertengahan Oktober, merata November. BRIN (Amir Hamidy): telur ular menetas Nov-Jan (diletakkan 3-4 bulan sebelumnya), anak ular masuk rumah lewat celah; mangsa (tikus, katak, cicak) ramai saat hujan; ular memilih tempat gelap-lembap-kering (plafon, pot, tumpukan barang).
-- Sudut pembeda: **PADAHAL** ("bukan karena banjir") + **PRAKTIS** (urutan dibalik: tutup celah, singkirkan tumpukan, tanpa tikus) + **BAHAYA** (rumahmu bisa dipilih). Pesaing memakai "7 fakta"/"kenapa ular masuk rumah" - kita memakai kalender telur sebagai metafora visual utama.
-- Data kanal: judul tanpa awalan "Kenapa" 59,5 vs 41,7 views/hari -> judul dibuka dengan peristiwa.
-- Jam unggah: 18.30-20.30 WIB (malam, saat cerita ular biasanya dibagikan) atau 11.30-12.30 WIB. Jadwal unggah: **Selasa 20 Okt 2026, 18.30-20.30 WIB** (Ep50 tayang Senin 19 Okt).
+## 1. Sudut cerita (apa yang berubah dari draf lama)
 
-## 1. Judul (pilih satu)
-1. Ular Masuk Rumah Saat Musim Hujan? Bukan Karena Banjir  *(utama: peristiwa + PADAHAL)*
-2. Musim Hujan Datang, Ular Mulai Masuk Rumah. Ini Alasannya  *(kata kunci pencarian)*
-3. Rumahmu Dipilih Ular Bulan Depan? Cek 3 Tanda Ini  *(uji A/B: taruhan pribadi)*
+Draf lama berbunyi “ular masuk rumah **bukan karena banjir**”. Riset ulang menunjukkan itu terlalu pasti: genangan memang bisa mengusik habitat, tetapi bukan satu-satunya jalur. Versi ini memakai pertanyaan di hook (“Apa selalu karena banjir?”) lalu **memisahkan tiga jalur** yang sering dicampur:
 
-## 2. Deskripsi (salin utuh)
-Ular masuk rumah saat musim hujan bukan karena banjir. Ada tiga alasan yang jarang dijelaskan: kalender telur yang menetas tepat saat hujan pertama, tikus yang pindah ke rumah kering, dan tempat sembunyi yang lembap tapi tidak tergenang.
-Rumahmu punya yang mana: celah, tikus, atau tumpukan barang? Tulis di komentar.
+1. **Habitat tergenang** — sebagian ular berpindah mencari tempat kering.
+2. **Masa penetasan** — kasus 22 anak sanca Sukabumi (Des 2025) dijelaskan pakar BRIN sebagai masa penetasan sanca, bukan bukti semua ular menetas saat hujan.
+3. **Akses & lingkungan rumah** — celah pintu, saluran pembuangan, tumpukan barang, dan ketersediaan mangsa (tikus hanya salah satu kemungkinan).
+
+Penutupnya praktis: jaga jarak, jangan dekati/pukul/tangkap, hubungi Damkar/penyelamat satwa, dan kalau tergigit segera ke fasilitas kesehatan — **tanpa** torniket ketat, sayatan, atau isapan (WHO).
+
+## 2. Judul (pilih satu)
+
+1. **Ular Masuk Rumah Saat Hujan? Bukan Cuma Banjir** *(utama — pertanyaan + koreksi klaim)*
+2. Ular Muncul Saat Hujan? Tiga Sebab yang Sering Dicampur *(varian uji A/B)*
+3. 22 Anak Sanca di Sukabumi: Apa Sebenarnya yang Terjadi? *(varian berbasis kasus)*
+
+## 3. Deskripsi (salin utuh)
+
+Ular masuk rumah saat hujan sering langsung dikaitkan dengan banjir. Padahal ada tiga jalur yang berbeda: habitat yang tergenang, masa penetasan anakan, dan akses rumah itu sendiri — celah pintu, saluran pembuangan, tumpukan barang, sampai mangsa di sekitar rumah.
+
+Di video ini: kasus 22 anak sanca yang ditemukan di Sukabumi (Desember 2025), penjelasan pakar BRIN soal masa penetasan, kenapa tidak semua ular keluar serempak, dan langkah aman kalau bertemu ular di rumah.
 
 Yang dibahas:
-- Kenapa anak ular muncul di awal musim hujan (BRIN: telur menetas Nov-Jan)
-- Ular tidak mengincar rumahmu, ular mengikuti tikus
-- Cara membalik urutannya: tutup celah, singkirkan tumpukan, tanpa tikus
-- Kalau ular sudah di dalam rumah: menjauh, tutup pintu ruangan, telepon damkar (jangan dipukul)
+- Kapan genangan benar-benar mengusik habitat ular
+- Kenapa “hujan = semua telur menetas” tidak tepat
+- Tiga cara membaca petunjuk: genangan, anakan, akses
+- Yang boleh dan tidak boleh dilakukan saat bertemu ular
+- Pertolongan pertama gigitan ular menurut WHO (tanpa torniket ketat/sayatan/isapan)
 
-Sumber: BRIN (Amir Hamidy), BMKG prakiraan musim hujan 2026/2027, Damkar.
-Video edukasi, bukan pengganti petugas penanganan satwa.
+Sumber: BMKG (prakiraan musim hujan 2026/2027), BRIN/Amir Hamidy, laporan kasus Sukabumi (Kompas, 10 Des 2025), Damkar, WHO.
+Video edukasi — bukan pengganti petugas penanganan satwa atau tenaga medis.
 
-## 3. Hashtag
-#Shorts #Ular #MusimHujan #UlarMasukRumah #FaktaSains
+## 4. Hashtag & tag
 
-## 4. Tag
-ular masuk rumah, ular musim hujan, kenapa ular masuk rumah, anak ular, telur ular menetas, cara mencegah ular masuk rumah, ular di kamar mandi, ular di plafon, tikus dan ular, musim hujan 2026, BRIN ular, damkar ular, fakta ular, KlikTahu, fakta sains
+**Hashtag:** #Shorts #Ular #MusimHujan #UlarMasukRumah #FaktaSains #KlikTahu
+**Tag:** ular masuk rumah, ular musim hujan, anak sanca, telur ular menetas, ular Sukabumi, BRIN ular, cegah ular masuk rumah, ular di rumah, pertolongan gigitan ular, musim hujan 2026, damkar ular, fakta hewan, edukasi sains, KlikTahu
 
-## 5. Struktur 5 babak (v12)
-| Babak | Adegan | Visual utama | Elemen yang diwariskan (anchor) |
+## 5. Struktur 5 babak (sesuai `content.json`)
+
+| Babak | Adegan | Visual | Fungsi cerita |
 |---|---|---|---|
-| Hook | intro | rumah di tengah hujan, ular menyusur masuk lewat pintu; judul dua baris | tetes |
-| Agitation | f1 | potongan melintang rumah: ular di plafon, kamar mandi, balik lemari | rumah |
-| Body 1 | f2 | kalender 4x3 (SEP-DES disorot) + sarang telur: retak -> belasan anak ular menyebar | panah 1 |
-| Body 2 | f3 | rantai mangsa katak -> cicak -> tikus -> ular; tikus lari ke rumah, ular menyusul di alur yang sama | panah 2 |
-| Body 3 | f4 | irisan rumah: air tanah naik menenggelamkan lubang, tiga kantong kering (plafon, tumpukan, sela pot) | panah 3 |
-| Micro-climax | f5 | denah rumah dari atas: telur, mangsa, tempat sembunyi -> satu titik; "rumahmu yang mana?" | rumah |
-| Payoff | f6 | urutan dibalik: 1 tutup celah, 2 singkirkan tumpukan, 3 jangan dipukul; kartu DAMKAR 113 | rumah |
-| Loop | outro | kembali ke pemandangan hujan yang sama; frame akhir = frame 0 (selisih maks 1 level) | tetes -> intro |
+| Hook | intro | rumah saat hujan, ular menyusur ke ambang pintu, judul bertanya | memancing pertanyaan, bukan klaim |
+| Agitation | f1 | sawah terendam: air naik, ular berenang, lubang galian | genangan = satu kemungkinan |
+| Body 1 | f2 | tanah dari atas: 22 anakan muncul satu per satu + penghitung | data sebagai gerak (kasus Sukabumi) |
+| Body 2 | f3 | kartu dua kolom: bertelur vs melahirkan + garis waktu | waktu berbiak tidak serempak |
+| Body 3 | f4 | denah rumah: pintu, saluran, ventilasi, tumpukan, mangsa | akses & lingkungan |
+| Micro-climax | f5 | tiga kartu petunjuk menyatu ke satu tanda tanya | tiga skenario, bukan satu aturan |
+| Payoff | f6 | jarak aman + empat tindakan + strip pertolongan pertama | yang harus dilakukan |
+| Loop | outro | kembali ke ambang pintu; frame akhir = frame 0 | loop mulus |
 
-## 6. Sumber
-- BRIN / Amir Hamidy (Kompas 10 Des 2025; CNN Indonesia Nov 2021; Liputan6 2020): musim menetas Nov-Jan, perilaku anak ular, mangsa saat hujan, pencegahan.
-- BMKG: prakiraan awal musim hujan 2026/2027 (mulai Oktober bertahap, merata November).
-- Prosedur umum Damkar: jangan memukul ular, isolasi ruangan, hubungi 112/damkar setempat.
+## 6. Sumber & batas klaim
+
+- **BMKG** — prakiraan awal musim hujan 2026/2027 (rilis 2 Okt 2026); sebagian besar ZOM mulai Oktober–November.
+- **BRIN / Amir Hamidy** (Mongabay, 7 Apr 2024) — masa penetasan sanca; anakan muncul pada periode tersebut, bukan “serentak karena hujan”.
+- **Kompas, 10 Des 2025** — 22 anak sanca ditemukan di Sukabumi; dipakai sebagai **satu kasus lokal**, bukan generalisasi.
+- **Damkar** (Cirebon, 19 Nov 2025) — prosedur penanganan ular: jangan dipukul/ditangkap sendiri, hubungi petugas.
+- **WHO** — pertolongan pertama gigitan ular: jangan torniket ketat, jangan menyayat, jangan mengisap; segera ke fasilitas kesehatan.
+
+Klaim yang **tidak** dipakai: “ular selalu masuk karena banjir”, “semua telur menetas saat hujan”, angka populasi ular nasional, dan klaim bahwa hujan memicu migrasi massal.

@@ -757,3 +757,40 @@ dipertahankan, kata pertama diverifikasi ASR) dan rentang aktif dibanding naskah
 meski mp4 sudah ada di `dist/`. **Ep50 v2 FINAL 15 Okt 17.00 UTC:** 123,75 s, 94,4 MB (6104 kb/s), korelasi audio
 0,9999, peak -2,0 dBFS, loop 0,988, QC SEMUA BERSIH; Drive `KlikTahu_Ep50_Orionid_v2.mp4` + `_master.m4a` +
 `Ep50_SIAP_TEMPEL_v2.md`; v1 dipindah ke `Ep50_Orionid/arsip_v1/`.
+
+## 18. SESI 20 OKT 2026 — Ep51 v2 TERBIT, Ep52 CEGUKAN DIPRODUKSI (agen Arena)
+
+**Konteks:** atas perintah pemilik, antrean lama (`Ep52 Piramida -> ...`) dihapus dan topik dipilih ulang lewat
+`analisis/EP52_RISET_ULANG_20_OKT_2026.md` (model 5 faktor). Terpilih **cegukan** (skor 32,0 di papan v6, momentum
+"tubuh & refleks" masih terbuka, tidak bertanggal). Ep51 v2 sudah terbit 20 Okt (101,53 s, 83,5 MB).
+
+**Ep52 — hasil akhir:** `KlikTahu_Ep52_Cegukan.mp4`, 1080x1920, 60 fps, **104,80 s, 85.517.495 B (85,52 MB)**,
+modul `mesin_v13_ep52.py` (V13 + finishing V14), 8 visual (`jam_cegukan60, diafragma60, jalur_saraf60, mitos60,
+batas_durasi60, janin60, tindakan60, loop_jam60`), 87 cue kata, 77 SFX, VO `voice-04` via `vo_manusia.py`
+(tanpa potong/atempo), master **-14,0 LUFS / TP -1,7 dBTP**, QC `qc_mp4` **SEMUA BERSIH** (korelasi audio 0,9999).
+Drive: `KlikTahu_Produksi/Shorts/kliktahu-ep52-cegukan` (`1LvhgfFUUnwmDDvfAWmet9EzJUfAevcKZ`) berisi 9 berkas:
+mp4, `_audio.m4a`, `_thumb.jpg`, `_thumb_alt.jpg`, `_lembar_pratinjau.jpg`, `_content.json`, `METADATA.md`,
+`SIAP_TEMPEL.md`, `_LAPORAN.md`.
+
+**Pelajaran baru (jangan diulang):**
+1. **`qc_mp4.py` butuh 2 env saat dijalankan manual:** `KT_BUILD=build` (kalau tidak, ia membaca `../build` dan
+   memberi alarm VO palsu "tidak utuh") dan `KT_VO_CHAIN=v12` (ambang kepala VO v12). `KT_AUDIO_SRC` harus
+   `build/audio_master.wav`. Tanpa ketiganya QC bisa "MASALAH" padahal MP4 bersih — sudah terbukti di sesi ini.
+2. **`qc_loop.py` mengukur piksel mentah, jadi grain merusak angkanya.** Dengan `KT_GRAIN=2.4` (acak tiap frame)
+   korelasi frame-0 vs frame-akhir = **0,9679** walau gambarnya identik; setelah Gaussian blur σ=1 = **0,99983**.
+   Sebelum panic dan render ulang 90 menit: ukur sudut/elemen kunci dan korelasi setelah blur dulu.
+3. **Label harus diuji pada ukuran layar HP, bukan pada crop 1:1.** Label "dr" 26 pt di dalam lingkaran 30 px
+   (adegan 7) tidak terbaca; diganti pil **"KE DOKTER"** 27 pt. Perbaikan satu adegan = render ulang **chunk yang
+   memuatnya saja** (skrip: render `--range LO:HI` + encode parameter sama + concat ulang + mux + qc), bukan 8 chunk.
+4. **`render.py --range LO:HI` aman untuk render ulang sebagian**: frame digambar dari waktu absolut, jadi potongan
+   baru menyambung mulus dengan potongan lama (sudah diverifikasi lewat QC utuh 8/8 scene).
+5. Thumbnail alt jangan diambil saat animasi masih berjalan: frame 55,0 (f4) baru mengisi satu zona; **frame 64,0**
+   menunjukkan tiga zona penuh. Untuk episode ber-"garis waktu", ambil frame setelah semua elemen masuk.
+6. `diagrams.paste_c` hanya `paste_c/paste_r` — tidak ada `paste_l`; font Poppins tanpa glif subskrip (pakai "CO2").
+
+**Berkas baru sesi ini:** `mesin_v13_ep52.py`, `episodes/ep52_cegukan/{content.json,config.env,METADATA.md}`,
+`tools/pasca_ep52.py`, `LAPORAN_EP52.md`, `pustaka/Ep52_Cegukan/{SIAP_TEMPEL.md,METADATA.md,thumb,thumb_alt,lembar}`,
+`analisis/EP52_RISET_ULANG_20_OKT_2026.md`.
+
+**Ep berikutnya:** belum ditetapkan (tanpa antrean tetap). Pilih dari data terbaru dengan model 5 faktor; kandidat
+yang masih terbuka di papan v6: semut (39,7), hujan ngantuk, menangis & emosi (171 segar), mimisan (299 pemeta).

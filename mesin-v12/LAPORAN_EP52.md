@@ -60,9 +60,10 @@ Metode: `inti = 0,42·tumbuh + 0,24·niat + 0,20·pasar + 0,14·keterbukaan`, di
 | Uji | Hasil |
 |---|---|
 | `check_layout.py` | **bersih** — 8/8 adegan, semua elemen teks di dalam margin 40 px |
-| `qc_mp4.py` | _diisi setelah render_ |
-| `qc_loop.py` | _diisi setelah render_ |
-| Ukuran berkas | _diisi setelah render_ |
+| `qc_mp4.py` | **SEMUA BERSIH** — 104,80 s (timeline 104,81; selisih 0,01 s), 8/8 scene utuh (VO mulai +0,37 s, ekor 0,60–1,02 s), korelasi audio MP4 vs master **0,9999** (selisih level −0,01 dB), peak −1,8 dBFS, 1080×1920 h264 High + AAC 48 kHz |
+| `qc_loop.py` | **0,9679** mentah — di bawah ambang 0,98 **karena grain 2,4/255 yang acak tiap frame**; setelah Gaussian blur σ=1 korelasi **0,99983**, dan jarum detik terukur 0° di frame 0 maupun frame terakhir (12:00 persis). Loop-nya mulus; angka mentah turun oleh tekstur grain, bukan oleh gambar |
+| Ukuran berkas | **85.517.495 B** (85,52 MB), bitrate 6528 kb/s |
+| Audit margin (`qc_mp4`) | tidak ada pelanggaran; 8/8 tercatat "grafis penuh layar" (catatan, bukan masalah) |
 
 ## 6. Catatan kejujuran
 
@@ -71,6 +72,8 @@ Metode: `inti = 0,42·tumbuh + 0,24·niat + 0,20·pasar + 0,14·keterbukaan`, di
 - Durasi 104,8 s lebih panjang dari Ep51 (101,5 s) karena naskah 186 kata. Tidak ada pemotongan VO — sesuai aturan.
 - Kasus 68 tahun dipakai sebagai **satu kasus**, bukan generalisasi; disebut jelas di layar ("satu kasus · bukan semua kasus").
 - Tidak ada klaim obat, tidak ada klaim prevalensi Indonesia.
+- **Perbaikan setelah render pertama:** label "dr" di dalam lingkaran 30 px (adegan 7) tidak terbaca di layar HP. Diganti label pil **"KE DOKTER"** (27 pt) di ujung panah; potongan 6–7 dirender ulang lalu digabung ulang dengan potongan 0–5. Tidak ada perubahan lain.
+- **Loop 0,9679 bukan cacat gambar:** grain dibuat acak per frame, jadi korelasi piksel mentah antar dua frame identik pun tidak pernah 1,0. Setelah blur σ=1 hasilnya 0,99983. Tidak ada render ulang untuk mengejar angka ini karena menurunkan grain akan menghilangkan tekstur film yang disengaja.
 
 ## 7. Berkas
 

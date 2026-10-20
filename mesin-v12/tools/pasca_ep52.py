@@ -47,11 +47,11 @@ def main():
     print("=== thumbnail ===")
     th = frame(2.8)
     th.save(os.path.join(ROOT, "dist", f"{NAME}_thumb.jpg"), quality=92)
-    alt = frame(55.0)          # garis waktu 48 jam / 1 bulan (angka terbaca)
+    alt = frame(64.0)          # garis waktu 48 jam / 1 bulan, tiga zona terisi penuh
     alt.save(os.path.join(ROOT, "dist", f"{NAME}_thumb_alt.jpg"), quality=92)
 
     print("=== lembar pratinjau ===")
-    times = [2.8, 12.8, 28.1, 42.6, 55.0, 58.5, 74.2, 84.0, 89.3, 96.0, 101.1, 104.4]
+    times = [2.8, 12.8, 28.1, 42.6, 58.5, 64.0, 74.2, 84.0, 89.3, 96.0, 101.1, 104.4]
     tw, thh = 270, 480
     cols, rows = 4, 3
     pad, top = 12, 52

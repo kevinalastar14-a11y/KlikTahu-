@@ -897,13 +897,13 @@ def _dunia_tindakan(im):
              outline=mix(GREEN, INK, 0.35), width=2.4)
     paste_c(im, 540, 672, "KALAU MENETAP, JANGAN DITAHAN SENDIRI", font(D.FS, 26),
             mix(INK, MUTED, 0.28), 0.92)
-    # panah ke dokter
-    for i in range(20):
+    # panah + label tujuan yang terbaca di layar HP
+    for i in range(15):
         line_on(im, (300 + i * 22, 800), (316 + i * 22, 800), mix(GREEN, INK, 0.30), 7, 0.45)
-    poly_on(im, [(720, 786), (752, 800), (720, 814)], mix(GREEN, INK, 0.30), 0.55)
-    dot_on(im, 800, 800, 30, mix(CREAM, WHITE, 0.30), 0.95)
-    ring_on(im, 800, 800, 30, mix(GREEN, INK, 0.30), 3.2, 0.85)
-    paste_c(im, 800, 800, "dr", font(D.FB, 26), mix(GREEN, INK, 0.30), 0.95)
+    poly_on(im, [(636, 786), (668, 800), (636, 814)], mix(GREEN, INK, 0.30), 0.60)
+    rrect_on(im, 692, 770, 964, 830, 30, mix(CREAM, GREEN, 0.14), 0.94,
+             outline=mix(GREEN, INK, 0.34), width=2.6)
+    paste_c(im, 828, 800, "KE DOKTER", font(D.FB, 27), mix(GREEN, INK, 0.30), 0.96)
     _vignette(im)
 
 

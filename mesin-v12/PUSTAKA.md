@@ -44,13 +44,15 @@
   langit -> peta orbit -> langit), 70 SFX dikunci ke kata (faster-whisper), ambient angin malam, loop frame akhir = frame 0.
 - Jadwal terbit: Senin 19 Okt 2026 18.30-20.30 WIB (puncak Orionid malam Rabu 21 -> Kamis 22 Okt).
 
-## Ep52 (produksi) - Cegukan Bisa Bertahan 68 Tahun
+## Ep52 - Cegukan Bisa Bertahan 68 Tahun — Ini yang Terjadi di Tubuh (SIAP, terbit 22-23 Okt 2026)
+- Video: `KlikTahu_Ep52_Cegukan.mp4` - 1080x1920 - 60 fps - 104,80 s - 85,5 MB (Drive `KlikTahu_Produksi/Shorts/kliktahu-ep52-cegukan`, folder id `1LvhgfFUUnwmDDvfAWmet9EzJUfAevcKZ`).
+- QC: `qc_mp4` SEMUA BERSIH (audio 0,9999, VO 8/8, peak -1,8 dBFS), -14,0 LUFS / TP -1,7 dBTP; loop 0,9679 mentah karena grain acak per frame, **0,9998 setelah denoise** (jarum 12:00 di kedua ujung).
 - Dipilih dari riset ulang 20 Okt 2026 (`analisis/EP52_RISET_ULANG_20_OKT_2026.md`); antrean lama dihapus.
-- Mesin V13 + finishing V14, 8 adegan, modul `mesin_v13_ep52.py`.
-- Target terbit: 22-23 Okt 2026, 18.30-20.30 WIB.
+- Mesin V13 + finishing V14, 8 adegan, modul `mesin_v13_ep52.py`; VO `voice-04` (pria Indonesia) via `vo_manusia.py` tanpa potong/atempo.
+- Teks siap tempel: `pustaka/Ep52_Cegukan/SIAP_TEMPEL.md`; laporan produksi: `LAPORAN_EP52.md`; thumbnail + lembar pratinjau: `pustaka/Ep52_Cegukan/`.
 
 ## Ep51 - Ular Masuk Rumah Saat Hujan? Bukan Cuma Banjir (v2, TERBIT 20 Okt 2026)
-- Video: `KlikTahu_Ep51_Ular_Rumah_v2.mp4` - 1080x1920 - 60 fps - 101,53 s - 83,5 MB (Drive `KlikTahu_Produksi/kliktahu-ep51-v2-riset-ulang`).
+- Video: `KlikTahu_Ep51_Ular_Rumah_v2.mp4` - 1080x1920 - 60 fps - 101,53 s - 83,5 MB (Drive `KlikTahu_Produksi/Shorts/kliktahu-ep51-v2-riset-ulang`).
 - QC: `qc_mp4` SEMUA BERSIH (audio 0,9999, VO 8/8), loop 0,9995, -14,0 LUFS / TP -1,6 dBTP.
 - Teks siap tempel: `pustaka/Ep51_Ular_Rumah_v2/SIAP_TEMPEL.md`.
 

@@ -219,7 +219,8 @@ def kamera(tl, total, scenes, meta, beats=None):
             a = {"impact": 0.040, "thump": 0.045, "boom": 0.035, "thud": 0.018}.get(jenis)
             if a and 0 <= tl - t < 0.35:
                 d = tl - t
-                k += a * g * math.exp(-d / 0.09) * (1 - d / 0.35) * w
+                atk = esm(min(1.0, d / 0.075))      # serangan 75 ms: tanpa lompatan 1 frame
+                k += a * g * math.exp(-d / 0.09) * (1 - d / 0.35) * atk * w
     return k, dx, dy
 
 

@@ -69,7 +69,7 @@ def frame(t, k=0):
         L.FX.bokeh(img, t, n=7, col=L.mix(C.acc, L.WHITE, 0.55), alpha=0.075 * bk, seed=11 + i,
                    rmin=L.S(14), rmax=L.S(52))
     # kamera: napas halus + gerak genggam organik (derau) + dorong beat berat + zoom adegan
-    napas = 1.012 + 0.010 * math.sin(t * 0.23 + i)
+    napas = 1.012 + 0.010 * math.sin(t * 0.23)      # fase kontinu antar adegan (dulu + i -> lompat)
     pk = L.punch(t, G["ev"])
     z = C.zoom * napas * (1 + pk)
     hx = 3.2 * L.FX.nois2(t * 0.45, 1)

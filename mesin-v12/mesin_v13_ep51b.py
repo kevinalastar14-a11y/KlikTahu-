@@ -120,7 +120,8 @@ def _hujan_lapis(img, u, lapis=("jauh", "mid", "dekat"), x0=0, x1=1080, y0=300, 
     for nm in lapis:
         s = setelan[nm]
         _hujan(img, u + s["tahun"], x0, x1, y0, y1, n=s["n"], al=s["alpha"] * al,
-               panjang=s["panjang"], lebar=s["lebar"], tilt=s["tilt"], seed=hash(nm) % 97,
+               panjang=s["panjang"], lebar=s["lebar"], tilt=s["tilt"],
+               seed={"jauh": 17, "mid": 43, "dekat": 71}[nm],
                col=s["col"])
 
 
@@ -182,6 +183,7 @@ def panah(img, p0, p1, u, col, lebar=8, al=1.0, hk=3.4, putus=False):
     for i in range(len(pts) - 1):
         line_on(img, pts[i], pts[i + 1], col, lebar, al, dash=(12, 8) if putus else None)
     if u > 0.10:
+        p1 = pts[-1]
         ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
         hl = lebar * hk
         poly_on(img, [(p1[0], p1[1]),
@@ -452,15 +454,16 @@ _SCRIM = {}
 
 
 def _solid(col):
-    im = _SOLID.get(col)
+    key = (col, round(D.SS, 6))
+    im = _SOLID.get(key)
     if im is None:
         im = Image.new("RGB", (int(D.S(1080)), int(D.S(1920))), col)
-        _SOLID[col] = im
+        _SOLID[key] = im
     return im
 
 
 def _scrim(y0, y1, peak=1.0, gamma=1.15):
-    key = (round(y0), round(y1), round(peak, 3), gamma)
+    key = (round(y0), round(y1), round(peak, 3), gamma, round(D.SS, 6))
     m = _SCRIM.get(key)
     if m is None:
         import numpy as np
@@ -477,7 +480,7 @@ _SCRIM_TOP = {}
 
 
 def _scrim_atas(y1=210, peak=0.60):
-    key = (round(y1), round(peak, 3))
+    key = (round(y1), round(peak, 3), round(D.SS, 6))
     m = _SCRIM_TOP.get(key)
     if m is None:
         import numpy as np
@@ -495,7 +498,7 @@ _PAPER_MASK = {}
 
 def _paper_mask(y0=1040, y1=1290):
     """Mask kertas: tepi atas bergelombang (sobek halus), bukan garis lurus."""
-    key = (round(y0), round(y1))
+    key = (round(y0), round(y1), round(D.SS, 6))
     m = _PAPER_MASK.get(key)
     if m is None:
         import numpy as np
@@ -652,11 +655,12 @@ _BASE = {}
 
 
 def _base(nama, builder):
-    im = _BASE.get(nama)
+    key = (nama, round(D.SS, 6))
+    im = _BASE.get(key)
     if im is None:
         im = Image.new("RGB", (int(D.S(1080)), int(D.S(1920))), CREAM)
         builder(im)
-        _BASE[nama] = im
+        _BASE[key] = im
     return im
 
 

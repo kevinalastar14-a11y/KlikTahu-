@@ -1576,7 +1576,9 @@ def _camera(img, k, dx, dy):
     cx, cy = w / 2.0 + dx, h / 2.0 + dy
     x0 = min(max(0.0, cx - cw / 2), w - cw)
     y0 = min(max(0.0, cy - ch / 2), h - ch)
-    return img.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((w, h), Image.BICUBIC)
+    # subpiksel: pemetaan affine float -> tanpa jitter 1 px saat dorongan halus
+    return img.transform((w, h), Image.AFFINE, (cw / w, 0.0, x0, 0.0, ch / h, y0),
+                         resample=Image.BICUBIC)
 
 
 def _shake_amount(tl, scenes):

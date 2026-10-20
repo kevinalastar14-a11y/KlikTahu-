@@ -334,35 +334,54 @@ def sc_loop_jam(img, d, sc, tl, dur, tg, accent, al, dy):
 
 # ================================================================ 2. F1 · DIAFRAGMA
 def _dunia_diafragma(im):
-    """Potongan tubuh: tulang rusuk, paru-paru, diafragma sebagai kubah, jalur napas."""
+    """Potongan dada: rusuk di belakang, paru, diafragma sebagai kubah penyangga."""
     _grad(im, 0, 1100, mix(CREAM, TEAL, 0.06), mix(CREAM, WHITE, 0.24), 80)
     for i in range(7):
         ring_on(im, 540, 600, 380 + i * 40, mix(TEAL, CREAM, 0.80), 2, 0.07 - i * 0.008)
-    # siluet tubuh (potongan dada)
+    # siluet tubuh (potongan dada) + leher
     rrect_on(im, 296, 250, 784, 1010, 104, mix(CREAM, WHITE, 0.45), 1.0,
              outline=mix(INK, CREAM, 0.52), width=3.2)
     rrect_on(im, 486, 150, 594, 300, 44, mix(CREAM, WHITE, 0.45), 1.0,
              outline=mix(INK, CREAM, 0.52), width=3.2)
-    # tulang rusuk: enam pasang busur
-    for i in range(7):
-        y = 356 + i * 58
-        rr = 210 - i * 7
-        wd = 4.6 - i * 0.28
+
+    # --- tulang belakang (pendek, berhenti di diafragma) ---
+    line_on(im, (540, 306), (540, 690), mix(CREAM, INK, 0.30), 6.0, 0.50)
+    for i in range(9):
+        y = 330 + i * 40
+        line_on(im, (526, y), (554, y), mix(CREAM, INK, 0.34), 2.4, 0.40)
+
+    # --- rusuk: 7 pasang, di luar paru, digambar SEBELUM paru ---
+    for i in range(6):
+        y = 356 + i * 50
+        lebar = 196 + i * 3
+        wd = 5.0 - i * 0.30
         for sgn in (-1, 1):
-            a0 = math.radians(-104 if sgn < 0 else 104)
-            a1 = math.radians(96 if sgn < 0 else 256)
-            _arc(im, 540 + sgn * 14, y, rr, a0, a1, mix(CREAM, INK, 0.40), wd, 0.62, 0.40)
-    # paru-paru
+            prev = (540 + sgn * 8, y)
+            for k in range(1, 17):
+                u = k / 16.0
+                bx = ((1 - u) ** 2 * (540 + sgn * 8) + 2 * (1 - u) * u * (540 + sgn * (lebar + 22))
+                      + u * u * (540 + sgn * (lebar + 4)))
+                by = ((1 - u) ** 2 * y + 2 * (1 - u) * u * (y - 30) + u * u * (y + 54 + i * 4))
+                line_on(im, prev, (bx, by), mix(CREAM, INK, 0.42), wd, 0.62)
+                prev = (bx, by)
+
+    # --- paru-paru (menutup bagian dalam rusuk) ---
     for sgn in (-1, 1):
-        cx = 540 + sgn * 118
-        ell(im, cx - 96, 372, cx + 96, 646, fill=mix(ROSE, CREAM, 0.52), alpha=0.55)
-        _arc(im, cx, 620, 96, math.radians(20), math.radians(160), mix(ROSE_D, INK, 0.30), 2.4, 0.45, 0.42)
-    # trakea + cabang
-    rrect_on(im, 526, 262, 554, 402, 12, mix(CREAM, INK, 0.20), 0.85)
+        cx = 540 + sgn * 108
+        ell(im, cx - 98, 362, cx + 98, 700, fill=mix(ROSE, CREAM, 0.50), alpha=0.62)
+
+    # --- trakea + dua cabang (berhenti di paru) ---
+    rrect_on(im, 527, 262, 553, 404, 12, mix(CREAM, INK, 0.20), 0.88)
     for sgn in (-1, 1):
-        line_on(im, (540, 400), (540 + sgn * 74, 462), mix(CREAM, INK, 0.25), 12, 0.75)
-        line_on(im, (540, 400), (540 + sgn * 74, 462), WHITE, 4, 0.35)
-    # dasar: panggul tipis
+        line_on(im, (540, 400), (540 + sgn * 76, 470), mix(CREAM, INK, 0.24), 13, 0.78)
+        line_on(im, (540, 400), (540 + sgn * 76, 470), WHITE, 4, 0.32)
+        line_on(im, (540 + sgn * 76, 470), (540 + sgn * 92, 520), mix(CREAM, INK, 0.26), 7, 0.55)
+    # pita suara (glotis) di leher: dasar layar
+    for sgn in (-1, 1):
+        rrect_on(im, 540 + sgn * 10 - (26 if sgn < 0 else 0), 300, 540 + sgn * 10 + (26 if sgn > 0 else 0), 344,
+                 6, mix(ROSE_D, INK, 0.18), 0.88)
+
+    # --- dasar panggul tipis ---
     _arc(im, 540, 1010, 250, math.radians(200), math.radians(340), mix(INK, CREAM, 0.55), 3.0, 0.40, 0.34)
     _vignette(im)
 
@@ -378,24 +397,34 @@ def _glotis(img, q, al=1.0):
 
 
 def _kubah_diafragma(img, q, al=1.0):
-    """q 0 = kubah naik (istirahat), q 1 = kubah mendatar (kontraksi)."""
-    h = 104 - 56 * q
+    """q 0 = kubah tinggi (istirahat), q 1 = mendatar (kontraksi)."""
+    h = 92 - 58 * q
     pts = []
     for i in range(41):
-        x = 330 + i * 210 / 40.0
-        k = (x - 540) / 210.0
-        y = 792 - h * math.sqrt(max(0.0, 1 - k * k)) + 10 * q * (1 - k * k)
+        x = 340 + i * 400 / 40.0
+        k = (x - 540) / 200.0
+        y = 792 - h * math.sqrt(max(0.0, 1 - k * k))
         pts.append((x, y))
     for i in range(len(pts) - 1):
-        line_on(img, pts[i], pts[i + 1], mix(TERRA, INK, 0.34), 16, 0.94 * al)
+        line_on(img, pts[i], pts[i + 1], mix(TERRA, INK, 0.34), 14, 0.95 * al)
     for i in range(len(pts) - 1):
-        line_on(img, pts[i], pts[i + 1], mix(TERRA, WHITE, 0.34), 5, 0.55 * al)
-    # serat otot: garis radial tipis dari kubah ke panggul
-    for i in range(11):
-        k = -0.86 + i * 0.172
-        x = 540 + k * 204
-        y = 792 - h * math.sqrt(max(0.0, 1 - k * k))
-        line_on(img, (x, y + 6), (540 + k * 250, 818), mix(TERRA_D, INK, 0.34), 2.0, 0.28 * al)
+        line_on(img, pts[i], pts[i + 1], mix(TERRA, WHITE, 0.42), 5, 0.62 * al)
+    # tendon sentral (pucuk pucat)
+    cx, cy = pts[20]
+    ell(img, cx - 40, cy - 5, cx + 40, cy + 10, fill=mix(TERRA, CREAM, 0.60), alpha=0.80 * al)
+    # pita otot: lengkung tipis mengikuti kubah dalam (bukan bulu)
+    for j in range(3):
+        off = 12 + j * 11
+        prev = None
+        for i in range(41):
+            x = 340 + i * 400 / 40.0
+            k = (x - 540) / 200.0
+            if abs(k) > 1:
+                continue
+            y = 792 - (h - off) * math.sqrt(max(0.0, 1 - k * k))
+            if prev is not None:
+                line_on(img, prev, (x, y), mix(TERRA_D, INK, 0.40), 2.6, 0.22 * al)
+            prev = (x, y)
 
 
 def sc_diafragma(img, d, sc, tl, dur, tg, accent, al, dy):

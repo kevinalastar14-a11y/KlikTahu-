@@ -44,9 +44,15 @@
   langit -> peta orbit -> langit), 70 SFX dikunci ke kata (faster-whisper), ambient angin malam, loop frame akhir = frame 0.
 - Jadwal terbit: Senin 19 Okt 2026 18.30-20.30 WIB (puncak Orionid malam Rabu 21 -> Kamis 22 Okt).
 
-## Ep51 (antre) - Ular Masuk Rumah Saat Musim Hujan? Bukan Karena Banjir
-- VO 8 klip sudah jadi (`episodes/ep51_ular_rumah/audio_raw/`), naskah `content.json`, teks `pustaka/Ep51_Ular_Rumah/SIAP_TEMPEL.md`.
-- Belum dirender; butuh `mesin_v12_ep51.py`. Target terbit 24-26 Okt 2026.
+## Ep52 (produksi) - Cegukan Bisa Bertahan 68 Tahun
+- Dipilih dari riset ulang 20 Okt 2026 (`analisis/EP52_RISET_ULANG_20_OKT_2026.md`); antrean lama dihapus.
+- Mesin V13 + finishing V14, 8 adegan, modul `mesin_v13_ep52.py`.
+- Target terbit: 22-23 Okt 2026, 18.30-20.30 WIB.
+
+## Ep51 - Ular Masuk Rumah Saat Hujan? Bukan Cuma Banjir (v2, TERBIT 20 Okt 2026)
+- Video: `KlikTahu_Ep51_Ular_Rumah_v2.mp4` - 1080x1920 - 60 fps - 101,53 s - 83,5 MB (Drive `KlikTahu_Produksi/kliktahu-ep51-v2-riset-ulang`).
+- QC: `qc_mp4` SEMUA BERSIH (audio 0,9999, VO 8/8), loop 0,9995, -14,0 LUFS / TP -1,6 dBTP.
+- Teks siap tempel: `pustaka/Ep51_Ular_Rumah_v2/SIAP_TEMPEL.md`.
 
 ## Ep49 - Kenapa Bintang Berkedip, Tapi Planet Tidak?
 - Video: rilis `KlikTahu_Ep49_Bintang-76` (Latest, run 36022773282) - aset `KlikTahu_Ep49_Bintang.mp4` - 1080x1920 - 60 fps (158.8 s)

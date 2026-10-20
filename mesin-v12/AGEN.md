@@ -625,10 +625,12 @@ Segar: menangis & emosi 171, demam & imun 429 (pemeta), mimisan 299.
 BRIN: telur ular menetas Nov-Jan, anak ular masuk rumah, mangsa ramai saat hujan; langit: Orionid 21-22 Okt,
 Leonid 16-17 Nov, Geminid puncak 14 Des, Supermoon 24 Nov & 23/24 Des (verifikasi H-5).
 
-**Keputusan antrean (terbit):** **Ep50 = Ular masuk rumah saat musim hujan** (judul utama: "Ular Masuk Rumah
-Saat Musim Hujan? Bukan Karena Banjir"; 17-18 Okt) -> Ep51 Orionid 21-22 Okt (50-60 s, pakai aset Ep39; terbit
-19-20 Okt) -> Ep52 Piramida bukan budak (24-25 Okt) -> Ep53 Semut muncul sebelum hujan (28-29 Okt) -> Ep54 Hujan
-bikin ngantuk (1-2 Nov) -> Ep55 Habis nangis mata bengkak (5-6 Nov) -> Ep56 Leonid lalu Supermoon (13-14 & 20-21 Nov).
+> **ANTREAN DIHAPUS — 20 Okt 2026 (perintah pemilik: "jangan Piramida, hapus antrean-nya, analisis ulang").**
+> Rantai `Ep50 Ular -> Ep51 Orionid -> Ep52 Piramida -> Ep53 Semut -> Ep54 Hujan ngantuk -> Ep55 Nangis -> Ep56 Leonid`
+> **tidak berlaku lagi.** Piramida turun 57 % (momentum −0,568), slot tanggalnya sudah lewat, dan antrean itu tidak
+> pernah divalidasi ulang. Mulai sekarang topik dipilih **per episode** dari data terbaru dengan model 5 faktor di
+> `analisis/EP52_RISET_ULANG_20_OKT_2026.md`. Yang sudah terbit tetap tercatat: Ep50 Orionid (19 Okt), Ep51 Ular
+> rumah v2 (20 Okt). Kandidat berikutnya diputuskan lewat dokumen riset ulang, bukan daftar tetap.
 Target per video: swipe-away <= 35%, persen ditonton >= 70%, loop >= 100%, suka >= 2%, share >= 1%.
 
 **REVISI 15 Okt (malam, keputusan pemilik "Ya! Ubah judul/topik!"):** **Ep50 = Hujan Meteor Orionid 21-22 Okt**

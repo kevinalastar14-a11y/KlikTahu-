@@ -1,0 +1,273 @@
+{
+  "title": "Cegukan Bisa Bertahan 68 Tahun — Ini yang Terjadi di Tubuh",
+  "channel": "KlikTahu",
+  "header_badge": "TUBUH · REFLEKS",
+  "bg_element": "none",
+  "lead_in": 0.24,
+  "tail_intro": 0.5,
+  "tail_fact": 0.54,
+  "tail_outro": 0.92,
+  "mesin": "v12",
+  "modul": "mesin_v13_ep52",
+  "vo_chain": "v12",
+  "v12": {
+    "metafora": "jam tua -> diafragma -> jalur saraf -> refleks yang lelah -> batas 48 jam -> janin -> tindakan -> jam tua",
+    "loop": true,
+    "loop_blend": 0.72,
+    "periode_mesh_s": 12.0,
+    "skip_default_bg_decor": true,
+    "background": {
+      "mode": "custom",
+      "base": "#F2ECDF",
+      "colors": [
+        "#C08A5E",
+        "#7E8F86",
+        "#D8CBB4",
+        "#A8B6AE"
+      ],
+      "weights": [
+        0.1,
+        0.06,
+        0.04,
+        0.05
+      ],
+      "cahaya": 0.045,
+      "seed": 52
+    },
+    "ambient": "angin",
+    "ambient_db": -32.0,
+    "energi": {
+      "intro": 0.6,
+      "f1": 0.52,
+      "f2": 0.46,
+      "f3": 0.42,
+      "f4": 0.5,
+      "f5": 0.9,
+      "f6": 0.6,
+      "outro": 0.26
+    }
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "babak": "hook",
+      "visual": "jam_cegukan60",
+      "accent": "#8A5F44",
+      "badge": "TUBUH · REFLEKS",
+      "lines": [
+        "CEGUKAN 68 TAHUN",
+        "INI SEBABNYA"
+      ],
+      "hl": "68",
+      "vo": "Cegukan paling lama di dunia bertahan enam puluh delapan tahun.",
+      "speed": 1.09,
+      "anchor_out": {
+        "elemen": "jam tua",
+        "x": 540,
+        "y": 1180,
+        "skala": 1.0
+      },
+      "catatan": "Satu kasus, bukan semua kasus"
+    },
+    {
+      "id": "f1",
+      "type": "fact",
+      "babak": "agitation",
+      "visual": "diafragma60",
+      "accent": "#A85F3C",
+      "trans": "morph",
+      "badge": "YANG BERGERAK",
+      "lines": [
+        "DIAFRAGMA",
+        "BUKAN ANGIN"
+      ],
+      "hl": "DIAFRAGMA",
+      "vo": "Cegukan bukan angin masuk. Diafragma, otot yang menarik napas, berkontraksi mendadak. Lalu pita suara menutup, dan keluarlah bunyi hik. Itu sebabnya bunyinya pendek dan terputus.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "jam tua",
+        "x": 540,
+        "y": 1180,
+        "skala": 0.82
+      },
+      "anchor_out": {
+        "elemen": "kubah diafragma",
+        "x": 540,
+        "y": 1140,
+        "skala": 1.0
+      },
+      "catatan": "Otot yang menarik napas, bukan yang mendorong"
+    },
+    {
+      "id": "f2",
+      "type": "fact",
+      "babak": "body",
+      "visual": "jalur_saraf60",
+      "accent": "#3E6478",
+      "trans": "morph",
+      "badge": "JALUR SARAF",
+      "lines": [
+        "DUA SARAF",
+        "SATU SENTAKAN"
+      ],
+      "hl": "SATU",
+      "vo": "Pemicunya sering di jalur saraf. Vagus membawa sinyal dari perut dan tenggorokan. Frenikus menuju diafragma. Perut terlalu penuh, minum terlalu cepat, atau udara dingin bisa mengganggu jalur itu.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "kubah diafragma",
+        "x": 540,
+        "y": 1140,
+        "skala": 0.86
+      },
+      "anchor_out": {
+        "elemen": "jalur saraf",
+        "x": 540,
+        "y": 1120,
+        "skala": 1.0
+      },
+      "catatan": "Satu jalur, banyak pemicu"
+    },
+    {
+      "id": "f3",
+      "type": "fact",
+      "babak": "body",
+      "visual": "mitos60",
+      "accent": "#6E7F4E",
+      "trans": "morph",
+      "badge": "BERHENTI SENDIRI",
+      "lines": [
+        "REFLEKS LELAH",
+        "BUKAN DIKEJUT"
+      ],
+      "hl": "LELAH",
+      "vo": "Kenapa berhenti sendiri? Karena refleksnya melemah setelah beberapa menit. Menahan napas membantu karena karbon dioksida naik, bukan karena tubuh dikejutkan. Dikejutkan tidak terbukti bekerja.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "jalur saraf",
+        "x": 540,
+        "y": 1120,
+        "skala": 0.84
+      },
+      "anchor_out": {
+        "elemen": "kartu mitos",
+        "x": 540,
+        "y": 1130,
+        "skala": 1.0
+      },
+      "catatan": "Yang bekerja bukan yang mengejutkan"
+    },
+    {
+      "id": "f4",
+      "type": "fact",
+      "babak": "body",
+      "visual": "batas_durasi60",
+      "accent": "#8A6A4A",
+      "trans": "morph",
+      "badge": "BATAS DURASI",
+      "lines": [
+        "48 JAM",
+        "BATAS PERTAMA"
+      ],
+      "hl": "48 JAM",
+      "vo": "Durasi menentukan artinya. Di bawah empat puluh delapan jam, biasanya biasa saja. Lebih dari itu disebut persisten. Lebih dari sebulan disebut intractable. Angka itu yang membedakan cegukan biasa dan yang perlu diperiksa.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "kartu mitos",
+        "x": 540,
+        "y": 1130,
+        "skala": 0.86
+      },
+      "anchor_out": {
+        "elemen": "garis durasi",
+        "x": 540,
+        "y": 1130,
+        "skala": 1.0
+      },
+      "catatan": "Tiga batas, tiga arti"
+    },
+    {
+      "id": "f5",
+      "type": "fact",
+      "babak": "micro_climax",
+      "visual": "janin60",
+      "accent": "#A85F7A",
+      "trans": "morph",
+      "badge": "SEBELUM LAHIR",
+      "lines": [
+        "JANIN SUDAH",
+        "CEGUKAN"
+      ],
+      "hl": "JANIN",
+      "vo": "Yang jarang diketahui: janin sudah cegukan sejak dalam kandungan, kadang sejak usia sembilan minggu. Sebagian ahli menduga itu latihan diafragma sebelum bernapas pertama.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "garis durasi",
+        "x": 540,
+        "y": 1130,
+        "skala": 0.84
+      },
+      "anchor_out": {
+        "elemen": "rahim",
+        "x": 540,
+        "y": 1120,
+        "skala": 1.0
+      },
+      "catatan": "Latihan sebelum napas pertama"
+    },
+    {
+      "id": "f6",
+      "type": "fact",
+      "babak": "payoff",
+      "visual": "tindakan60",
+      "accent": "#3B6B57",
+      "trans": "morph",
+      "badge": "YANG MASUK AKAL",
+      "lines": [
+        "TAHAN NAPAS",
+        "LALU PERIKSA"
+      ],
+      "hl": "PERIKSA",
+      "vo": "Yang masuk akal: menahan napas sepuluh sampai dua puluh detik, minum air pelan-pelan. Tapi kalau cegukan disertai nyeri dada, lemas, atau sulit bicara, segera periksa. Sisanya, biarkan refleks itu lelah sendiri.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "rahim",
+        "x": 540,
+        "y": 1120,
+        "skala": 0.88
+      },
+      "anchor_out": {
+        "elemen": "empat tindakan",
+        "x": 540,
+        "y": 1130,
+        "skala": 1.0
+      },
+      "catatan": "Tenang dulu, lalu tahu batasnya"
+    },
+    {
+      "id": "outro",
+      "type": "outro",
+      "babak": "seamless_outro",
+      "visual": "loop_jam60",
+      "accent": "#8A5F44",
+      "trans": "morph",
+      "badge": "TUBUH · REFLEKS",
+      "lines": [
+        "CEGUKAN 68 TAHUN",
+        "INI SEBABNYA"
+      ],
+      "hl": "68",
+      "src": "Sumber: NIH · Cleveland Clinic · Guinness",
+      "vo": "Cegukan singkat itu normal. Yang perlu diwaspadai adalah yang tidak berhenti.",
+      "speed": 1.09,
+      "anchor_in": {
+        "elemen": "empat tindakan",
+        "x": 540,
+        "y": 1130,
+        "skala": 0.9
+      },
+      "loop_ke": "intro",
+      "catatan": "Yang singkat normal, yang menetap bukan"
+    }
+  ]
+}

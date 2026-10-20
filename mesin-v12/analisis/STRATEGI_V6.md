@@ -44,7 +44,13 @@ Video juara pesaing: "7 FAKTA Mengapa Nyamuk Betina Lebih Sering Menggigit? Nyam
 2. Semut: tiga hal yang jarang dijelaskan.
 3. Simpan video ini sebelum kamu mengalami semut.
 
-## KALENDER 7 EPISODE (rotasi pilar anti-bosan)
+## KALENDER 7 EPISODE — **DICABUT 20 OKT 2026**
+
+> Jadwal di bawah **tidak mengikat**. Tanggalnya sudah lewat, dan pemilik memerintahkan antrean dihapus.
+> Disimpan hanya sebagai jejak cara berpikir. Pemilihan topik kini per episode:
+> lihat `analisis/EP52_RISET_ULANG_20_OKT_2026.md`.
+
+### Arsip jadwal (jangan dipakai)
 
 | hari | tanggal | tema | pilar | skor_v6 | hook pembuka |
 |---|---|---|---|---:|---|

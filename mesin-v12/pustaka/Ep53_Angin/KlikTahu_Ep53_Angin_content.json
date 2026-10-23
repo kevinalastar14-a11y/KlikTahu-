@@ -1,0 +1,273 @@
+{
+ "title": "Ke Mana Angin Pergi Setelah Meniup? Ini Perjalanannya",
+ "channel": "KlikTahu",
+ "header_badge": "BUMI & CUACA",
+ "bg_element": "none",
+ "lead_in": 0.24,
+ "tail_intro": 0.5,
+ "tail_fact": 0.54,
+ "tail_outro": 0.92,
+ "mesin": "v12",
+ "modul": "mesin_v15_ep53",
+ "vo_chain": "v12",
+ "v12": {
+  "metafora": "pesawat kertas di pantai -> tekanan udara -> angin laut -> sel bumi -> siklus air -> muson -> angin mereda -> pantai lagi",
+  "loop": true,
+  "loop_blend": 0.72,
+  "periode_mesh_s": 12.0,
+  "skip_default_bg_decor": true,
+  "background": {
+   "mode": "custom",
+   "base": "#F6F1E8",
+   "colors": [
+    "#C08A5E",
+    "#7E8F86",
+    "#D8CBB4",
+    "#A8B6AE"
+   ],
+   "weights": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "cahaya": 0.0,
+   "seed": 53
+  },
+  "ambient": "angin",
+  "ambient_db": -30.0,
+  "energi": {
+   "intro": 0.7,
+   "f1": 0.5,
+   "f2": 0.55,
+   "f3": 0.62,
+   "f4": 0.5,
+   "f5": 0.95,
+   "f6": 0.4,
+   "outro": 0.26
+  }
+ },
+ "scenes": [
+  {
+   "id": "intro",
+   "type": "intro",
+   "babak": "hook",
+   "visual": "angin_intro60",
+   "accent": "#A85F3C",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "ANGIN TIDAK",
+    "PERGI — IA PINDAH"
+   ],
+   "hl": "PINDAH",
+   "vo": "Angin yang menyentuh wajahmu pagi ini sudah menempuh ribuan kilometer sebelum kamu bangun. Ia tidak hilang. Ia pindah.",
+   "speed": 1.09,
+   "catatan": "Angin tidak hilang, hanya pindah",
+   "anchor_out": {
+    "elemen": "pesawat kertas",
+    "x": 860,
+    "y": 900,
+    "skala": 1.0
+   }
+  },
+  {
+   "id": "f1",
+   "type": "fact",
+   "babak": "konteks",
+   "visual": "angin_tekanan60",
+   "accent": "#3E6478",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "UDARA PINDAH KE",
+    "TEMPAT YANG LONGGAR"
+   ],
+   "hl": "LONGGAR",
+   "vo": "Udara selalu bergerak dari tekanan tinggi ke tekanan rendah. Di tempat yang padat, udara mendorong keluar. Di tempat yang longgar, udara masuk mengisi. Angin adalah nama untuk perpindahan itu.",
+   "speed": 1.09,
+   "catatan": "Dari tekanan tinggi ke tekanan rendah",
+   "trans": "morph",
+   "anchor_in": {
+    "elemen": "pesawat kertas",
+    "x": 540,
+    "y": 900,
+    "skala": 0.9
+   },
+   "anchor_out": {
+    "elemen": "bukit dan laut",
+    "x": 540,
+    "y": 980,
+    "skala": 1.0
+   }
+  },
+  {
+   "id": "f2",
+   "type": "fact",
+   "babak": "mekanisme",
+   "visual": "angin_laut60",
+   "accent": "#8A6A4A",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "ANGIN LAUT",
+    "MASUK KE DARAT"
+   ],
+   "hl": "ANGIN LAUT",
+   "vo": "Siang hari, darat lebih cepat panas daripada laut. Udara di atas darat naik, lalu angin dari laut masuk mengisi tempat yang ditinggalkan. Itulah angin laut yang kamu rasakan di pantai.",
+   "speed": 1.09,
+   "catatan": "Darat panas, laut mengisi",
+   "trans": "morph",
+   "anchor_in": {
+    "elemen": "bukit dan laut",
+    "x": 540,
+    "y": 980,
+    "skala": 1.0
+   },
+   "anchor_out": {
+    "elemen": "bumi biru",
+    "x": 540,
+    "y": 560,
+    "skala": 0.9
+   }
+  },
+  {
+   "id": "f3",
+   "type": "fact",
+   "babak": "eskalasi",
+   "visual": "angin_bumi60",
+   "accent": "#6E7F4E",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "ANGIN BISA",
+    "KELILING BUMI"
+   ],
+   "hl": "KELILING BUMI",
+   "vo": "Dalam skala bumi, udara terbagi menjadi tiga sel sirkulasi di setiap belahan. Udara naik di khatulistiwa, turun di sekitar tiga puluh derajat, lalu kembali. Satu putaran bisa menempuh empat puluh ribu kilometer.",
+   "speed": 1.09,
+   "catatan": "Tiga sel, satu putaran besar",
+   "trans": "morph",
+   "anchor_in": {
+    "elemen": "bumi biru",
+    "x": 540,
+    "y": 560,
+    "skala": 0.9
+   },
+   "anchor_out": {
+    "elemen": "awan hujan",
+    "x": 540,
+    "y": 420,
+    "skala": 1.0
+   }
+  },
+  {
+   "id": "f4",
+   "type": "fact",
+   "babak": "bukti",
+   "visual": "angin_hujan60",
+   "accent": "#3B6B57",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "ANGIN MEMBAWA AIR",
+    "KELILING BUMI"
+   ],
+   "hl": "AIR",
+   "vo": "Angin juga mengangkut air. Uap dari laut naik bersama udara, mengembun menjadi awan, jatuh sebagai hujan di lereng gunung, lalu mengalir kembali ke laut lewat sungai. Begitulah air berkeliling.",
+   "speed": 1.09,
+   "catatan": "Uap, awan, hujan, sungai",
+   "trans": "morph",
+   "anchor_in": {
+    "elemen": "awan hujan",
+    "x": 540,
+    "y": 420,
+    "skala": 1.0
+   },
+   "anchor_out": {
+    "elemen": "kepulauan",
+    "x": 540,
+    "y": 900,
+    "skala": 1.0
+   }
+  },
+  {
+   "id": "f5",
+   "type": "fact",
+   "babak": "relevansi",
+   "visual": "angin_muson60",
+   "accent": "#A85F7A",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "MUSON: ANGIN",
+    "GANTI ARAH"
+   ],
+   "hl": "MUSON",
+   "vo": "Di Indonesia, pola ini bernama muson. Pada Januari, angin bertiup dari Asia dan membawa musim hujan. Pada Juli, arahnya berbalik dari Australia dan membawa musim kering.",
+   "speed": 1.09,
+   "catatan": "Januari basah, Juli kering",
+   "trans": "morph",
+   "anchor_in": {
+    "elemen": "kepulauan",
+    "x": 540,
+    "y": 900,
+    "skala": 1.0
+   },
+   "anchor_out": {
+    "elemen": "bukit senja",
+    "x": 540,
+    "y": 1120,
+    "skala": 1.0
+   }
+  },
+  {
+   "id": "f6",
+   "type": "fact",
+   "babak": "resolusi",
+   "visual": "angin_berhenti60",
+   "accent": "#8A5F44",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "ANGIN BERHENTI,",
+    "ENERGINYA PINDAH"
+   ],
+   "hl": "ENERGINYA PINDAH",
+   "vo": "Angin tidak lenyap. Ia melambat karena gesekan dengan tanah dan bangunan, berubah arah karena perbedaan panas, atau bertemu angin lain lalu mereda. Energinya pindah, bukan hilang.",
+   "speed": 1.09,
+   "catatan": "Melambat, berbelok, bertemu",
+   "trans": "morph",
+   "anchor_in": {
+    "elemen": "bukit senja",
+    "x": 540,
+    "y": 1120,
+    "skala": 1.0
+   },
+   "anchor_out": {
+    "elemen": "pantai",
+    "x": 540,
+    "y": 1180,
+    "skala": 1.0
+   }
+  },
+  {
+   "id": "outro",
+   "type": "outro",
+   "babak": "seamless_outro",
+   "visual": "angin_loop60",
+   "accent": "#A85F3C",
+   "trans": "morph",
+   "badge": "BUMI & CUACA",
+   "lines": [
+    "ANGIN YANG SAMA",
+    "KEMBALI LAGI"
+   ],
+   "hl": "KEMBALI",
+   "src": "Sumber: NOAA · BMKG · NASA",
+   "vo": "Jadi besok, angin yang sama bisa kembali bertiup dari arah yang berbeda.",
+   "speed": 1.09,
+   "anchor_in": {
+    "elemen": "bukit senja",
+    "x": 540,
+    "y": 1120,
+    "skala": 1.0
+   },
+   "loop_ke": "intro",
+   "catatan": "Besok angin kembali, arah bisa berbeda"
+  }
+ ]
+}

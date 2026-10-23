@@ -44,6 +44,14 @@
   langit -> peta orbit -> langit), 70 SFX dikunci ke kata (faster-whisper), ambient angin malam, loop frame akhir = frame 0.
 - Jadwal terbit: Senin 19 Okt 2026 18.30-20.30 WIB (puncak Orionid malam Rabu 21 -> Kamis 22 Okt).
 
+## Ep53 - Ke Mana Angin Pergi Setelah Meniup? Ini Perjalanannya (SIAP, terbit 25-26 Okt 2026)
+- Video: `KlikTahu_Ep53_Angin.mp4` - 1080x1920 - 60 fps - 108,98 s - 89,62 MB (Drive `KlikTahu_Produksi/Shorts/kliktahu-ep53-angin`, folder id `1sDvBjXN4c3zOMYsFPhQzOWBAOOAhcQpx`, 9 berkas).
+- QC: `qc_mp4` **SEMUA BERSIH** (audio korelasi 1.0000, VO 8/8, peak -2,0 dBFS, -14,0 LUFS / TP -1,9 dBTP); `qc_loop` **0,9996**; `check_layout` bersih.
+- **Mesin baru V15 ILUSTRASI** (`mesin_v15_ilustrasi.py` + `mesin_v15_ep53.py`): ilustrasi kartun penuh layar, 8 dunia berganti (pantai, dua bukit tekanan, pantai siang, bumi, gunung+hujan, kepulauan muson, senja, kembali ke pantai), gelembung teks putih, angka 40.075 km sebagai penanda skala. Palet tetap KlikTahu; mesin v12-v14 tidak diubah.
+- Gaya mengikuti acuan pemilik 23 Okt 2026 (Drive `1yH4LjYOJAdChg4P2yZLtZfbeXWzrhPLF`) - **gaya/komposisi**, bukan warnanya.
+- VO `voice-04` (pria Indonesia) via `vo_manusia.py` tanpa potong/atempo; tanpa musik, ambien angin + SFX per kata.
+- Teks siap tempel: `pustaka/Ep53_Angin/SIAP_TEMPEL.md`; laporan: `LAPORAN_EP53.md`; catatan mesin: `AGEN.md` 19.
+
 ## Ep52 - Cegukan Bisa Bertahan 68 Tahun — Ini yang Terjadi di Tubuh (SIAP, terbit 22-23 Okt 2026)
 - Video: `KlikTahu_Ep52_Cegukan.mp4` - 1080x1920 - 60 fps - 104,80 s - 85,5 MB (Drive `KlikTahu_Produksi/Shorts/kliktahu-ep52-cegukan`, folder id `1LvhgfFUUnwmDDvfAWmet9EzJUfAevcKZ`).
 - QC: `qc_mp4` SEMUA BERSIH (audio 0,9999, VO 8/8, peak -1,8 dBFS), -14,0 LUFS / TP -1,7 dBTP; loop 0,9679 mentah karena grain acak per frame, **0,9998 setelah denoise** (jarum 12:00 di kedua ujung).

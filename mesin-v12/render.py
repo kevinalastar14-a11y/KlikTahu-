@@ -958,17 +958,20 @@ def draw_header(img, d, sc, total, tg, accent, meta):
         wid = tw(label, f) + 46
         rrect(img, W - 62 - wid, 66, wid, 52, 26, fill=mix(CREAM, INK, 0.9))
         paste_c(img, W - 62 - wid / 2, 92, label, f, WHITE, 1.0)
-    # progress bar v3: penanda adegan (ticks) + ujung bercahaya berdenyut
-    prog = clamp(tg / total)
-    bh = 6
-    d.rectangle([0, 0, S(W), S(bh)], fill=TRACK)
-    d.rectangle([0, 0, S(W * prog), S(bh)], fill=accent)
-    for st_ in SCENES_REF[1:]:
-        xt = S(W * st_ / total)
-        d.rectangle([xt - S(1.2), 0, xt + S(1.2), S(bh)], fill=mix(CREAM, WHITE, 0.72))
-    px = S(W * prog)
-    pr = S(4.5 + 2.5 * (0.5 + 0.5 * math.sin(tg * 6.0)))
-    d.ellipse([px - pr, -pr, px + pr, S(bh) + pr], fill=mix(accent, WHITE, 0.30))
+    # progress bar v3: penanda adegan (ticks) + ujung bercahaya berdenyut.
+    # KT_PROGRESS=0 untuk gaya ilustrasi penuh layar: bar menempel di y=0 sehingga
+    # melanggar margin aman 40 px dan terbaca sebagai cacat pada latar gelap.
+    if os.environ.get("KT_PROGRESS", "1") == "1":
+        prog = clamp(tg / total)
+        bh = 6
+        d.rectangle([0, 0, S(W), S(bh)], fill=TRACK)
+        d.rectangle([0, 0, S(W * prog), S(bh)], fill=accent)
+        for st_ in SCENES_REF[1:]:
+            xt = S(W * st_ / total)
+            d.rectangle([xt - S(1.2), 0, xt + S(1.2), S(bh)], fill=mix(CREAM, WHITE, 0.72))
+        px = S(W * prog)
+        pr = S(4.5 + 2.5 * (0.5 + 0.5 * math.sin(tg * 6.0)))
+        d.ellipse([px - pr, -pr, px + pr, S(bh) + pr], fill=mix(accent, WHITE, 0.30))
 
 
 def caption_pill(img, sc, tl, accent):

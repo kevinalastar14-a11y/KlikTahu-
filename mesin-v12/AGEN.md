@@ -794,3 +794,53 @@ mp4, `_audio.m4a`, `_thumb.jpg`, `_thumb_alt.jpg`, `_lembar_pratinjau.jpg`, `_co
 
 **Ep berikutnya:** belum ditetapkan (tanpa antrean tetap). Pilih dari data terbaru dengan model 5 faktor; kandidat
 yang masih terbuka di papan v6: semut (39,7), hujan ngantuk, menangis & emosi (171 segar), mimisan (299 pemeta).
+
+## 19. SESI 23 OKT 2026 — MESIN BARU V15 "ILUSTRASI", Ep53 ANGIN (agen Arena)
+
+**Konteks:** pemilik mengirim satu video acuan (Drive `1yH4LjYOJAdChg4P2yZLtZfbeXWzrhPLF`) dan meminta
+"kualitas video seperti di referensi… masih tetap KlikTahu. Lanjut buat video short berikutnya! Lebih bagus!".
+Acuan itu bukan diagram: **satu dunia ilustrasi kartun penuh layar yang berganti tahap demi tahap**, tanpa
+kamera/HUD, teks berupa gelembung putih di sepertiga bawah, angka besar sebagai penanda skala. Mesin v12–v14
+dibangun untuk diagram, jadi dibuat pustaka ilustrasi baru — mesin lama **tidak diubah** (Ep50–Ep52 tetap bisa
+dirender ulang).
+
+**Ep53 — hasil akhir:** `KlikTahu_Ep53_Angin.mp4`, 1080x1920, 60 fps, **108,98 s, 89.618.479 B (89,62 MB)**,
+modul `mesin_v15_ep53.py` + `mesin_v15_ilustrasi.py`, 8 dunia (`angin_intro60, angin_tekanan60, angin_laut60,
+angin_bumi60, angin_hujan60, angin_muson60, angin_berhenti60, angin_loop60`), 92 cue kata, 36 SFX, VO `voice-04`
+via `vo_manusia.py` (tanpa potong/atempo), master **-14,0 LUFS / TP -1,9 dBTP**, `qc_mp4` **SEMUA BERSIH**
+(audio korelasi 1.0000), `qc_loop` **0,9996**. Drive:
+`KlikTahu_Produksi/Shorts/kliktahu-ep53-angin` (`1sDvBjXN4c3zOMYsFPhQzOWBAOOAhcQpx`) berisi 9 berkas.
+
+**Pelajaran baru (jangan diulang):**
+1. **Bug alpha — `paste` tidak mengisi alpha.** `lay.paste(fill_RGB, (0,0), mask)` pada layer RGBA hanya
+   menimpa kanal warna; alpha tetap 0, jadi saat layer ditempel ke kanvas yang muncul cuma garis luar
+   (gunung/pulau "kerangka"). Pola yang benar: `lay = fill.convert("RGBA"); lay.putalpha(m.crop(bbox));`
+   lalu `img.paste(lay.convert("RGB"), (bbox[0], bbox[1]), lay)`.
+2. **Polyline yang mau diisi harus ditutup ke titik DI DALAM area.** Gunung ditutup ke `(cx ± w/2, base)`
+   (kaki) membuat sisi penutup menyilang punggung → yang terisi hanya irisan tipis. Tutup ke `(cx, base)`.
+3. **Cache `_base()` tidak tahu kode berubah.** Setelah mengedit `_dunia_*`, WAJIB `rm -rf build/v15base`,
+   kalau tidak pratinjau menampilkan versi lama dan "perbaikan" tampak tidak bekerja.
+4. **Pratinjau: `render_frame()`, bukan `--times`.** `--times` menulis ke `../build/frames` yang ephemeral.
+   Wajib `R.SS = D.SS` (pratinjau 1,5) atau frame terpotong. ~1,2 s/frame hangat.
+5. **Cek "tidak beku" dengan angka:** dua frame berjarak 0,5 s, beda luma rata-rata. Ep53 4,8–7,1
+   (target > 2).
+6. **Progress bar HUD lama menempel di y=0** (6 px + bloom) → di latar gelap terbaca sebagai pita warna
+   dan melanggar margin 40 px. Untuk gaya ilustrasi: `KT_PROGRESS=0` (default tetap 1).
+7. **Ambang kasar "sentuh tepi" di `qc_mp4` tidak berlaku untuk latar full-bleed**: `_is_ink` menghitung
+   setiap piksel gelap, jadi adegan navy selalu lewat ambang. Episode ilustrasi menyalakan `KT_FULLBLEED=1`
+   (angka tetap dicetak sebagai catatan, tapi tidak menggagalkan). Gate yang mengikat tetap `check_layout.py`.
+8. **VO "PERIKSA" (onset < 100 ms) belum tentu terpotong.** Di Ep53 f4/f6/outro onset 60–75 ms, tapi sampel
+   > -40 dBFS baru muncul 68–80 ms dan fade-in 30 ms selesai di -54 dBFS: itu hening ruangan. Ukur amplitudo
+   dulu sebelum memutuskan render ulang.
+9. **`vo_manusia.py` mencari `<src>/<id_scene>.(wav|flac|m4a|mp3)`** — bukan `audio_raw/`, bukan `NN_slug`.
+   Berkas mentah cukup dinamai ulang ke id scene dan tetap di `audio_raw/` (`render_lokal.sh` menyalinnya).
+10. **Render penuh = ±2 jam di mesin 2 core (CHUNKS=8 JOBS=2).** Karena itu semua cacat visual harus
+    ditemukan di pratinjau 8 adegan dulu; satu bar di tepi atas memaksa render ulang 2 jam.
+
+**Berkas baru sesi ini:** `mesin_v15_ilustrasi.py`, `mesin_v15_ep53.py`,
+`episodes/ep53_angin/{content.json,config.env,METADATA.md,audio_raw/*}`,
+`pustaka/Ep53_Angin/{SIAP_TEMPEL.md,METADATA.md,thumb,thumb_alt,lembar,audio.m4a,content.json,LAPORAN}`,
+`LAPORAN_EP53.md`, `riset-kualitas/ref/v15_prev12.jpg` (lembar uji akhir 8 adegan).
+
+**Ep berikutnya:** belum ditetapkan (tanpa antrean tetap). Kalau lanjut gaya v15, mulai dari
+`mesin_v15_ilustrasi.py` + salin pola `mesin_v15_ep53.py`; pilih topik dari data dengan model 5 faktor.

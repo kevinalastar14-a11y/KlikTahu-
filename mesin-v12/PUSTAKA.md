@@ -44,6 +44,15 @@
   langit -> peta orbit -> langit), 70 SFX dikunci ke kata (faster-whisper), ambient angin malam, loop frame akhir = frame 0.
 - Jadwal terbit: Senin 19 Okt 2026 18.30-20.30 WIB (puncak Orionid malam Rabu 21 -> Kamis 22 Okt).
 
+## Ep54 - Mata Minus Tidak Bisa Sembuh — Bola Matanya Sudah Memanjang (SIAP, terbit 27-28 Okt 2026)
+- Video: `KlikTahu_Ep54_MataMinus.mp4` - 1080x1920 - 60 fps - 113,20 s - 92,90 MB (Drive `KlikTahu_Produksi/Shorts/kliktahu-ep54-mata-minus`, folder id `1AVIzZJysxG_P_CW_pkiL0apjhqH-P-2O`, 9 berkas).
+- QC: `qc_mp4` **SEMUA BERSIH** (audio korelasi 0,9999, lag +0 ms, VO 8/8, peak -1,7 dBFS, -14,0 LUFS / TP -1,6 dBTP, 0 clipping); `qc_loop` **0,9997**; `check_layout` bersih (87 elemen teks, margin 40 px).
+- Pilar TUBUH. Dipilih dari data 15 Okt: tema `mata` **volume #1 (90 permintaan)** dan **niat #1 (17 frasa bertanya)** dari 55 tema; klaster `mata minus` 11 frasa, 6 di posisi <=5 (autocomplete #1 "kenapa mata minus", #2 "kenapa mata minus tidak bisa sembuh"). Rincian: `analisis/EP54_RISET_23_OKT_2026.md`.
+- Sudut pembeda: **fisik, bukan tips** - bola mata sudah memanjang (23-24 mm; +1 mm ~ 3 dioptri) dan tidak menyusut. Uji acak Guangzhou: +40 menit di luar/hari, 30,4% vs 39,5%. Tanda bahaya retina di atas minus 6.
+- Mesin V15 ILUSTRASI (`mesin_v15_ilustrasi.py` + `mesin_v15_ep54.py`), 8 dunia baru: kelas POV buram, penampang bola mata + penggaris 24 mm, tiga kartu 24/25/26 mm, jendela terbelah 300 vs 100.000 lux, halaman sekolah, ruang periksa + bagan Snellen, fundus retina, kelas senja loop.
+- VO `voice-04` via `vo_manusia.py` tanpa potong/atempo (206 kata); tanpa musik, ambien ruang -32 dB + 38 event SFX.
+- Teks siap tempel: `pustaka/Ep54_MataMinus/SIAP_TEMPEL.md`; laporan: `LAPORAN_EP54.md`; catatan mesin: `AGEN.md` 20.
+
 ## Ep53 - Ke Mana Angin Pergi Setelah Meniup? Ini Perjalanannya (SIAP, terbit 25-26 Okt 2026)
 - Video: `KlikTahu_Ep53_Angin.mp4` - 1080x1920 - 60 fps - 108,98 s - 89,62 MB (Drive `KlikTahu_Produksi/Shorts/kliktahu-ep53-angin`, folder id `1sDvBjXN4c3zOMYsFPhQzOWBAOOAhcQpx`, 9 berkas).
 - QC: `qc_mp4` **SEMUA BERSIH** (audio korelasi 1.0000, VO 8/8, peak -2,0 dBFS, -14,0 LUFS / TP -1,9 dBTP); `qc_loop` **0,9996**; `check_layout` bersih.

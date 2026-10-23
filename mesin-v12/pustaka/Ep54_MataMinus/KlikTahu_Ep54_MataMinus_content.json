@@ -1,0 +1,104 @@
+{
+ "title": "Mata Minus Tidak Bisa Sembuh — Bola Matanya Sudah Memanjang",
+ "channel": "KlikTahu",
+ "header_badge": "TUBUH & MATA",
+ "bg_element": "none",
+ "lead_in": 0.24,
+ "tail_intro": 0.5,
+ "tail_fact": 0.54,
+ "tail_outro": 0.92,
+ "mesin": "v12",
+ "modul": "mesin_v15_ep54",
+ "vo_chain": "v12",
+ "v12": {
+  "metafora": "kelas buram -> penampang bola mata -> bola mata memanjang -> dalam vs luar -> halaman sekolah -> koreksi vs perlambat -> retina tertarik -> kelas lagi (fokus)",
+  "loop": true,
+  "loop_blend": 0.72,
+  "periode_mesh_s": 12.0,
+  "skip_default_bg_decor": true,
+  "background": {"mode": "custom", "base": "#F6F1E8",
+   "colors": ["#C08A5E", "#7E8F86", "#D8CBB4", "#A8B6AE"],
+   "weights": [0.0, 0.0, 0.0, 0.0], "cahaya": 0.0, "seed": 54},
+  "ambient": "ruang",
+  "ambient_db": -31.0,
+  "energi": {"intro": 0.55, "f1": 0.45, "f2": 0.62, "f3": 0.55, "f4": 0.72, "f5": 0.5, "f6": 0.8, "outro": 0.3}
+ },
+ "scenes": [
+  {
+   "id": "intro", "type": "intro", "babak": "hook", "visual": "mata_intro60",
+   "accent": "#A85F3C", "badge": "TUBUH & MATA",
+   "lines": ["DUNIA JADI BURAM", "BUKAN SALAH LENSA"], "hl": "BURAM",
+   "vo": "Coba lepas kacamatamu. Kalau dunia jadi buram, itu bukan lensa yang salah. Bola matamu sudah memanjang, dan panjangnya tidak kembali.",
+   "speed": 1.09, "catatan": "Buram = bola mata memanjang, bukan lensa salah",
+   "anchor_out": {"elemen": "papan tulis buram", "x": 380, "y": 480, "skala": 1.0}
+  },
+  {
+   "id": "f1", "type": "fact", "babak": "konteks", "visual": "mata_optik60",
+   "accent": "#3E6478", "badge": "TUBUH & MATA",
+   "lines": ["CAHAYA JATUH", "DI DEPAN RETINA"], "hl": "DI DEPAN RETINA",
+   "vo": "Bola mata normal sekitar 24 milimeter. Cahaya masuk lewat kornea dan lensa, lalu harus jatuh tepat di retina. Kalau bola mata memanjang, retina mundur, dan cahaya jatuh di depannya. Jauh jadi buram.",
+   "speed": 1.09, "catatan": "Fokus jatuh di depan retina",
+   "trans": "morph",
+   "anchor_in": {"elemen": "papan tulis", "x": 380, "y": 480, "skala": 0.85},
+   "anchor_out": {"elemen": "titik fokus", "x": 790, "y": 660, "skala": 1.0}
+  },
+  {
+   "id": "f2", "type": "fact", "babak": "body_1", "visual": "mata_panjang60",
+   "accent": "#7A5F3C", "badge": "TUBUH & MATA",
+   "lines": ["TAMBAH 1 MILIMETER,", "MINUS BERTAMBAH"], "hl": "1 MILIMETER",
+   "vo": "Setiap tambahan satu milimeter bisa berarti tiga minus. Dan mata yang sudah memanjang tidak menyusut lagi. Bukan otot yang lelah, bukan kebiasaan yang bisa dibatalkan.",
+   "speed": 1.09, "catatan": "1 mm kira-kira 3 dioptri; tidak menyusut",
+   "trans": "morph",
+   "anchor_in": {"elemen": "titik fokus", "x": 540, "y": 660, "skala": 0.9},
+   "anchor_out": {"elemen": "tiga bola mata", "x": 540, "y": 640, "skala": 1.0}
+  },
+  {
+   "id": "f3", "type": "fact", "babak": "body_1", "visual": "mata_ruang60",
+   "accent": "#4A6B52", "badge": "TUBUH & MATA",
+   "lines": ["TERLALU DEKAT,", "TERLALU REDUP"], "hl": "TERLALU REDUP",
+   "vo": "Yang mendorongnya memanjang adalah lingkungan: terlalu lama melihat dekat, di dalam ruangan, dengan cahaya redup. Cahaya matahari jauh lebih terang daripada lampu kamar, dan terang itu yang menahan.",
+   "speed": 1.09, "catatan": "Dekat + redup vs terang di luar",
+   "trans": "morph",
+   "anchor_in": {"elemen": "kartu angka", "x": 540, "y": 640, "skala": 0.9},
+   "anchor_out": {"elemen": "jendela terbelah", "x": 540, "y": 700, "skala": 1.0}
+  },
+  {
+   "id": "f4", "type": "fact", "babak": "body_2", "visual": "mata_bukti60",
+   "accent": "#A85F3C", "badge": "TUBUH & MATA",
+   "lines": ["40 MENIT DI LUAR,", "BEDA 9 PERSEN"], "hl": "40 MENIT",
+   "vo": "Di Guangzhou, anak yang dapat tambahan 40 menit di luar tiap hari punya angka miopia 30 persen, dibanding 39 persen. Meta-analisis: lebih dari dua jam sehari, risiko turun sekitar seperempat.",
+   "speed": 1.09, "catatan": "Uji acak Guangzhou + meta-analisis",
+   "trans": "morph",
+   "anchor_in": {"elemen": "matahari", "x": 540, "y": 700, "skala": 0.9},
+   "anchor_out": {"elemen": "halaman sekolah", "x": 540, "y": 900, "skala": 1.0}
+  },
+  {
+   "id": "f5", "type": "fact", "babak": "body_2", "visual": "mata_koreksi60",
+   "accent": "#5C6E8A", "badge": "TUBUH & MATA",
+   "lines": ["DIPERLAMBAT,", "BUKAN DIBATALKAN"], "hl": "DIPERLAMBAT",
+   "vo": "Kacamata tidak melemahkan mata. Tapi kacamata dan LASIK hanya memperbaiki fokus, bukan panjang bola mata. Yang memperlambat: waktu di luar, atropin dari dokter, dan lensa khusus.",
+   "speed": 1.09, "catatan": "Koreksi bukan obat; tiga cara memperlambat",
+   "trans": "morph",
+   "anchor_in": {"elemen": "mata", "x": 540, "y": 560, "skala": 0.9},
+   "anchor_out": {"elemen": "tiga lencana", "x": 540, "y": 900, "skala": 1.0}
+  },
+  {
+   "id": "f6", "type": "fact", "babak": "body_3", "visual": "mata_retina60",
+   "accent": "#8A3F3C", "badge": "TUBUH & MATA",
+   "lines": ["DI ATAS MINUS 6,", "RISIKO NAIK"], "hl": "MINUS 6",
+   "vo": "Di atas minus enam, masalahnya bukan cuma buram. Retina yang tertarik lebih mudah lepas, dan risiko glaukoma naik. Kalau tiba-tiba banyak bayangan terbang, ada kilatan, atau seperti tirai menutup, segera periksa.",
+   "speed": 1.09, "catatan": "Risiko minus tinggi + tanda bahaya",
+   "trans": "morph",
+   "anchor_in": {"elemen": "lencana", "x": 540, "y": 900, "skala": 0.9},
+   "anchor_out": {"elemen": "retina", "x": 700, "y": 620, "skala": 1.0}
+  },
+  {
+   "id": "outro", "type": "outro", "babak": "loop", "visual": "mata_loop60",
+   "accent": "#A85F3C", "badge": "TUBUH & MATA",
+   "lines": ["DUA JAM DI BAWAH", "LANGIT TERBUKA"], "hl": "DUA JAM",
+   "vo": "Kacamata membantumu melihat hari ini. Dua jam di bawah langit membantu matamu berhenti memanjang.",
+   "speed": 1.09, "catatan": "Loop: kembali ke kelas, fokus pulih",
+   "trans": "morph"
+  }
+ ]
+}

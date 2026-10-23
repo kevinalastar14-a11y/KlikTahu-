@@ -844,3 +844,51 @@ via `vo_manusia.py` (tanpa potong/atempo), master **-14,0 LUFS / TP -1,9 dBTP**,
 
 **Ep berikutnya:** belum ditetapkan (tanpa antrean tetap). Kalau lanjut gaya v15, mulai dari
 `mesin_v15_ilustrasi.py` + salin pola `mesin_v15_ep53.py`; pilih topik dari data dengan model 5 faktor.
+
+---
+
+## 20. SESI 23 OKT 2026 (malam) — Ep54 MATA MINUS, mempertajam gaya ilustrasi (agen Arena)
+
+**Konteks:** perintah pemilik "Lanjut, buat lebih bagus! Buat video short dengan judul, niche berdasarkan hasil
+analisis dan riset mendalam menyeluruh dan mendalam!". Antrean tetap tetap dihapus; topik dipilih ulang dari data.
+
+**Pemilihan (data 15 Okt + riset web 23 Okt).** Tema `mata` adalah **volume #1 (90 permintaan)** dan **niat #1
+(17 frasa bertanya)** dari 55 tema, pertumbuhan #2 (224,4), dan **belum pernah diproduksi** — sementara pesaing
+terdekat sudah terpakai (gigi Ep30, mimpi Ep21/25, perut Ep28, kedutan Ep31). Klaster di dalamnya: **"mata minus"**
+11 frasa, 6 di posisi <=5. Rincian lengkap: `analisis/EP54_RISET_23_OKT_2026.md`.
+
+**Ep54 — hasil akhir:** `KlikTahu_Ep54_MataMinus.mp4`, 1080x1920, 60 fps, **113,20 s, 92.897.925 B (92,90 MB)**,
+8 dunia (`mata_intro60, mata_optik60, mata_panjang60, mata_ruang60, mata_bukti60, mata_koreksi60, mata_retina60,
+mata_loop60`), 80 cue kata, 25 SFX, 206 kata VO, master **-14,0 LUFS / TP -1,6 dBTP**, `qc_mp4` **SEMUA BERSIH**
+(audio korelasi 0,9999, lag +0 ms), `qc_loop` **0,9997**. Drive:
+`KlikTahu_Produksi/Shorts/kliktahu-ep54-mata-minus` (`1AVIzZJysxG_P_CW_pkiL0apjhqH-P-2O`) berisi 9 berkas.
+
+**Pelajaran baru (jangan diulang):**
+1. **Objek anatomis tidak punya toleransi.** Pada lanskap, pohon miring masih masuk akal; pada bola mata, dua
+   bilah iris yang salah tempat langsung terbaca sebagai "gambar rusak" (di pratinjau terbaca seperti sumbatan
+   lensa). Kalau ragu: **buang objeknya** — penampang lebih sedikit justru lebih jelas.
+2. **Label menunjuk, tidak menempel.** Label yang menunjuk objek harus punya **garis penunjuk dua segmen + titik
+   ujung**, dan badan label diletakkan di area kosong (langit/latar). Label yang ditempel di tepi objek terpotong
+   kanvas atau menimpa wajah/atap.
+3. **Bagan bertingkat pakai posisi `y` tetap.** `yy += fs * 1.9` pada Snellen membuat baris saling tindih karena
+   faktor jarak lebih kecil dari tinggi baris. Tulis koordinat tetap (306/380/444/502/552/596).
+4. **Bentuk "robekan" jangan pakai panah.** Panah terbaca sebagai kursor. Robekan retina = busur ladam (cincin
+   terbuka 15 titik) + tirai gradien.
+5. **Sebelum render, cek kontinuitas karakter lintas adegan di satu lembar.** Anak yang sama harus muncul di
+   kelas (intro/outro), panel "dalam ruangan" f3, dan halaman f4 — itu yang membuat 8 dunia terasa satu cerita.
+6. **`render.py` memuat modul dari `content.json` root**, bukan dari `episodes/<slug>/content.json`. Untuk
+   pratinjau manual: `import mesin_v15_ep54` **sebelum** `render_frame`, kalau tidak `KeyError: 'kicker'` karena
+   render jatuh ke jalur intro generik.
+7. **`upload_file` bisa gagal pada JPEG kecil** (`file_transfer_failed`, 216 KB) padahal MP4 92 MB lolos.
+   Konversi ke PNG lalu unggah — jangan ulangi panggilan identik. Berkas di `/tmp` juga tidak bisa diunggah;
+   salin ke dalam repo dulu.
+8. **Jangan menyimpulkan VO terpotong dari label "PERIKSA".** Intro & f6 Ep54 ditandai karena onset < 120 ms,
+   tetapi level 25 ms pertama -56,3 / -52,8 dBFS = hening ruangan. Ukur amplitudo di Python sebelum memutuskan.
+
+**Berkas baru sesi ini:** `mesin_v15_ep54.py`, `episodes/ep54_mata_minus/{content.json,config.env,METADATA.md,
+audio_raw/*}`, `analisis/EP54_RISET_23_OKT_2026.md`, `pustaka/Ep54_MataMinus/*`, `LAPORAN_EP54.md`,
+`riset-kualitas/ref/v15ep54_prev4.jpg` (lembar uji 8 dunia) dan `riset-kualitas/ref/v15ep54_timeline.jpg` (8 adegan dari timeline nyata).
+
+**Ep berikutnya:** belum ditetapkan. Kalau lanjut gaya v15: mulai dari `mesin_v15_ilustrasi.py` + salin pola
+`mesin_v15_ep54.py`; pilih topik dari data 5 faktor, dan **utamakan tema dengan volume tinggi yang belum pernah
+dibuat** (kandidat dari data: gigi & mulut 258,3 [sudah Ep30 — cari sub-tema lain], kulit 85,8, pusing & migrain 79,8).

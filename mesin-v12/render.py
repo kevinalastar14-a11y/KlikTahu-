@@ -1525,6 +1525,18 @@ def _scene_index(tl, scenes):
     return len(scenes) - 1
 
 
+_LATAR_DATAR = {}
+
+
+def _latar_datar():
+    key = (int(S(W)), int(S(H)))
+    im = _LATAR_DATAR.get(key)
+    if im is None:
+        im = Image.new("RGB", key, CREAM)
+        _LATAR_DATAR[key] = im
+    return im
+
+
 def _content_image(tl, total, scenes, meta):
     """Konten adegan saja (latar + diagram), sudah melewati kamera zoom-out.
 
@@ -1536,17 +1548,18 @@ def _content_image(tl, total, scenes, meta):
     t = tl - sc["start"]
     accent = hexc(sc["accent"])
     v12 = _is_v12(meta)
-    if FX_ON:
+    _mw = float(os.environ.get("KT_MESH", "1"))
+    if FX_ON and _mw > 0.01:
         # v2026: latar MESH GRADIENT bergerak (aksen adegan + hangat + sejuk) menggantikan krem datar
         # v12: seed tetap + aksen dicampur melintasi batas adegan -> latar tidak pernah melompat
         acc_m = mesin_v12.aksen_pada(tl, scenes) if v12 else accent
-        _mw = float(os.environ.get("KT_MESH", "1"))
         img = mesin_fx.mesh_latar(int(S(W)), int(S(H)), tl, CREAM,
                                   [acc_m, (250, 196, 150), (160, 196, 232), acc_m],
                                   [0.16 * _mw, 0.10 * _mw, 0.07 * _mw, 0.08 * _mw],
                                   seed=3 if v12 else 3 + i % 5, cahaya=0.035 * min(1.0, _mw + 0.35))
     else:
-        img = Image.new("RGB", (int(S(W)), int(S(H))), CREAM)
+        # latar datar di-cache: 1 salinan per (ukuran) -> tidak alokasi 4,7 juta piksel tiap frame
+        img = _latar_datar().copy()
     d = ImageDraw.Draw(img)
     _beats(scenes)          # v11: juga mengisi jumlah fakta untuk penanda bab
     draw_bg(img, d, tl, accent)
@@ -1580,8 +1593,10 @@ def _camera(img, k, dx, dy):
     x0 = min(max(0.0, cx - cw / 2), w - cw)
     y0 = min(max(0.0, cy - ch / 2), h - ch)
     # subpiksel: pemetaan affine float -> tanpa jitter 1 px saat dorongan halus
-    return img.transform((w, h), Image.AFFINE, (cw / w, 0.0, x0, 0.0, ch / h, y0),
-                         resample=Image.BICUBIC)
+    # KT_CAM=bilinear: dorongan kamera <=3 % -> BILINEAR tak bisa dibedakan dari BICUBIC,
+    # tetapi ~40 % lebih murah. Default tetap BICUBIC.
+    _rs = Image.BILINEAR if os.environ.get("KT_CAMRES", "") == "bilinear" else Image.BICUBIC
+    return img.transform((w, h), Image.AFFINE, (cw / w, 0.0, x0, 0.0, ch / h, y0), resample=_rs)
 
 
 def _shake_amount(tl, scenes):
@@ -1726,7 +1741,13 @@ def _finish(img, tl, total, scenes, meta):
     if img.size != (W, H):
         img = img.resize((W, H), Image.LANCZOS)
     if SHARPEN > 0:
-        img = img.filter(ImageFilter.UnsharpMask(radius=1.1, percent=int(round(SHARPEN)), threshold=3))
+        if os.environ.get("KT_KILAT", "0") == "1":
+            # kernel 3x3 di C: ~8 ms vs ~77 ms UnsharpMask, ketajaman setara pada
+            # ilustrasi flat (tidak ada tekstur halus yang perlu dijaga)
+            from PIL import ImageEnhance
+            img = ImageEnhance.Sharpness(img).enhance(1.0 + SHARPEN / 100.0)
+        else:
+            img = img.filter(ImageFilter.UnsharpMask(radius=1.1, percent=int(round(SHARPEN)), threshold=3))
     # vignette + grain di resolusi akhir: lebih cepat dan butirannya tidak ikut mengecil
     if FX_ON:
         # v2026: pendar adaptif (latar krem -> hampir mati, layar gelap/garis neon -> berpendar) +
@@ -1738,6 +1759,8 @@ def _finish(img, tl, total, scenes, meta):
             # V13/V14: pendar dari detail + lindung highlight + kontras lokal + vinyet + dither + grain
             img = _vignette(img, float(os.environ.get("KT_VIG", "0.085")))
             if _fin == "v14":
+                if os.environ.get("KT_CEPAT", "1") == "1":
+                    return mesin_fx.finishing_v14_cepat(img, int(round(tl * 60)))
                 return mesin_fx.finishing_v14(img, int(round(tl * 60)))
             return mesin_fx.finishing_v13(img, int(round(tl * 60)))
         img = _vignette(img, float(os.environ.get("KT_VIG", "0.115")))
@@ -1760,7 +1783,7 @@ def _mp_init(total, scenes, meta, outdir, fps, ss, sharpen):
 
 def _mp_one(i):
     render_frame(i / _MP["fps"], _MP["total"], _MP["scenes"], _MP["meta"],
-                 os.path.join(_MP["outdir"], f"f_{i:05d}.png"))
+                 os.path.join(_MP["outdir"], f"f_{i:05d}" + _EXT))
     return i
 
 
@@ -1887,6 +1910,24 @@ def _whip_blend(prev, img, k, acc):
         dd = ImageDraw.Draw(out)
         dd.line([x, 0, x, out.size[1]], fill=mix(acc, WHITE, 0.30), width=max(2, int(S(6))))
     return out
+
+
+def _simpan_frame(img, out_path):
+    """Simpan frame. KT_FMT=jpg memakai JPEG q97 4:4:4 (default sekarang).
+
+    PNG pada frame ilustrasi kompleks butuh ~950 ms; JPEG q97 ~15 ms. Karena hasil
+    akhirnya di-encode H.264 6,4 Mbps, selisih JPEG q97 (PSNR > 48 dB) jauh di bawah
+    ambang yang bisa dilihat. PNG tetap bisa dipakai dengan KT_FMT=png.
+    """
+    fmt = os.environ.get("KT_FMT", "jpg").lower()
+    if fmt == "png":
+        img.save(out_path)
+    else:
+        img.save(out_path, quality=int(os.environ.get("KT_JPGQ", "97")), subsampling=0,
+                 optimize=False, progressive=False)
+
+
+_EXT = ".png" if os.environ.get("KT_FMT", "jpg").lower() == "png" else ".jpg"
 
 
 def render_frame(tl, total, scenes, meta, out_path):
@@ -2048,13 +2089,13 @@ def render_frame(tl, total, scenes, meta, out_path):
             k0 = diagrams.esmooth((tl - (total - lb)) / lb)
             img0 = _finish(_content_image(0.0, total, scenes, meta), 0.0, total, scenes, meta)
             img = Image.blend(img, img0, k0)
-        img.save(out_path)
+        _simpan_frame(img, out_path)
         return
     ef = float(os.environ.get("KT_ENDFADE", "0.40"))
     if ef > 0.01 and tl > total - ef:
         k = diagrams.esmooth((tl - (total - ef)) / ef)
         img = Image.blend(img, Image.new("RGB", img.size, CREAM), 0.9 * k)
-    img.save(out_path)
+    _simpan_frame(img, out_path)
 
 
 def main():
@@ -2150,7 +2191,7 @@ def main():
                     print(f"{done}/{n}  {el:.0f}s  eta {el/done*(n-done):.0f}s", flush=True)
     else:
         for i in range(lo, hi):
-            render_frame(i / a.fps, total, scenes, meta, os.path.join(a.outdir, f"f_{i:05d}.png"))
+            render_frame(i / a.fps, total, scenes, meta, os.path.join(a.outdir, f"f_{i:05d}" + _EXT))
             if i % 60 == 0:
                 el = time.time() - t0
                 done = i - lo + 1

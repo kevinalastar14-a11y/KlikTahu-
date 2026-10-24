@@ -960,3 +960,40 @@ Perubahan mesin lama: `sfx.py` (+`ambient_laut`), `master_audio.py` (kenal ambie
 **Ep berikutnya:** belum ditetapkan. Kalau lanjut gaya v16, mulai dari `mesin_v16_laut.py` + salin pola
 `mesin_v16_ep55.py`. Kandidat data yang belum dipakai: kulit (gatal/bentol, 85,8), pusing & migrain (79,8),
 internet & sinyal (74,7, pilar TEKNOLOGI 0,34).
+
+---
+
+## 22. SESI 24 OKT 2026 (lanjutan) — MESIN v17 "LAUT TERANG" + RENDER 1,8x LEBIH CEPAT
+
+**Pemicu:** pemilik menilai Ep55 v16 "jelek dan berbeda dari video KlikTahu sebelumnya". Penilaian itu
+benar: v16 memakai latar laut gelap tanpa outline, sedangkan Ep52-54 memakai kertas krem + garis tinta.
+
+**Perbaikan visual:** `mesin_v17_terang.py` (622) + `mesin_v17_ep55.py` (689) = **1.311 baris**.
+Langit krem, air teal muda (tidak ada hitam), hewan **beroutline + perut krem + insang + mata**,
+pasir berkerikil, gigi kecil di busur rahang + kaca pembesar. Timing cue/SFX **disalin dari v16** supaya
+tidak perlu mengubah audio; karena VO direkam ulang, timeline dihitung ulang (99,02 s).
+
+**Gigi: 4 versi sebelum benar.** Tegak besar = layar kapal; rebah 80 derajat = panah; deret raksasa =
+barisan kapal. Yang benar: 62-88 px, rapat, di busur rahang, akar V terlihat, miring 8-20 derajat.
+
+**Audio telinga:** `audio_telinga.py` — HPF 78 Hz, -1,2 dB @ 270 Hz, +1,6 dB @ 3,3 kHz, rak > 11 kHz,
+de-esser 5,8-9,5 kHz (maks 2,4 dB), kompresor 1,5:1, loudnorm -14 LUFS / TP -1,5. Hasil -14,0 LUFS /
+TP -1,3 / panjang tidak berubah / 0 clipping. Keluaran kerja **M4A**, bukan WAV.
+
+**Render: 45 -> 24 menit 52 detik (1,8x) di mesin 2 core.** Penyebab utama bukan fungsi gambar
+(konten hanya 17 ms/frame), melainkan:
+1. simpan **PNG** 947 ms/frame -> **JPEG q97 4:4:4** 16 ms (`KT_FMT=jpg`);
+2. finishing v14 656 ms -> **133 ms** (`KT_CEPAT=1`): halation 1/6 + satu upscale, LUT C, grain siap pakai;
+3. penajaman 77 -> 8 ms (`KT_KILAT=1`, ImageEnhance);
+4. kamera BILINEAR (`KT_CAMRES=bilinear`), mesh tidak dihitung saat `KT_MESH=0`;
+5. panel kartu di-cache (35 -> ~1 ms).
+Encode x264 `slow` masih 552 s; `PRESET=fast` (SSIM 0,9944 vs slow) menurunkannya ke 250 s => ~19,8 menit.
+**10 menit tidak bisa dicapai tanpa menurunkan kualitas** (butuh SS 0,75 / 30 fps / finishing mati);
+mode itu hanya untuk pratinjau.
+
+**Jebakan yang ditemui:** repo sempat ter-reset ke `ab7f209` (semua berkas `mesin-v12/` jadi untracked).
+Pulih dengan `git fetch origin arena/322bf634-kliktahu` + `git reset --mixed origin/...` — commit
+`d32d43a`/`1ad90c2` masih ada di origin, jadi **selalu fetch dulu sebelum menyimpulkan commit hilang**.
+
+**Setelan episode** ada di `episodes/ep55_megalodon/config.env` (SS=1,0; KT_FMT=jpg; KT_CEPAT=1;
+KT_KILAT=1; KT_CAMRES=bilinear; KT_HAL=6; KT_BLOOM=0; KT_CA=0,0011; PRESET=fast).

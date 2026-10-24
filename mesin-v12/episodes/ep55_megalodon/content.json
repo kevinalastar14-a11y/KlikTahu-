@@ -8,12 +8,12 @@
   "tail_fact": 0.42,
   "tail_outro": 0.7,
   "mesin": "v12",
-  "modul": "mesin_v16_ep55",
+  "modul": "mesin_v17_ep55",
   "vo_chain": "v12",
   "ambient": "laut",
   "ambient_db": -33.0,
   "v12": {
-    "metafora": "gigi di dasar laut -> garis waktu -> pengukuran tubuh -> bentuk ramping vs gempal -> potret gigi -> gigitan -> laut mendingin -> kembali ke gigi",
+    "metafora": "satu gigi di baki fosil -> pita waktu -> tubuh diukur -> bentuk ramping vs gempal -> deret gigi + kaca pembesar -> rahang menganga -> laut mendingin -> kembali ke baki",
     "loop": true,
     "loop_blend": 0.72,
     "periode_mesh_s": 12.0,
@@ -21,25 +21,47 @@
     "background": {
       "mode": "custom",
       "base": "#0A1E2E",
-      "colors": ["#2E7068", "#1C5868", "#7ECAC0", "#B55839"],
-      "weights": [0.0, 0.0, 0.0, 0.0],
+      "colors": [
+        "#2E7068",
+        "#1C5868",
+        "#7ECAC0",
+        "#B55839"
+      ],
+      "weights": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
       "cahaya": 0.0,
       "seed": 55
     },
     "ambient": "laut",
     "ambient_db": -33.0,
-    "energi": {"intro": 0.55, "f1": 0.42, "f2": 0.55, "f3": 0.5, "f4": 0.66, "f5": 0.78, "f6": 0.62, "outro": 0.34}
+    "energi": {
+      "intro": 0.55,
+      "f1": 0.42,
+      "f2": 0.55,
+      "f3": 0.5,
+      "f4": 0.66,
+      "f5": 0.78,
+      "f6": 0.62,
+      "outro": 0.34
+    }
   },
   "scenes": [
     {
       "id": "intro",
       "type": "intro",
       "babak": "hook",
-      "visual": "mega_intro60",
+      "visual": "t17_intro",
       "accent": "#2E7068",
       "badge": "LAUT PURBA",
       "hl": "24 METER",
-      "lines": ["HIU 24 METER", "YANG TERSISA Cuma GIGI"],
+      "lines": [
+        "HIU 24 METER",
+        "YANG TERSISA Cuma GIGI"
+      ],
       "vo": "Hiu terbesar yang pernah hidup panjangnya dua puluh empat meter. Yang tersisa dari tubuhnya cuma gigi, dan giginya sebesar telapak tangan.",
       "speed": 1.09,
       "catatan": "24 m, hanya gigi yang tersisa"
@@ -48,114 +70,205 @@
       "id": "f1",
       "type": "fact",
       "babak": "konteks",
-      "visual": "mega_skala60",
+      "visual": "t17_waktu",
       "accent": "#1C5868",
       "badge": "LAUT PURBA",
-      "lines": ["HIDUP 20 JUTA TAHUN,", "HILANG 3,6 JUTA TAHUN LALU"],
+      "lines": [
+        "HIDUP 20 JUTA TAHUN,",
+        "HILANG 3,6 JUTA TAHUN LALU"
+      ],
       "hl": "3,6 JUTA TAHUN LALU",
       "vo": "Megalodon hidup dua puluh juta sampai tiga koma enam juta tahun lalu. Tulang rawan tidak menjadi fosil, jadi hampir semua yang kita tahu berasal dari giginya.",
       "speed": 1.09,
       "catatan": "Tulang rawan tidak memfosil",
       "trans": "morph",
-      "anchor_in": {"elemen": "gigi", "x": 540, "y": 900, "skala": 0.9},
-      "anchor_out": {"elemen": "garis waktu", "x": 540, "y": 520, "skala": 1.0}
+      "anchor_in": {
+        "elemen": "gigi",
+        "x": 540,
+        "y": 900,
+        "skala": 0.9
+      },
+      "anchor_out": {
+        "elemen": "garis waktu",
+        "x": 540,
+        "y": 520,
+        "skala": 1.0
+      }
     },
     {
       "id": "f2",
       "type": "fact",
       "babak": "tubuh",
-      "visual": "mega_ukur60",
+      "visual": "t17_ukur",
       "accent": "#2E7068",
       "badge": "LAUT PURBA",
-      "lines": ["16,4 METER", "DARI 11 METER TULANG BELAKANG"],
+      "lines": [
+        "16,4 METER",
+        "DARI 11 METER TULANG BELAKANG"
+      ],
       "hl": "16,4 METER",
       "vo": "Gigi itu memberi ukuran tubuh. Tahun dua ribu dua puluh lima, dua puluh sembilan ahli menghitung ulang: batas masuk akal dua puluh empat koma tiga meter, sembilan puluh empat ton.",
       "speed": 1.09,
       "catatan": "16,4 m individu Belgia; batas 24,3 m",
       "trans": "morph",
-      "anchor_in": {"elemen": "gigi", "x": 760, "y": 420, "skala": 0.7},
-      "anchor_out": {"elemen": "garis ukur", "x": 540, "y": 760, "skala": 1.0}
+      "anchor_in": {
+        "elemen": "gigi",
+        "x": 760,
+        "y": 420,
+        "skala": 0.7
+      },
+      "anchor_out": {
+        "elemen": "garis ukur",
+        "x": 540,
+        "y": 760,
+        "skala": 1.0
+      }
     },
     {
       "id": "f3",
       "type": "fact",
       "babak": "tubuh",
-      "visual": "mega_bentuk60",
+      "visual": "t17_bentuk",
       "accent": "#7ECAC0",
       "badge": "LAUT PURBA",
-      "lines": ["BUKAN HIU PUTIH", "YANG DIPERBESAR"],
+      "lines": [
+        "BUKAN HIU PUTIH",
+        "YANG DIPERBESAR"
+      ],
       "hl": "BUKAN HIU PUTIH",
       "vo": "Bentuknya bukan hiu putih yang diperbesar. Tubuhnya lebih ramping, seperti hiu lemon, dengan sirip dada panjang. Raksasa tidak perlu gempal untuk cepat.",
       "speed": 1.09,
       "catatan": "Ramping, bukan gempal",
       "trans": "morph",
-      "anchor_in": {"elemen": "garis ukur", "x": 540, "y": 700, "skala": 1.0},
-      "anchor_out": {"elemen": "siluet ramping", "x": 540, "y": 640, "skala": 1.0}
+      "anchor_in": {
+        "elemen": "garis ukur",
+        "x": 540,
+        "y": 700,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "siluet ramping",
+        "x": 540,
+        "y": 640,
+        "skala": 1.0
+      }
     },
     {
       "id": "f4",
       "type": "fact",
       "babak": "mekanisme",
-      "visual": "mega_gigi60",
+      "visual": "t17_gigi",
       "accent": "#B55839",
       "badge": "LAUT PURBA",
-      "lines": ["SATU HIU,", "PULUHAN RIBU GIGI"],
+      "lines": [
+        "SATU HIU,",
+        "PULUHAN RIBU GIGI"
+      ],
       "hl": "PULUHAN RIBU GIGI",
       "vo": "Gigi megalodon bergerigi seperti gergaji, panjang sampai delapan belas sentimeter. Ia berganti gigi sepanjang hidup, jadi satu individu meninggalkan puluhan ribu gigi. Itu sebabnya yang kita temukan gigi, bukan tulang.",
       "speed": 1.09,
       "catatan": "Gigi bergerigi, terus berganti",
       "trans": "morph",
-      "anchor_in": {"elemen": "sirip dada", "x": 640, "y": 760, "skala": 0.8},
-      "anchor_out": {"elemen": "gigi besar", "x": 540, "y": 660, "skala": 1.0}
+      "anchor_in": {
+        "elemen": "sirip dada",
+        "x": 640,
+        "y": 760,
+        "skala": 0.8
+      },
+      "anchor_out": {
+        "elemen": "gigi besar",
+        "x": 540,
+        "y": 660,
+        "skala": 1.0
+      }
     },
     {
       "id": "f5",
       "type": "fact",
       "babak": "mekanisme",
-      "visual": "mega_gigit60",
+      "visual": "t17_gigit",
       "accent": "#E8A85C",
       "badge": "LAUT PURBA",
-      "lines": ["EKOR DULU,", "BARU TUBUHNYA"],
+      "lines": [
+        "EKOR DULU,",
+        "BARU TUBUHNYA"
+      ],
       "hl": "EKOR DULU",
       "vo": "Gigitan megalodon jauh lebih kuat dari hiu putih. Mangsanya paus kecil. Dari bekas luka pada fosil paus, ia melumpuhkan ekor dulu, baru menggigit bagian lain.",
       "speed": 1.09,
       "catatan": "Melumpuhkan ekor lebih dulu",
       "trans": "morph",
-      "anchor_in": {"elemen": "gigi besar", "x": 540, "y": 700, "skala": 1.0},
-      "anchor_out": {"elemen": "rahang", "x": 540, "y": 640, "skala": 1.0}
+      "anchor_in": {
+        "elemen": "gigi besar",
+        "x": 540,
+        "y": 700,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "rahang",
+        "x": 540,
+        "y": 640,
+        "skala": 1.0
+      }
     },
     {
       "id": "f6",
       "type": "fact",
       "babak": "akhir",
-      "visual": "mega_punah60",
+      "visual": "t17_punah",
       "accent": "#3E6478",
       "badge": "LAUT PURBA",
-      "lines": ["RAKSASA KALAH", "OLEH PERUBAHAN"],
+      "lines": [
+        "RAKSASA KALAH",
+        "OLEH PERUBAHAN"
+      ],
       "hl": "PERUBAHAN",
       "vo": "Tiga koma enam juta tahun lalu ia hilang. Bukan satu sebab: samudra mendingin, laut dangkal menyempit, paus pindah ke kutub, dan hiu putih berebut makanan. Tubuh raksasa yang dulu menang justru jadi beban.",
       "speed": 1.09,
       "catatan": "Banyak sebab sekaligus",
       "trans": "morph",
-      "anchor_in": {"elemen": "rahang", "x": 540, "y": 660, "skala": 1.0},
-      "anchor_out": {"elemen": "laut dingin", "x": 540, "y": 700, "skala": 1.0}
+      "anchor_in": {
+        "elemen": "rahang",
+        "x": 540,
+        "y": 660,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "laut dingin",
+        "x": 540,
+        "y": 700,
+        "skala": 1.0
+      }
     },
     {
       "id": "outro",
       "type": "outro",
       "babak": "loop",
-      "visual": "mega_loop60",
+      "visual": "t17_loop",
       "accent": "#2E7068",
       "badge": "LAUT PURBA",
-      "lines": ["GIGINYA MASIH ADA", "HIUNYA TIDAK"],
+      "lines": [
+        "GIGINYA MASIH ADA",
+        "HIUNYA TIDAK"
+      ],
       "hl": "HIUNYA TIDAK",
       "vo": "Giginya masih tersimpan di museum, hitam dan bergerigi. Hiu itu sendiri tak pernah muncul lagi.",
       "speed": 1.09,
       "catatan": "Gigi tersimpan, hiu tidak",
       "trans": "morph",
       "loop_ke": "intro",
-      "anchor_in": {"elemen": "laut dingin", "x": 540, "y": 700, "skala": 1.0},
-      "anchor_out": {"elemen": "gigi", "x": 540, "y": 900, "skala": 1.0}
+      "anchor_in": {
+        "elemen": "laut dingin",
+        "x": 540,
+        "y": 700,
+        "skala": 1.0
+      },
+      "anchor_out": {
+        "elemen": "gigi",
+        "x": 540,
+        "y": 900,
+        "skala": 1.0
+      }
     }
   ]
 }

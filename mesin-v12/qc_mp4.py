@@ -98,7 +98,11 @@ def main():
         gagal.append(f"durasi melenceng {abs(dur-total):.2f}s")
 
     mp4, mp4_st = decode_mp4_audio(video)
-    wav = load_wav(os.environ.get("KT_AUDIO_SRC") or os.path.join(BUILD, "audio.wav"))
+    # KT_AUDIO_REF: berkas pembanding untuk KORELASI (master yang benar-benar di-mux).
+    # KT_AUDIO_SRC: berkas VO untuk cek segmen/naskah (tanpa ambien, supaya VAD bersih).
+    _ref = os.environ.get("KT_AUDIO_REF")
+    wav = load_wav(_ref or os.environ.get("KT_AUDIO_SRC") or os.path.join(BUILD, "audio.wav"))
+    vo = wav if not _ref else load_wav(os.environ.get("KT_AUDIO_SRC") or os.path.join(BUILD, "audio.wav"))
     n = min(len(mp4), len(wav))
     a, b = mp4[:n], wav[:n]
     # bandingkan di area yang ada suaranya (bukan hening) supaya korelasi bermakna.

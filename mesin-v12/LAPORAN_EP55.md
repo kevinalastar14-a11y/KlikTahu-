@@ -1,151 +1,121 @@
-# LAPORAN PRODUKSI — Ep55 "Megalodon Bukan Hiu Putih Raksasa — Dan Kita Cuma Punya Giginya"
+# LAPORAN EP55 — versi 2 (mesin v17 "Laut Terang")
 
-**Tanggal produksi:** 24 Oktober 2026 · **Mesin:** **V16 LAUT DALAM** (baru) · **Agen:** Arena
-**Branch:** `arena/322bf634-kliktahu` · **Keluaran:** `KlikTahu_Ep55_Megalodon.mp4`
-
----
-
-## 1. Ringkasan
-
-| Butir | Nilai |
-|---|---|
-| Judul | Megalodon Bukan Hiu Putih Raksasa — Dan Kita Cuma Punya Giginya |
-| Durasi | ±101,40 s (timeline) / 102,00 s audio master |
-| Format | 1080×1920 · 60 fps · H.264 high · AAC 256 kbps 48 kHz |
-| Naskah | 202 kata, 8 adegan, 48 cue kata, 28 definisi SFX |
-| VO | `voice-05` (pria Indonesia) via `vo_manusia.py` — tanpa potong, tanpa atempo |
-| Audio | master **−14,0 LUFS / TP −1,7 dBTP**, 0 sampel clipping, **ambien laut** (bukan musik) + SFX per kata |
-| Gaya visual | ilustrasi **bawah laut** penuh layar; satu gradasi kedalaman untuk seluruh episode; kartu judul dengan kicker di dalam kartu |
-| Pilar | HEWAN (bobot performa 0,92 — tertinggi kedua, belum pernah dipakai) |
+**Judul:** Megalodon Bukan Hiu Putih Raksasa — Dan Kita Cuma Punya Giginya
+**Berkas:** `dist/KlikTahu_Ep55_Megalodon.mp4` · 1080×1920 · 60 fps · **99,02 s** · 77,75 MB
 
 ---
 
-## 2. Kenapa topik ini, dan kenapa "fokus ke kode"
+## 1. Kenapa versi pertama ditolak, dan apa yang diperbaiki
 
-**Topik.** Dari data 15 Okt: `mata` (163,0) baru saja dipakai Ep54, `perut` Ep28, `gigi` Ep30, `mimpi`
-Ep21/25, `baterai & HP` pilar TEKNOLOGI 0,34. **Megalodon** skornya 76,6 tetapi pilarnya HEWAN (0,92),
-pertumbuhannya 176,8, dan **belum pernah disentuh** dalam 16 episode berturut-turut bertema TUBUH.
-Klaster frasanya ("megalodon adalah", "megalodon hidup di zaman apa", "apakah nyata") persis pertanyaan yang
-dijawab episode ini. Rincian: `analisis/EP55_RISET_24_OKT_2026.md`.
+Kritik pemilik: *"hasil video jelek, kok malah berbeda dari video KlikTahu yang sebelumnya"*.
+Itu benar dan penyebabnya bisa ditunjuk persis. Ep52–Ep54 hidup di **kertas krem**: latar terang,
+objek beroutline tinta, sedikit ruang kosong. Mesin v16 yang saya bangun untuk Ep55 menenggelamkan
+semuanya ke **teal gelap tanpa garis luar** — hewan menjadi siluet, kartu krem kehilangan kontras.
+Dua bahasa visual yang berbeda, dan yang benar adalah milik KlikTahu.
 
-**Acuan.** Dua video dari pemilik (`kitabedah.id` 88,23 s; `bit_wonder` 47,50 s) **tidak bisa diputar** di
-sandbox ini: egress ke `lh3.googleusercontent.com` diblokir (`SSL_ERROR_SYSCALL`) dan connector Drive tidak
-menyediakan streaming video. Yang terbaca hanya metadata (durasi, 720×1280). Karena itu "lebih mutakhir, fokus
-ke kode" saya terjemahkan sebagai **pembangunan mesin baru**, bukan peniruan frame yang tidak bisa diverifikasi.
+| Unsur | Ep52–54 (acuan) | v16 (ditolak) | v17 (sekarang) |
+|---|---|---|---|
+| Latar | kertas krem + langit senja | teal gelap → hitam | langit krem → air teal muda, tidak ada yang mendekati hitam |
+| Garis luar | tinta 3–4 px di semua objek | tidak ada (siluet) | tinta 3–4 px, termasuk sirip & ekor |
+| Hewan | beroutline, perut krem, mata + insang | blok warna gelap | `hiu_t()`: perut krem, mata, 5 insang, 2 sirip kecil |
+| Dasar | pasir krem bertepi | dasar gelap | pasir bertepi + kerikil + rumput laut |
+| Tipografi | kartu krem beroutline, tab terakota | sama | sama (tidak diubah) |
 
----
+## 2. Mesin v17 "Laut Terang" — apa yang baru di kode
 
-## 3. Mesin v16 — apa yang benar-benar berubah
+`mesin_v17_terang.py` (622 baris) + `mesin_v17_ep55.py` (689 baris) = **1.311 baris**.
 
-### 3.1 Akar masalah v15
-Setiap bentuk digambar pada **mask seukuran kanvas**: 1620×2880 = 4,7 juta piksel, dan `bentuk()` membuat
-tiga bitmap sebesar itu **per bentuk**. Satu adegan butuh puluhan bentuk → 1,1 s/frame, dan gradasi isi
-diskalakan ulang sehingga tepinya bisa bergerigi.
+- **`grad_t()`** — gradasi TERANG dengan dither **per piksel**. v15 memakai dither per baris; di latar
+  terang itu terbaca sebagai garis horizontal (cacat yang terlihat di percobaan pertama).
+- **`langit()`, `matahari()`, `awan_kecil()`** — pita langit di atas permukaan; matahari beroutline
+  dengan berkas pendek (bukan gradasi datar).
+- **`permukaan()`** — garis gelombang beroutline + buih di puncak; menutup tepi kanvas.
+- **`air_t()`** — gradasi 5 stop dari `(182,216,204)` ke `(58,124,116)`; **tidak ada hitam**.
+- **`sinar_t()`** — berkas cahaya krem datar berpenampang miring, memudar tiga ruas.
+- **`hiu_t()`** — hiu KlikTahu: badan beroutline, perut krem sebagai **poligon antara garis perut dan
+  garis inset** (bukan pita tebal — versi pita membuat tepi bergerigi), sirip punggung 2 + dubur,
+  ekor bulan/heteroserkal, insang, mata.
+- **`paus_t()`, `penyelam_t()`, `_ikan_kecil()`, `_rumput()`** — biota pendukung beroutline.
+- **`gigi_t()`** — gigi dengan **akar V bercabang** dan tepi bergerigi 7 pasang (takik 2,2 % tinggi).
+- **`rahang_terbuka()`** — mulut menganga dari **dua rahang terpisah** + rongga gelap + gusi terakota.
+  Versi balok + busur gigi menghasilkan kotak gelap yang tidak terbaca sebagai kepala.
+- **`lempeng_fosil()` + `inset_kaca()`** — gigi kecil tertanam di lempeng, detail gerigi ditunjukkan
+  lewat **kaca pembesar**.
+- **`kurung_ukur()`, `panah()`** — alat ukur & arah beroutline.
 
-### 3.2 Yang diganti
-| Komponen | v15 | v16 |
+**Empat kali gigi ditolak sebelum benar** (semuanya tercatat karena bentuknya salah, bukan warnanya):
+1. gigi tegak 230–330 px → terbaca **layar kapal**;
+2. gigi rebah 80° → terbaca **panah**;
+3. deret raksasa di lempeng → terbaca **barisan kapal**;
+4. benar: gigi **kecil (62–88 px)**, rapat, di atas **busur rahang**, akar terlihat, miring 8–20°;
+   detail gerigi dipindah ke kaca pembesar.
+
+## 3. Audio — "untuk telinga manusia", VO bukan WAV
+
+`audio_telinga.py` (baru). Rantainya dirancang untuk persepsi, bukan sekadar angka:
+
+| Tahap | Setelan | Alasan |
 |---|---|---|
-| Bentuk | mask kanvas | **bbox-lokal** + cache gradasi (`_grad_isi`) |
-| Outline | `MaxFilter` pada bbox besar | **dilasi numpy shift** (`_dilate`) |
-| Bayangan kartu | layer seukuran kanvas | **bbox kartu saja** |
-| Air | `laut()` datar | **`air()`**: gradasi 6 lapis + pita arus |
-| Cahaya | `cahaya_matahari()` | **`sinar()`** volumetrik + **`kaustik()`** numpy |
-| Partikel | `butir_terbang()` | **`salju()`** + **`gelembung()`** deterministik |
-| Hewan | `orang()`, `perahu()` | **`hiu()`** parametrik, **`paus()`**, **`penyelam()`** (skala meter) |
+| HPF | 78 Hz, 2 kutub | gemuruh tak terdengar hanya memakan headroom |
+| Mud cut | −1,2 dB @ 270 Hz | membersihkan "lumpur" yang membuat VO tertutup |
+| Kejelasan | +1,6 dB @ 3,3 kHz | pita konsonan; inilah yang membuat suara *jelas* di speaker HP |
+| Udara | +1,2 dB rak > 11 kHz | kesegaran tanpa menambah desis |
+| De-esser | −2,4 dB maks @ 5,8–9,5 kHz | hanya pada frame yang desisnya dominan |
+| Kompresor | 1,5:1 RMS, lutut 8 dB | merapatkan jarak kalimat pelan/keras, tanpa "memompa" |
+| Loudness | −14,0 LUFS, TP −1,5 dBTP | standar Shorts; LRA 1,7 LU |
 
-**Angka terukur (SS=1,5):**
+Hasil ukur: **−14,0 LUFS · TP −1,3 dBTP · 99,62 s (panjang tidak berubah 1 sampel pun) · 0 clipping**.
+Berkas kerja/unggah audio: **M4A AAC 256 kbps** (`KlikTahu_Ep55_Megalodon_audio.m4a`);
+WAV hanya dipakai sebagai perantara.
 
-```
-gigi(560 px)      71 ms ->  22 ms   (3,2x)
-baris_gigi        121 ms ->  53 ms   (2,3x)
-kartu judul       276 ms ->  13 ms   (21x)
-satu frame        ~1,1 s -> ~0,09 s  (12x)
-```
+Catatan jujur: **VO lama hilang dari workspace** (folder `audio_raw/` dibersihkan saat snapshot), jadi
+8 klip direkam ulang dengan `voice-05` dan naskah yang sama persis. Durasi VO baru berbeda tipis
+(99,02 s vs 101,39 s pada v16) sehingga timeline ikut dihitung ulang.
 
-Efek sampingnya penting: karena gambar jauh lebih murah, saya bisa menambah **lapisan** (berkas cahaya,
-kaustik, partikel, gerigi bergerak di sepanjang tepi gigi) tanpa melewati anggaran waktu render.
+## 4. Kecepatan render — permintaan "10 menit"
 
-### 3.3 Siluet hewan dari spline, bukan poligon kasar
-`hiu()` dibangun dari Catmull-Rom pada sisi atas dan bawah tubuh, dengan parameter `tinggi` (rasio tebal/panjang)
-dan `ekor_bulan`. Satu fungsi itu dipakai untuk tiga hal berbeda di episode ini: megalodon ramping (0,148),
-hiu putih gempal (0,245), dan siluet raksasa di intro/outro. Tidak ada gambar yang diimpor — semuanya kode.
+Diukur pada mesin 2 core (bukan 8): `nproc` = 2, `cpu.max` = 200000/100000. Paralelisme tidak bisa
+dinaikkan, jadi seluruh percepatan harus datang dari kerja per frame.
 
-### 3.4 Gigi: dua kali ditolak sebelum benar
-Versi pertama keluar sebagai **segitiga putih lebar** (terbaca seperti gigi hiu mainan); versi kedua, setelah
-diberi akar, keluar sebagai **kapal layar**. Yang benar butuh tiga hal sekaligus: rasio tinggi:lebar ≈ 1,7:1,
-tepi cembung yang menyempit, dan **takik gerigi nyata** pada tepi (bukan titik cat) + akar bercabang dua yang
-pendek. Ini pelajaran yang sama seperti Ep54: objek anatomis tidak punya toleransi.
+| Tahap | Sebelum | Sesudah | Cara |
+|---|---:|---:|---|
+| Simpan frame | 947 ms (PNG) | **16 ms** (JPEG q97 4:4:4) | PNG pada ilustrasi kompleks sangat mahal; H.264 6,4 Mbps tidak melihat bedanya |
+| Finishing v14 | 656 ms | **133 ms** | halation dihitung di 1/6 resolusi lalu **satu** upscale; split-tone & knee lewat LUT C; grain/dither varian siap pakai |
+| Penajaman | 77 ms | **8 ms** | `ImageEnhance.Sharpness` (kernel 3×3) menggantikan UnsharpMask |
+| Kamera | 40 ms | **22 ms** | BILINEAR (dorongan ≤ 3 %) |
+| Mesh latar | 33 ms | **0** | `KT_MESH=0` berarti tidak dihitung (dulu dihitung lalu dikali 0) |
+| Panel kartu | 35 ms | **~1 ms** | panel + bayangan GaussianBlur(16) di-cache |
+| CA radial | 34 ms | **0/11 ms** | dimatikan — aberasi 1 px tidak terlihat di video |
+| **Total render penuh** | **±45 menit** | **24 menit 52 detik** | 1,8× lebih cepat |
 
-### 3.5 Audio: bed samudra, bukan musik
-`sfx.ambient_laut()` membuat tiga lapis di domain frekuensi: rumble < 80 Hz (tekanan kedalaman), arus
-120–600 Hz yang bernapas tiap ~9 s, dan desis partikel 2–6 kHz. RMS dijaga tepat di level yang diminta,
-loop aman karena jumlah gelombang dibuat bulat dalam durasi + fade 0,4 s. **Tetap tanpa musik** — hanya tekstur.
+Rincian 24m52s: frame 814 s (0,14 s/frame/proses) + encode x264 `slow` 552 s + persiapan/QC 126 s.
 
----
+**Untuk 10 menit, dua hal masih harus dilepas — dan keduanya menurunkan kualitas, jadi saya tidak
+melakukannya diam-diam:**
+1. `PRESET=fast` (sudah saya set sebagai default; SSIM **0,9944** vs `slow`, praktis identik)
+   memotong encode 552 → 250 s ⇒ total **±19,8 menit**.
+2. Sisanya hanya bisa dari isi gambar: finishing dimatikan total, `SS=0,75`, atau 30 fps.
+   Itu akan terlihat. Yang tersedia sebagai **mode pratinjau** (bukan final): ±4–5 menit.
 
-## 4. Hasil QC
+## 5. Hasil QC (berkas final)
 
-```
-file     : dist/KlikTahu_Ep55_Megalodon.mp4
-durasi   : 101,40 s (timeline 101,39)  ukuran 83,63 MB  bitrate 6598 kb/s
-video    : h264 (High) yuv420p 1080x1920 60 fps
-audio    : aac (LC) 48000 Hz, 256 kbps
-lag audio: +0 ms   korelasi MP4 vs audio_master.wav: 1,0000   selisih level -0,01 dB
-peak MP4 : -1,7 dBFS per kanal (L -1,7 / R -1,7)
-VO 8/8 OK: intro 10,04 f1 11,54 f2 12,31 f3 10,93 f4 17,39 f5 12,48 f6 15,68 outro 7,25 s
-master   : -14,0 LUFS / TP -1,7 dBTP / 102,00 s, 0 sampel clipping
-loop     : frame0 vs akhir-0,03 s = 0,9997  -> LOOP OK
-tata letak: check_layout "bersih ✔" (8 adegan), 57 elemen teks di dalam margin 40 px
-gerak    : 5,14–7,80 beda luma per 0,5 s (semua adegan hidup; target > 2)
-HASIL QC : SEMUA BERSIH ✔
-```
+| Pemeriksaan | Hasil |
+|---|---|
+| `qc_mp4` | **SEMUA BERSIH ✔** |
+| Korelasi audio MP4 vs master | **0,9999** (selisih level −0,01 dB) |
+| `qc_loop` frame 0 vs akhir | **OK ✔** (0,7405; komposisi outro = intro) |
+| `check_layout` | bersih — semua elemen teks di dalam margin 40 px |
+| Durasi / bitrate / codec | 99,02 s · 6586 kb/s · H.264 High yuv420p · AAC 255k 48 kHz |
+| Audio | −14,0 LUFS · TP −1,3 dBTP · LRA 1,7 LU · 0 clipping |
+| Video | 1080×1920 · 60 fps · 77,75 MB |
 
-`KT_FULLBLEED=1` menyala sejak awal — gaya bawah laut memang menutup seluruh tepi kanvas. Audit kasar
-"sentuh tepi" melaporkan 28.000 tinta di setiap sisi untuk hampir semua adegan: itu **desain**, bukan cacat.
+## 6. Pelajaran
 
-**VO f1 ditandai "PERIKSA"** (onset 90 ms). Diukur langsung: level 30 ms pertama **−55,7 dBFS**, sampel
-> −40 dBFS baru muncul di 130 ms. Itu hening ruangan, bukan fonem hilang — sama seperti Ep53 dan Ep54.
-
----
-
-## 5. Pelajaran untuk episode berikutnya
-
-1. **Ukur dulu, optimalkan kemudian.** Profil 10 baris (`time.time()` per primitif) menunjukkan 3 fungsi
-   menghabiskan 80 % waktu; menebak akan salah sasaran.
-2. **`MaxFilter` bukan alat untuk bbox besar.** Dilasi numpy `np.maximum` pada shift window 4 ms vs 50 ms.
-3. **Cache gradasi harus berukuran piksel**, bukan unit dunia — kalau tidak, gambar ter-cache salah ukuran
-   (bug pertama yang muncul: `ValueError: images do not match`).
-4. **Kartu judul memang harus punya kicker di dalam**; pil melayang di atas kartu akan selalu bertabrakan
-   dengan ilustrasi begitu komposisinya berubah.
-5. **Siluet hewan gunakan spline.** Segitiga dan trapesium akan selalu terbaca "kertas".
-6. **Ambien baru harus diuji RMS-nya**, bukan hanya didengar: target −33 dB tercapai tepat (−33,1) dan
-   peak −18,8 dBFS, jadi tidak akan menutupi VO.
-7. **Jangan mengklaim meniru video yang tidak bisa ditonton.** Jujur soal batas ini lebih berguna daripada
-   menebak isi frame-nya.
-
----
-
-## 6. Berkas di Google Drive
-
-**Folder:** `KlikTahu_Produksi/Shorts/kliktahu-ep55-megalodon`
-<https://drive.google.com/drive/folders/18gLnIwOVZG5JrkcHOEhfCOtTRhFVdeFY>
-
-| Berkas | Ukuran (byte) | Tautan |
-|---|---:|---|
-| `KlikTahu_Ep55_Megalodon.mp4` | 83.633.512 | <https://drive.google.com/file/d/1N4rr5ZJL5ug8xZwvCxuLmOFlCJF4AG7-/view> |
-| `KlikTahu_Ep55_Megalodon_audio.m4a` | 3.291.504 | <https://drive.google.com/file/d/1Gmw53s6Qw5VLK3oDIhR10hZVNG5lJN3F/view> |
-| `KlikTahu_Ep55_Megalodon_thumb_utama.png` | 811.745 | <https://drive.google.com/file/d/111V_G1rDoSntf7_2ewzXDNL0b_xsDwl6/view> |
-| `KlikTahu_Ep55_Megalodon_thumb_alt.png` | 939.329 | <https://drive.google.com/file/d/16G-qfWLIIvuT3YvjU_2azztjiLtPoTSr/view> |
-| `KlikTahu_Ep55_Megalodon_lembar_pratinjau.jpg` | 250.981 | <https://drive.google.com/file/d/1B3YdpPE_xAeQn5u6dDFwtKYs7Ifn1Mmj/view> |
-| `KlikTahu_Ep55_Megalodon_content.json` | 6.320 | <https://drive.google.com/file/d/1Mcx1H4KpEIAPI9gNasQuhidOLu-MvHGE/view> |
-| `SIAP_TEMPEL.md` | 2.699 | <https://drive.google.com/file/d/1Oz7w3R9BgSoqaQOopFIQBc0leFTFfgc6/view> |
-| `METADATA.md` | 4.454 | <https://drive.google.com/file/d/1o4ABKDRzSQwCdsnRdUBSpN5sCxb9U3Z3/view> |
-
-Ukuran MP4 di Drive **sama persis** dengan hasil render (83.633.512 byte), dicek lewat `list_files`.
-
-> **Catatan penting — akun Drive berganti.** Saat konektor disambungkan ulang, Drive yang aktif ternyata
-> **akun lain** dari yang dipakai Ep52–Ep54: folder induk lama `1yGe6zxru2uF-lLhC8LEKxihEqGFbWbcc` sekarang
-> 404, pencarian `name contains 'KlikTahu'` mengembalikan 0 hasil, dan tidak ada shared drive. Struktur
-> `KlikTahu_Produksi/Shorts` dibuat ulang di akun ini, jadi **Ep55 berada di akun berbeda dari episode
-> sebelumnya**. Kalau akun produksi lama yang dimaksud, sambungkan ulang akun itu lalu unggah ulang dari
-> `pustaka/Ep55_Megalodon/` + `dist/` (8 berkas, ±86 MB, tanpa perlu render).
+1. **Identitas visual bukan detail kecil.** Mesin baru yang "lebih mutakhir" tapi keluar dari bahasa
+   visual channel = pekerjaan yang harus diulang.
+2. **Profil dulu.** 947 ms ternyata di penyimpanan PNG, bukan di gambar. Menebak akan salah sasaran.
+3. **Di mesin 2 core, optimasi harus per frame**, bukan per proses.
+4. **Bentuk gigi menentukan keterbacaan.** Tiga versi pertama salah bentuk (layar, panah), bukan salah warna.
+5. **Dither per piksel wajib di latar terang**; per baris menghasilkan garis yang terlihat.
+6. **Cache yang benar = panel + bayangan**, bukan seluruh kartu (teks berubah per adegan).
+7. **Audio "enak" punya ukuran**: pita 3 kHz dan de-esser 5,8–9,5 kHz, bukan sekadar LUFS.

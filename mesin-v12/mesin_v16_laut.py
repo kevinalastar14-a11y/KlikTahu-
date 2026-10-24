@@ -55,6 +55,7 @@ SOROT = (255, 214, 150)
 LAPIS = [AIR_PERMUKAAN, AIR_TERANG, AIR_TENGAH, AIR_DALAM, AIR_GELAP, AIR_HITAM]
 
 _CACHE = {}
+_PANEL_CACHE = {}
 _CACHE_MAX = 420
 
 
@@ -657,19 +658,34 @@ def kartu2(img, lines, y=1470, fsz=62, hl=None, al=1.0, dy=0.0, tab=None, kicker
     y1 = y + total_h / 2 + pad_y + dy
     x0, x1 = 540 - wcard / 2, 540 + wcard / 2
 
-    if shadow:
-        pad = 70
-        bx0 = max(0, int(S(x0 - pad))); by0 = max(0, int(S(y0 - pad)))
-        bx1 = min(img.width, int(S(x1 + pad))); by1 = min(img.height, int(S(y1 + pad)))
-        lay = Image.new("RGBA", (max(2, bx1 - bx0), max(2, by1 - by0)), (0, 0, 0, 0))
-        ImageDraw.Draw(lay).rounded_rectangle([S(x0 + 6) - bx0, S(y0 + 14) - by0,
-                                               S(x1 + 6) - bx0, S(y1 + 14) - by0],
-                                              radius=S(34), fill=mix(NAVY, INK, 0.4) + (78,))
-        lay = lay.filter(ImageFilter.GaussianBlur(S(16)))
-        img.paste(lay.convert("RGB"), (bx0, by0), lay)
-
-    rrect_on(img, x0, y0, x1, y1, 34, mix(CREAM, WHITE, 0.78), 0.98 * al,
-             outline=mix(NAVY, INK, 0.22), width=3.4)
+    # Panel + bayangan di-cache: GaussianBlur(16) pada ~1000x300 px butuh ~35 ms/frame.
+    # Isi (teks, kicker, tab) digambar sesudahnya, jadi tampilan tidak berubah.
+    _key = (round(x0, 1), round(y0, 1), round(x1, 1), round(y1, 1), bool(shadow))
+    _cached = _PANEL_CACHE.get(_key) if shadow else None
+    if _cached is not None:
+        img.paste(_cached[0], _cached[1], _cached[0])
+    else:
+        if shadow:
+            pad = 70
+            bx0 = max(0, int(S(x0 - pad))); by0 = max(0, int(S(y0 - pad)))
+            bx1 = min(img.width, int(S(x1 + pad))); by1 = min(img.height, int(S(y1 + pad)))
+            lay = Image.new("RGBA", (max(2, bx1 - bx0), max(2, by1 - by0)), (0, 0, 0, 0))
+            ImageDraw.Draw(lay).rounded_rectangle([S(x0 + 6) - bx0, S(y0 + 14) - by0,
+                                                   S(x1 + 6) - bx0, S(y1 + 14) - by0],
+                                                  radius=S(34), fill=mix(NAVY, INK, 0.4) + (78,))
+            lay = lay.filter(ImageFilter.GaussianBlur(S(16)))
+            panel = lay.copy()
+            ImageDraw.Draw(panel).rounded_rectangle(
+                [S(x0) - bx0, S(y0) - by0, S(x1) - bx0, S(y1) - by0], radius=S(34),
+                fill=mix(CREAM, WHITE, 0.78) + (int(255 * 0.98 * al),),
+                outline=mix(NAVY, INK, 0.22) + (255,), width=max(1, int(S(3.4))))
+            if len(_PANEL_CACHE) > 48:
+                _PANEL_CACHE.clear()
+            _PANEL_CACHE[_key] = (panel, (bx0, by0))
+            img.paste(panel, (bx0, by0), panel)
+        else:
+            rrect_on(img, x0, y0, x1, y1, 34, mix(CREAM, WHITE, 0.78), 0.98 * al,
+                     outline=mix(NAVY, INK, 0.22), width=3.4)
 
     # garis pemisah tipis antara kicker & judul
     if kicker:

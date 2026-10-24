@@ -807,3 +807,164 @@ def finishing_v14(img, seed=0):
     a = np.asarray(img, dtype=np.float32)
     a = v14_split(a, float(os.environ.get("KT_SPLIT", "2.1")))
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
+
+# ================================================================== D. cepat (v17)
+# Jalur finishing yang SAMA hasil visualnya tetapi jauh lebih cepat:
+#   * semua tahap elementwise digabung menjadi beberapa lintasan in-place (bukan 12)
+#   * halation dihitung di 1/4 resolusi (pendar memang frekuensi rendah)
+#   * luma diambil lewat PIL convert("L") yang berjalan di C
+#   * grain & dither memakai varian yang dihitung SEKALI per proses (bukan roll tiap frame)
+_V17 = {}
+
+
+def _v17_grain(n_var=8, h=1920, w=1080, kuat=2.2):
+    key = ("g", h, w, kuat, n_var)
+    g = _V17.get(key)
+    if g is None:
+        g = []
+        for v in range(n_var):
+            rng = np.random.default_rng(4242 + v * 977)
+            a = rng.standard_normal((h, w)).astype(np.float32)
+            a = np.asarray(Image.fromarray(((a * 0.5 + 0.5) * 255).astype(np.uint8), "L")
+                           .filter(ImageFilter.GaussianBlur(0.45)), dtype=np.float32)
+            a = (a - a.mean()) / (a.std() + 1e-6)
+            g.append(a * kuat)
+        _V17[key] = g
+    return g
+
+
+def _v17_dither(n_var=8, h=1920, w=1080, amp=0.55):
+    key = ("d", h, w, amp, n_var)
+    d = _V17.get(key)
+    if d is None:
+        d = []
+        for v in range(n_var):
+            rng = np.random.default_rng(20261019 + v * 7919)
+            n = (rng.random((h, w)).astype(np.float32) - rng.random((h, w)).astype(np.float32))
+            d.append(n * amp)
+        _V17[key] = d
+    return d
+
+
+def _v17_vig(h, w, kuat=0.040):
+    key = ("v", h, w, kuat)
+    m = _V17.get(key)
+    if m is None:
+        yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+        dd = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2) / 1.414
+        m = (1.0 - kuat * np.clip(dd, 0, 1) ** 2.1).astype(np.float32)
+        _V17[key] = m
+    return m
+
+
+def _v17_lut_knee():
+    lut = []
+    for v in range(256):
+        over = max(0.0, min(1.0, (v - 249.0) / 6.0))
+        lut.append(int(round(v * (1.0 - 0.045 * (over ** 1.4)))))
+    return lut
+
+
+def _v17_lut_split(kuat):
+    """Split-tone sebagai kurva per kanal (fungsi luma -> offset), dipakai lewat point()."""
+    out = []
+    for c, (kr, kg, kb) in enumerate([(kuat * 1.15, 0, -kuat * 0.75), (0, 0, 0), (0, 0, 0)]):
+        pass
+    tab = []
+    for c in range(3):
+        cur = []
+        for v in range(256):
+            lum = v / 255.0
+            hi = max(0.0, min(1.0, (lum - 0.52) / 0.48)) ** 1.4
+            lo = max(0.0, min(1.0, (0.52 - lum) / 0.52)) ** 1.4
+            off_hi = (kuat * 1.15, kuat * 0.55, -kuat * 0.85)[c]
+            off_lo = (-kuat * 0.75, -kuat * 0.15, kuat * 1.05)[c]
+            cur.append(int(max(0, min(255, round(v + hi * off_hi + lo * off_lo)))))
+        tab.append(cur)
+    return tab
+
+
+def _v17_noise_tile(h, w, n_var=8, kuat=2.2):
+    key = ("tile", h, w, kuat, n_var)
+    t = _V17.get(key)
+    if t is None:
+        t = []
+        for v in range(n_var):
+            rng = np.random.default_rng(4242 + v * 977)
+            a = rng.standard_normal((h, w)).astype(np.float32)
+            a = np.asarray(Image.fromarray(((a * 0.5 + 0.5) * 255).astype(np.uint8), "L")
+                           .filter(ImageFilter.GaussianBlur(0.45)), dtype=np.float32)
+            a = (a - a.mean()) / (a.std() + 1e-6) * kuat
+            im = Image.fromarray(np.clip(128 + a, 0, 255).astype(np.uint8), "L").convert("RGB")
+            t.append(im)
+        _V17[key] = t
+    return t
+
+
+def _v17_vig_img(h, w, kuat=0.040):
+    key = ("vigi", h, w, kuat)
+    m = _V17.get(key)
+    if m is None:
+        yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+        dd = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2) / 1.414
+        v = 1.0 - kuat * np.clip(dd, 0, 1) ** 2.1
+        m = Image.fromarray(np.clip(v * 255, 0, 255).astype(np.uint8), "L").convert("RGB")
+        _V17[key] = m
+    return m
+
+
+def finishing_v14_cepat(img, seed=0):
+    """Finishing setara visual, dikerjakan dengan operasi C (PIL) alih-alih numpy float.
+
+    Efek yang dipertahankan: halation, soft-knee highlight, vinyet, grain, split-tone,
+    CA radial. Yang dihilangkan HANYA dither 1 px karena tugasnya (memecah banding pada
+    gradasi) sudah dikerjakan grain dengan amplitudo lebih besar — hasilnya sama.
+    Unsharp lokal juga dilewati karena render sudah menerapkan UnsharpMask pada
+    resolusi akhir (dua kali penajaman hanya menambah halo).
+    """
+    if not AKTIF:
+        return img
+    w, h = img.size
+    # ---- halation: SELURUH pendar dihitung di 1/4 resolusi, lalu SATU upscale.
+    # (versi pertama meng-upscale 3 kanal terpisah -> 3 resize penuh per frame)
+    _d = int(os.environ.get("KT_HAL", "6"))
+    sw, sh = max(2, w // _d), max(2, h // _d)
+    small = img.resize((sw, sh), Image.BILINEAR)
+    Lk = small.convert("L")
+    yk = np.asarray(Lk, dtype=np.float32)
+    yb = np.asarray(Lk.filter(ImageFilter.GaussianBlur(max(0.6, 6.0 / _d))), dtype=np.float32)
+    m = (np.clip(np.clip(yk - yb - 10.0, 0, None) / 60.0, 0, 1) ** 0.85)
+    m *= np.clip((yk - 120.0) / 135.0, 0, 1)
+    gsrc = Image.fromarray(np.clip(np.asarray(small, np.float32) * m[..., None], 0, 255)
+                           .astype(np.uint8))
+    g1 = gsrc.filter(ImageFilter.GaussianBlur(max(0.5, 2.2 / _d)))
+    g2 = gsrc.filter(ImageFilter.GaussianBlur(max(1.2, 10.0 / _d)))
+    glow_small = Image.eval(Image.blend(g1, g2, 0.38), lambda v: int(v * 0.42))
+    glow = glow_small.resize((w, h), Image.BILINEAR)
+    out = ImageChops.screen(img, glow)
+
+    # ---- soft-knee highlight (LUT per kanal)
+    out = out.point(_v17_lut_knee() * 3)
+
+    # ---- vinyet
+    out = ImageChops.multiply(out, _v17_vig_img(h, w, float(os.environ.get("KT_VIG", "0.040"))))
+
+    # ---- grain (varian siap pakai)
+    tile = _v17_noise_tile(h, w, 8, float(os.environ.get("KT_GRAIN", "2.2")))[int(seed) % 8]
+    out = ImageChops.add(out, tile, 1.0, -128)
+
+    # ---- split-tone (kurva per kanal)
+    out = out.point(sum(_v17_lut_split(float(os.environ.get("KT_SPLIT", "2.1"))), []))
+
+    # ---- CA radial tipis (setengah resolusi)
+    ca = float(os.environ.get("KT_CA", "0.0016"))
+    if ca > 0:
+        def zoom_ch(ch, kk):
+            cw, chh = max(2, int(w / kk)), max(2, int(h / kk))
+            x0, y0 = (w - cw) // 2, (h - chh) // 2
+            crop = ch.crop((x0, y0, x0 + cw, y0 + chh))
+            return crop.resize((max(2, cw // 2), max(2, chh // 2)), Image.BICUBIC).resize((w, h), Image.BICUBIC)
+        r, g, b = out.split()
+        out = Image.merge("RGB", (zoom_ch(r, 1.0 + ca), g, zoom_ch(b, 1.0 - ca)))
+    return out

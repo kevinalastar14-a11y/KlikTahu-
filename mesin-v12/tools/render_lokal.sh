@@ -142,7 +142,7 @@ for i in $(seq 0 $((CHUNKS - 1))); do
   if [ "$MODE" = shorts ]; then
     python3 render.py --fps "$FPS" --ss "${SS:-1.5}" --sharpen "${SHARPEN:-52}" \
             --jobs "$JOBS" --range "$LO:$HI" --outdir "$DISK_FRAMES"
-    "$FF" -y -loglevel error -framerate "$FPS" -start_number "$LO" -i "$DISK_FRAMES/f_%05d.png" \
+    "$FF" -y -loglevel error -framerate "$FPS" -start_number "$LO" -i "$DISK_FRAMES/f_%05d.${FRAME_EXT:-jpg}" \
           -frames:v "$((HI - LO))" -an -c:v libx264 -preset "${PRESET:-slow}" -tune "${TUNE:-animation}" \
           -b:v "${VBITRATE:-6400k}" -maxrate "${MAXRATE:-11000k}" -bufsize "${BUFSIZE:-16000k}" \
           -pix_fmt yuv420p -profile:v high -level 4.2 "parts/part_$i.mp4"

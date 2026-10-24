@@ -131,6 +131,45 @@ def lembar(ep, out, n=10):
     return out
 
 
+# ============================================================== subtitle
+
+def buat_srt(ep, out, kata_per_baris=5):
+    """Ekspor caption karaoke sebagai SRT (kata per kata).
+
+    Dipakai untuk subtipe YouTube/Instagram (aksesibilitas + retensi penonton
+    yang menonton tanpa suara). Waktu dihitung dengan fungsi yang SAMA dengan
+    yang dipakai mesin gambar (`C._waktu_kata`), jadi subtitle tidak pernah
+    lebih cepat/lambat dari caption di layar.
+    """
+    mod = importlib.import_module(ep)
+    d = mod.daftar()
+    cap = list(getattr(mod, "CAPTION"))
+    baris = []
+    n = 1
+    for i, s in enumerate(d["scenes"]):
+        teks = cap[i]
+        kata = [w for w in teks.split() if w]
+        waktu = C._waktu_kata(kata, s["dur"] * 0.86)
+        # pecah jadi kelompok kata (maks 5) supaya terbaca
+        for j in range(0, len(kata), kata_per_baris):
+            klip = kata[j:j + kata_per_baris]
+            a = s["mulai"] + waktu[j][0]
+            b = s["mulai"] + waktu[min(j + len(klip) - 1, len(waktu) - 1)][1]
+            baris.append((n, a, b, " ".join(klip)))
+            n += 1
+
+    def ts(x):
+        h = int(x // 3600)
+        m = int((x % 3600) // 60)
+        sec = x % 60
+        return f"{h:02d}:{m:02d}:{sec:06.3f}".replace(".", ",")
+
+    with open(out, "w") as f:
+        for i, a, b, t in baris:
+            f.write(f"{i}\n{ts(a)} --> {ts(b)}\n{t}\n\n")
+    return out, len(baris)
+
+
 # ============================================================== metadata
 
 META = dict(
@@ -264,6 +303,9 @@ def main(argv=None):
     print("[meta] metadata...")
     tulis_metadata(folder)
     tulis_siap_tempel(folder, ep, {"video": a.video or "-", "audio": a.audio or "-"})
+    print("[srt] subtitle Indonesia...")
+    srt, nbaris = buat_srt(ep, os.path.join(folder, "subtitle_id.srt"))
+    print(f"   {nbaris} baris -> {os.path.basename(srt)}")
     print(f"-> {folder}")
     for f in sorted(os.listdir(folder)):
         p = os.path.join(folder, f)

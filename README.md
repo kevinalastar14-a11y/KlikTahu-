@@ -29,6 +29,28 @@ Hasil: `KlikTahu-Video/KlikTahu_Shorts_1080x1920.mp4`
 | 9 | Klimaks | Ledakan sinar + guncangan kamera + flash, "RETENTION ADALAH DESAIN." |
 | 10 | Penutup | Kartu merek, CTA simpan, memudar ke latar gelap (loop mulus) |
 
+## Mesin v20 "KEDALAMAN" (terbaru)
+
+Episode perdana v20: **Ep56 — "Kamu Merasa Jatuh Tepat Sebelum Tidur"** (hypnic jerk),
+1080×1920 · 60 fps · 75,9 detik, 10 babak, QC 24 butir, audio M4A 320 kbps.
+
+```bash
+cd mesin-v12
+python3 mesin_v20_uji.py                                    # selftest 35 detik
+python3 mesin_v20_audio.py --uji-sintetis                   # uji rantai audio telinga
+python3 mesin_v20_suara.py --episode mesin_v20_ep56         # VO (butuh jaringan)
+python3 render_v20.py --episode ep56 --jobs 2 --preset slow --crf 16 \
+        --keluar dist/KlikTahu_Ep56_HypnicJerk_v20.mp4 --audio dist/KlikTahu_Ep56_audio.m4a
+python3 qc_v20.py dist/KlikTahu_Ep56_HypnicJerk_v20.mp4 --episode ep56 --audio dist/KlikTahu_Ep56_audio.m4a
+python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
+```
+
+| Dokumen | Isi |
+|---|---|
+| [`mesin-v12/docs/MESIN_V20.md`](mesin-v12/docs/MESIN_V20.md) | arsitektur v20, palet, tata letak, rantai audio, jebakan |
+| [`mesin-v12/analisis/EP56_V20_ANALISIS.md`](mesin-v12/analisis/EP56_V20_ANALISIS.md) | riset algoritma Shorts 2026, desain retensi per detik, rencana uji A/B |
+| [`mesin-v12/pustaka/Ep56_HypnicJerk/`](mesin-v12/pustaka/Ep56_HypnicJerk/) | judul, deskripsi, tag, thumbnail, lembar pratinjau |
+
 ## Dokumentasi
 
 Selengkapnya ada di [`KlikTahu-Video/README.md`](KlikTahu-Video/README.md):

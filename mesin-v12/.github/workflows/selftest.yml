@@ -58,6 +58,12 @@ jobs:
                  --keluar /tmp/uji_v18.mp4 --preset veryfast --crf 26
           python qc_v18.py /tmp/uji_v18.mp4 --cepat
 
+      - name: Selftest mesin v20 + audio telinga
+        run: |
+          set -euo pipefail
+          python mesin_v20_uji.py
+          python mesin_v20_audio.py --uji-sintetis --detik 3
+
       - name: Selftest mesin analisis (offline)
         run: |
           set -euo pipefail
@@ -69,7 +75,7 @@ jobs:
       - name: Cek berkas wajib ada
         run: |
           set -euo pipefail
-          for f in AGEN.md PUSTAKA.md requirements.txt \
+          for f in AGEN.md PUSTAKA.md requirements.txt docs/MESIN_V20.md \
                    fonts/Poppins-Bold.ttf fonts/Poppins-Regular.ttf fonts/OFL.txt \
                    tools/render_lokal.sh; do
             [ -f "$f" ] || { echo "HILANG: $f"; exit 1; }

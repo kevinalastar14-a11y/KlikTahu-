@@ -1100,3 +1100,66 @@ python3 qc_v19.py dist/KlikTahu_Ep55_Megalodon_v19.mp4 --episode ep55 \
         --audio pustaka/Ep55_Megalodon/KlikTahu_Ep55_Megalodon_audio.m4a --json build_v19/qc.json
 python3 pustaka_v19.py --slug Ep55_Megalodon
 ```
+
+---
+
+## 25. SESI 24 OKT 2026 (lanjutan) — MESIN v20 "KEDALAMAN" + EP56 (hypnic jerk)
+
+**Permintaan pemilik:** lanjutkan project, perbaiki semua bug, upgrade semua ke versi terbaru,
+video kualitas mutakhir, **VO bukan WAV** tapi "audio khusus untuk telinga manusia" yang disaring
+dengan tool buatan sendiri, dan buat Short yang lebih bagus lagi.
+
+### Hasil sesi
+
+| | v19 | **v20** |
+|---|---|---|
+| episode | Ep55 Megalodon (102,76 s) | **Ep56 Hypnic jerk (75,90 s)** + varian `kilat` 45,60 s |
+| kode baru | 2.892 baris | **4.460 baris** (8 modul) |
+| bahasa visual | gelap, HUD, panel kaca | + 3 lapisan kedalaman, kabut fBm ter-blur, bloom/flare, **caption karaoke**, **panel data bawah** |
+| tata letak | isi 260–1010 (sepertiga layar kosong) | isi 190–1150 + scrim caption + panel data 1416–1732 |
+| audio | M4A 256k, chain ffmpeg + STFT 2x | **M4A 320k**, rantai numpy sendiri (biquad RBJ, de-esser adaptif, kompresor RMS, saturasi, loudnorm) |
+| QC | 17 butir | **24 butir** (HUD, caption, gerak, loop, MAE, loudness, TP) |
+| render | 467,7 s (13,2 fps gabungan) | 772,8 s untuk 4.554 frame (5,9 fps gabungan, `slow` CRF 16) |
+
+### Berkas baru
+`mesin_v20_cahaya.py` (1.145) · `mesin_v20_makhluk.py` (655) · `mesin_v20_ep56.py` (895) ·
+`mesin_v20_audio.py` (470) · `mesin_v20_suara.py` (400) · `render_v20.py` (390) ·
+`qc_v20.py` (330) · `pustaka_v20.py` (350) · `mesin_v20_uji.py` (150) +
+`docs/MESIN_V20.md` · `analisis/EP56_V20_ANALISIS.md` · `pustaka/Ep56_HypnicJerk/*`
+
+### Hasil render Ep56 (penuh)
+1080×1920 · 60 fps · 75,90 s · 4.554 frame · **139,28 MB** · 14,7 Mbps · render 772,8 s ·
+QC **24/24 bersih** (MAE 2,17/255 · loop Δ0,9/255 · moov@36 · ·  audio −20,4 LUFS bed audio · TP −1,9 dBTP).
+
+### PENTING — VO belum dibuat (bukan bug, batas sandbox)
+`edge-tts` butuh `speech.platform.bing.com`, yang **tidak ada di daftar host keluar sandbox**
+(terukur: `curl` → 000). Jadi Ep56 dirender dengan **bed audio** (SFX + ambien, −20 LUFS) dan
+seluruh naskah VO 10 babak sudah tersimpan di `mesin_v20_ep56.NASKAH`.
+Di mesin berjaringan, dua perintah selesai:
+```bash
+python3 mesin_v20_suara.py --episode mesin_v20_ep56          # VO + timing.json (timeline ikut bergeser)
+python3 render_v20.py --episode ep56 --audio dist/KlikTahu_Ep56_audio.m4a --jobs 2 --preset slow --crf 16
+```
+**Jangan** menandai episode ini "sudah ada VO".
+
+### Jebakan baru (masuk docs/MESIN_V20.md §7)
+1. Kanvas v18 = **RGB**, bukan RGBA → penulisan `(r,g,b,a)` gagal broadcast; pakai `C._isi()`.
+2. `blit_add` v18 lambat (16 ms/berkas) → simpan sprite **premultiplied** + `cv2.add` (3,9 ms).
+3. Jangan buat lapisan sekanvas (8 MB/panggilan) → semua goresan cv2 di kotak lokal.
+4. `cv2.multiply` butuh 3 kanal → vignette 1 kanal harus `np.repeat`.
+5. **Ukur setelah pemanasan**: `--ukur` tanpa warmup melaporkan 300 ms/frame (sprite belum dibuat).
+6. Rasio de-esser harus dibanding **pita tengah 300–3200 Hz**, bukan total (kalau tidak, tidak pernah memicu).
+7. Thumbnail memakai `frame(t, bersih=True)`; frame ber-HUD membuat teks bertumpuk.
+8. `ffprobe` TIDAK ada di imageio-ffmpeg → QC v20 mem-parse stderr `ffmpeg -i` (regex fps).
+
+### Keputusan strategi (terukur, lihat analisis/EP56_V20_ANALISIS.md §3)
+Riset algoritma Shorts 2026: **swipe-away 1–3 detik** adalah sinyal dominan, retensi ±70%,
+pita **22–45 s** mengalahkan ekstrem lain, loop dihitung sebagai views, Shorts > 1 menit dengan
+klaim hak cipta **diblokir global** (karena itu 100% sintetis, tanpa musik). Konsekuensinya episode
+punya dua varian: `penuh` (75,9 s, 10 babak) dan `kilat` (45,6 s, 6 babak) via `KT_VARIAN=kilat`.
+
+### Ep berikutnya
+Kandidat dari `PEMETA_PELUANG.md` yang belum dipakai: **demam & imun (429,0)**, **mata (424,4)**,
+**gigi & mulut (373,8)**, **pusing & migrain (318,6)**. Mulai dari `mesin_v20_ep56.py`: ganti
+`NASKAH`, `CAPTION`, `BABAK`, `BAWAH`, lalu tulis `_aktor_*` baru. Bahan visual (latar, cahaya,
+panel, grafik, kamera) sudah lengkap di `mesin_v20_cahaya.py`.

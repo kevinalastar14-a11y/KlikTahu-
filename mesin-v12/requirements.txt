@@ -9,8 +9,18 @@
 # Di Python 3.11 pakai numpy 2.4.x (batas >=2.4 di bawah sudah mencakup keduanya).
 #
 # Mesin v11-v17 hanya butuh tiga paket pertama. Empat baris terakhir dipakai
-# mesin v18 (mesin_v18_inti/dunia/ep55 + render_v18.py + qc_v18.py).
+# mesin v18-v20 (inti raster, dunia, episode, renderer, QC).
+#
+# v20 TIDAK menambah dependensi wajib: audio_telinga/mesin_v20_audio hanya
+# memakai numpy + ffmpeg statis dari imageio-ffmpeg. `scipy` OPSIONAL
+# (mempercepat biquad/lfilter ±8x); tanpa scipy semuanya tetap jalan.
+# `edge-tts` hanya dibutuhkan saat membuat VO baru (butuh jaringan).
 pillow>=12.3,<13
 numpy>=2.4,<3
 imageio-ffmpeg>=0.6,<1
 opencv-python-headless>=4.10,<6
+
+# --- opsional (mempercepat filter audio; tanpa ini tetap jalan) ---
+# scipy>=1.14
+# --- VO untuk episode baru (butuh jaringan; tidak dipakai untuk render) ---
+# edge-tts>=7.2

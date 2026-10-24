@@ -34,6 +34,18 @@
 
 ---
 
+## Ep56 - Kamu Merasa Jatuh Tepat Sebelum Tidur? (Hypnic Jerk) — MESIN v20
+- Video: `dist/KlikTahu_Ep56_HypnicJerk_v20.mp4` — 1080x1920 · 60 fps · 75,90 s · 139,3 MB (varian `penuh`)
+- Varian pendek: `dist/KlikTahu_Ep56_HypnicJerk_v20_kilat.mp4` — 45,60 s (6 babak, `KT_VARIAN=kilat`)
+- Audio: `dist/KlikTahu_Ep56_audio.m4a` — AAC 320k 48 kHz (**bed audio**; VO menunggu mesin berjaringan)
+- Teks siap tempel: `pustaka/Ep56_HypnicJerk/METADATA.md` + `SIAP_TEMPEL.md`
+- Thumbnail: `pustaka/Ep56_HypnicJerk/thumb_utama.jpg` (angka 7/10) + `thumb_alt.jpg` (uji A/B)
+- Analisis & alasan desain: `analisis/EP56_V20_ANALISIS.md` · mesin: `docs/MESIN_V20.md`
+- 10 babak: sentakan -> nama -> sebaran 7/10 -> waktu N1 -> batang otak -> leluhur primata ->
+  dua teori -> pemicu -> cara -> penutup (loop ke awal)
+
+---
+
 ## Ep50 - Hujan Meteor Orionid 21-22 Oktober: Jam Berapa & Arah Mana (Tanpa Teleskop)
 - Video: `KlikTahu_Ep50_Orionid.mp4` - 1080x1920 - 60 fps (116.8 s) - diserahkan via Google Drive
   `KlikTahu_Produksi/Shorts/kliktahu-ep50-orionid-2026/` (mp4 + thumbnail.jpg + audio master .m4a + SIAP_TEMPEL.md)

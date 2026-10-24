@@ -889,6 +889,17 @@ mata_loop60`), 80 cue kata, 25 SFX, 206 kata VO, master **-14,0 LUFS / TP -1,6 d
 audio_raw/*}`, `analisis/EP54_RISET_23_OKT_2026.md`, `pustaka/Ep54_MataMinus/*`, `LAPORAN_EP54.md`,
 `riset-kualitas/ref/v15ep54_prev4.jpg` (lembar uji 8 dunia) dan `riset-kualitas/ref/v15ep54_timeline.jpg` (8 adegan dari timeline nyata).
 
+**Drive Ep55 (terunggah 24 Okt 2026):** `KlikTahu_Produksi/Shorts/kliktahu-ep55-megalodon`
+= `18gLnIwOVZG5JrkcHOEhfCOtTRhFVdeFY`, 8 berkas, MP4 `1N4rr5ZJL5ug8xZwvCxuLmOFlCJF4AG7-` (83.633.512 B,
+identik dengan hasil render).
+
+> **PERINGATAN AKUN DRIVE.** Setelah konektor disambungkan ulang, Drive yang aktif adalah **akun berbeda**:
+> folder induk lama `1yGe6zxru2uF-lLhC8LEKxihEqGFbWbcc` 404, `name contains 'KlikTahu'` = 0 hasil, 0 shared
+> drive. Struktur `KlikTahu_Produksi` (`1Ee2Rf5L7ONz60CmF2bVOtqspb9oRtt0C`) → `Shorts`
+> (`1ENkN9jhN-2sJE7yUGGIyA7yhJtkMgxC-`) dibuat ulang di akun baru ini. Ep52–Ep54 tetap ada di akun lama.
+> Jangan pakai ID lama untuk episode berikutnya — **selalu cari folder by name dulu** (`search_files`) sebelum
+> membuat, karena ID antar-akun tidak portabel.
+
 **Ep berikutnya:** belum ditetapkan. Kalau lanjut gaya v15: mulai dari `mesin_v15_ilustrasi.py` + salin pola
 `mesin_v15_ep54.py`; pilih topik dari data 5 faktor, dan **utamakan tema dengan volume tinggi yang belum pernah
 dibuat** (kandidat dari data: gigi & mulut 258,3 [sudah Ep30 — cari sub-tema lain], kulit 85,8, pusing & migrain 79,8).

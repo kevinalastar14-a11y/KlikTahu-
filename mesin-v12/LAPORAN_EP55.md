@@ -122,3 +122,30 @@ HASIL QC : SEMUA BERSIH ✔
    peak −18,8 dBFS, jadi tidak akan menutupi VO.
 7. **Jangan mengklaim meniru video yang tidak bisa ditonton.** Jujur soal batas ini lebih berguna daripada
    menebak isi frame-nya.
+
+---
+
+## 6. Berkas di Google Drive
+
+**Folder:** `KlikTahu_Produksi/Shorts/kliktahu-ep55-megalodon`
+<https://drive.google.com/drive/folders/18gLnIwOVZG5JrkcHOEhfCOtTRhFVdeFY>
+
+| Berkas | Ukuran (byte) | Tautan |
+|---|---:|---|
+| `KlikTahu_Ep55_Megalodon.mp4` | 83.633.512 | <https://drive.google.com/file/d/1N4rr5ZJL5ug8xZwvCxuLmOFlCJF4AG7-/view> |
+| `KlikTahu_Ep55_Megalodon_audio.m4a` | 3.291.504 | <https://drive.google.com/file/d/1Gmw53s6Qw5VLK3oDIhR10hZVNG5lJN3F/view> |
+| `KlikTahu_Ep55_Megalodon_thumb_utama.png` | 811.745 | <https://drive.google.com/file/d/111V_G1rDoSntf7_2ewzXDNL0b_xsDwl6/view> |
+| `KlikTahu_Ep55_Megalodon_thumb_alt.png` | 939.329 | <https://drive.google.com/file/d/16G-qfWLIIvuT3YvjU_2azztjiLtPoTSr/view> |
+| `KlikTahu_Ep55_Megalodon_lembar_pratinjau.jpg` | 250.981 | <https://drive.google.com/file/d/1B3YdpPE_xAeQn5u6dDFwtKYs7Ifn1Mmj/view> |
+| `KlikTahu_Ep55_Megalodon_content.json` | 6.320 | <https://drive.google.com/file/d/1Mcx1H4KpEIAPI9gNasQuhidOLu-MvHGE/view> |
+| `SIAP_TEMPEL.md` | 2.699 | <https://drive.google.com/file/d/1Oz7w3R9BgSoqaQOopFIQBc0leFTFfgc6/view> |
+| `METADATA.md` | 4.454 | <https://drive.google.com/file/d/1o4ABKDRzSQwCdsnRdUBSpN5sCxb9U3Z3/view> |
+
+Ukuran MP4 di Drive **sama persis** dengan hasil render (83.633.512 byte), dicek lewat `list_files`.
+
+> **Catatan penting — akun Drive berganti.** Saat konektor disambungkan ulang, Drive yang aktif ternyata
+> **akun lain** dari yang dipakai Ep52–Ep54: folder induk lama `1yGe6zxru2uF-lLhC8LEKxihEqGFbWbcc` sekarang
+> 404, pencarian `name contains 'KlikTahu'` mengembalikan 0 hasil, dan tidak ada shared drive. Struktur
+> `KlikTahu_Produksi/Shorts` dibuat ulang di akun ini, jadi **Ep55 berada di akun berbeda dari episode
+> sebelumnya**. Kalau akun produksi lama yang dimaksud, sambungkan ulang akun itu lalu unggah ulang dari
+> `pustaka/Ep55_Megalodon/` + `dist/` (8 berkas, ±86 MB, tanpa perlu render).

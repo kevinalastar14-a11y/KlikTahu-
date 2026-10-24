@@ -51,6 +51,7 @@
 - Sudut pembeda: **cara ilmuwan tahu ukuran dari gigi** - 16,4 m individu Belgia (1,8 + 11 + 3,6), batas 24,3 m / 94 t (Shimada dkk. 2025), tubuh lebih ramping dari hiu putih, gigi 18 cm bergerigi.
 - **Mesin baru V16 LAUT DALAM** (`mesin_v16_laut.py` + `mesin_v16_ep55.py`): primitif bbox-lokal + cache gradasi (frame 1,1 s -> 0,09 s), dilasi numpy, sistem air (gradasi kedalaman, sinar volumetrik, kaustik), siluet parametrik hiu/paus/penyelam dari spline, gigi bergerigi takik + `baris_gigi`.
 - Audio: **`sfx.ambient_laut()`** (baru) - bed samudra tiga lapis, level RMS dijaga (-33,1 dB), loop aman. Tetap **tanpa musik**.
+- Drive: `KlikTahu_Produksi/Shorts/kliktahu-ep55-megalodon` = `18gLnIwOVZG5JrkcHOEhfCOtTRhFVdeFY` (8 berkas, MP4 83.633.512 B).
 - Teks siap tempel: `pustaka/Ep55_Megalodon/SIAP_TEMPEL.md`; laporan: `LAPORAN_EP55.md`; catatan mesin: `AGEN.md` 21.
 
 ## Ep54 - Mata Minus Tidak Bisa Sembuh — Bola Matanya Sudah Memanjang (SIAP, terbit 27-28 Okt 2026)

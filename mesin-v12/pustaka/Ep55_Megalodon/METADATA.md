@@ -2,9 +2,9 @@
 
 **Judul:** Megalodon Bukan Hiu Putih Raksasa — Dan Kita Cuma Punya Giginya
 **Produksi:** 24 Oktober 2026 · **Tayang:** 29–30 Oktober 2026, 18.30–20.30 WIB
-**Format:** 1080×1920 · 60 fps · ±101,4 s · VO `voice-05` → rantai `vo_manusia.py` (tanpa potong/atempo) ·
+**Format:** 1080×1920 · 60 fps · ±102,8 s · VO `voice-05` → rantai `vo_manusia.py` (tanpa potong/atempo) ·
 SFX per kata + **ambien laut** (bukan musik) · master `.m4a` AAC
-**Mesin:** **V16 LAUT DALAM** (`mesin_v16_laut.py` + `mesin_v16_ep55.py`) — generasi baru, bukan turunan v15.
+**Mesin:** **V18 SPRITE ATLAS** (`mesin_v18_*.py`, 3.779 baris) — raster sekali + komposisi sprite, render 4 menit.
 
 ---
 
@@ -46,7 +46,7 @@ Tema tubuh yang skornya lebih tinggi sudah dipakai (Ep28 perut, Ep30 gigi, Ep21/
 | Body 3 | f6 | punah: dingin, dangkal menyempit, paus migrasi, hiu putih |
 | Loop | outro | vitrin museum; siluet raksasa yang sama seperti intro |
 
-Timeline nyata: intro 0,00 · f1 10,60 · f2 22,55 · f3 35,28 · f4 46,63 · f5 64,44 · f6 77,34 · outro 93,44 · total 101,39 s.
+Timeline nyata: intro 0,00 · f1 10,65 · f2 21,94 · f3 35,82 · f4 47,83 · f5 64,23 · f6 76,89 · outro 94,48 · total 102,76 s.
 
 ---
 

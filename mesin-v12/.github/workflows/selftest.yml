@@ -45,6 +45,19 @@ jobs:
           python diagrams.py
           python sfx.py
 
+      - name: Selftest mesin v18 (inti raster cepat)
+        run: |
+          set -euo pipefail
+          python mesin_v18_inti.py
+          python mesin_v18_dunia.py
+
+      - name: Uji render v18 (3 detik, tanpa audio)
+        run: |
+          set -euo pipefail
+          python render_v18.py --episode ep55 --potong 3 --jobs 2 \
+                 --keluar /tmp/uji_v18.mp4 --preset veryfast --crf 26
+          python qc_v18.py /tmp/uji_v18.mp4 --cepat
+
       - name: Selftest mesin analisis (offline)
         run: |
           set -euo pipefail

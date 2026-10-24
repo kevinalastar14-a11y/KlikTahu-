@@ -1,12 +1,16 @@
 # KlikTahu — dependensi mesin produksi
-# Hanya tiga paket ini (tidak ada dependensi lain). Dipasang oleh CI selftest
-# dan oleh tools/render_lokal.sh.
+# Dipasang oleh CI selftest dan oleh tools/render_lokal.sh.
 #
-# Versi terbaru saat diperbarui (6 Okt 2026) dan sudah diuji lulus:
-#   pillow 12.3.0 · numpy 2.4.6/2.5.3 · imageio-ffmpeg 0.6.0
+# Versi terbaru saat diperbarui (24 Okt 2026) dan sudah diuji lulus:
+#   pillow 12.3.0 · numpy 2.4.6 · imageio-ffmpeg 0.6.0 (ffmpeg 7.0.2)
+#   opencv-python-headless 5.0.0 (WAJIB untuk mesin v18: LUT, resize, warp, blur)
 #
 # Catatan versi Python: numpy 2.5.x hanya menyediakan wheel untuk Python 3.12+.
 # Di Python 3.11 pakai numpy 2.4.x (batas >=2.4 di bawah sudah mencakup keduanya).
+#
+# Mesin v11-v17 hanya butuh tiga paket pertama. Empat baris terakhir dipakai
+# mesin v18 (mesin_v18_inti/dunia/ep55 + render_v18.py + qc_v18.py).
 pillow>=12.3,<13
 numpy>=2.4,<3
 imageio-ffmpeg>=0.6,<1
+opencv-python-headless>=4.10,<6

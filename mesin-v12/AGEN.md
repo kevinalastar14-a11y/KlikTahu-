@@ -997,3 +997,66 @@ Pulih dengan `git fetch origin arena/322bf634-kliktahu` + `git reset --mixed ori
 
 **Setelan episode** ada di `episodes/ep55_megalodon/config.env` (SS=1,0; KT_FMT=jpg; KT_CEPAT=1;
 KT_KILAT=1; KT_CAMRES=bilinear; KT_HAL=6; KT_BLOOM=0; KT_CA=0,0011; PRESET=fast).
+
+---
+
+## 23. SESI 24 OKT 2026 (malam) — MESIN v18 "SPRITE ATLAS": RENDER 24m52s → 4m00s
+
+**Permintaan pemilik:** "Buat dengan cara apapun agar render menjadi sangat cepat… Kamu buat sistem sendiri,
+yang membuat render cepat" + "1 video short wajib 2000 kode lebih" + "VO jangan digenerate lagi".
+
+### Hasil
+
+| | v17 | **v18** |
+|---|---:|---:|
+| render penuh (2 inti) | 24 m 52 s | **4 m 00 s** |
+| frame/detik | 4,1 | **25,7** |
+| encode | x264 fast | x264 **slow + CRF 14** |
+| SSIM encode vs sumber | 0,9893 | **0,9936** |
+| ukuran | 77,75 MB | **33,18 MB** |
+| kode inti | 1.311 | **3.779** |
+
+### Kenapa bisa (ringkas — detail di `docs/MESIN_V18.md`)
+v11-v17 **menggambar ulang seluruh adegan tiap frame** (212-230 ms). Yang mahal bukan menggambar
+objek, tetapi mengulang gradasi/outline/teks/penyimpanan 6.166 kali. v18:
+1. **sprite atlas**: latar tiap scene diraster SEKALI (8 scene = 1,3 s), lalu `latar.copy()` 0,43 ms/frame;
+2. **gerak tanpa raster ulang**: `swim()` menggeser sprite per kolom dengan sinus — satu `np.take` 0,6 ms
+   (fancy-index 4,83 ms → `np.take` 8× lebih cepat);
+3. **blit integer pada kotak lokal** (uint16, bukan float32 sekanvas) + sprite dipangkas (`pangkas`);
+4. **pipe langsung ke x264** (`rawvideo` ke stdin) — nol berkas JPEG perantara (v17 membuang ±2,5 menit);
+5. encode `slow`+CRF 14 masih muat karena komposisi hanya 25-52 ms/frame.
+
+### Berkas baru
+`mesin_v18_inti.py` (1.173) · `mesin_v18_dunia.py` (1.152) · `mesin_v18_ep55.py` (651) ·
+`render_v18.py` (298) · `qc_v18.py` (330) · `pustaka_v18.py` (175) = **3.779 baris** + `docs/MESIN_V18.md`.
+
+### VO: TIDAK digenerate ulang
+Workspace ter-reset dan `audio_raw/` hilang, TAPI master telinga `pustaka/Ep55_Megalodon/
+KlikTahu_Ep55_Megalodon_audio.m4a` selamat (-14,4 LUFS / TP -1,6 / 102,76 s). Video v18 di-remux
+dengan berkas itu (`-c:a copy`); QC korelasi **1,0000**. JANGAN generate VO baru untuk episode ini.
+
+### Timing scene dari audio (bukan tebakan)
+Batas scene diambil dari jeda hening terpanjang lalu diseimbangkan dengan DP berbasis laju kata
+(138/158/179/152/218/158/205/95 karakter). Hasil: 10,65 · 11,29 · 13,88 · 12,01 · 16,40 · 12,66 ·
+17,59 · 8,28 s = **102,76 s**, cocok ±0,4 s dengan v17.
+
+### Jebakan v18 (semua sudah diperbaiki, jangan diulang)
+1. Perut ikan WAJIB dari `belly_mask` (mask siluet), bukan kurva terpisah → kalau tidak, "pita krem melayang".
+2. Semua detail (mata/insang/mulut/gurat sisi) WAJIB diklip ke mask badan.
+3. `kartu_spr` punya padding 46 px → saat menempel kurangi 46 dari x & y, kalau tidak judul keluar pelat.
+4. Langit harus SATU gradasi; dua gradasi + `kabut()` → garis horizontal terlihat di video.
+5. Kaustik di-gather dari ubin (`kaustik_dasar`), jangan blit per kotak (sengkar 512 px terlihat).
+6. OpenCV 5 menolak `GaussianBlur(ksize=(0,0))` → pakai `gblur()`.
+7. Vignette `cv2.multiply` uint8 (1,5 ms) vs float32 (13,7 ms).
+8. Gigi: bangun dari fungsi radius monoton + apex tunggal. Spline bebas → terlihat seperti "hantu".
+
+### Perintah
+```bash
+python3 render_v18.py --episode ep55 --keluar dist/KlikTahu_Ep55_Megalodon_v18.mp4 \
+        --audio pustaka/Ep55_Megalodon/KlikTahu_Ep55_Megalodon_audio.m4a --jobs 2 --preset slow --crf 14
+python3 qc_v18.py dist/KlikTahu_Ep55_Megalodon_v18.mp4 --episode ep55 \
+        --audio pustaka/Ep55_Megalodon/KlikTahu_Ep55_Megalodon_audio.m4a
+python3 pustaka_v18.py --episode ep55 --slug Ep55_Megalodon
+```
+`requirements.txt` kini memuat `opencv-python-headless>=4.10,<6` (WAJIB untuk v18).
+CI selftest menambah: selftest inti+dunia, render 3 detik veryfast, dan `qc_v18 --cepat`.

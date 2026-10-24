@@ -1,6 +1,6 @@
 # SIAP TEMPEL · Ep55 — Megalodon Bukan Hiu Putih Raksasa
 
-**Berkas:** `KlikTahu_Ep55_Megalodon.mp4` · 1080×1920 · 60 fps · ±101,4 s · audio AAC 256 kbps 48 kHz
+**Berkas:** `KlikTahu_Ep55_Megalodon.mp4` · 1080×1920 · 60 fps · ±102,8 s · audio AAC 256 kbps 48 kHz
 **Jadwal unggah:** Kamis, 29 Oktober 2026 atau Jumat, 30 Oktober 2026, 18.30–20.30 WIB
 **Dasar riset:** `analisis/EP55_RISET_24_OKT_2026.md`
 

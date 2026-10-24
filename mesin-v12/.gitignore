@@ -6,6 +6,7 @@
 # --- artefak render (dibuat ulang tiap kali) -------------------------------
 build/
 build_v18/
+build_v19/
 frames/
 frames*/
 parts/

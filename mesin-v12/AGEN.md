@@ -1060,3 +1060,43 @@ python3 pustaka_v18.py --episode ep55 --slug Ep55_Megalodon
 ```
 `requirements.txt` kini memuat `opencv-python-headless>=4.10,<6` (WAJIB untuk v18).
 CI selftest menambah: selftest inti+dunia, render 3 detik veryfast, dan `qc_v18 --cepat`.
+
+---
+
+## 24. v19 — bahasa visual video panjang lama (24 Oktober 2026)
+
+Permintaan: *"bukan resolusi tapi kualitas isi… terlihat realistis tapi 2D… seperti video panjang channel
+KlikTahu yang lama"* + *"lanjut membuat video short, perbaiki lagi yang serius"*.
+
+### Yang dianalisis, bukan ditebak
+Video acuan `1-dQs4W2AjZk8NF0P_HpG3x7tAq4z1VRw` ("Apa yang Terjadi Kalau Kamu Masuk ke Lubang Hitam",
+640×360, 9m17s, 10 babak) diunduh, 16 frame + potongan HUD diekstrak, lalu diukur: latar gelap bergradasi,
+merek kiri atas + badge babak kanan atas, progres segmen bawah, panel kaca dengan grafik batang berlabel,
+garis pandu untuk bagian objek, pill caption berwarna, figur manusia sebagai skala, angka besar.
+
+### Yang dibangun
+`mesin_v19_gelap.py` (1.149) + `mesin_v19_ep55.py` (935) + `render_v19.py` (298) + `qc_v19.py` (335) +
+`pustaka_v19.py` (175) = **2.892 baris**, memakai ulang inti raster v18 (1.173) dan modul dunia v18.
+
+### Hasil
+1080×1920 · 60 fps · 102,76 s · 6.166 frame · 67,15 MB · render 467,7 s (13,2 fps gabungan) ·
+QC **17/17 bersih** (MAE 1,43/255 · loop 0,9812 · −14,4 LUFS · TP −1,6 dBTP · moov@36).
+
+### Jebakan baru (masuk docs/MESIN_V19.md §5)
+1. `cv2.*` pada RGBA mengabaikan alpha → pakai lapisan + `komposit` (`_lapis`).
+2. Ketebalan cv2 harus int; pesan errornya menyesatkan.
+3. `panel_spr` wajib `lru_cache` (110 ms/frame kalau tidak).
+4. `Kanvas()` mengisi 6 MB yang langsung dibuang → `object.__new__`.
+5. Grain: lempeng uint8 positif/negatif + `add`/`subtract` (2 ms, bukan 15 ms float32).
+6. `garis_tren(bayang=True)` memblur seluruh kanvas → `bayang=False` di episode.
+7. Gradasi seluruh sprite meleburkan sirip → gradasi hanya pada mask badan.
+8. QC gaya gelap: MAE (bukan SSIM) + "setiap frame punya cahaya" (p99,5), bukan "tidak ada piksel gelap".
+
+### Perintah
+```bash
+python3 render_v19.py --episode ep55 --keluar dist/KlikTahu_Ep55_Megalodon_v19.mp4 \
+        --audio pustaka/Ep55_Megalodon/KlikTahu_Ep55_Megalodon_audio.m4a --jobs 2 --preset slow --crf 14
+python3 qc_v19.py dist/KlikTahu_Ep55_Megalodon_v19.mp4 --episode ep55 \
+        --audio pustaka/Ep55_Megalodon/KlikTahu_Ep55_Megalodon_audio.m4a --json build_v19/qc.json
+python3 pustaka_v19.py --slug Ep55_Megalodon
+```

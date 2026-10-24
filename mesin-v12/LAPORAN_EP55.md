@@ -116,3 +116,27 @@ Rincian teknis lengkap: `docs/MESIN_V18.md` §3 dan §6.
 - **Tidak** memakai musik; ambien laut + SFX tetap dari master.
 - **Tidak** menurunkan resolusi/fps untuk mengejar kecepatan: justru encode naik ke `slow` CRF 14.
 - **Tidak** mengklaim angka tanpa mengukur: setiap klaim di dokumen ini punya angka hasil QC/profil.
+
+---
+
+## 8. v19 — ganti bahasa visual (24 Oktober 2026)
+
+v18 dinilai masih bergaya "buku ilustrasi". v19 mengganti seluruh bahasa visual mengikuti **video panjang
+kanal ini sendiri** ("Apa yang Terjadi Kalau Kamu Masuk ke Lubang Hitam", 9m17s) yang dianalisis
+frame-per-frame: gelap, sinematik, objek dibaca dari cahaya.
+
+| | v18 | **v19** |
+|---|---|---|
+| Latar | kertas krem / air terang | gradasi navy→hitam + nebula + bintang |
+| Objek | outline tinta | rim light + gradasi badan + specular |
+| Data | angka + ikon | panel kaca + bar chart + garis tren + garis pandu |
+| HUD | sumber kecil | merek + badge babak + progres segmen + pill caption |
+
+**Hasil:** `dist/KlikTahu_Ep55_Megalodon_v19.mp4` · 1080×1920 · 60 fps · 102,76 s · 6.166 frame ·
+67,15 MB · render 467,7 s · **QC 17/17 bersih** (MAE 1,43/255 · loop SSIM 0,9812 · −14,4 LUFS ·
+TP −1,6 dBTP · faststart).
+
+Aset: `pustaka/Ep55_Megalodon/` — MP4 (di Drive), M4A asli, lembar pratinjau, 2 thumbnail v19,
+`content.json`, `METADATA.md`, `SIAP_TEMPEL.md`.
+
+Dokumen mesin: `docs/MESIN_V19.md`. Ringkasan aturan: `AGEN.md` §24.

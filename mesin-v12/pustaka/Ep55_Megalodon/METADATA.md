@@ -4,7 +4,39 @@
 **Produksi:** 24 Oktober 2026 · **Tayang:** 29–30 Oktober 2026, 18.30–20.30 WIB
 **Format:** 1080×1920 · 60 fps · ±102,8 s · VO `voice-05` → rantai `vo_manusia.py` (tanpa potong/atempo) ·
 SFX per kata + **ambien laut** (bukan musik) · master `.m4a` AAC
-**Mesin:** **V18 SPRITE ATLAS** (`mesin_v18_*.py`, 3.779 baris) — raster sekali + komposisi sprite, render 4 menit.
+**Mesin:** **V19 SINEMATIK GELAP** (`mesin_v19_*.py`, 2.892 baris) — bahasa visual video panjang kanal:
+latar navy→hitam + nebula, rim light, panel kaca, grafik batang, garis pandu, pill caption, HUD babak + progres.
+
+---
+
+## 0. Versi ini (v19) — apa yang berubah dari v18
+
+v18 (kertas krem + outline tinta) **diganti total**. Acuan barunya adalah video panjang kanal ini
+sendiri, "Apa yang Terjadi Kalau Kamu Masuk ke Lubang Hitam" (9m17s): gelap, sinematik, objek dibaca
+dari cahaya, bukan dari garis.
+
+| Aspek | v18 | **v19 (berkas ini)** |
+|---|---|---|
+| Latar | kertas krem / air teal terang | gradasi navy→hitam + nebula + bintang 3 lapis |
+| Objek | outline tinta 3–4 px | rim light + gradasi badan + specular |
+| Teks | kartu krem bawah | pill caption berwarna + label mikro ber-tracking |
+| Data | angka + ikon | panel kaca + grafik batang berlabel + garis tren |
+| Penjelasan | label lepas | garis pandu (leader line) ke bagian objek |
+| HUD | sumber kecil | merek kiri atas, badge babak kanan atas, progres segmen bawah |
+| Tekstur | datar | debu bercahaya, vignette, grain halus |
+
+**Spesifikasi hasil:** 1080×1920 · 60 fps · 102,76 s · 6.166 frame · H.264 High (yuv420p) + AAC 48 kHz ·
+**67,15 MB** · `moov` di awal (faststart).
+
+**Waktu render:** 467,7 s (7,80 menit) untuk 6.166 frame → 13,2 fps gabungan, 2 proses `--preset slow --crf 14`.
+
+**QC (`qc_v19.py`, 17 pemeriksaan) — semua bersih:**
+loop frame akhir↔awal SSIM 0,9812 / korelasi 0,9971 · gambar vs mesin MAE 1,43/255 (SSIM 0,9624) ·
+tidak ada frame kosong 0/16 · setiap frame punya cahaya p99,5 min 45 · loudness −14,4 LUFS ·
+true peak −1,6 dBTP · korelasi audio vs master 1,0000 · margin 40 px tepi tajam maks 0,14%.
+
+**Naskah & VO tidak berubah** — M4A `KlikTahu_Ep55_Megalodon_audio.m4a` dipakai apa adanya (tanpa potong/atempo),
+tanpa musik; hanya ambien laut.
 
 ---
 

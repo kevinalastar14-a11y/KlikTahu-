@@ -467,3 +467,51 @@ def ambient_hujan(total, level_db=-30.0, seed=5):
         h[:fade] *= np.linspace(0, 1, fade) ** 1.6
         h[-fade:] *= np.linspace(1, 0, fade) ** 1.6
     return h
+
+
+def ambient_laut(total, level_db=-31.0, seed=13):
+    """Bed LAUT DALAM (bukan musik): gerumuh tekanan rendah + napas arus lambat + desis partikel.
+
+    Dibuat di domain frekuensi supaya murah untuk 2-3 menit. Tiga lapis:
+      1) rumble < 80 Hz  (tekanan kedalaman)
+      2) arus 120-600 Hz yang menguat-mengecil tiap ~7 s (napas samudra)
+      3) desis 2-6 kHz sangat tipis (partikel / gelembung jauh)
+    Loop aman: pakai jumlah gelombang bulat dalam durasi, fade 0,4 s di ujung.
+    """
+    n = int(SR * max(0.05, total))
+    if n < 64:
+        return np.zeros(max(1, n))
+    rng = np.random.default_rng(seed)
+    t = np.arange(n) / SR
+    x = rng.standard_normal(n)
+    f = np.fft.rfftfreq(n, 1.0 / SR)
+    # spektrum dasar: turun ~1/f^0.9 (derau coklat laut) + puncak tipis di 55 Hz
+    H = (np.clip(f, 18.0, None) / 100.0) ** -0.9
+    H[f < 18] = 0.0
+    H *= 1.0 + 0.55 * np.exp(-((f - 55.0) / 16.0) ** 2)
+    H *= np.exp(-(f / 4200.0) ** 2)                      # buang hiss tinggi
+    laut = np.fft.irfft(np.fft.rfft(x) * H, n)
+    laut /= (np.sqrt((laut ** 2).mean()) + 1e-9)
+    # napas arus: gelombang utuh dalam durasi (loop mulus)
+    k1 = max(1, round(total / 9.0))
+    k2 = max(1, round(total / 23.0))
+    napas = (0.78 + 0.16 * np.sin(2 * np.pi * k1 * t / max(total, 1e-6) - 0.6)
+             + 0.06 * np.sin(2 * np.pi * k2 * t / max(total, 1e-6) + 1.7))
+    # desis gelembung: derau band-pass pendek yang jarang
+    hiss = np.zeros(n)
+    nb = int(1.6 * total)
+    pos = rng.integers(0, max(1, n - int(SR * 0.05)), nb)
+    for p0 in pos:
+        m = int(SR * rng.uniform(0.02, 0.05))
+        if p0 + m >= n:
+            continue
+        env = np.exp(-np.arange(m) / (SR * 0.010))
+        hiss[p0:p0 + m] += rng.standard_normal(m) * env * rng.uniform(0.05, 0.16)
+    laut = laut * napas + hiss * 0.35
+    laut /= (np.sqrt((laut ** 2).mean()) + 1e-9)
+    laut *= 10 ** (level_db / 20.0)
+    fade = int(SR * 0.40)
+    if n > 2 * fade:
+        laut[:fade] *= np.linspace(0, 1, fade) ** 1.4
+        laut[-fade:] *= np.linspace(1, 0, fade) ** 1.4
+    return laut

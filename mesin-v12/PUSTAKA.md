@@ -44,6 +44,15 @@
   langit -> peta orbit -> langit), 70 SFX dikunci ke kata (faster-whisper), ambient angin malam, loop frame akhir = frame 0.
 - Jadwal terbit: Senin 19 Okt 2026 18.30-20.30 WIB (puncak Orionid malam Rabu 21 -> Kamis 22 Okt).
 
+## Ep55 - Megalodon Bukan Hiu Putih Raksasa — Dan Kita Cuma Punya Giginya (SIAP, terbit 29-30 Okt 2026)
+- Video: `KlikTahu_Ep55_Megalodon.mp4` - 1080x1920 - 60 fps - 101,40 s - 83,63 MB.
+- QC: `qc_mp4` **SEMUA BERSIH** (audio korelasi 1,0000, lag +0 ms, VO 8/8, peak -1,7 dBFS, -14,0 LUFS / TP -1,7 dBTP, 0 clipping); `qc_loop` **0,9997**; `check_layout` bersih (57 elemen teks, margin 40 px).
+- Pilar HEWAN (bobot performa 0,92 - tertinggi kedua, **belum pernah dipakai** dalam 16 episode TUBUH berturut-turut). Skor mentah 76,6, pertumbuhan 176,8. Rincian: `analisis/EP55_RISET_24_OKT_2026.md`.
+- Sudut pembeda: **cara ilmuwan tahu ukuran dari gigi** - 16,4 m individu Belgia (1,8 + 11 + 3,6), batas 24,3 m / 94 t (Shimada dkk. 2025), tubuh lebih ramping dari hiu putih, gigi 18 cm bergerigi.
+- **Mesin baru V16 LAUT DALAM** (`mesin_v16_laut.py` + `mesin_v16_ep55.py`): primitif bbox-lokal + cache gradasi (frame 1,1 s -> 0,09 s), dilasi numpy, sistem air (gradasi kedalaman, sinar volumetrik, kaustik), siluet parametrik hiu/paus/penyelam dari spline, gigi bergerigi takik + `baris_gigi`.
+- Audio: **`sfx.ambient_laut()`** (baru) - bed samudra tiga lapis, level RMS dijaga (-33,1 dB), loop aman. Tetap **tanpa musik**.
+- Teks siap tempel: `pustaka/Ep55_Megalodon/SIAP_TEMPEL.md`; laporan: `LAPORAN_EP55.md`; catatan mesin: `AGEN.md` 21.
+
 ## Ep54 - Mata Minus Tidak Bisa Sembuh — Bola Matanya Sudah Memanjang (SIAP, terbit 27-28 Okt 2026)
 - Video: `KlikTahu_Ep54_MataMinus.mp4` - 1080x1920 - 60 fps - 113,20 s - 92,90 MB (Drive `KlikTahu_Produksi/Shorts/kliktahu-ep54-mata-minus`, folder id `1AVIzZJysxG_P_CW_pkiL0apjhqH-P-2O`, 9 berkas).
 - QC: `qc_mp4` **SEMUA BERSIH** (audio korelasi 0,9999, lag +0 ms, VO 8/8, peak -1,7 dBFS, -14,0 LUFS / TP -1,6 dBTP, 0 clipping); `qc_loop` **0,9997**; `check_layout` bersih (87 elemen teks, margin 40 px).

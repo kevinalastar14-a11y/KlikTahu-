@@ -892,3 +892,60 @@ audio_raw/*}`, `analisis/EP54_RISET_23_OKT_2026.md`, `pustaka/Ep54_MataMinus/*`,
 **Ep berikutnya:** belum ditetapkan. Kalau lanjut gaya v15: mulai dari `mesin_v15_ilustrasi.py` + salin pola
 `mesin_v15_ep54.py`; pilih topik dari data 5 faktor, dan **utamakan tema dengan volume tinggi yang belum pernah
 dibuat** (kandidat dari data: gigi & mulut 258,3 [sudah Ep30 — cari sub-tema lain], kulit 85,8, pusing & migrain 79,8).
+
+---
+
+## 21. SESI 24 OKT 2026 — MESIN BARU V16 "LAUT DALAM", Ep55 MEGALODON (agen Arena)
+
+**Konteks:** pemilik mengirim dua video acuan (Drive `1FVsOCqUNfPv8ycXQYtYSQnQUE1YgAMUs` *kitabedah.id*
+88,23 s; `1D7Y3cWfcbs8fIXSEyxp3kRzvKmziGgKY` *bit_wonder* 47,50 s) dan meminta "lebih bagus, lebih mutakhir,
+**fokus ke kode**". Kedua video **tidak bisa diputar di sandbox**: `lh3.googleusercontent.com` diblokir
+(`SSL_ERROR_SYSCALL`) dan connector Drive tidak menyediakan streaming. Yang terbaca hanya metadata (720x1280,
+durasi). Karena itu permintaan dijawab dengan **membangun mesin baru**, bukan meniru frame yang tak terverifikasi.
+
+**Ep55 — hasil akhir:** `KlikTahu_Ep55_Megalodon.mp4`, 1080x1920, 60 fps, **101,40 s, 83.633.512 B (83,63 MB)**,
+8 dunia (`mega_intro60, mega_skala60, mega_ukur60, mega_bentuk60, mega_gigi60, mega_gigit60, mega_punah60,
+mega_loop60`), 48 cue kata, 28 SFX, 202 kata VO, master **-14,0 LUFS / TP -1,7 dBTP**, `qc_mp4` **SEMUA BERSIH**
+(audio korelasi 1,0000), `qc_loop` **0,9997**.
+
+**Yang benar-benar baru di kode (bukan kosmetik):**
+1. **Akar masalah v15:** setiap bentuk digambar pada mask seukuran kanvas (1620x2880 = 4,7 juta piksel), dan
+   gradasi isi selalu diskalakan ulang. Satu frame ~1,1 s.
+2. **v16 `bentuk2/elips2`**: potong ke bbox bentuk sendiri + **cache gradasi** (`_grad_isi`).
+   Hasil terukur: `gigi(560)` 71 -> **22 ms**, `baris_gigi` 121 -> **53 ms**, `kartu2` 276 -> **13 ms**,
+   satu frame **~0,09 s (12x)**.
+3. **`_dilate` numpy** menggantikan `ImageFilter.MaxFilter` untuk outline (50 -> 4 ms pada bbox besar).
+4. **Sistem air:** `air()` gradasi 6 lapis + pita arus, `sinar()` volumetrik, `kaustik()` numpy, `salju()`,
+   `gelembung()`, `dasar()` dengan riak.
+5. **Siluet hewan spline (Catmull-Rom):** `hiu()` (parameter `tinggi` ramping<->gempal, `ekor_bulan`),
+   `paus()`, `penyelam()` (skala meter). Satu `hiu()` dipakai untuk megalodon ramping, hiu putih gempal, dan
+   siluet raksasa intro/outro.
+6. **`gigi()` + `baris_gigi()`:** mahkota 1,7:1, tepi cembung, **takik gerigi nyata** pada tepi, akar bercabang
+   dua; `baris_gigi(buka=0..1)` untuk mulut yang menganga/mengatup.
+7. **`kartu2()` v3:** kicker **di dalam** kartu (tidak lagi pil melayang yang selalu bertabrakan dengan
+   ilustrasi), sorot bergerak, bayangan terbatas bbox. `label2()` menjepit posisi ke margin 46 px.
+8. **Audio `sfx.ambient_laut()`:** bed samudra tiga lapis di domain frekuensi (rumble < 80 Hz, arus 120-600 Hz
+   bernapas tiap ~9 s, desis 2-6 kHz), RMS tepat -33,1 dB, loop aman (gelombang bulat + fade 0,4 s).
+   `master_audio.py` sekarang mengenal `ambient = "laut"`. **Tetap tanpa musik.**
+
+**Pelajaran baru (jangan diulang):**
+1. **Profil dulu, optimalkan kemudian.** 10 baris `time.time()` menunjukkan 3 fungsi menghabiskan 80 % waktu.
+2. **Cache gradasi harus berukuran PIKEL.** Versi pertama menyimpan ukuran unit dunia -> `ValueError: images
+   do not match` saat `putalpha`.
+3. **Gigi butuh tiga hal sekaligus** (rasio 1,7:1, tepi cembung, takik gerigi nyata). Tanpa akar -> segitiga;
+   akar terlalu besar -> terbaca "kapal layar".
+4. **Kicker di dalam kartu**, jangan pil melayang di atas — selalu bentrok begitu komposisi berubah.
+5. **`label2()` wajib menjepit posisi**, kalau tidak label terpotong tepi kanvas saat teksnya panjang.
+6. **Siluet hewan wajib spline.** Poligon segitiga selalu terbaca seperti kertas.
+7. **Ambien baru diuji by numbers** (RMS & peak), bukan cuma didengar — supaya tidak menutupi VO.
+8. **Jangan mengklaim meniru video yang tidak bisa ditonton.** Sebut batasnya.
+
+**Berkas baru sesi ini:** `mesin_v16_laut.py`, `mesin_v16_ep55.py`,
+`episodes/ep55_megalodon/{content.json,config.env,METADATA.md,audio_raw/*}`,
+`analisis/EP55_RISET_24_OKT_2026.md`, `pustaka/Ep55_Megalodon/*`, `LAPORAN_EP55.md`,
+`riset-kualitas/ref/v16ep55_prev4.jpg` (ronde pratinjau) + `v16ep55_final.jpg` (8 adegan final).
+Perubahan mesin lama: `sfx.py` (+`ambient_laut`), `master_audio.py` (kenal ambient "laut").
+
+**Ep berikutnya:** belum ditetapkan. Kalau lanjut gaya v16, mulai dari `mesin_v16_laut.py` + salin pola
+`mesin_v16_ep55.py`. Kandidat data yang belum dipakai: kulit (gatal/bentol, 85,8), pusing & migrain (79,8),
+internet & sinyal (74,7, pilar TEKNOLOGI 0,34).

@@ -80,9 +80,14 @@ def tambah_sfx(a, sr):
         cj = {}
     if str(cj.get("mesin", "")).lower() == "v12" and os.environ.get("KT_AMBIENT_BED", "1") == "1":
         _amb = str(cj.get("ambient", "angin")).lower()
-        _lvl = float(os.environ.get("KT_AMBIENT_DB", "-30" if _amb == "hujan" else "-32"))
-        bed = (sfx.ambient_hujan(len(vo) / sr, _lvl) if _amb == "hujan"
-               else sfx.ambient_bed(len(vo) / sr, _lvl))
+        _default = "-30" if _amb == "hujan" else ("-33" if _amb in ("laut", "laut_dalam", "samudra") else "-32")
+        _lvl = float(os.environ.get("KT_AMBIENT_DB", _default))
+        if _amb == "hujan":
+            bed = sfx.ambient_hujan(len(vo) / sr, _lvl)
+        elif _amb in ("laut", "laut_dalam", "samudra"):
+            bed = sfx.ambient_laut(len(vo) / sr, _lvl)          # v16: bed samudra (bukan musik)
+        else:
+            bed = sfx.ambient_bed(len(vo) / sr, _lvl)
         bed = bed[: len(vo)]
         if len(bed) < len(vo):
             bed = np.pad(bed, (0, len(vo) - len(bed)))

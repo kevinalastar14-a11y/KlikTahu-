@@ -77,7 +77,7 @@ CAPTION = [
     "DUA TEORI, SATU MEKANISME",
     "KURANG TIDUR · KAFEIN · STRES",
     "TIGA CARA MEMBUATNYA JARANG",
-    "SIMPAN, BIAR BESOK NGGAK KAGET",
+    "INI BUKAN PENYAKIT, CUKUP TIDUR TERATUR",
 ]
 NASKAH = [
     "Pernah ngerasain kayak jatuh dari ketinggian, terus badan nyentak tepat sebelum tidur? Itu bukan mimpi.",
@@ -89,7 +89,7 @@ NASKAH = [
     "Teori lain: otot yang melemas dibaca otak sebagai tanda jatuh, jadi otak mengejot badan supaya nggak nyungsep.",
     "Kabar baiknya, ini normal dan bukan penyakit. Yang bikin sering cuma kurang tidur, kafein, dan stres.",
     "Kalau mau lebih jarang: kurangi kopi sore, tidur di jam yang sama, dan jangan tidur larut semalaman.",
-    "Tubuhmu cuma ketinggalan zaman. Simpan videonya, biar besok nggak kaget lagi.",
+    "Tubuhmu cuma ketinggalan zaman. Ini bukan penyakit — cuma perlu tidur lebih teratur. Simpan videonya.",
 ]
 
 # ---------------------------------------------------------------- waktu babak
@@ -232,8 +232,9 @@ def _aktor_hook(k, t, dur):
     # ---- sentakan
     if kaget and t - sentak < 0.6:
         f = 1.0 - (t - sentak) / 0.6
-        C.cincin(k, bx + 120, by + 250, int(60 + (1 - f) * 320), (255, 255, 255),
-                 2.6, alpha=f * 0.55, glow=0.8)
+        # gelombang kejut: mulai di luar kepala (jangan menutupi mata) lalu melebar
+        C.cincin(k, bx + 128, by + 96, int(150 + (1 - f) * 330), (255, 255, 255),
+                 2.0, alpha=f * 0.34, glow=0.8)
         C.flare_anamorfik(k, 540, 820, int(320 + (1 - f) * 500), (190, 225, 255), f * 0.8, 10)
         # tanda sentak: bintang ledak di atas kepala
         C.kilat(k, bx + 200, by - 20, int(120 + (1 - f) * 180), (255, 240, 214), f * 0.8)
@@ -243,6 +244,7 @@ def _aktor_hook(k, t, dur):
 
 
 _DEBU = None
+_FRAME0_NOCAP = None
 
 
 def _siap_debu():
@@ -282,17 +284,15 @@ def _aktor_nama(k, t, dur):
         lap[..., 3] = np.linspace(0, 200, L + 2)[::-1, None].astype(np.uint8)
         blit(k.a, lap, int(x), int(y))
 
-    C.tulis_wipe(k, "KAMU MERASA", W_ / 2, 700, (t - 0.1) / 0.5, C.TEKS, 82, M.F_BOLD,
+    C.tulis_wipe(k, "KAMU MERASA", W_ / 2, 596, (t - 0.1) / 0.5, C.TEKS, 80, M.F_BOLD,
                  1.0, "tengah", "kiri", C.CYAN_L)
-    C.tulis_wipe(k, "JATUH", W_ / 2, 800, (t - 0.32) / 0.45, C.CYAN, 190, M.F_BOLD,
+    C.tulis_wipe(k, "JATUH", W_ / 2, 722, (t - 0.32) / 0.45, C.CYAN, 150, M.F_BOLD,
                  2.0, "tengah", "tengah", C.PUTIH)
     aa = _masuk(t, 0.6, 0.95)
     if aa > 0:
-        C.panel(k, 130, 1030, 820, 190, aa, aksen=C.VIOLET, radius=28)
-        C.label_kecil(k, "NAMA ILMIAHNYA", 540, 1058, C.TEKS_3, 24, aa, "tengah", 3.0)
-        C.tulis(k, "HYPNIC JERK", 540, 1092, C.VIOLET_L, 78, M.F_BOLD, 1.4, aa, True, "tengah")
-    bb = _masuk(t, 0.6, 1.5)
-    C.tulis(k, "SLEEP START · MYOCLONUS FISIOLOGIS", 540, 1252, C.TEKS_2, 26, M.F_SEMI, 2.2, bb, False, "tengah")
+        C.panel(k, 130, 950, 820, 158, aa, aksen=C.VIOLET, radius=28)
+        C.label_kecil(k, "NAMA ILMIAHNYA · SLEEP START", 540, 968, C.TEKS_3, 20, aa, "tengah", 2.8)
+        C.tulis(k, "HYPNIC JERK", 540, 1002, C.VIOLET_L, 56, M.F_BOLD, 1.4, aa, True, "tengah")
 
 
 # ================================================================ 3. SEBARAN
@@ -315,11 +315,11 @@ def _aktor_sebaran(k, t, dur):
 
     a2 = _masuk(t, 0.7, 0.9)
     C.panel(k, 62, 846, 462, 300, a2, aksen=C.CYAN, radius=26)
-    C.angka(k, 70, 96, 880, C.GOLD, 132, "%", "PERNAH SEKALI SEUMUR HIDUP", desimal=0)
+    C.tulis(k, "70%", 100, 878, C.GOLD, 108, M.F_BOLD, 0.0, a2)
+    C.label_kecil(k, "PERNAH SEKALI SEUMUR HIDUP", 100, 1050, C.TEKS_2, 20, a2, "kiri", 2.2)
     C.panel(k, 556, 846, 462, 300, a2, aksen=C.CORAL, radius=26)
-    C.angka(k, 10, 590, 880, C.CORAL, 132, "%", "MENGALAMI TIAP MALAM", desimal=0)
-    C.label_kecil(k, "SLEEP MEDICINE 2016 · 60-70% POPULASI", 540, 1170, C.TEKS_3, 21,
-                  _masuk(t, 0.6, 1.6), "tengah", 2.2)
+    C.tulis(k, "10%", 594, 878, C.CORAL, 108, M.F_BOLD, 0.0, a2)
+    C.label_kecil(k, "MENGALAMI TIAP MALAM", 594, 1050, C.TEKS_2, 20, a2, "kiri", 2.2)
 
 
 # ================================================================ 4. WAKTU
@@ -350,7 +350,7 @@ def _aktor_waktu(k, t, dur):
     C.label_kecil(k, "MENYENTUH BANTAL", 790, 654, C.TEKS_3, 22, b, "kiri", 2.2)
 
     # ---- pita tahap tidur
-    yy = 984
+    yy = 940
     C.label_kecil(k, "TAHAP TIDUR", 62, yy - 96, C.TEKS_2, 24, _masuk(t, 0.6, 0.6), "kiri", 3.0)
     p = _masuk(t, 1.0, 0.7)
     x0, x1 = 62, 1018
@@ -370,7 +370,7 @@ def _aktor_waktu(k, t, dur):
         C.pendar(k, xj, yy + 11, 70, C.CORAL, 0.55 * fl, 2.0)
         C.cincin(k, xj, yy + 11, 30, C.CORAL, 3.0, 0.9, glow=0.7)
         C.tulis(k, "SENTAKAN DI SINI", xj, yy + 52, C.CORAL, 30, M.F_BOLD, 1.4, p, True, "tengah")
-    C.label_kecil(k, "OTOT PALING CEPAT MELEMAS DI FASE N1", 540, 1130, C.TEKS_3, 21,
+    C.label_kecil(k, "OTOT PALING CEPAT MELEMAS DI FASE N1", 540, 1052, C.TEKS_3, 20,
                   _masuk(t, 0.6, 1.3), "tengah", 2.2)
 
 
@@ -398,7 +398,7 @@ def _aktor_otak(k, t, dur):
         C.tulis(k, "OTOT MELEMAS", 100, 818, C.TEKS, 38, M.F_BOLD, 1.2, a2)
         C.label_kecil(k, "SINYAL DIBACA OTAK SEBAGAI", 100, 874, C.TEKS_3, 21, a2, "kiri", 2.2)
         C.tulis(k, "SEDANG JATUH", 100, 900, C.CORAL, 50, M.F_BOLD, 1.6, a2)
-        C.tulis(k, "→", 690, 838, C.GOLD, 62, M.F_BOLD, 0, a2)
+        C.panah(k, 668, 850, "kanan", C.GOLD, 56, a2)
         C.tulis(k, "KEJUT", 772, 852, C.GOLD, 38, M.F_BOLD, 1.4, a2)
         C.label_kecil(k, "REFLEKS PALING PURBA", 772, 904, C.TEKS_3, 19, a2, "kiri", 1.6)
     # EEG
@@ -434,15 +434,14 @@ def _aktor_primata(k, t, dur):
             ww = int(80 - i2 * 9)
             _isi(k, 780 - ww // 2, yy, 780 + ww // 2, yy + 3, (170, 210, 255), max(0, 70 - i2 * 9))
     b = _masuk(t, 0.7, 0.55)
-    C.tulis(k, "LELUHUR KITA", 62, 900, C.TEKS, 46, M.F_BOLD, 1.4, b)
-    C.tulis(k, "TIDUR DI DAHAN", 62, 954, C.GREEN, 62, M.F_BOLD, 1.4, b)
-    C.label_kecil(k, "JATUH DARI POHON = MATI", 62, 1044, C.TEKS_3, 22, b, "kiri", 2.0)
+    C.tulis(k, "LELUHUR KITA", 62, 846, C.TEKS, 46, M.F_BOLD, 1.4, b)
+    C.tulis(k, "TIDUR DI DAHAN", 62, 900, C.GREEN, 60, M.F_BOLD, 1.4, b)
+    C.label_kecil(k, "JATUH DARI POHON = MATI", 62, 1000, C.TEKS_3, 22, b, "kiri", 2.0)
     c = _masuk(t, 0.7, 1.5)
     if c > 0:
-        C.panel(k, 62, 1092, 956, 150, c, aksen=C.GREEN, radius=26)
-        C.label_kecil(k, "TEORI PALING TERKENAL", 100, 1114, C.TEKS_3, 20, c, "kiri", 2.4)
-        C.tulis(k, "REFLEKS PRIMATA PURBA", 100, 1144, C.TEKS, 42, M.F_BOLD, 1.4, c)
-        C.tulis(k, "BELUM TERBUKTI", 900, 1156, C.CORAL, 22, M.F_SEMI, 1.6, c, False, "kanan")
+        C.panel(k, 62, 1018, 956, 88, c, aksen=C.GREEN, radius=24)
+        C.tulis(k, "REFLEKS PRIMATA PURBA", 100, 1030, C.TEKS, 34, M.F_BOLD, 1.2, c)
+        C.label_kecil(k, "BELUM TERBUKTI", 982, 1056, C.CORAL, 19, c, "kanan", 1.8)
 
 
 # ================================================================ 7. TEORI
@@ -456,7 +455,7 @@ def _aktor_teori(k, t, dur):
     a = _masuk(t, 0.6, 0.05)
     C.label_kecil(k, "DUA PENJELASAN", 62, 200, C.TEKS_2, 26, a, "kiri", 3.0)
     for i2, (judul, isi, warna, y) in enumerate((
-            ("OTAK SALAH BACA", ["OTOT MELEMAS →", "DIBACA JATUH → KEJUT"], C.CYAN, 250),
+            ("OTAK SALAH BACA", ["OTOT MELEMAS »", "DIBACA JATUH » KEJUT"], C.CYAN, 250),
             ("SINYAL BERTABRAKAN", ["BATANG OTAK & KORTEKS", "TIDAK MATI BERSAMAAN"], C.VIOLET, 570))):
         aa = _masuk(t, 0.7, 0.15 + i2 * 0.35)
         if aa <= 0:
@@ -469,21 +468,20 @@ def _aktor_teori(k, t, dur):
         icx, icy = 880, y + 145
         if i2 == 0:
             C.cincin(k, icx, icy, 66, warna, 3.0, 0.8 * aa, glow=0.6)
-            C.tulis(k, "↓", icx - 18, icy - 46, warna, 58, M.F_BOLD, 0, aa, False, "kiri")
+            C.panah(k, icx - 37, icy - 37, "bawah", warna, 52, aa)
         else:
             for k2 in range(3):
                 C.cincin(k, icx, icy, 24 + k2 * 22, warna, 2.0, (0.7 - k2 * 0.18) * aa, glow=0.5)
             C.tulis(k, "≠", icx - 22, icy - 32, warna, 50, M.F_BOLD, 0, aa, False, "kiri")
     b = _masuk(t, 0.7, 1.3)
     if b > 0:
-        C.panel(k, 62, 890, 956, 300, b, aksen=C.GOLD, radius=28)
-        C.label_kecil(k, "YANG DISEPAKATI SEMUA AHLI", 100, 914, C.TEKS_3, 21, b, "kiri", 2.4)
-        C.tulis(k, "BUKAN PENYAKIT", 100, 950, C.GREEN, 74, M.F_BOLD, 1.4, b)
-        C.label_kecil(k, "VARIAN NORMAL DALAM ICDS-3 · TIDAK MERUSAK SARAF", 100, 1048,
-                      C.TEKS_2, 23, b, "kiri", 1.8)
-        C.label_kecil(k, "BUKAN GEJALA PARKINSON JIKA SENDIRIAN", 100, 1092,
-                      C.TEKS_3, 21, b, "kiri", 1.6)
-        C.label_kecil(k, "TIDAK PERLU OBAT", 100, 1136, C.GOLD, 22, b, "kiri", 2.0)
+        C.panel(k, 62, 884, 956, 218, b, aksen=C.GOLD, radius=28)
+        C.label_kecil(k, "YANG DISEPAKATI SEMUA AHLI", 100, 900, C.TEKS_3, 21, b, "kiri", 2.4)
+        C.tulis(k, "BUKAN PENYAKIT", 100, 928, C.GREEN, 66, M.F_BOLD, 1.4, b)
+        C.label_kecil(k, "VARIAN NORMAL DALAM ICDS-3 · TIDAK MERUSAK SARAF", 100, 1040,
+                      C.TEKS_2, 22, b, "kiri", 1.8)
+        C.label_kecil(k, "BUKAN GEJALA PARKINSON JIKA SENDIRIAN", 100, 1070,
+                      C.TEKS_3, 20, b, "kiri", 1.6)
 
 
 # ================================================================ 8. PEMICU
@@ -507,14 +505,14 @@ def _aktor_pemicu(k, t, dur):
     C.grafik_batang(k, 104, 438, 760, baris, p, 28, 98, C.CORAL, 240, True)
     b = _masuk(t, 0.7, 1.25)
     if b > 0:
-        C.panel(k, 62, 900, 956, 290, b, aksen=C.GOLD, radius=28)
-        C.label_kecil(k, "CATATAN PENTING", 100, 924, C.TEKS_3, 21, b, "kiri", 2.4)
-        C.tulis(k, "SERING SENTAK + NGANTUK BERAT", 100, 958, C.GOLD, 34, M.F_BOLD, 1.0, b)
-        C.label_kecil(k, "BISA JADI TANDA KURANG TIDUR KRONIS ATAU APNEA.", 100, 1012,
-                      C.TEKS_2, 22, b, "kiri", 1.6)
-        C.label_kecil(k, "KONSULTASI KALAU TERJADI HAMPIR TIAP MALAM.", 100, 1052,
-                      C.TEKS_3, 22, b, "kiri", 1.6)
-        C.label_kecil(k, "BUKAN DIAGNOSIS · INFORMASI UMUM", 100, 1112,
+        C.panel(k, 62, 900, 956, 210, b, aksen=C.GOLD, radius=28)
+        C.label_kecil(k, "CATATAN PENTING", 100, 916, C.TEKS_3, 21, b, "kiri", 2.4)
+        C.tulis(k, "SERING SENTAK + NGANTUK BERAT", 100, 944, C.GOLD, 34, M.F_BOLD, 1.0, b)
+        C.label_kecil(k, "BISA JADI TANDA KURANG TIDUR KRONIS ATAU APNEA.", 100, 1002,
+                      C.TEKS_2, 21, b, "kiri", 1.6)
+        C.label_kecil(k, "KONSULTASI KALAU TERJADI HAMPIR TIAP MALAM.", 100, 1032,
+                      C.TEKS_3, 21, b, "kiri", 1.6)
+        C.label_kecil(k, "BUKAN DIAGNOSIS · INFORMASI UMUM", 100, 1066,
                       C.TEKS_3, 19, b, "kiri", 1.6)
 
 
@@ -572,17 +570,17 @@ def _aktor_penutup(k, t, dur):
     C.label_kecil(k, "REFLEKS YANG DULU MENYELAMATKAN HIDUP", 540, 686, C.TEKS_3, 24, a, "tengah", 2.4)
     b = _masuk(t, 0.7, 0.45)
     if b > 0:
-        C.panel(k, 132, 750, 816, 340, b, aksen=C.GOLD, radius=30)
-        C.label_kecil(k, "RINGKASAN 3 DETIK", 540, 778, C.TEKS_3, 21, b, "tengah", 2.8)
+        C.panel(k, 132, 736, 816, 300, b, aksen=C.GOLD, radius=30)
+        C.label_kecil(k, "RINGKASAN 3 DETIK", 540, 762, C.TEKS_3, 21, b, "tengah", 2.8)
         for i2, teks in enumerate(("NAMANYA HYPNIC JERK", "SEBABNYA REFLEKS PURBA", "PICUNYA KURANG TIDUR")):
-            yy = 822 + i2 * 82
+            yy = 806 + i2 * 72
             C.cincin(k, 196, yy + 22, 16, C.GOLD, 2.4, 0.9 * b, glow=0.5)
             C.tulis(k, teks, 236, yy, C.TEKS, 38, M.F_BOLD, 1.2, b)
     c = _masuk(t, 0.8, 1.15)
     if c > 0:
-        C.panel(k, 296, 1120, 488, 118, c, aksen=C.GOLD, radius=59)
-        C.tulis(k, "SIMPAN VIDEO INI", 540, 1148, C.GOLD, 44, M.F_BOLD, 1.6, c, True, "tengah")
-        C.label_kecil(k, "BIAR BESOK NGGAK KAGET LAGI", 540, 1262, C.TEKS_2, 24, c, "tengah", 2.2)
+        C.panel(k, 296, 1052, 488, 112, c, aksen=C.GOLD, radius=56)
+        C.tulis(k, "SIMPAN VIDEO INI", 540, 1076, C.GOLD, 42, M.F_BOLD, 1.6, c, True, "tengah")
+        C.label_kecil(k, "BIAR BESOK NGGAK KAGET LAGI", 540, 1178, C.TEKS_2, 23, c, "tengah", 2.2)
 
 
 
@@ -593,7 +591,7 @@ BAWAH = [
     [("NAMA ILMIAH", "HYPNIC JERK"), ("ARTI", "SENTAKAN TIDUR"), ("BAHAYA", "TIDAK")],
     [("ASAL KATA", "HYPNOS = TIDUR"), ("JENIS", "MYOCLONUS"), ("PUSAT", "BATANG OTAK")],
     [("POPULASI", "60–70%"), ("TIAP MALAM", "±10%"), ("PALING SERING", "USIA 8–12")],
-    [("FASE", "N1 → N2"), ("MULAI", "1–5 MENIT"), ("OTOT", "PALING LEMAS")],
+    [("FASE", "N1 » N2"), ("MULAI", "1–5 MENIT"), ("OTOT", "PALING LEMAS")],
     [("PENGIRIM", "BATANG OTAK"), ("JALUR", "REFLEKS KEJUT"), ("SINYAL", "OTOT MELEMAS")],
     [("TEORI", "REFLEKS PURBA"), ("STATUS", "BELUM TERBUKTI"), ("USIA IDE", "±60 JUTA TH")],
     [("SUMBER", "SLEEP MED. 2016"), ("KLASIFIKASI", "NORMAL · ICDS-3"), ("OBAT", "TIDAK PERLU")],
@@ -688,7 +686,7 @@ def _kamera(k, i, tl, dur):
     return out
 
 
-def frame(t, bersih=False):
+def frame(t, bersih=False, tanpa_caption=False, tanpa_teks=False):
     """Komposisi satu frame.
 
     `bersih=True` menghilangkan HUD/caption/panel bawah — dipakai pembuat
@@ -707,7 +705,12 @@ def frame(t, bersih=False):
     k = object.__new__(Kanvas)
     k.w, k.h = W_, H_
     k.a = latar_scene(i).copy()
-    s["aktor"](k, tl, dur)
+    if tanpa_teks:
+        C.TANPA_TEKS = True
+    try:
+        s["aktor"](k, tl, dur)
+    finally:
+        C.TANPA_TEKS = False
 
     out = _kamera(k, i, tl, dur)
 
@@ -718,21 +721,27 @@ def frame(t, bersih=False):
     k2 = object.__new__(Kanvas)
     k2.w, k2.h = W_, H_
     k2.a = out
+    # blend loop dihitung lebih dulu: caption-nya ikut diredupkan
+    f = 0.0
+    if i == len(SCENES) - 1:
+        f = smooth(seg(tl, dur - 0.85, dur))
+
     # scrim caption: supaya teks tetap terbaca di atas gambar apa pun
     C.scrim(k2, Y_SCRIM[0], Y_SCRIM[1], (0, 132))
     _hud(k2, i, tl, dur)
-    C.caption_karaoke(k2, CAPTION[i], tl, dur * 0.86, BABAK[i][1], Y_CAPTION, 48, 904)
+    if not tanpa_caption:
+        C.caption_karaoke(k2, CAPTION[i], tl, dur * 0.86, BABAK[i][1], Y_CAPTION, 48, 904,
+                          alpha=max(0.0, 1.0 - f))
     _bawah(k2, i, tl)
 
     out = C.finishing(k2, t, _LUT, True, (2.0, 5))
 
-    # loop sempurna
-    if i == len(SCENES) - 1:
-        f = smooth(seg(tl, dur - 0.85, dur))
-        if f > 0.995:
-            return _frame0().copy()
-        if f > 0.001:
-            out = cv2.addWeighted(out, 1.0 - f, _frame0(), f, 0.0)
+    # Loop: blend ke frame 0 TANPA caption. Kalau yang dipakai frame 0 penuh,
+    # caption penutup dan caption pembuka saling tembus (hantu teks 0,8 detik).
+    if f > 0.995:
+        return _frame0().copy()
+    if f > 0.001:
+        out = cv2.addWeighted(out, 1.0 - f, _frame0_tanpa_caption(), f, 0.0)
     return out
 
 
@@ -741,6 +750,14 @@ def _frame0():
     if _FRAME0 is None:
         _FRAME0 = frame(0.0) + 0  # salinan tersendiri (dipakai blend loop)
     return _FRAME0
+
+
+def _frame0_tanpa_caption():
+    """Frame 0 tanpa caption — dasar blend loop supaya tidak ada hantu teks."""
+    global _FRAME0_NOCAP
+    if _FRAME0_NOCAP is None:
+        _FRAME0_NOCAP = frame(0.0, tanpa_caption=True) + 0
+    return _FRAME0_NOCAP
 
 
 # ================================================================ pratinjau

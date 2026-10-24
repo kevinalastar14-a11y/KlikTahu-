@@ -23,6 +23,9 @@ Pakai
     python3 mesin_v20_suara.py --episode mesin_v20_ep56
     python3 mesin_v20_suara.py --episode mesin_v20_ep56 --tanpa-tts   # pakai WAV yang ada
     python3 mesin_v20_suara.py --episode mesin_v20_ep56 --cek         # cek dependensi saja
+    python3 mesin_v20_suara.py --episode mesin_v20_ep56 --bed-only    # SFX+ambien saja
+    python3 mesin_v20_suara.py --episode mesin_v20_ep56 \
+            --dari-berkas vo_rekaman.m4a       # VO rekaman manusia (tanpa jaringan)
 """
 from __future__ import annotations
 
@@ -255,7 +258,9 @@ def bed_only(total, keluar_wav):
 
 def susun(klip, durasi, total, keluar, ambien=True):
     """Tempatkan VO + SFX pada garis waktu babak -> WAV stereo."""
-    buf = np.zeros((int(total * SR) + SR, 2), np.float32)
+    # panjang tepat total*SR: sebelumnya +SR membuat ambien (panjang total*SR)
+    # tidak bisa dijumlahkan -> ValueError, jalur VO tidak pernah hidup.
+    buf = np.zeros((int(total * SR), 2), np.float32)
     mulai = []
     t = LEAD
     for i, (y, d) in enumerate(zip(klip, durasi)):
@@ -284,10 +289,114 @@ def susun(klip, durasi, total, keluar, ambien=True):
         amb = ambien_kamar(total)
         sfx[:, 0] += amb
         sfx[:, 1] += amb
-    campur = buf + sfx
+    campur = np.clip(buf + sfx, -1.0, 1.0)
     campur = campur[:int(total * SR)]
     A.tulis_wav(keluar, campur)
     return mulai, total
+
+
+# ============================================================== 4b. VO rekaman manusia
+# Jalur ini dipakai kalau pemilik merekam suaranya sendiri (atau memakai TTS
+# dari layanan lain) lalu menyerahkan satu berkas audio. TTS di sandbox tidak
+# tersedia, jadi ini satu-satunya cara episode mendapat VO tanpa jaringan.
+
+def baca_audio(path):
+    """Dekode berkas apa pun (wav/m4a/mp3/ogg) -> mono float32 @ SR."""
+    pr = subprocess.run([A.FF, "-v", "error", "-i", path, "-f", "f32le",
+                         "-ac", "1", "-ar", str(SR), "-"], capture_output=True)
+    if pr.returncode != 0:
+        raise RuntimeError(pr.stderr.decode("utf-8", "ignore")[-400:].strip())
+    y = np.frombuffer(pr.stdout, np.float32).copy()
+    if y.size < SR:
+        raise RuntimeError(f"audio hanya {y.size / SR:.2f} s — terlalu pendek")
+    return y
+
+
+def batas_jeda(y, n, sr=SR):
+    """Pilih n-1 batas potong pada jeda yang paling dekat posisi proporsional.
+
+    Pembaca manusia tidak berhenti tepat di batas babak. Kalau rekaman dipotong
+    rata (len/n), potongan bisa jatuh di tengah kata — VO jadi terpotong dan
+    tempo tiap babak melenceng dari naskah. Jadi: deteksi jeda (RMS 20 ms),
+    lalu ambil jeda terdekat dengan posisi `k/n`, dijaga tetap menaik.
+    """
+    hop = int(0.02 * sr)
+    m = len(y) // hop
+    if m < 8:
+        return [int(len(y) * k / n) for k in range(1, n)]
+    e = np.sqrt((y[: m * hop].reshape(m, hop).astype(np.float32) ** 2).mean(1) + 1e-12)
+    db = 20 * np.log10(e + 1e-9)
+    amb = np.percentile(db, 15) + 7.0          # ambang jeda adaptif per rekaman
+    ucap = db > amb
+    kandidat, i = [], 0
+    while i < m:                               # rentang sunyi >= 80 ms
+        if not ucap[i]:
+            j = i
+            while j < m and not ucap[j]:
+                j += 1
+            if j - i >= 4:
+                kandidat.append(((i + j) // 2) * hop)
+            i = j
+        else:
+            i += 1
+    batas, terakhir = [], 0
+    for k in range(1, n):
+        target = len(y) * k / n
+        sisa = [c for c in kandidat if c > terakhir + int(0.15 * sr)]
+        if not sisa:
+            b = int(target)
+        else:
+            b = min(sisa, key=lambda c: abs(c - target))
+            kandidat.remove(b)
+        b = max(b, terakhir + int(0.15 * sr))
+        batas.append(b)
+        terakhir = b
+    return batas
+
+
+def dari_berkas(modul_nama, path, keluar_m4a=None, folder=None, target_lufs=None):
+    """Satu berkas VO rekaman -> potong per babak -> timing.json -> M4A siap mux."""
+    import wave
+    mod = importlib.import_module(modul_nama)
+    naskah = list(mod.NASKAH)
+    folder = folder or os.path.join(BASE, "audio", "vo")
+    os.makedirs(folder, exist_ok=True)
+    print(f"[vo-berkas] {os.path.basename(path)} -> {len(naskah)} babak")
+    y = baca_audio(path)
+    print(f"   durasi rekaman {len(y) / SR:.2f} s")
+
+    batas = batas_jeda(y, len(naskah))
+    pts = [0] + batas + [len(y)]
+    klip, durasi = [], []
+    tmp = os.path.join(folder, "_potong.wav")
+    for i in range(len(naskah)):
+        seg = y[pts[i]:pts[i + 1]]
+        A.tulis_wav(tmp, np.repeat(seg[:, None], 2, 1) if seg.ndim == 1 else seg)
+        yy, d = rapikan(tmp, ambang=-46.0)
+        klip.append(yy)
+        durasi.append(d)
+        print(f"   {i + 1:02d} {d:5.2f} s  {naskah[i][:52]}")
+    if os.path.exists(tmp):
+        os.remove(tmp)
+
+    total = max(LEAD + sum(max(MIN_DUR, d + GAP) for d in durasi), sum(durasi) + LEAD)
+    timing = {"dur": [round(max(MIN_DUR, d + GAP), 3) for d in durasi],
+              "vo": [round(d, 3) for d in durasi],
+              "lead": LEAD, "total": round(total, 3), "sumber": os.path.basename(path)}
+    with open(os.path.join(folder, "timing.json"), "w") as f:
+        json.dump(timing, f, indent=1)
+    print(f"[timing] total {total:.2f} s -> {os.path.join(folder, 'timing.json')}")
+
+    wav_mix = os.path.join(folder, "campuran.wav")
+    mulai, total2 = susun(klip, durasi, total, wav_mix)
+    print(f"[campur] {wav_mix}  {total2:.2f} s")
+    if target_lufs:
+        A.TARGET_I = target_lufs
+    out = keluar_m4a or os.path.join(BASE, "dist", "KlikTahu_Ep56_audio.m4a")
+    lap = A.master(wav_mix, out)
+    with open(os.path.join(folder, "master.json"), "w") as f:
+        json.dump(lap, f, indent=1, ensure_ascii=False)
+    return 0 if lap.get("lulus") else 1
 
 
 # ============================================================== 5. utama
@@ -350,7 +459,12 @@ def main(argv=None):
     ap.add_argument("--bed-only", action="store_true",
                     help="hanya SFX + ambien (dipakai bila TTS belum tersedia)")
     ap.add_argument("--target-lufs", type=float, default=-14.0)
+    ap.add_argument("--dari-berkas",
+                    help="VO rekaman manusia (satu berkas, dipotong per babak pada jeda)")
     a = ap.parse_args(argv)
+    if a.dari_berkas:
+        return dari_berkas(a.episode, a.dari_berkas, a.keluar,
+                           target_lufs=a.target_lufs)
     if a.bed_only:
         mod = importlib.import_module(a.episode)
         total = float(mod.daftar()["total"])

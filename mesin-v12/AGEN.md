@@ -1119,7 +1119,7 @@ dengan tool buatan sendiri, dan buat Short yang lebih bagus lagi.
 | tata letak | isi 260–1010 (sepertiga layar kosong) | isi 190–1150 + scrim caption + panel data 1416–1732 |
 | audio | M4A 256k, chain ffmpeg + STFT 2x | **M4A 320k**, rantai numpy sendiri (biquad RBJ, de-esser adaptif, kompresor RMS, saturasi, loudnorm) |
 | QC | 17 butir | **24 butir** (HUD, caption, gerak, loop, MAE, loudness, TP) |
-| render | 467,7 s (13,2 fps gabungan) | 772,8 s untuk 4.554 frame (5,9 fps gabungan, `slow` CRF 16) |
+| render | 467,7 s (13,2 fps gabungan) | 679,6 s untuk 4.554 frame (6,7 fps gabungan, `slow` CRF 16) |
 
 ### Berkas baru
 `mesin_v20_cahaya.py` (1.145) · `mesin_v20_makhluk.py` (655) · `mesin_v20_ep56.py` (895) ·
@@ -1128,8 +1128,9 @@ dengan tool buatan sendiri, dan buat Short yang lebih bagus lagi.
 `docs/MESIN_V20.md` · `analisis/EP56_V20_ANALISIS.md` · `pustaka/Ep56_HypnicJerk/*`
 
 ### Hasil render Ep56 (penuh)
-1080×1920 · 60 fps · 75,90 s · 4.554 frame · **139,28 MB** · 14,7 Mbps · render 772,8 s ·
-QC **24/24 bersih** (MAE 2,17/255 · loop Δ0,9/255 · moov@36 · ·  audio −20,4 LUFS bed audio · TP −1,9 dBTP).
+1080×1920 · 60 fps · 75,90 s · 4.554 frame · **138,69 MB** · 14,6 Mbps · render 679,6 s ·
+QC **24/24 bersih** (MAE 2,17/255 · loop Δ0,0/255 · moov@36 · audio −20,4 LUFS bed audio · TP −1,9 dBTP).
+Varian `kilat`: 45,60 s · 2.736 frame · **83,77 MB** · render 426,7 s · QC **24/24**.
 
 ### PENTING — VO belum dibuat (bukan bug, batas sandbox)
 `edge-tts` butuh `speech.platform.bing.com`, yang **tidak ada di daftar host keluar sandbox**
@@ -1141,6 +1142,32 @@ python3 mesin_v20_suara.py --episode mesin_v20_ep56          # VO + timing.json 
 python3 render_v20.py --episode ep56 --audio dist/KlikTahu_Ep56_audio.m4a --jobs 2 --preset slow --crf 16
 ```
 **Jangan** menandai episode ini "sudah ada VO".
+
+### Putaran 2 (setelah menonton hasil render) — 4 bug tampak + 3 bug tersembunyi
+
+Lembar kontak 30 frame memperlihatkan teks yang bertumpuk. Semua diperbaiki
+**dan** dijaga uji otomatis, supaya kelas bug ini tidak kembali:
+
+| # | Bug | Perbaikan |
+|---|---|---|
+| 1 | `→ ↓` dirender sebagai **kotak tofu** (font v18 tidak punya glif panah) | `C.SANDI` + `_aman()` di semua jalur teks; panah besar digambar `C.panah()` (cv2) |
+| 2 | baris "SLEEP START · MYOCLONUS" (y 1252) **menimpa caption** babak 2 | baris dihapus, panel dinaikkan, teks dipadatkan |
+| 3 | panel teori primata & catatan pemicu **masuk pita scrim caption** | semua konten berhenti < `Y_CAPTION−24` |
+| 4 | CTA penutup (y 1148/1262) menabrak caption penutup | ringkasan 736–1036, tombol 1052–1164, sub-label 1178 |
+| 5 | `susun()` (jalur VO) **tidak pernah bisa jalan**: buffer `total*SR+SR` vs ambien `total*SR` → `ValueError` | buffer tepat `total*SR`, campuran di-clip ±1,0 |
+| 6 | `pustaka_v20` belum mengekspor subtitle | `buat_srt()` → `pustaka/Ep56_HypnicJerk/subtitle_id.srt` (11 baris) |
+| 7 | blend loop **menghantui dua caption** di 0,85 s terakhir | caption penutup diredupkan + dasar blend `frame(0, tanpa_caption=True)`; frame akhir tetap = frame 0 (MAE 0,0) |
+| 8 | kartu "70" / "10": tanda "%" kecil menggantung jauh di bawah angka | digambar satu kesatuan "70%"/"10%" 108 px + label 20 px |
+| 9 | thumbnail A/B masih memuat teks besar dari adegan (teks di atas teks) | `frame(..., tanpa_teks=True)` + `C.TANPA_TEKS` membungkam tipografi aktor |
+| 10 | - | jalur baru **VO rekaman manusia**: `mesin_v20_suara.py --dari-berkas` (potong pada jeda, uji sintetis 10 segmen lulus) |
+
+Uji baru di `mesin_v20_uji.py` (12 butir, 15 detik):
+* **tata letak** — `C.AUDIT` merekam kotak tinta tiap teks; tolak keluar kanvas,
+  tabrakan > 35 % kotak terkecil, dan teks di pita caption;
+* **glif lengkap** — setiap karakter yang dipakai episode diuji ke `spr_text`
+  dan dibandingkan dengan kotak tofu;
+* **potong VO pada jeda** — sinyal sintetis 10 segmen, semua batas harus jatuh
+  di daerah sunyi (< −40 dB).
 
 ### Jebakan baru (masuk docs/MESIN_V20.md §7)
 1. Kanvas v18 = **RGB**, bukan RGBA → penulisan `(r,g,b,a)` gagal broadcast; pakai `C._isi()`.

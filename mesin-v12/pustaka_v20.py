@@ -73,7 +73,7 @@ def buat_thumb_utama(ep, t_bg, judul_atas, judul_besar, angka, keterangan, out):
     mod.siapkan()
     if hasattr(mod, "_siap_debu"):
         mod._siap_debu()
-    arr = mod.frame(t_bg, bersih=True).copy()
+    arr = mod.frame(t_bg, bersih=True, tanpa_teks=True).copy()
     kk = C._KanvasDari(arr)
     C.scrim(kk, 0, 470, (140, 0), (4, 6, 14))
     C.scrim(kk, 1040, 1920, (0, 235), (4, 6, 14))
@@ -103,7 +103,7 @@ def buat_thumb_alt(ep, t_bg, out):
     mod.siapkan()
     if hasattr(mod, "_siap_debu"):
         mod._siap_debu()
-    arr = mod.frame(t_bg, bersih=True).copy()
+    arr = mod.frame(t_bg, bersih=True, tanpa_teks=True).copy()
     kk = C._KanvasDari(arr)
     C.scrim(kk, 1080, 1920, (0, 238), (4, 6, 14))
     blit(arr, C.merek_spr("KlikTahu", 38), 58, 84)

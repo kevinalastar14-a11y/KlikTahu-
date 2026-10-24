@@ -89,6 +89,19 @@ selain loudnorm/limiter:
 Panjang sampel diperiksa di setiap tahap; `master()` memotong tepat di durasi
 sumber setelah loudnorm (loudnorm menambal padding).
 
+### Tiga cara mengisi jalur VO
+
+| Jalur | Perintah | Catatan |
+|---|---|---|
+| TTS edge-tts | `python3 mesin_v20_suara.py --episode mesin_v20_ep56` | butuh jaringan |
+| **VO rekaman manusia** | `python3 mesin_v20_suara.py --episode mesin_v20_ep56 --dari-berkas vo.m4a` | satu berkas; dipotong **pada jeda**, bukan rata `len/n` |
+| Tanpa VO (bed saja) | `... --bed-only --target-lufs=-20` | dipakai kalau TTS & rekaman belum ada |
+
+`batas_jeda()` mendeteksi jeda dengan RMS 20 ms (ambang adaptif persentil 15 +
+7 dB) lalu memilih jeda yang paling dekat dengan posisi proporsional naskah,
+dijaga tetap menaik dan berjarak minimal 0,15 s. Hasilnya `timing.json` — mesin
+video otomatis mengikuti durasi baru tanpa menyentuh kode episode.
+
 **Uji:** `python3 mesin_v20_audio.py --uji-sintetis` membangun sinyal mirip VO
 (glotal + forman + desis buatan) lalu memverifikasi: panjang tidak berubah,
 de-esser bekerja (desis murni → −3,0 dB), loudness −14,1 LUFS, TP −1,86 dBTP.
@@ -133,8 +146,50 @@ python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
 9. **Rasio de-esser harus dibanding pita tengah**, bukan total. Pada vokal /a/
    energi 5,6–9,8 kHz hanya −12 dB dari puncak, sehingga ambang "total" tidak
    pernah memicu de-esser (terukur 0,00 dB sebelum diperbaiki).
+10. **Font v18 tidak punya panah.** `→ ↓ ↑ ▸ ▶ ✓` dirender sebagai **kotak
+    tofu**. Satu `→` sempat lolos ke render Ep56 (ikon kartu "OTAK SALAH BACA"
+    dan "KEJUT"). Sekarang: `C.SANDI` mengalihkan karakter itu di `_aman()`
+    (dipanggil semua jalur teks) dan panah besar digambar `C.panah()` dengan cv2.
+    Selftest butir **glif lengkap** memeriksa setiap karakter yang dipakai.
+11. **Kotak sprite ≠ kotak tinta.** Sprite teks membawa padding bayangan
+    7–10 px; memakai kotak sprite untuk audit tabrakan menghasilkan alarm palsu.
+    `C._catat()` memakai ambang alpha 24 sehingga yang diukur piksel yang benar-
+    benar terbaca.
+12. **Teks di bawah `Y_SCRIM` (1120) akan diredupkan scrim caption.** Bukan
+    sekadar soal enak dilihat: text 1120–1416 digambar SEBELUM scrim, jadi
+    kontrasnya turun dan caption bisa menimpanya. Selftest butir **tata letak**
+    menolak teks apa pun di pita `Y_CAPTION-24 … Y_SCRIM[1]`.
+13. **Blend loop ke `frame(0)` penuh menghasilkan hantu teks.** Selama 0,85 s
+    terakhir, caption penutup ("...CUKUP TIDUR TERATUR") tembus dengan caption
+    pembuka ("MERASA JATUH...") — terlihat seperti dua tulisan bertumpuk.
+    Sekarang caption penutup diredupkan (`caption_karaoke(alpha=1-f)`) dan dasar
+    blend memakai `frame(0, tanpa_caption=True)`; frame terakhir tetap identik
+    dengan frame 0 (MAE 0,0), jadi loop masih mulus.
+14. **`bersih=True` tidak menghapus tipografi adegan.** HUD/caption/panel hilang,
+    tapi teks besar milik aktor tetap ada — thumbnail jadi teks-di-atas-teks.
+    `frame(t, bersih=True, tanpa_teks=True)` membungkam semua tipografi
+    (`C.TANPA_TEKS`) sementara panel/grafis/art tetap digambar.
+15. **`susun()` pernah tidak bisa dijalankan sama sekali.** Buffer dibuat
+    `int(total*SR)+SR` sampel, sedangkan ambien `int(total*SR)` — penjumlahan
+    numpy melempar `ValueError: operands could not be broadcast`. Jalur VO tidak
+    pernah dipakai sampai `--dari-berkas` diuji, jadi bug ini tidur lama.
+    Buffer sekarang tepat `total*SR` dan hasil campuran di-clip ±1,0.
 
-## 8. Hasil Ep56 v20
+## 8. Audit tata letak otomatis
+
+`mesin_v20_uji.py` butir 7 merekam setiap kotak teks (`C.AUDIT` diisi oleh
+`tulis`, `tulis_wipe`, `label_kecil`, `panah`), lalu memeriksa tiga hal pada
+tiap babak di 3 titik waktu (0,35 / 0,62 / 0,92 durasi):
+
+1. kotak keluar kanvas 1080×1920;
+2. kotak menyentuh pita caption (`Y_CAPTION-24`…`Y_SCRIM[1]`) > 240 px²;
+3. dua kotak teks bertumpuk > 35 % kotak terkecil.
+
+Uji ini menemukan **enam** tabrakan nyata di Ep56 yang tidak terlihat pada
+lembar kontak (teks di bawah scrim, "SLEEP START" menimpa caption babak 2,
+panel teori primata melewati pita caption, CTA penutup menabrak caption).
+
+## 9. Hasil Ep56 v20
 
 | Metrik | Nilai |
 |---|---|

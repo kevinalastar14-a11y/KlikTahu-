@@ -13,6 +13,9 @@ Yang diuji:
   4. audio: rantai persepsi pada sinyal sintetis (panjang tetap, de-esser aktif)
   5. frame bersih (thumbnail) tidak memuat HUD
   6. determinisme: frame yang sama dua kali -> identik
+  7. tata letak: tidak ada teks yang menabrak pita caption / keluar kanvas
+  8. glif: tidak ada karakter yang jatuh ke kotak tofu (font v18)
+  9. potong VO rekaman manusia pada jeda (bukan di tengah kata)
 """
 from __future__ import annotations
 
@@ -104,6 +107,88 @@ def main(argv=None):
         return fr.shape == (1920, 1080, 3) and reg < 90
     cek("frame bersih tanpa HUD", bersih)
 
+    def tata_letak():
+        """Audit kotak teks tiap babak (AUDIT di mesin_v20_cahaya).
+
+        Bug nyata yang ditangkap uji ini: baris "SLEEP START · MYOCLONUS
+        FISIOLOGIS" di babak 2 duduk di y=1252, padahal caption karaoke mulai
+        y=1256 -> dua teks bertumpuk di satu baris dan tidak terlihat di
+        pratinjau sekilas. Batas aman:
+          * kotak caption (Y_CAPTION-24 .. Y_SCRIM[1]) tidak boleh disentuh
+            teks lain — di situlah glif caption benar-benar digambar;
+          * kotak teks tidak boleh keluar kanvas;
+          * dua kotak teks tidak boleh bertumpuk > 35% kotak terkecil.
+        """
+        import mesin_v20_cahaya as C
+        import mesin_v20_ep56 as E
+        E.siapkan()
+        pita = (0, E.Y_CAPTION - 24, E.W_, E.Y_SCRIM[1])
+        kanvas = (0, 0, E.W_, E.H_)
+        salah = []
+        for i, sc in enumerate(E.SCENES):
+            for frac in (0.35, 0.62, 0.92):
+                t = E.MULAI[i] + sc["dur"] * frac
+                C.AUDIT = []
+                try:
+                    E.frame(t)
+                    kotak = list(C.AUDIT)
+                finally:
+                    C.AUDIT = None
+                for (x0, y0, x1, y1, teks) in kotak:
+                    if x0 < kanvas[0] - 2 or y0 < kanvas[1] - 2 or x1 > kanvas[2] + 2 or y1 > kanvas[3] + 2:
+                        salah.append(f"{sc['id']}@{frac:.2f}: keluar kanvas {teks!r}")
+                    ox = min(x1, pita[2]) - max(x0, pita[0])
+                    oy = min(y1, pita[3]) - max(y0, pita[1])
+                    if ox > 0 and oy > 0 and ox * oy > 240:
+                        salah.append(f"{sc['id']}@{frac:.2f}: {teks!r} masuk pita caption ({oy}px)")
+                for a in range(len(kotak)):
+                    for b in range(a + 1, len(kotak)):
+                        ax0, ay0, ax1, ay1, at = kotak[a][:5]
+                        bx0, by0, bx1, by1, bt = kotak[b][:5]
+                        if at == bt:
+                            continue
+                        ox = min(ax1, bx1) - max(ax0, bx0)
+                        oy = min(ay1, by1) - max(ay0, by0)
+                        if ox <= 0 or oy <= 0:
+                            continue
+                        kecil = min((ax1 - ax0) * (ay1 - ay0), (bx1 - bx0) * (by1 - by0))
+                        if kecil > 0 and (ox * oy) > 0.35 * kecil:
+                            salah.append(f"{sc['id']}@{frac:.2f}: {at!r} x {bt!r}")
+        if salah:
+            print("      " + "\n      ".join(salah[:8]))
+            return False
+        return "kanvas & pita caption bersih"
+
+    def glif():
+        """Semua karakter yang dipakai harus punya glif (bukan kotak tofu)."""
+        import mesin_v20_cahaya as C
+        import mesin_v20_ep56 as E
+        from mesin_v18_inti import F_BOLD, F_SEMI, spr_text
+        tofu = spr_text("A\ue123A", (255, 255, 255), F_BOLD, 40)
+        dipakai = set("".join(E.CAPTION)) | set("".join(b[0] for b in E.BABAK))
+        for baris in E.BAWAH:
+            for l, v in baris:
+                dipakai |= set(l) | set(v)
+        buruk = []
+        for ch in sorted(dipakai):
+            if ch.isspace():
+                continue
+            if ch in C.SANDI:                     # sudah dialihkan _aman()
+                buruk.append(f"glif asli tidak ada: {ch!r}")
+                continue
+            for f in (F_BOLD, F_SEMI):
+                g = spr_text("A" + ch + "A", (255, 255, 255), f, 40)
+                if g.shape == tofu.shape and np.array_equal(g, tofu):
+                    buruk.append(f"{ch!r} (size 40) kotak")
+                    break
+        if buruk:
+            print("      " + ", ".join(buruk))
+            return False
+        return f"{len(dipakai)} karakter"
+
+    cek("tata letak: kanvas + pita caption", tata_letak)
+    cek("glif lengkap (bukan tofu)", glif)
+
     def determinisme():
         a = E.frame(12.3)
         b = E.frame(12.3)
@@ -138,6 +223,32 @@ def main(argv=None):
         assert len(t["dur"]) == len(E.SCENES)
         return f"total {sum(t['dur']):.2f} s"
     cek("timing.json konsisten", timing)
+
+    def potong_vo():
+        """VO rekaman manusia harus dipotong di jeda, bukan rata len/n."""
+        import mesin_v20_suara as S
+        sr = S.SR
+        rng = np.random.default_rng(5)
+        durs = [2.9, 2.6, 3.1, 2.4, 3.0, 3.2, 3.3, 2.8, 2.7, 2.2]
+        jeda = [0.6, 0.5, 0.8, 0.45, 0.7, 0.55, 0.9, 0.5, 0.65]
+        bagian, sunyi = [], []
+        for i, d in enumerate(durs):
+            if i:
+                bagian.append(np.zeros(int(jeda[i - 1] * sr), np.float32))
+            t = np.arange(int(d * sr)) / sr
+            u = (0.25 * np.sin(2 * np.pi * 220 * t) + 0.12 * rng.normal(0, len(t))).astype(np.float32)
+            env = np.minimum(1, np.minimum(t / 0.08, (d - t) / 0.15))
+            bagian.append((u * env).astype(np.float32))
+        y = np.concatenate(bagian)
+        hop = int(0.02 * sr)
+        m = len(y) // hop
+        db = 20 * np.log10(np.sqrt((y[:m * hop].reshape(m, hop) ** 2).mean(1) + 1e-12) + 1e-9)
+        batas = S.batas_jeda(y, len(durs))
+        assert len(batas) == len(durs) - 1, len(batas)
+        assert all(batas[k] < batas[k + 1] for k in range(len(batas) - 1)), "batas tidak menaik"
+        tenang = max(float(db[b // hop]) for b in batas)
+        return tenang < -40.0 and f"{len(batas)} batas, jeda terkuat {tenang:.0f} dB"
+    cek("potong VO pada jeda", potong_vo)
 
     def sfx():
         import mesin_v20_suara as S

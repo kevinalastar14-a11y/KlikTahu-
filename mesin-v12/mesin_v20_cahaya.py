@@ -572,9 +572,83 @@ def pill_spr(teks, warna=CYAN, size=34, pad_x=26, pad_y=13, name=F_SEMI,
     return out
 
 
+# ---------------------------------------------------------------- glif aman
+# Font v18 (F_BOLD/F_SEMI) TIDAK memuat panah. Kalau "→" dipaksa masuk, FreeType
+# menggambar kotak tofu — ini pernah lolos ke render Ep56 sebelum ketahuan.
+# Semua teks episode lewat _aman() supaya tidak ada kotak yang sampai ke video.
+SANDI = {"→": "»", "↑": "»", "↓": "»", "▸": "›", "▶": "›", "▲": "›", "✓": "√"}
+
+# `TANPA_TEKS` = mode "art only": semua tipografi dibungkam (panel & grafis tetap).
+# Dipakai pembuat thumbnail supaya teks di dalam adegan tidak bertumpuk dengan
+# teks thumbnail — `bersih=True` saja tidak cukup karena tipografi besar digambar
+# oleh aktor, bukan oleh HUD.
+TANPA_TEKS = False
+
+# `AUDIT` diisi list oleh selftest tata letak; setiap teks mencatat kotaknya
+# supaya tabrakan antar-teks / teks-vs-caption bisa diperiksa tanpa HDMI mata.
+AUDIT = None
+
+
+def _aman(teks):
+    for a, b in SANDI.items():
+        if a in teks:
+            teks = teks.replace(a, b)
+    return teks
+
+
+def _catat(spr, x, y, teks):
+    """Catat kotak TINTA (bukan kotak sprite) untuk audit tata letak.
+
+    Sprite teks membawa padding bayangan 7-10 px; kalau yang dicatat kotak
+    sprite, dua teks yang sebenarnya berjarak 6 px terlihat "bertabrakan".
+    Jadi ambang alpha 24 dipakai: hanya piksel yang benar-benar terbaca.
+    """
+    if AUDIT is None:
+        return
+    a = spr[..., 3]
+    ys = np.flatnonzero((a > 24).any(1))
+    xs = np.flatnonzero((a > 24).any(0))
+    if len(xs) == 0 or len(ys) == 0:
+        AUDIT.append((int(x), int(y), int(x + spr.shape[1]), int(y + spr.shape[0]), teks))
+        return
+    AUDIT.append((int(x) + int(xs[0]), int(y) + int(ys[0]),
+                  int(x) + int(xs[-1]) + 1, int(y) + int(ys[-1]) + 1, teks))
+
+
+def panah(k, x, y, arah="kanan", warna=GOLD, size=46, alpha=1.0):
+    """Panah digambar dengan cv2 — bukan glif font (lihat SANDI)."""
+    if TANPA_TEKS:
+        return
+    warna = _uji_warna(warna)
+    L = int(size)
+    t = max(3, int(size * 0.14))
+    pad = t + 4
+    lap = np.zeros((L + pad * 2, L + pad * 2, 4), np.uint8)
+    c0, c1 = pad, pad + L
+    mid = pad + L // 2
+    hd = int(L * 0.34)
+    if arah in ("kanan", "kiri"):
+        a, b = (c0, c1) if arah == "kanan" else (c1, c0)
+        cv2.line(lap, (a, mid), (b, mid), (*warna, 255), t, cv2.LINE_AA)
+        base = b - hd if arah == "kanan" else b + hd
+        cv2.line(lap, (b, mid), (base, mid - hd // 2), (*warna, 255), t, cv2.LINE_AA)
+        cv2.line(lap, (b, mid), (base, mid + hd // 2), (*warna, 255), t, cv2.LINE_AA)
+    else:
+        a, b = (c0, c1) if arah == "bawah" else (c1, c0)
+        cv2.line(lap, (mid, a), (mid, b), (*warna, 255), t, cv2.LINE_AA)
+        base = b - hd if arah == "bawah" else b + hd
+        cv2.line(lap, (mid, b), (mid - hd // 2, base), (*warna, 255), t, cv2.LINE_AA)
+        cv2.line(lap, (mid, b), (mid + hd // 2, base), (*warna, 255), t, cv2.LINE_AA)
+    blit(k.a, lap, int(x), int(y), alpha)
+    _catat(lap, x, y, f"panah:{arah}")
+
+
 def tulis(k, teks, x, y, warna=TEKS, size=44, name=F_SEMI, tracking=0.0,
           alpha=1.0, shadow=True, align="kiri"):
     """Tulis teks dengan bayangan lembut (kontras di latar gelap)."""
+    if TANPA_TEKS:
+        return 0
+    teks = _aman(teks)
     sh = (3, 6, 16) if shadow else None
     s = spr_text(teks, _uji_warna(warna), name, size, tracking=tracking,
                  shadow=sh, shadow_blur=7, shadow_off=(0, 5), shadow_a=120) if shadow \
@@ -584,14 +658,16 @@ def tulis(k, teks, x, y, warna=TEKS, size=44, name=F_SEMI, tracking=0.0,
     elif align == "kanan":
         x = x - s.shape[1]
     blit(k.a, s, int(x), int(y), alpha)
+    _catat(s, x, y, teks)
     return s.shape[1]
 
 
 def tulis_wipe(k, teks, x, y, prog, warna=TEKS, size=44, name=F_SEMI,
                tracking=0.0, align="kiri", arah="kiri", warna_tepi=None, shadow=True):
     """Teks tersapu (mask reveal) dengan tepi cahaya — tipografi kinetik v20."""
-    if prog <= 0.001:
+    if prog <= 0.001 or TANPA_TEKS:
         return 0
+    teks = _aman(teks)
     sh = (3, 6, 16) if shadow else None
     s = (spr_text(teks, _uji_warna(warna), name, size, tracking=tracking,
                   shadow=sh, shadow_blur=7, shadow_off=(0, 5), shadow_a=120)
@@ -623,6 +699,7 @@ def tulis_wipe(k, teks, x, y, prog, warna=TEKS, size=44, name=F_SEMI,
         mask_[a0:a1] = 255
         s[..., 3] = (s[..., 3].astype(np.uint16) * mask_[None, :] // 255).astype(np.uint8)
     blit(k.a, s, int(x), int(y))
+    _catat(s, x, y, teks)
     return ww
 
 
@@ -649,12 +726,16 @@ def angka(k, nilai, x, y, warna=GOLD, size=170, satuan="", label="", align="kiri
 
 def label_kecil(k, teks, x, y, warna=TEKS_3, size=25, alpha=1.0, align="kiri",
                 tracking=2.0):
+    if TANPA_TEKS:
+        return 0
+    teks = _aman(teks)
     s = spr_text(teks, _uji_warna(warna), F_SEMI, size, tracking=tracking)
     if align == "tengah":
         x = x - s.shape[1] / 2
     elif align == "kanan":
         x = x - s.shape[1]
     blit(k.a, s, int(x), int(y), alpha)
+    _catat(s, x, y, teks)
     return s.shape[1]
 
 
@@ -792,8 +873,15 @@ def caption_spr(teks, aktif, warna=CYAN, size=46, maxw=904):
     return pangkas(out, ambang=1, tepi=2)
 
 
-def caption_karaoke(k, teks, t, dur, warna=CYAN, y=1392, size=46, maxw=904):
-    """Caption karaoke: kata menyala mengikuti waktu ucap (estimasi panjang kata)."""
+def caption_karaoke(k, teks, t, dur, warna=CYAN, y=1392, size=46, maxw=904,
+                    alpha=1.0):
+    """Caption karaoke: kata menyala mengikuti waktu ucap (estimasi panjang kata).
+
+    `alpha` dipakai babak terakhir: caption diredupkan selama blend loop supaya
+    tidak ada dua teks berbeda yang saling tembus (hantu teks di penutup).
+    """
+    if alpha <= 0.003:
+        return
     kata = _pecah_kata(teks)
     if not kata:
         return
@@ -805,7 +893,7 @@ def caption_karaoke(k, teks, t, dur, warna=CYAN, y=1392, size=46, maxw=904):
             break
     aktif = max(0, min(len(kata) - 1, aktif))
     s = caption_spr(teks, aktif, _uji_warna(warna), size, maxw)
-    blit(k.a, s, (W - s.shape[1]) // 2, int(y))
+    blit(k.a, s, (W - s.shape[1]) // 2, int(y), alpha)
 
 
 

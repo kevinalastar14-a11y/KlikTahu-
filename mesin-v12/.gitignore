@@ -39,7 +39,20 @@ venv/
 qc*.json
 
 # --- audio mentah & hasil olahan (lihat docs/audio-manifest.md) ------------
-audio/
+# `audio/*` (bukan `audio/`): git TIDAK bisa meng-un-ignore berkas di dalam
+# direktori yang sudah diabaikan seluruhnya. Dengan `audio/*`, isi folder tetap
+# terabaikan tapi pengecualian di bawah bisa aktif.
+audio/*
+# kecuali: klip VO per babak + timing — kecil (~350 KB), sumber produksi,
+# dan dipakai langkah CI "QC audio VO".
+!audio/vo/
+!audio/vo/sumber/
+!audio/vo/sumber/*.mp3
+!audio/vo/sumber_kilat/
+!audio/vo/sumber_kilat/*.mp3
+!audio/vo/timing.json
+!audio/vo_kilat/
+!audio/vo_kilat/timing.json
 audio_proc/
 audio_tmp/
 episodes/*/audio_raw/*

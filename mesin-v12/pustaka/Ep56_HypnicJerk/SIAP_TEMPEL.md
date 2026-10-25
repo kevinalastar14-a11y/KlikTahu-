@@ -2,8 +2,8 @@
 
 ## Berkas
 
-- Video: `dist/KlikTahu_Ep56_HypnicJerk_v20.mp4`
-- Audio (M4A): `dist/KlikTahu_Ep56_audio.m4a`
+- Video: `keluaran/KlikTahu_Ep56_HypnicJerk_v20.mp4`
+- Audio (M4A): `keluaran/KlikTahu_Ep56_audio.m4a`
 - Thumbnail utama: `thumb_utama.jpg`
 - Thumbnail alternatif: `thumb_alt.jpg`
 - Lembar pratinjau: `lembar_pratinjau.jpg`

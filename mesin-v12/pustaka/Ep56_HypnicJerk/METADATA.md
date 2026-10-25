@@ -16,12 +16,12 @@ Di video ini:
 00:00 Rasa jatuh yang semua orang kenal
 00:07 Namanya: hypnic jerk
 00:15 Seberapa umum (7 dari 10)
-00:22 Kapan tepatnya terjadi
-00:30 Apa yang dilakukan batang otak
+00:23 Kapan tepatnya terjadi
+00:31 Apa yang dilakukan batang otak
 00:38 Teori refleks primata
 00:46 Dua teori, satu mekanisme
-00:55 Pemicunya: kurang tidur, kafein, stres
-01:02 Cara membuatnya lebih jarang
+00:54 Pemicunya: kurang tidur, kafein, stres
+01:03 Cara membuatnya lebih jarang
 01:10 Kenapa tubuhmu masih bereaksi seperti ini
 
 Sumber: Sleep Medicine (2016) · American Academy of Sleep Medicine · riset University of Colorado. Ini informasi umum, bukan diagnosis. Kalau sentakan terjadi hampir tiap malam disertai kantuk berat, konsultasikan ke dokter.

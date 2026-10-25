@@ -587,6 +587,8 @@ def _aktor_penutup(k, t, dur):
 # ---------------------------------------------------------------- panel bawah
 # Tiga baris data per babak. Ini yang membuat layar penuh tanpa hiasan kosong:
 # penonton Shorts berhenti kalau ada informasi baru di setiap zona layar.
+_AUTO = "__DURASI__"  # penanda: nilainya dihitung dari TOTAL, bukan ditulis tangan
+
 BAWAH = [
     [("NAMA ILMIAH", "HYPNIC JERK"), ("ARTI", "SENTAKAN TIDUR"), ("BAHAYA", "TIDAK")],
     [("ASAL KATA", "HYPNOS = TIDUR"), ("JENIS", "MYOCLONUS"), ("PUSAT", "BATANG OTAK")],
@@ -597,7 +599,8 @@ BAWAH = [
     [("SUMBER", "SLEEP MED. 2016"), ("KLASIFIKASI", "NORMAL · ICDS-3"), ("OBAT", "TIDAK PERLU")],
     [("PEMICU 1", "KURANG TIDUR"), ("PEMICU 2", "KAFEIN SORE"), ("PEMICU 3", "STRES")],
     [("KOPI", "SEBELUM 14.00"), ("JAM TIDUR", "KONSISTEN"), ("SUHU KAMAR", "18–20 °C")],
-    [("SUMBER", "AASM · SLEEP MED."), ("DURASI", "75 DETIK"), ("SERI", "SAINS KlikTahu")],
+    # "AUTO" = diisi otomatis dari TOTAL di bawah (jangan tulis angka tangan).
+    [("SUMBER", "AASM · SLEEP MED."), ("DURASI", _AUTO), ("SERI", "SAINS KlikTahu")],
 ]
 
 
@@ -645,7 +648,7 @@ for _i, _s in enumerate(SCENES):
 # Durasi yang tampil di layar (panel data babak terakhir) dihitung dari timeline
 # asli. Dulu ditulis tangan "75 DETIK" dan langsung salah begitu VO mengubah
 # durasi babak.
-BAWAH = [[(l, (f"{TOTAL:.0f} DETIK" if v == "75 DETIK" else v)) for l, v in baris]
+BAWAH = [[(l, (f"{TOTAL:.0f} DETIK" if v == _AUTO else v)) for l, v in baris]
          for baris in BAWAH]
 
 _LATAR_CACHE = {}

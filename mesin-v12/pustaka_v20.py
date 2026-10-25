@@ -171,13 +171,25 @@ def buat_srt(ep, out, kata_per_baris=5):
         teks = cap[i]
         kata = [w for w in teks.split() if w]
         waktu = C._waktu_kata(kata, s["dur"] * 0.86)
-        # pecah jadi kelompok kata (maks 5) supaya terbaca
-        for j in range(0, len(kata), kata_per_baris):
-            klip = kata[j:j + kata_per_baris]
+        # Pecah jadi kelompok kata (maks 5) supaya terbaca — tetapi jangan
+        # tinggalkan potongan ekor pendek ("BEDA" / "HIDUP" sendirian).
+        # Kalau sisa kata <= 2 dan durasinya < 2,4 s, gabungkan ke baris
+        # sebelumnya: subtitle yang kedip terlalu cepat sulit dibaca.
+        kelompok = [kata[j:j + kata_per_baris] for j in range(0, len(kata), kata_per_baris)]
+        if len(kelompok) > 1 and len(kelompok[-1]) <= 2:
+            j0 = (len(kelompok) - 1) * kata_per_baris
+            t_sisa = (s["mulai"] + waktu[min(j0 + len(kelompok[-1]) - 1, len(waktu) - 1)][1]
+                      - (s["mulai"] + waktu[j0][0]))
+            if t_sisa < 2.4:
+                kelompok[-2] = kelompok[-2] + kelompok[-1]
+                kelompok.pop()
+        j = 0
+        for klip in kelompok:
             a = s["mulai"] + waktu[j][0]
             b = s["mulai"] + waktu[min(j + len(klip) - 1, len(waktu) - 1)][1]
             baris.append((n, a, b, " ".join(klip)))
             n += 1
+            j += len(klip)
 
     def ts(x):
         h = int(x // 3600)

@@ -9,7 +9,7 @@ Dipakai CI dan sebelum render panjang. Target: < 90 detik di 1 inti.
 Yang diuji:
   1. impor semua modul v20
   2. selftest bahan visual (cahaya, makhluk)
-  3. tiap babak Ep56 bisa dirender pada 3 titik waktu (256×455) tanpa error
+  3. tiap babak episode aktif (KT_EPISODE) bisa dirender pada 3 titik waktu (256×455) tanpa error
   4. audio: rantai persepsi pada sinyal sintetis (panjang tetap, de-esser aktif)
   5. frame bersih (thumbnail) tidak memuat HUD
   6. determinisme: frame yang sama dua kali -> identik
@@ -32,6 +32,19 @@ sys.path.insert(0, BASE)
 
 HASIL = []
 
+#: Episode yang diuji. Semua modul episode v20 memakai API yang sama
+#: (`siapkan`, `frame`, `daftar`, `latar_scene`, `SCENES`, `_path_timing`, ...),
+#: jadi butir uji ini berlaku untuk episode mana pun:
+#:     python3 mesin_v20_uji.py                 # ep56 (bawaan)
+#:     KT_EPISODE=ep57 python3 mesin_v20_uji.py
+EP = os.environ.get("KT_EPISODE", "ep56")
+
+
+def muat_ep():
+    import importlib
+    nama = EP if EP.startswith("mesin_v20_") else f"mesin_v20_{EP}"
+    return importlib.import_module(nama)
+
 
 def cek(nama, fn, catatan=""):
     t0 = time.time()
@@ -50,12 +63,12 @@ def cek(nama, fn, catatan=""):
 def main(argv=None):
     argv = argv if argv is not None else sys.argv[1:]
     lengkap = "--lengkap" in argv
-    print("== selftest mesin v20 ==")
+    print(f"== selftest mesin v20 · episode {EP} ==")
 
     def impor():
         import mesin_v20_cahaya as C
         import mesin_v20_makhluk as K
-        import mesin_v20_ep56 as E
+        E = muat_ep()
         import mesin_v20_audio as A
         import mesin_v20_suara as S
         import render_v20 as R
@@ -67,7 +80,7 @@ def main(argv=None):
     import mesin_v18_inti as M
     import mesin_v20_cahaya as C
     import mesin_v20_makhluk as K
-    import mesin_v20_ep56 as E
+    E = muat_ep()
 
     def bahan():
         k = M.Kanvas(1080, 1920)
@@ -121,7 +134,7 @@ def main(argv=None):
           * dua kotak teks tidak boleh bertumpuk > 35% kotak terkecil.
         """
         import mesin_v20_cahaya as C
-        import mesin_v20_ep56 as E
+        E = muat_ep()
         E.siapkan()
         pita = (0, E.Y_CAPTION - 24, E.W_, E.Y_SCRIM[1])
         kanvas = (0, 0, E.W_, E.H_)
@@ -269,8 +282,11 @@ def main(argv=None):
         import json
         import tempfile
         import mesin_v20_suara as S
-        assert E._path_timing("penuh").endswith(os.path.join("audio", "vo", "timing.json"))
-        assert E._path_timing("kilat").endswith(os.path.join("audio", "vo_kilat", "timing.json"))
+        dir_audio = getattr(E, "AUDIO_DIR", "vo")
+        assert E._path_timing("penuh").endswith(
+            os.path.join("audio", dir_audio, "timing.json")), E._path_timing("penuh")
+        assert E._path_timing("kilat").endswith(
+            os.path.join("audio", f"{dir_audio}_kilat", "timing.json")), E._path_timing("kilat")
         assert S._folder_timing("audio/vo/sumber").endswith(os.path.join("audio", "vo"))
         assert S._folder_timing("audio/vo_kilat/sumber_kilat").endswith(
             os.path.join("audio", "vo_kilat"))
@@ -342,7 +358,7 @@ def main(argv=None):
         def render_cilik():
             out = "/tmp/_v20_uji_klip.mp4"
             lap = subprocess.run([sys.executable, os.path.join(BASE, "render_v20.py"),
-                                  "--episode", "ep56", "--keluar", out,
+                                  "--episode", EP, "--keluar", out,
                                   "--potong", "2", "--jobs", "1", "--tanpa-audio",
                                   "--preset", "veryfast", "--crf", "26"],
                                  capture_output=True, text=True)
@@ -352,7 +368,7 @@ def main(argv=None):
 
         def qc_cilik():
             r = subprocess.run([sys.executable, os.path.join(BASE, "qc_v20.py"),
-                                "/tmp/_v20_uji_klip.mp4", "--episode", "ep56", "--cepat"],
+                                "/tmp/_v20_uji_klip.mp4", "--episode", EP, "--cepat"],
                                capture_output=True, text=True)
             # cuplikan 2 detik tidak punya audio -> QC audio memang gagal
             return "aac" not in r.stdout or True

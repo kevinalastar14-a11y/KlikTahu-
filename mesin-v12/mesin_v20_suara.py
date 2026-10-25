@@ -418,19 +418,23 @@ def _rakit(klip, durasi, folder, keluar_m4a=None, target_lufs=None):
 #: varian menulis ke audio/vo, sehingga menjalankan kilat menimpa timing penuh
 #: (audio/vo/timing.json jadi 6 babak) dan render penuh berikutnya diam-diam
 #: memakai timeline cadangan. Itu menghasilkan video 75,9 s dengan audio 79,3 s.
-_FOLDER_VARIAN = {"sumber": "vo", "sumber_kilat": "vo_kilat"}
-
-
 def _folder_timing(sumber):
-    """audio/vo/sumber -> audio/vo · audio/vo_kilat/sumber_kilat -> audio/vo_kilat"""
-    nama = os.path.basename(os.path.normpath(sumber))
-    if nama in _FOLDER_VARIAN:
-        return os.path.join(BASE, "audio", _FOLDER_VARIAN[nama])
-    # pola <apa>_<varian> -> folder varian itu, sisanya "<apa>"
-    if "_" in nama:
-        dasar, _, varian = nama.rpartition("_")
-        return os.path.join(BASE, "audio", f"{dasar}_{varian}")
-    return os.path.join(BASE, "audio", nama)
+    """Folder timing = folder INDUK klip, selama masih di dalam `audio/`.
+
+    audio/vo/sumber            -> audio/vo
+    audio/vo_kilat/sumber_kilat-> audio/vo_kilat
+    audio/vo57/sumber          -> audio/vo57
+
+    Aturan ini menggantikan tabel nama folder: tabel itu membuat episode baru
+    dengan folder klip berbeda tetap menulis ke audio/vo. Satu episode = satu
+    folder audio, jadi timeline antar-episode/antar-varian tidak bisa lagi
+    saling menimpa.
+    """
+    induk = os.path.dirname(os.path.abspath(os.path.normpath(sumber)))
+    akar_audio = os.path.join(BASE, "audio")
+    if os.path.commonpath([induk, akar_audio]) == akar_audio and induk != akar_audio:
+        return induk
+    return os.path.join(BASE, "audio", os.path.basename(os.path.normpath(sumber)))
 
 
 def dari_klip(modul_nama, sumber, keluar_m4a=None, folder=None, target_lufs=None):
@@ -576,11 +580,13 @@ def main(argv=None):
     ap.add_argument("--target-lufs", type=float, default=-14.0)
     ap.add_argument("--dari-klip",
                     help="folder berisi satu klip per babak (01.mp3, 02.mp3, ...)")
+    ap.add_argument("--folder",
+                    help="folder tujuan timing.json + campuran.wav (bawaan: induk folder klip)")
     ap.add_argument("--dari-berkas",
                     help="VO rekaman manusia (satu berkas, dipotong per babak pada jeda)")
     a = ap.parse_args(argv)
     if a.dari_klip:
-        return dari_klip(a.episode, a.dari_klip, a.keluar, target_lufs=a.target_lufs)
+        return dari_klip(a.episode, a.dari_klip, a.keluar, a.folder, a.target_lufs)
     if a.dari_berkas:
         return dari_berkas(a.episode, a.dari_berkas, a.keluar,
                            target_lufs=a.target_lufs)

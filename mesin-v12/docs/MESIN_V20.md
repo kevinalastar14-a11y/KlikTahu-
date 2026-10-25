@@ -213,6 +213,42 @@ python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
     babak, plus `_cek_timing_varian()` memastikan timing tiap varian sama
     dengan subset timeline induk (±20 ms). Selftest butir "timing varian tidak
     saling menimpa" menjaga keduanya.
+19. **Satu folder audio untuk semua episode.** Sesudah jebakan 18 diperbaiki,
+    varian sudah terpisah, tetapi EPISODE belum: semua episode masih memakai
+    `audio/vo`. Begitu Episode baru dibangun, `audio/vo/timing.json` milik
+    episode lama tertimpa — dan mesin episode lama tidak tahu apa-apa.
+    Aturan sekarang: **satu episode = satu folder audio**
+    (`AUDIO_DIR` di modul episode; Ep56 = `vo`, Ep57 = `vo57`).
+    `mesin_v20_suara.py` menurunkan folder timing dari folder INDUK klip
+    (`audio/vo57/sumber` -> `audio/vo57`), dan `--folder` bisa memaksa jalur
+    lain.
+20. **Timeline sementara untuk pratinjau tata letak.** Saat naskah sudah ada
+    tetapi VO belum dibangun, `timing.json` boleh diisi durasi cadangan asal
+    diberi `"sementara": true`. `_muat_durasi()` akan **menolak** berkas itu
+    (render berhenti dengan pesan jelas) kecuali `KT_SEMENTARA=1`. Tanpa
+    penjaga ini, pratinjau dan render memakai timeline yang tidak berhubungan
+    dengan VO — persis kelas bug yang tidak terlihat sampai videonya ditonton.
+
+## 7b. Menambah episode baru (urutan yang benar)
+
+```bash
+cd mesin-v12
+# 1. modul episode: salin pola mesin_v20_ep56.py, ganti AUDIO_DIR (mis. vo58),
+#    NASKAH 10 kalimat (<= 20 kata per babak -> total <= 100 detik), CAPTION,
+#    BAWAH, BABAK_VIDEO, META, THUMB.
+# 2. VO: satu klip per babak ke audio/<AUDIO_DIR>/sumber/01.mp3 ... 10.mp3
+#    (TTS internal, suara pria Indonesia; lihat AGEN.md bagian VO).
+# 3. rakit audio + timeline:
+python3 mesin_v20_suara.py --episode mesin_v20_ep58 \
+    --dari-klip audio/vo58/sumber --keluar keluaran/KlikTahu_Ep58_audio.m4a
+# 4. uji cepat (tata letak, fase, timing) sebelum render panjang:
+KT_EPISODE=ep58 python3 mesin_v20_uji.py
+# 5. render, QC, pratinjau 720p, pustaka (lihat §6)
+```
+
+`mesin_v20_uji.py` menerima `KT_EPISODE=epNN`, jadi seluruh butir tata letak
+(kanvas, pita caption, tumpang tindih teks, glif tofu, determinisme, fase
+stereo, timing) langsung berlaku untuk episode baru tanpa menulis uji baru.
 
 ## 8. Audit tata letak otomatis
 

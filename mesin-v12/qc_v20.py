@@ -172,7 +172,12 @@ def main(argv=None):
     path = a.mp4
     q.cek("berkas ada", os.path.exists(path), f"{os.path.getsize(path)/1e6:.2f} MB" if os.path.exists(path) else "-", "> 0")
 
-    mod = importlib.import_module(a.episode if a.episode.startswith("mesin_v20_") else f"mesin_v20_{a.episode}")
+    # Nama modul penuh (mesin_v21_ep58) diteruskan apa adanya; singkatan
+    # ("ep56") dipetakan ke mesin_v20_ep56 seperti sebelumnya.
+    _ep = a.episode
+    if not _ep.startswith("mesin_v"):
+        _ep = f"mesin_v20_{_ep}"
+    mod = importlib.import_module(_ep)
     d = mod.daftar()
     total = float(d["total"])
 
@@ -286,15 +291,28 @@ def main(argv=None):
         q.cek("loop halus (frame akhir ~ awal)", mae_loop <= 26, f"{mae_loop:.1f}/255", "<= 26")
 
     # ---------- gerak: tidak ada layar beku
-    d_gerak = []
+    # Dua ukuran dipakai bersama. Δ rata-rata seluruh layar cocok untuk gaya
+    # gelap v20 (bidang besar berubah). Gaya kertas v21 punya bidang krem yang
+    # luas, jadi gerak kecil (ikan mengapung, kilau melintas) hanya mengubah
+    # sebagian kecil layar: Δ rata-rata bisa 0,1 walau jelas bergerak. Karena
+    # itu dihitung juga Δ maksimum per KOTAK 54x54 px; salah satu lolos = hidup.
+    d_gerak, d_petak = [], []
     for f in (0.2, 0.5, 0.8):
         t = total * f
         x1 = ambil_frame(path, t, skala=(270, 480))
         x2 = ambil_frame(path, t + 0.25, skala=(270, 480))
-        if x1 is not None and x2 is not None:
-            d_gerak.append(float(np.abs(x1.astype(np.int16) - x2.astype(np.int16)).mean()))
-    q.cek("ada gerak (tidak beku)", min(d_gerak) > 0.35 if d_gerak else False,
-          f"min Δ {min(d_gerak):.2f}" if d_gerak else "-", "> 0,35")
+        if x1 is None or x2 is None:
+            continue
+        d = np.abs(x1.astype(np.int16) - x2.astype(np.int16)).mean(axis=2)
+        d_gerak.append(float(d.mean()))
+        ts = 27
+        hh, ww = int(d.shape[0] // ts), int(d.shape[1] // ts)
+        kotak = d[:hh * ts, :ww * ts].reshape(hh, ts, ww, ts).mean(axis=(1, 3))
+        d_petak.append(float(kotak.max()))
+    gerak_ok = bool(d_gerak) and (min(d_gerak) > 0.35 or min(d_petak) > 1.20)
+    q.cek("ada gerak (tidak beku)", gerak_ok,
+          (f"Δ {min(d_gerak):.2f} · petak {min(d_petak):.1f}"
+           if d_gerak else "-"), "Δ > 0,35 atau petak > 1,2")
 
     ok, n = q.ringkas()
     hasil = {"lulus": ok, "total": n, "butir": q.butir, "berkas": path}

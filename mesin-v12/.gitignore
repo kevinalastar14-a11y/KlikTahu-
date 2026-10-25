@@ -8,6 +8,7 @@ build/
 build_v18/
 build_v19/
 build_v20/
+build_v21/
 frames/
 frames*/
 parts/
@@ -69,11 +70,18 @@ audio/*
 !audio/vo57_kilat/sumber/*.mp3
 !audio/vo57_kilat/timing.json
 !audio/vo_kilat/timing.json
+# Episode v21 (gaya kertas): klip VO + timing ikut repo, campuran/master tidak.
+!audio/vo58/
+!audio/vo58/sumber/
+!audio/vo58/sumber/*.mp3
+!audio/vo58/timing.json
 # ...tapi hasil pengukuran (loudness dsb) bukan sumber: biar tidak ikut commit.
 audio/vo/master.json
 audio/vo_kilat/master.json
 audio/vo57/master.json
 audio/vo57_kilat/master.json
+audio/vo58/master.json
+audio/vo58/campuran*.wav
 audio_proc/
 audio_tmp/
 episodes/*/audio_raw/*

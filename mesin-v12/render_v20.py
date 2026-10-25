@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""render_v20.py — renderer KlikTahu v20 (pipe langsung ke x264, N proses).
+"""render_v20.py — renderer KlikTahu v20/v21 (pipe langsung ke x264, N proses).
 
 Kenapa renderer terpisah
 ------------------------
@@ -57,7 +57,9 @@ def muat_episode(nama):
     m = nama
     if m.endswith(".py"):
         m = os.path.basename(m)[:-3]
-    if not m.startswith("mesin_v20_"):
+    # Modul v21 (gaya kertas) memakai awalan sendiri; nama lengkap diteruskan
+    # apa adanya supaya renderer yang sama bisa melayani v20 dan v21.
+    if not m.startswith("mesin_v"):
         m = f"mesin_v20_{m}"
     return importlib.import_module(m)
 

@@ -579,8 +579,11 @@ def blit(dst, spr, x, y, alpha=1.0):
         return
     ai = a[:, :, None].astype(np.uint16)
     reg = dst[y0:y1, x0:x1]
+    # Bagi 255, BUKAN 256 (>>8). Versi lama memakai >>8 sehingga piksel dengan
+    # alpha 0 pun ikut berubah 1 tingkat: kotak sprite jadi terlihat sebagai
+    # bayangan segi empat samar di atas latar terang (ketahuan di mesin v21).
     out = (sub[..., :3].astype(np.uint16) * ai +
-           reg[..., :3].astype(np.uint16) * (255 - ai) + 127) >> 8
+           reg[..., :3].astype(np.uint16) * (255 - ai) + 127) // 255
     reg[..., :3] = out.astype(np.uint8)
     if reg.shape[2] == 4:
         reg[..., 3] = np.maximum(reg[..., 3], a)

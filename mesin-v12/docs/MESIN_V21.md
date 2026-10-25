@@ -145,6 +145,7 @@ K.tab_fakta(n, total)       K.highlighter_spr(w, h)   K.kilau(k, t, t0)
     `imageio_ffmpeg.get_ffmpeg_exe()`; untuk perintah manual pakai
     `/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2`.
 
+
 ## 6. Alur produksi episode v21
 
 ```bash
@@ -190,3 +191,112 @@ dan teks metadata — sesuai `AGEN.md` §14.
 | audio (9 klip → campur → musik → master) | ±1 menit |
 
 Rasio aman untuk perencanaan: **1 detik video akhir ≈ 2,7 detik render** di 2 inti.
+
+
+---
+
+## 8. Ilustrasi 2D realistis & motion graphics (ronde 3)
+
+Keluhan pemilik: *"tidak realistis dalam 2D, ini sangat penting karena penonton bisa
+membayangkannya"* dan *"banyak elemen tidak beraturan"*. Dua jawaban terpisah:
+
+### 8.1 `mesin_v21_real.py` — isyarat yang membuat 2D terbaca sebagai benda nyata
+Bukan menambah detail, tetapi menambahkan isyarat persepsi:
+
+| isyarat | implementasi | kenapa penting |
+|---|---|---|
+| satu sumber cahaya (kiri-atas) | semua gradasi, rim light, spekular, bayangan mengikuti arah yang sama | otak membaca konsistensi arah cahaya sebagai bentuk 3D |
+| counter-shading | punggung gelap → perut lebih terang, pita peralihan mengikuti bentuk badan | pola universal hewan air; tanpa ini bentuk terbaca datar |
+| oklusi di sambungan | gelap tipis di pangkal setiap sirip + bayangan kontak | benda "menempel" bukan "mengapung"/"digunting" |
+| kedalaman tiga lapis | latar berkabut + subjek + partikel depan (ukuran/kecepatan beda) | memberi skala ruang, bukan bidang datar |
+| anatomi benar | 8 sirip, ekor tiga cuping membulat, mulut terbuka ke bawah, mata besar | penonton yang tahu ikannya langsung percaya |
+
+Contoh terukur: `R.ikan_real()` menyusun ekor, dua sirip punggung, sirip dubur,
+sirip dada & perut sebagai BENTUK TERPISAH (bukan satu siluet), lalu badan di
+atasnya. Siluet tunggal selalu terlihat seperti guntingan kertas karena tidak ada
+oklusi antar-bagian.
+
+### 8.2 `mesin_v21_panggung.py` + grid tata letak — menghapus "tidak beraturan"
+- Sembilan panggung (`laut`, `umur`, `temuan`, `nama`, `peta`, `sirip`, `mitos`,
+  `ancaman`) semuanya menggambar di dalam kotak yang sama `BOX=(56, 556, 968, 816)`.
+- Slot tetap: HUD 40–118 · tab 122–218 · judul 236–520 · panggung 556–1372 ·
+  caption 1392 · angka 1476 · keterangan 1640 · sumber 1836.
+- Judul dipusatkan vertikal di slotnya; stabilo diukur dari mask kata; caption satu
+  baris dengan ukuran font menyusut otomatis agar selalu muat.
+- Angka memakai **count-up** dengan lebar digit dikunci (tidak bergeser saat naik).
+- Gerak panggung dihitung dari waktu (`Panggung.gambar`, `IkanBerenang`), jadi
+  deterministik untuk render paralel.
+
+### 8.3 Performa
+| bagian | sebelum | sesudah | cara |
+|---|---|---|---|
+| panggung 940x860 | 79 ms/frame | 24 ms/frame | lapis gerak digambar ½ resolusi lalu diperbesar |
+| babak umur (frame ke-2 dst.) | 451 ms | 86 ms | latar statis di-cache (`_latar`), ikan berskala tidak bertumpuk |
+| seluruh video (7.823 frame, 2 proses) | — | ±5 menit | — |
+
+### 8.4 Jebakan baru (lanjutan penomoran)
+33. **Intensitas cahaya 0..1, bukan 0..255.** `rim * 255` membuat tepi badan
+    menjadi PUTIH pekat (terlihat sebagai pita putih melintang di punggung).
+34. **Pola periodik di latar statis = "barcode".** `sin(x*26)` untuk kaustik
+    menghasilkan deretan garis tegak rapi. Kaustik harus dua frekuensi berbeda dan
+    hanya digambar di lapis gerak.
+35. **Pita sinar sempit berjarak sama juga "barcode".** Berkas cahaya harus lebih
+    lebar dari jarak antar-berkas (profil plato, bukan Gaussian sempit).
+36. **Bidang dalam satu kartu harus dibagi jelas** (langit / laut / geladak).
+    Ikan yang ditaruh "di atas laut" dan perahu yang menempel di garis ufuk
+    terbaca melayang — bukan masalah gambar, masalah penataan bidang.
+37. **Jangan menaruh label di dalam bentuk kecil.** Ring "±3 tahun" pada 210 px
+    membuat label tumpang tindih; label harus di luar bentuk, atau bentuknya
+    diperbesar.
+
+
+### 8.5 Volume, bukan gradasi (perbaikan terakhir `ikan_real`)
+Gradasi vertikal lurus selalu terbaca "gambar datar yang diberi pita warna".
+Yang dipakai sekarang: bentuk tiga dimensi maya. Untuk setiap kolom badan
+diukur garis punggung dan garis perut, lalu dipakai penampang bulat
+`z = sqrt(1 - u^2)`, dan warna dihitung dari NORMAL permukaan dengan satu arah
+cahaya kiri-atas `(-0.34, -0.60, 0.72)`. Tambahan: pantulan dasar laut di sisi
+perut, kilau memanjang di punggung, dan butir halus (deterministik) yang
+mematahkan permukaan rata.
+
+### 8.6 Empat jebakan yang ditemukan sesudah itu
+38. **Rim light harus memakai mask BADAN, bukan seluruh sprite.** Kalau sirip
+    ikut dihitung, setiap sirip mendapat garis terang di tepinya dan ikan
+    terbaca seperti stiker berbingkai cahaya.
+39. **Rim light hanya di tepi yang menghadap cahaya.** Tepi atas = terang,
+    tepi bawah = garis gelap tipis (oklusi). Terang di semua tepi = palsu.
+40. **Mata: jangan cincin pucat + iris pucat.** Kombinasi itu membentuk donat
+    putih ("goggles"). Urutan benar: kelopak tipis → iris gelap → pupil lebih
+    gelap → SATU kilau.
+41. **Bercak putih harus kecil dan pudar** (alpha 70–125, radius 0,003–0,007 h).
+    Bintik alpha 210 sebesar 4 px terbaca sebagai cipratan cat.
+42. **Jangan pernah menggambar di atas array yang disimpan di cache.**
+    `_hook_frame()` mengembalikan frame hook dari cache; `_tirai()` menempelkan
+    tirai langsung ke array itu, sehingga tirai tercetak PERMANEN ke dalam
+    cache. Akibatnya frame terakhir tidak pernah terbuka penuh: uji mesin
+    menunjukkan MAE 0,12/255, tetapi QC video 57,6/255. Sekarang `_hook_frame()`
+    mengembalikan `.copy()`.
+
+### 8.7 Loop mulus (Shorts diputar berulang)
+Frame terakhir dibuat **identik** dengan frame pertama:
+`_outro()` menutup layar dengan "tirai kertas" (kotak krem membesar) sambil
+menampilkan penanda kanal, menukar isi layar ke frame hook di balik tirai, lalu
+membukanya kembali. Kontrol: MAE(frame 0,03 s, frame terakhir) = **0,12/255**
+(ambang QC ≤ 26). Versi pertama memakai wipe silang dan gagal karena judul hook
+serta kartu ringkasan terlihat bersamaan — gambar ganda, bukan transisi.
+Konsekuensinya babak 1 memakai `t0` NEGATIF: judul, stiker, dan angka sudah
+matang di t=0 (pemirsa memutuskan dalam 1–3 detik pertama). Semua fungsi
+animasi memakai `clamp`, jadi `t0` negatif aman.
+
+### 8.8 Audit tata letak sekarang MENOLAK render
+`siapkan()` memanggil `_audit()` untuk kesembilan babak dengan `ketat=True`.
+Kotak yang diperiksa adalah **piksel terlihat** (alpha > 8), bukan kanvas
+sprite, dan tiap lapis punya `jenis` (`teks`/`dekor`); hanya kotak teks yang
+diperiksa tumpang-tindihnya, sedangkan dekor (kartu, pita, lingkaran) diberi
+toleransi 34 px di tepi karena bayangannya memang menyembul. Kontrol positif
+dijalankan: dua kotak teks bertumpuk memang dilaporkan.
+
+**Bug nyata yang ditemukan audit ini:** `Komposisi.kartu()` menempelkan sprite
+kartu pada offset **-26** padahal padding sprite-nya **34** (`PAD_KARTU`).
+Akibatnya setiap kartu bergeser 8 px dari grid dan tepinya keluar margin.
+Sekarang offset memakai `PAD_KARTU` yang sama dengan padding.

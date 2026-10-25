@@ -145,6 +145,13 @@ def debu_spr(r: int = 5, warna=(150, 140, 126), alpha: int = 34) -> np.ndarray:
 
 
 # =============================================================== 3. bentuk & teks
+#: Ruang kosong di keliling sprite kartu untuk bayangan. Dipakai juga saat
+#: MENEMPELKAN kartu (offset harus -PAD_KARTU, bukan angka lain): kalau offset
+#: tidak sama dengan pad, kartu bergeser dari grid 8 px dan tepinya keluar
+#: margin — bug nyata yang tertangkap audit tata letak.
+PAD_KARTU = 34
+
+
 @functools.lru_cache(maxsize=64)
 def kartu(w: int, h: int, r: int = 44, isi=KARTU, garis=None, lebar=0.0,
           bayang: bool = True) -> np.ndarray:
@@ -154,7 +161,7 @@ def kartu(w: int, h: int, r: int = 44, isi=KARTU, garis=None, lebar=0.0,
     + sebaran lebar) memberi kesan kertas tebal di atas meja. Ditambah garis
     cahaya tipis di tepi atas-dalam supaya tepinya tidak terlihat datar.
     """
-    pad = 34
+    pad = PAD_KARTU
     W_, H_ = int(w) + pad * 2, int(h) + pad * 2
     spr = raster(W_, H_, lambda p: p.rrect(pad, pad, pad + w, pad + h, r,
                                            fill=isi, outline=garis,
@@ -195,7 +202,7 @@ def kartu(w: int, h: int, r: int = 44, isi=KARTU, garis=None, lebar=0.0,
 
 def kartu_tempel(k, x, y, w, h, r=44, isi=KARTU, alpha=1.0):
     s = kartu(int(w), int(h), r, isi)
-    blit(k, s, int(x) - 26, int(y) - 26, alpha)
+    blit(k, s, int(x) - PAD_KARTU, int(y) - PAD_KARTU, alpha)
 
 
 @functools.lru_cache(maxsize=512)
@@ -977,11 +984,14 @@ class Lapis:
             "tulis" muncul dari kiri seperti ditulis (potong lebar)
     """
     __slots__ = ("spr", "x", "y", "t0", "dur", "anim", "cx", "cy", "rot", "alpha",
-                 "amp", "lam", "fase")
+                 "amp", "lam", "fase", "jenis")
 
     def __init__(self, spr, x=0, y=0, t0=0.0, dur=0.34, anim="pop",
-                 tengah=False, rot=0.0, alpha=1.0):
+                 tengah=False, rot=0.0, alpha=1.0, jenis="teks"):
         self.spr = spr
+        #: "teks" atau "dekor". Dipakai audit tata letak: hanya kotak TEKS yang
+        #: diperiksa tumpang-tindihnya (teks memang duduk di atas kartu/lingkaran).
+        self.jenis = jenis
         self.amp, self.lam, self.fase = 7.0, 3.6, 0.0
         self.t0, self.dur, self.anim = t0, max(0.05, dur), anim
         self.alpha = alpha
@@ -1020,10 +1030,14 @@ class Komposisi:
         self.total = total
         self.lapis = []
         self.dinamis = []   # daftar fn(kanvas, t_lokal) untuk gerak kontinu
+        #: fn(kanvas, t_lokal) yang digambar SETELAH latar tetapi SEBELUM lapis.
+        #: Dipakai untuk panggung ilustrasi yang harus bergerak tiap frame namun
+        #: tetap berada di belakang headline/teks (z-order benar).
+        self.pra = []
 
     def tambah(self, spr, x=0, y=0, t0=0.0, dur=0.34, anim="pop",
-              tengah=False, rot=0.0, alpha=1.0) -> Lapis:
-        l = Lapis(spr, x, y, t0, dur, anim, tengah, rot, alpha)
+              tengah=False, rot=0.0, alpha=1.0, jenis="teks") -> Lapis:
+        l = Lapis(spr, x, y, t0, dur, anim, tengah, rot, alpha, jenis)
         self.lapis.append(l)
         return l
 
@@ -1033,12 +1047,13 @@ class Komposisi:
                            anim, tengah, 0.0, alpha)
 
     def kartu(self, x, y, w, h, r=44, isi=KARTU, t0=0.0, dur=0.42, anim="pop"):
-        return self.tambah(kartu(int(w), int(h), r, isi), x - 26, y - 26, t0, dur, anim)
+        return self.tambah(kartu(int(w), int(h), r, isi),
+                           x - PAD_KARTU, y - PAD_KARTU, t0, dur, anim, jenis="dekor")
 
     def goyang(self, spr, x, y, t0=0.0, amp=7.0, lam=3.6, fase=0.0, dur=0.40,
                alpha=1.0, putar_kecil=0.0):
         """Lapisan yang terus bergerak halus setelah muncul (naik-turun lembut)."""
-        l = Lapis(spr, x, y, t0, dur, "goyang", False, putar_kecil, alpha)
+        l = Lapis(spr, x, y, t0, dur, "goyang", False, putar_kecil, alpha, "dekor")
         l.amp, l.lam, l.fase = amp, lam, fase
         self.lapis.append(l)
         return l
@@ -1067,6 +1082,8 @@ class Komposisi:
 
     def frame(self, lokal_t: float, hemat: bool = False) -> np.ndarray:
         k = self.latar(lokal_t)
+        for fn in self.pra:
+            fn(k, lokal_t)
         for l in self.lapis:
             if lokal_t < l.t0:
                 continue

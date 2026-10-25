@@ -36,6 +36,8 @@ sys.path.insert(0, BASE)
 
 import mesin_v18_inti as I  # noqa: E402
 import mesin_v21_kertas as K  # noqa: E402
+import mesin_v21_real as R  # noqa: E402
+from mesin_v18_inti import blit  # noqa: E402
 
 W, H = 1080, 1920
 
@@ -53,18 +55,31 @@ def _kanvas(kategori="HEWAN PURBA"):
     return k
 
 
-def _kartu_laut(k, x, y, w, h, r=48, ikan_w=700, dalam=0.62):
-    """Kartu laut + ikan (digambar ulang, bukan tangkapan layar)."""
+def _kartu_laut(k, x, y, w, h, r=48, ikan_w=760, dalam=0.50):
+    """Kartu laut + ikan (dirakit ulang dari primitif baru, bukan tangkapan layar).
+
+    Memakai pustaka v21.real: panggung bergradasi dengan sinar + partikel, dan
+    ikan beranatomi lengkap. Versi lama memakai `K.ikan()` (siluet tunggal)
+    yang pada ukuran thumbnail terbaca seperti stiker, bukan hewan.
+    """
+    import mesin_v21_real as R
     K.kartu_tempel(k, x, y, w, h, r, K.KARTU)
-    pad = 26
-    laut = K.kolom_laut(w - pad * 2, h - pad * 2, atas=(160, 208, 228),
-                        bawah=(10, 34, 60), bintang=34)
-    I.blit(k, laut, x + pad, y + pad)
-    iw = int(min(ikan_w, w * 0.82))
-    ik = K.ikan(iw, int(iw * 0.50), warna=(26, 56, 86))
-    I.blit(k, ik, x + pad + int((w - pad * 2 - ik.shape[1]) * 0.46),
-           y + pad + int((h - pad * 2 - ik.shape[0]) * dalam))
-    I.blit(k, K.teks("0 m", (255, 255, 255), 30, I.F_SEMI, 0.8), x + pad + 26, y + pad + 18)
+    pad = 24
+    iw, ih = int(w - pad * 2), int(h - pad * 2)
+    panggung = R.laut_dalam(iw, ih, max(8, r - 12), 0.0, sinar=False, butir=True,
+                            siluet=False)
+    blit(k, panggung, x + pad, y + pad)
+    iw2 = int(min(ikan_w, iw * 0.80))
+    ik = R.ikan_real(iw2, int(iw2 * 0.44))
+    # 0,50 (tengah) dan 0,50 lebar: dengan 0,86 ujung moncong ikan terpotong
+    # tepi kiri kartu pada thumbnail.
+    ix = x + pad + int((iw - ik.shape[1]) * 0.50)
+    iy = y + pad + int((ih - ik.shape[0]) * 0.46)
+    blit(k, R.bayang_kontak(int(ik.shape[1] * 0.6), int(ik.shape[0] * 0.18), 0.24),
+         ix + int(ik.shape[1] * 0.06), iy + int(ik.shape[0] * 0.86), 0.85)
+    blit(k, ik, ix, iy)
+    # Penanda kedalaman dilepas: satu label "0 m" tanpa skala penuh terbaca
+    # sebagai teks nyasar di sudut kartu.
     return k
 
 

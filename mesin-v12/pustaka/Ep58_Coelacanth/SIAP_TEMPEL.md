@@ -1,6 +1,6 @@
 # Siap tempel — Ikan Ini Seharusnya Punah 66 Juta Tahun Lalu — Ternyata Masih Hidup
 
-- Durasi: 124.63 s (2.08 menit)
+- Durasi: 130.39 s (2.17 menit)
 - Babak: 9
 - Format: 1080x1920 · 60 fps · H.264 High · AAC 320k
 

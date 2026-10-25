@@ -13,10 +13,15 @@ frames*/
 parts/
 part_*.mp4
 video_master.mp4
-keluaran/            # hasil render yang diserahkan ke pemilik (binari, bukan kode)
+# hasil render yang diserahkan ke pemilik (binari, bukan kode).
+# PENTING: jangan tulis komentar di baris yang sama dengan pola — gitignore
+# menganggap seluruh baris sebagai pola, sehingga aturannya tidak pernah cocok.
+keluaran/
 dist/
 *.mp4
 *.mov
+*.m4a
+*.wav
 *.mkv
 *.webm
 

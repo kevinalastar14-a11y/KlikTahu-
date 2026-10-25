@@ -198,6 +198,21 @@ python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
     `-shortest` saat mux **memotong ekor audio**, dan seluruh VO tertinggal
     0,42 s dari visualnya (caption jalan lebih dulu). `LEAD` sekarang **0,0**:
     durasi audio == durasi video sampai sampel terakhir.
+18. **`dari_klip()` menimpa `audio/vo/timing.json` milik varian penuh.**
+    Fungsi itu menerima `sumber` (mis. `audio/vo_kilat/sumber_kilat`) tetapi
+    folder tujuan timing-nya **selalu** `audio/vo`. Akibatnya membangun audio
+    varian kilat menulis `audio/vo/timing.json` berisi **6 babak**, dan
+    `_muat_durasi()` di `mesin_v20_ep56.py` punya syarat "kalau panjangnya 10
+    pakai, kalau tidak pakai `_DEF_DUR`" — jadi render penuh berikutnya
+    diam-diam memakai timeline cadangan **75,9 s** padahal audionya **79,3 s**.
+    Gejalanya menipu: tidak ada error, video tampak normal, hanya 4554 frame
+    alih-alih 4759, caption/panel bergeser dari VO. Perbaikan:
+    `S._folder_timing(sumber)` menurunkan folder timing dari nama folder klip
+    (`sumber` -> `vo`, `sumber_kilat` -> `vo_kilat`), dan `_muat_durasi()`
+    sekarang **melempar `RuntimeError`** kalau `audio/vo/timing.json` bukan 10
+    babak, plus `_cek_timing_varian()` memastikan timing tiap varian sama
+    dengan subset timeline induk (±20 ms). Selftest butir "timing varian tidak
+    saling menimpa" menjaga keduanya.
 
 ## 8. Audit tata letak otomatis
 

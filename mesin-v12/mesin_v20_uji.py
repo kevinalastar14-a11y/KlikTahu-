@@ -246,6 +246,51 @@ def main(argv=None):
         return f"total {sum(t['dur']):.2f} s"
     cek("timing.json konsisten", timing)
 
+    def timing_varian():
+        """Varian kilat tidak boleh berbagi berkas timing dengan varian penuh.
+
+        Bug nyata (25 Okt 2026): `dari_klip()` mengabaikan folder `sumber`, jadi
+        menjalankan audio kilat menulis audio/vo/timing.json berisi 6 babak.
+        Render penuh berikutnya lalu diam-diam memakai durasi cadangan (75,9 s)
+        sementara audionya 79,3 s — video jadi 4554 frame, tidak ada peringatan.
+        Uji ini menjaga dua sisi: folder timing yang terpisah, dan mesin yang
+        berhenti keras kalau berkas induknya salah panjang.
+        """
+        import json
+        import tempfile
+        import mesin_v20_suara as S
+        assert E._path_timing("penuh").endswith(os.path.join("audio", "vo", "timing.json"))
+        assert E._path_timing("kilat").endswith(os.path.join("audio", "vo_kilat", "timing.json"))
+        assert S._folder_timing("audio/vo/sumber").endswith(os.path.join("audio", "vo"))
+        assert S._folder_timing("audio/vo_kilat/sumber_kilat").endswith(
+            os.path.join("audio", "vo_kilat"))
+
+        # mesin harus MENOLAK berkas induk yang panjangnya bukan 10 babak
+        asli = E._path_timing
+        with tempfile.TemporaryDirectory() as tmp:
+            salah = os.path.join(tmp, "timing.json")
+            json.dump({"dur": [7.5] * 6, "vo": [7.2] * 6, "lead": 0, "total": 45}, open(salah, "w"))
+            E._path_timing = lambda varian="penuh": salah
+            try:
+                E._muat_durasi()
+            except RuntimeError:
+                pass
+            else:
+                raise AssertionError("timing 6 babak diterima sebagai timeline induk")
+            finally:
+                E._path_timing = asli
+
+        # berkas nyata (kalau ada) harus konsisten satu sama lain
+        pk = E._path_timing("kilat")
+        if os.path.exists(pk):
+            dk = json.load(open(pk))["dur"]
+            harus = [E._DUR_INDUK[E.ALL_IDS.index(v)] for v in E.VARIAN["kilat"]]
+            assert len(dk) == len(harus)
+            assert all(abs(a - b) <= 0.02 for a, b in zip(dk, harus)), (dk, harus)
+            return f"{len(E._DUR_INDUK)} + {len(dk)} babak, konsisten"
+        return f"{len(E._DUR_INDUK)} babak, varian kilat belum dibangun"
+    cek("timing varian tidak saling menimpa", timing_varian)
+
     def potong_vo():
         """VO rekaman manusia harus dipotong di jeda, bukan rata len/n."""
         import mesin_v20_suara as S

@@ -93,26 +93,50 @@ NASKAH = [
 ]
 
 # ---------------------------------------------------------------- waktu babak
-# Kalau audio/vo/timing.json ada (hasil synthesize + ukur), pakai itu.
-_DEF_DUR = [7.4, 7.2, 8.2, 7.0, 8.0, 8.3, 8.4, 7.6, 7.4, 6.4]
+# Durasi babak SELALU berasal dari audio/vo/timing.json (hasil
+# mesin_v20_suara.py). Dulu ada cadangan `_DEF_DUR` + syarat "panjangnya 10":
+# kalau timing.json berisi 6 babak (varian kilat), syarat itu gagal dan mesin
+# diam-diam memakai angka cadangan 75,9 s — render jadi 4554 frame sementara
+# audio 79,32 s, tanpa satu pun peringatan. Sekarang: berkas salah atau hilang
+# = berhenti dengan pesan jelas, bukan render yang tampak normal tapi keliru.
+_DEF_DUR = [7.85, 7.695, 7.97, 7.515, 7.19, 7.975, 8.5, 8.8, 6.95, 8.87]
+
+
+def _path_timing(varian="penuh"):
+    """Timeline INDUK selalu audio/vo/timing.json (10 babak).
+
+    Varian kilat tidak punya timeline sendiri: ia memilih 6 babak dari timeline
+    induk lewat _IDX, dan `mesin_v20_suara.py` membangun audionya dari subset
+    yang sama. Dulu loading-nya "kalau panjangnya 10 pakai, kalau tidak pakai
+    angka cadangan", sehingga saat audio/vo/timing.json tertimpa timing 6 babak,
+    mesin diam-diam merender 75,9 s padahal audionya 79,3 s — video tampak
+    normal, durasi salah. Sekarang kondisi itu berhenti dengan pesan jelas.
+    """
+    sub = "vo" if varian == "penuh" else f"vo_{varian}"
+    return os.path.join(BASE, "audio", sub, "timing.json")
 
 
 def _muat_durasi():
-    p = os.path.join(BASE, "audio", "vo", "timing.json")
-    if os.path.exists(p):
-        try:
-            d = json.load(open(p))
-            dur = [float(x) for x in d["dur"]]
-            if len(dur) == len(_DEF_DUR) and abs(sum(dur) - sum(_DEF_DUR)) < 60:
-                return dur
-        except Exception:
-            pass
-    return list(_DEF_DUR)
+    p = _path_timing("penuh")
+    if not os.path.exists(p):
+        raise RuntimeError(
+            f"timeline induk tidak ada: {p}\n"
+            "jalankan dulu: python3 mesin_v20_suara.py --episode mesin_v20_ep56 "
+            "--dari-klip audio/vo/sumber --keluar keluaran/KlikTahu_Ep56_audio.m4a"
+        )
+    dur = [float(x) for x in json.load(open(p))["dur"]]
+    if len(dur) != len(_DEF_DUR):
+        raise RuntimeError(
+            f"{p} berisi {len(dur)} babak, seharusnya {len(_DEF_DUR)}. "
+            "Berkas ini tertimpa timing varian lain — bangun ulang audio penuh."
+        )
+    return dur
 
 
-# Varian keluaran. "penuh" = 10 babak (75,9 s) untuk penonton yang sudah kenal
+# Varian keluaran. "penuh" = 10 babak (79,3 s) untuk penonton yang sudah kenal
 # kanal; "kilat" = 6 babak (~45 s) untuk uji jangkauan feed — data 2026
-# menunjukkan pita 22-45 s punya retensi & loop terbaik.
+# menunjukkan pita 22-45 s punya retensi & loop terbaik. Varian "kilat" punya
+# audio/vo_kilat/timing.json sendiri; jangan pernah berbagi folder timing.
 VARIAN = {
     "penuh": ["hook", "nama", "sebaran", "waktu", "otak", "primata", "teori",
               "pemicu", "cara", "penutup"],
@@ -126,9 +150,34 @@ PILIH = VARIAN[_VAR]
 ALL_IDS = ["hook", "nama", "sebaran", "waktu", "otak", "primata", "teori",
            "pemicu", "cara", "penutup"]
 
-DUR = _muat_durasi()
+_DUR_INDUK = _muat_durasi()          # 10 babak, sumber kebenaran
+DUR = list(_DUR_INDUK)
 _IDX = [ALL_IDS.index(v) for v in PILIH]
 DUR = [DUR[i] for i in _IDX]
+# Cek silang: audio varian kilat dibangun dari subset babak yang sama. Kalau
+# angka di audio/vo_kilat/timing.json tidak lagi cocok dengan timeline induk,
+# caption & panel akan bergeser -> hentikan sekarang, jangan render.
+def _cek_timing_varian():
+    for nama, pilih in VARIAN.items():
+        p = _path_timing(nama)
+        if not os.path.exists(p):
+            continue
+        dur_v = [float(x) for x in json.load(open(p))["dur"]]
+        harus = [_DUR_INDUK[ALL_IDS.index(v)] for v in pilih]
+        if len(dur_v) != len(harus):
+            raise RuntimeError(
+                f"{p}: {len(dur_v)} babak, varian '{nama}' butuh {len(harus)}"
+            )
+        for i, (a, b) in enumerate(zip(dur_v, harus)):
+            if abs(a - b) > 0.02:
+                raise RuntimeError(
+                    f"{p} babak {i + 1}: {a:.2f} s != {b:.2f} s di timeline induk. "
+                    "Bangun ulang audio varian itu."
+                )
+
+
+_cek_timing_varian()
+
 MULAI = [0.0]
 for d in DUR[:-1]:
     MULAI.append(MULAI[-1] + d)

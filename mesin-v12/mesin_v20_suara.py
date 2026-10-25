@@ -397,7 +397,8 @@ def _rakit(klip, durasi, folder, keluar_m4a=None, target_lufs=None):
     total = max(LEAD + sum(max(MIN_DUR, d + GAP) for d in durasi), sum(durasi) + LEAD)
     timing = {"dur": [round(max(MIN_DUR, d + GAP), 3) for d in durasi],
               "vo": [round(d, 3) for d in durasi],
-              "lead": LEAD, "total": round(total, 3)}
+              "lead": LEAD, "total": round(total, 3),
+              "folder": os.path.basename(folder), "babak": len(durasi)}
     with open(os.path.join(folder, "timing.json"), "w") as f:
         json.dump(timing, f, indent=1)
     print(f"[timing] total {total:.2f} s -> {os.path.join(folder, 'timing.json')}")
@@ -413,6 +414,25 @@ def _rakit(klip, durasi, folder, keluar_m4a=None, target_lufs=None):
     return 0 if lap.get("lulus") else 1
 
 
+#: nama folder klip -> folder timing/master. Varian harus TERPISAH: dulu semua
+#: varian menulis ke audio/vo, sehingga menjalankan kilat menimpa timing penuh
+#: (audio/vo/timing.json jadi 6 babak) dan render penuh berikutnya diam-diam
+#: memakai timeline cadangan. Itu menghasilkan video 75,9 s dengan audio 79,3 s.
+_FOLDER_VARIAN = {"sumber": "vo", "sumber_kilat": "vo_kilat"}
+
+
+def _folder_timing(sumber):
+    """audio/vo/sumber -> audio/vo · audio/vo_kilat/sumber_kilat -> audio/vo_kilat"""
+    nama = os.path.basename(os.path.normpath(sumber))
+    if nama in _FOLDER_VARIAN:
+        return os.path.join(BASE, "audio", _FOLDER_VARIAN[nama])
+    # pola <apa>_<varian> -> folder varian itu, sisanya "<apa>"
+    if "_" in nama:
+        dasar, _, varian = nama.rpartition("_")
+        return os.path.join(BASE, "audio", f"{dasar}_{varian}")
+    return os.path.join(BASE, "audio", nama)
+
+
 def dari_klip(modul_nama, sumber, keluar_m4a=None, folder=None, target_lufs=None):
     """Satu klip per babak (mp3/wav/m4a apa pun) -> M4A siap mux.
 
@@ -422,7 +442,7 @@ def dari_klip(modul_nama, sumber, keluar_m4a=None, folder=None, target_lufs=None
     """
     mod = importlib.import_module(modul_nama)
     naskah = list(mod.NASKAH)
-    folder = folder or os.path.join(BASE, "audio", "vo")
+    folder = folder or _folder_timing(sumber)
     os.makedirs(folder, exist_ok=True)
     ext = (".mp3", ".wav", ".m4a", ".ogg", ".flac", ".aac")
     berkas = sorted(os.path.join(sumber, f) for f in os.listdir(sumber)

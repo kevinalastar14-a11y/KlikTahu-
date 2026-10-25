@@ -109,21 +109,24 @@ de-esser bekerja (desis murni → −3,0 dB), loudness −14,1 LUFS, TP −1,86 
 ## 6. Render
 
 ```bash
-# 1) audio (butuh jaringan untuk edge-tts)
+# 1) audio (butuh jaringan untuk edge-tts / rekaman manusia)
 python3 mesin_v20_suara.py --episode mesin_v20_ep56
-
-# 2) render gambar + mux audio
-python3 render_v20.py --episode ep56 \
-    --keluar dist/KlikTahu_Ep56_HypnicJerk_v20.mp4 \
-    --audio dist/KlikTahu_Ep56_audio.m4a --jobs 2 --preset slow --crf 16
-
-# 3) QC
-python3 qc_v20.py dist/KlikTahu_Ep56_HypnicJerk_v20.mp4 --episode ep56 \
-    --audio dist/KlikTahu_Ep56_audio.m4a --json build_v20/qc.json
-
-# 4) paket publikasi
+# 2) video 1080x1920 (2 inti, ~11 menit)
+KT_BUILD=/tmp/v20build python3 render_v20.py --episode ep56 --jobs 2 --preset slow --crf 18 \
+        --keluar keluaran/KlikTahu_Ep56_HypnicJerk_v20.mp4 --audio keluaran/KlikTahu_Ep56_audio.m4a
+# 3) QC 24 butir
+python3 qc_v20.py keluaran/KlikTahu_Ep56_HypnicJerk_v20.mp4 --episode ep56 \
+        --audio keluaran/KlikTahu_Ep56_audio.m4a --target-lufs=-20
+# 4) paket publikasi (thumbnail, metadata, SRT)
 python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
 ```
+
+> **Simpan hasil ke `keluaran/`, JANGAN ke `dist/`.** Folder bernama `dist`, `build`,
+> `out`, `target`, `node_modules` **tidak ikut tersimpan** di snapshot workspace —
+> video yang dirender ke `dist/` akan hilang dan pemilik tidak bisa membukanya.
+> `keluaran/` masuk `.gitignore` (binari tidak untuk git) tapi tetap tersimpan
+> sebagai berkas kerja. `KT_BUILD=/tmp/...` memindahkan potongan render ke luar
+> workspace supaya tidak menumpuk (potongan = ±2x ukuran video final).
 
 `--ukur` menampilkan biaya per babak; `--pratinjau 4` menulis 4 frame per babak
 + lembar kontak; `--potong 6` merender 6 detik pertama untuk uji cepat.

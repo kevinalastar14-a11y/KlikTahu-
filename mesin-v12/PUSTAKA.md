@@ -35,9 +35,9 @@
 ---
 
 ## Ep56 - Kamu Merasa Jatuh Tepat Sebelum Tidur? (Hypnic Jerk) — MESIN v20
-- Video: `dist/KlikTahu_Ep56_HypnicJerk_v20.mp4` — 1080x1920 · 60 fps · 75,90 s · 138,7 MB (varian `penuh`, QC 24/24)
-- Varian pendek: `dist/KlikTahu_Ep56_HypnicJerk_v20_kilat.mp4` — 45,60 s · 83,8 MB (6 babak, `KT_VARIAN=kilat`, QC 24/24)
-- Audio: `dist/KlikTahu_Ep56_audio.m4a` — AAC 320k 48 kHz (**bed audio**; VO menunggu mesin berjaringan)
+- Video: `keluaran/KlikTahu_Ep56_HypnicJerk_v20.mp4` — 1080x1920 · 60 fps · 75,90 s · 56,89 MB (CRF 18) (varian `penuh`, QC 24/24)
+- Varian pendek: `keluaran/KlikTahu_Ep56_HypnicJerk_v20_kilat.mp4` — 45,60 s · 34,34 MB (6 babak, `KT_VARIAN=kilat`, QC 24/24)
+- Audio: `keluaran/KlikTahu_Ep56_audio.m4a` — AAC 320k 48 kHz (**bed audio**; VO menunggu mesin berjaringan)
 - Teks siap tempel: `pustaka/Ep56_HypnicJerk/METADATA.md` + `SIAP_TEMPEL.md`
 - Thumbnail: `pustaka/Ep56_HypnicJerk/thumb_utama.jpg` (angka 7/10) + `thumb_alt.jpg` (uji A/B)
 - Subtitle: `pustaka/Ep56_HypnicJerk/subtitle_id.srt` — 12 baris, waktu diambil dari fungsi

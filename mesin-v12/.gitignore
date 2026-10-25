@@ -13,6 +13,7 @@ frames*/
 parts/
 part_*.mp4
 video_master.mp4
+keluaran/            # hasil render yang diserahkan ke pemilik (binari, bukan kode)
 dist/
 *.mp4
 *.mov

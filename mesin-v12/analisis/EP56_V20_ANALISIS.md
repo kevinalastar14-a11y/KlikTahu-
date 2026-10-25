@@ -209,7 +209,7 @@ jalur monetisasi Shorts.
    penuh; subtitle karaoke tetap memakai `CAPTION` yang lebih pendek.
 2. **Analisis kuantitatif video acuan** (kalau berkasnya tersedia): histogram
    warna per detik, tempo potongan, ukuran tipografi → samakan parameternya.
-3. **Varian `kilat`** sudah dirender: 45,60 s · 83,77 MB · QC 24/24.
+3. **Varian `kilat`** sudah dirender: 45,60 s · 34,34 MB · QC 24/24.
 4. **Subtitle**: `pustaka_v20.buat_srt()` sudah mengekspor `subtitle_id.srt`
    dari `CAPTION` dengan waktu yang sama seperti caption karaoke.
 5. **Uji A/B nyata**: unggah `penuh` dan `kilat` sebagai dua video terpisah

@@ -1119,7 +1119,7 @@ dengan tool buatan sendiri, dan buat Short yang lebih bagus lagi.
 | tata letak | isi 260–1010 (sepertiga layar kosong) | isi 190–1150 + scrim caption + panel data 1416–1732 |
 | audio | M4A 256k, chain ffmpeg + STFT 2x | **M4A 320k**, rantai numpy sendiri (biquad RBJ, de-esser adaptif, kompresor RMS, saturasi, loudnorm) |
 | QC | 17 butir | **24 butir** (HUD, caption, gerak, loop, MAE, loudness, TP) |
-| render | 467,7 s (13,2 fps gabungan) | 679,6 s untuk 4.554 frame (6,7 fps gabungan, `slow` CRF 16) |
+| render | 467,7 s (13,2 fps gabungan) | 526,3 s untuk 4.554 frame (8,7 fps gabungan, `slow` CRF 18) |
 
 ### Berkas baru
 `mesin_v20_cahaya.py` (1.145) · `mesin_v20_makhluk.py` (655) · `mesin_v20_ep56.py` (895) ·
@@ -1128,9 +1128,10 @@ dengan tool buatan sendiri, dan buat Short yang lebih bagus lagi.
 `docs/MESIN_V20.md` · `analisis/EP56_V20_ANALISIS.md` · `pustaka/Ep56_HypnicJerk/*`
 
 ### Hasil render Ep56 (penuh)
-1080×1920 · 60 fps · 75,90 s · 4.554 frame · **138,69 MB** · 14,6 Mbps · render 679,6 s ·
+1080×1920 · 60 fps · 75,90 s · 4.554 frame · **56,89 MB** · 6,0 Mbps · render 526,3 s ·
 QC **24/24 bersih** (MAE 2,17/255 · loop Δ0,0/255 · moov@36 · audio −20,4 LUFS bed audio · TP −1,9 dBTP).
-Varian `kilat`: 45,60 s · 2.736 frame · **83,77 MB** · render 426,7 s · QC **24/24**.
+Varian `kilat`: 45,60 s · 2.736 frame · **34,34 MB** · render 310,3 s · QC **24/24**.
+Semua berkas ada di `mesin-v12/keluaran/` (+ pratinjau 720p 5,41 MB & 3,36 MB).
 
 ### PENTING — VO belum dibuat (bukan bug, batas sandbox)
 `edge-tts` butuh `speech.platform.bing.com`, yang **tidak ada di daftar host keluar sandbox**
@@ -1159,7 +1160,8 @@ Lembar kontak 30 frame memperlihatkan teks yang bertumpuk. Semua diperbaiki
 | 7 | blend loop **menghantui dua caption** di 0,85 s terakhir | caption penutup diredupkan + dasar blend `frame(0, tanpa_caption=True)`; frame akhir tetap = frame 0 (MAE 0,0) |
 | 8 | kartu "70" / "10": tanda "%" kecil menggantung jauh di bawah angka | digambar satu kesatuan "70%"/"10%" 108 px + label 20 px |
 | 9 | thumbnail A/B masih memuat teks besar dari adegan (teks di atas teks) | `frame(..., tanpa_teks=True)` + `C.TANPA_TEKS` membungkam tipografi aktor |
-| 10 | - | jalur baru **VO rekaman manusia**: `mesin_v20_suara.py --dari-berkas` (potong pada jeda, uji sintetis 10 segmen lulus) |
+| 10 | **video yang sudah dirender HILANG** — pemilik bertanya "mana videonya?" | folder `dist/` tidak ikut snapshot; hasil sekarang disimpan di `mesin-v12/keluaran/` (+ `KT_BUILD=/tmp/v20build` agar potongan render tidak menumpuk) |
+| 11 | - | jalur baru **VO rekaman manusia**: `mesin_v20_suara.py --dari-berkas` (potong pada jeda, uji sintetis 10 segmen lulus) |
 
 Uji baru di `mesin_v20_uji.py` (12 butir, 15 detik):
 * **tata letak** — `C.AUDIT` merekam kotak tinta tiap teks; tolak keluar kanvas,

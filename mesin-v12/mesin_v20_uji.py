@@ -237,13 +237,23 @@ def main(argv=None):
     cek("de-esser bereaksi pada desis", audio_deess)
 
     def timing():
+        """Timeline yang dipakai mesin harus cocok dengan adegan yang dirender.
+
+        Dulu butir ini membandingkan audio/vo/timing.json (10 babak) dengan
+        len(E.SCENES); saat selftest dijalankan dengan KT_VARIAN=kilat, SCENES
+        hanya 6 sehingga uji gagal padahal mesinnya benar. Sekarang yang
+        diperiksa: timeline induk 10 babak DAN timeline aktif = subset _IDX.
+        """
         import json
-        p = os.path.join(BASE, "audio", "vo", "timing.json")
-        if not os.path.exists(p):
-            return "timing.json belum ada (VO belum dibuat) — pakai durasi bawaan"
-        t = json.load(open(p))
-        assert len(t["dur"]) == len(E.SCENES)
-        return f"total {sum(t['dur']):.2f} s"
+        p_induk = E._path_timing("penuh")
+        if not os.path.exists(p_induk):
+            raise AssertionError(f"timeline induk tidak ada: {p_induk}")
+        induk = json.load(open(p_induk))["dur"]
+        assert len(induk) == len(E._DEF_DUR), len(induk)
+        assert len(E.DUR) == len(E.SCENES), (len(E.DUR), len(E.SCENES))
+        harus = [induk[i] for i in E._IDX]
+        assert all(abs(a - b) < 1e-6 for a, b in zip(E.DUR, harus)), (E.DUR, harus)
+        return f"induk {sum(induk):.2f} s · varian {sum(E.DUR):.2f} s"
     cek("timing.json konsisten", timing)
 
     def timing_varian():

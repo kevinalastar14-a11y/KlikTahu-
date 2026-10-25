@@ -14,7 +14,7 @@ dengan kualitas yang jauh lebih tinggi:
   * animasi masuk ber-jeda (pop/stempel/highlighter) supaya tiap 1-2 detik ada
     sesuatu yang bergerak, bukan potongan patah;
   * tata letak bertingkat: HUD -> tab fakta -> headline -> kartu ilustrasi ->
-    angka -> panel -> sumber -> progres, semuanya punya zona tetap sehingga
+    angka -> panel -> sumber, semuanya punya zona tetap sehingga
     tidak ada elemen bertumpuk (jebakan 21 docs/MESIN_V20.md);
   * grain kertas halus supaya bidang krem tidak "berkunang" saat di-encode.
 
@@ -73,13 +73,12 @@ ABU = (150, 160, 168)
 # zona tata letak (dipakai episode supaya konsisten antar-babak)
 Z = dict(
     hud=0, hud_h=118,
-    tab=170,            # pusat tab "FAKTA n/7"
+    tab=178,            # pusat tab "FAKTA n/7"
     headline=236,       # awal headline
     kartu_y0=545, kartu_y1=1525,
     angka=1590,         # angka besar
     panel=1596,         # panel kertas
     sumber=1836,
-    progres=1878,
 )
 
 
@@ -113,6 +112,12 @@ def kertas_dasar(noda: bool = True) -> np.ndarray:
         for r, a in ((300, 0.13), (300, 0.13), (520, 0.09), (760, 0.06)):
             _cincin(k, 840, 1180, r, KERTAS_3, 1.6, a)
         _cincin(k, 210, 980, 380, KERTAS_3, 1.4, 0.07)
+    # vignette sangat halus: sudut turun 3,5 % supaya bidang besar tidak terasa datar
+    yy = np.linspace(-1, 1, H, dtype=np.float32)[:, None]
+    xx = np.linspace(-1, 1, W, dtype=np.float32)[None, :]
+    r2 = np.clip((xx * 0.78) ** 2 + (yy * 0.62) ** 2, 0, 1.4)
+    vig = 1.0 - 0.035 * r2
+    k = np.clip(k.astype(np.float32) * vig[..., None], 0, 255).astype(np.uint8)
     # grain kertas + serat halus
     g = I.paper_grain(H, W, 3.1, seed=17)
     k = np.clip(k.astype(np.float32) + g, 0, 255).astype(np.uint8)
@@ -143,24 +148,48 @@ def debu_spr(r: int = 5, warna=(150, 140, 126), alpha: int = 34) -> np.ndarray:
 @functools.lru_cache(maxsize=64)
 def kartu(w: int, h: int, r: int = 44, isi=KARTU, garis=None, lebar=0.0,
           bayang: bool = True) -> np.ndarray:
-    """Kartu bersudut bulat + bayangan lembut (sprite RGBA)."""
-    pad = 26
-    W_, H_ = int(w) + pad * 2, int(h) + pad * 2
+    """Kartu bersudut bulat dengan bayangan dua lapis (dekat + jauh).
 
-    def gambar(p):
-        p.rrect(pad, pad, pad + w, pad + h, r, fill=isi, outline=garis,
-                width=lebar if garis else 0)
-    spr = raster(W_, H_, gambar, ss=2)
-    if bayang:
-        a = spr[..., 3].astype(np.float32) / 255.0
-        sh = I.gblur((a * 255).astype(np.uint8), 11).astype(np.float32) / 255.0 * 0.30
-        out = spr.copy()
-        out[..., 3] = np.clip(a + sh * 0.9, 0, 1) * 255
-        out[..., 0] = np.where(a > 0.4, isi[0], 74)
-        out[..., 1] = np.where(a > 0.4, isi[1], 66)
-        out[..., 2] = np.where(a > 0.4, isi[2], 58)
-    else:
-        out = spr
+    Satu lapis blur membuat kartu terlihat "ditempel"; dua lapis (kontak rapat
+    + sebaran lebar) memberi kesan kertas tebal di atas meja. Ditambah garis
+    cahaya tipis di tepi atas-dalam supaya tepinya tidak terlihat datar.
+    """
+    pad = 34
+    W_, H_ = int(w) + pad * 2, int(h) + pad * 2
+    spr = raster(W_, H_, lambda p: p.rrect(pad, pad, pad + w, pad + h, r,
+                                           fill=isi, outline=garis,
+                                           width=lebar if garis else 0), ss=2)
+    a = spr[..., 3].astype(np.float32) / 255.0
+    if not bayang:
+        return spr
+    # dua lapis bayangan: kontak (blur 6, geser 5) + sebaran (blur 24, geser 14)
+    def lapis(blur, geser, kuat):
+        m = np.zeros_like(a)
+        src = (a * 255).astype(np.uint8)
+        g = I.gblur(src, blur).astype(np.float32) / 255.0
+        m[geser:] = g[:H_ - geser] if geser else g
+        return m * kuat
+    s1 = lapis(5, 4, 0.26)
+    s2 = lapis(26, 15, 0.15)
+    sh = np.clip(s1 + s2 * (1 - s1), 0, 1)
+    out = spr.copy()
+    alpha = a + sh * (1 - a)
+    out[..., 3] = (np.clip(alpha, 0, 1) * 255).astype(np.uint8)
+    isi_a = (a > 0.55)[..., None]
+    bayang_warna = np.array((66, 58, 47), np.float32)
+    dasar = np.where(isi_a, np.array(isi, np.float32), bayang_warna)
+    # tepi bayangan sedikit lebih hangat dari bayangan murni hitam
+    out[..., :3] = dasar.astype(np.uint8)
+    # garis cahaya di tepi atas-dalam (dipotong gradasi vertikal)
+    tepi = raster(W_, H_, lambda p: p.rrect(pad + 3, pad + 3, pad + w - 3,
+                                            pad + h - 3, max(4, r - 3),
+                                            outline=(255, 255, 255, 120),
+                                            width=2.2), ss=2)
+    yy = np.linspace(0, 1, H_, dtype=np.float32)[:, None]
+    fade = np.clip(1.0 - yy * 2.4, 0, 1)[:, :, None] * 0.55
+    al = (tepi[..., 3:4].astype(np.float32) / 255.0) * fade
+    out[..., :3] = np.clip(out[..., :3].astype(np.float32) +
+                           255 * al * (1 - out[..., :3] / 255.0), 0, 255).astype(np.uint8)
     return out
 
 
@@ -326,9 +355,17 @@ def tempel_sub(dst, spr, x: float, y: float, alpha: float = 1.0):
         blit(dst, spr, x0, y0, alpha)
         return
     w = [(1 - fx) * (1 - fy), fx * (1 - fy), (1 - fx) * fy, fx * fy]
+    # Komposit BERURUTAN, bukan 4 tempelan dengan bobot mentah: menempel sprite
+    # yang sama empat kali dengan bobot 1/4 menghasilkan cakupan 0,68, bukan 1 —
+    # ilustrasi jadi pucat dan latar tembus (bug ini sempat membuat kartu navy
+    # CTA terlihat abu-abu). Bobot diubah dulu menjadi alpha berurutan supaya
+    # total cakupannya tepat 1.
+    sisa = 1.0
     for (dx, dy, k) in ((0, 0, w[0]), (1, 0, w[1]), (0, 1, w[2]), (1, 1, w[3])):
-        if k > 0.004:
-            blit(dst, spr, x0 + dx, y0 + dy, alpha * k)
+        if k <= 0.004 or sisa <= 1e-4:
+            continue
+        blit(dst, spr, x0 + dx, y0 + dy, alpha * min(1.0, k / sisa))
+        sisa -= k
 
 
 def tempel_c(dst, spr, cx, cy, alpha=1.0):
@@ -336,15 +373,63 @@ def tempel_c(dst, spr, cx, cy, alpha=1.0):
 
 
 # =============================================================== 4. HUD
-@functools.lru_cache(maxsize=8)
-def merek() -> np.ndarray:
-    """Wordmark 'KlikTahu' + titik coral (kiri atas)."""
-    t = spr_text("KlikTahu", TINTA, F_BOLD, 38, 0.2)
-    w, h = t.shape[1] + 40, t.shape[0]
-    spr = np.zeros((h, w, 4), np.uint8)
-    blit(spr, raster(18, 18, lambda p: p.circ(9, 9, 7, fill=CORAL), ss=2), 2, h // 2 - 9)
-    blit(spr, t, 28, 0)
+@functools.lru_cache(maxsize=4)
+def _monogram(r: int = 28) -> np.ndarray:
+    """Lencana merek: lingkaran coral bergradasi + huruf K putih (tengah tepat)."""
+    n = r * 2 + 8
+    spr = raster(n, n, lambda p: p.circ(n / 2, n / 2, r, fill=CORAL), ss=3)
+    # gradasi lembut: kiri-atas lebih terang, kanan-bawah lebih gelap
+    yy = np.linspace(0, 1, n, dtype=np.float32)[:, None]
+    xx = np.linspace(0, 1, n, dtype=np.float32)[None, :]
+    a = spr[..., 3:4].astype(np.float32) / 255.0
+    c = spr[..., :3].astype(np.float32)
+    terang = (1.0 + 0.16 * (1 - (xx * 0.55 + yy * 0.45)))[..., None]
+    c = np.clip(c * terang, 0, 255) * (1 - 0.12 * (xx ** 2 + yy ** 2)[..., None])
+    spr[..., :3] = np.clip(c * a + spr[..., :3] * (1 - a), 0, 255).astype(np.uint8)
+    # huruf K: diukur dulu supaya benar-benar di tengah
+    k = spr_text("K", (255, 252, 246), F_BOLD, int(r * 1.24), -0.2)
+    ys, xs = np.where(k[..., 3] > 20)
+    cy = int((ys.min() + ys.max()) / 2)
+    cx = int((xs.min() + xs.max()) / 2)
+    blit_c_rgba(spr, k, n // 2 - (cx - k.shape[1] // 2), n // 2 - (cy - k.shape[0] // 2))
     return spr
+
+
+@functools.lru_cache(maxsize=4)
+def watermark() -> np.ndarray:
+    """Watermark `@KlikTahu`: lencana K + nama akun, berbayang halus.
+
+    Versi sebelumnya hanya teks "KlikTahu" + titik kecil — terbaca seperti judul,
+    bukan penanda kanal. Sekarang: lencana coral (dikenali di feed), "@" coral
+    sebagai aksen merek, nama akun tinta, dengan bayangan lembut dua lapis.
+    """
+    at = spr_text("@", CORAL, F_BOLD, 44, 0.4)
+    isi = spr_text("KlikTahu", TINTA, F_BOLD, 42, 0.2)
+    mon = _monogram(28)
+    gap = 13
+    h = max(mon.shape[0], isi.shape[0], at.shape[0])
+    w = mon.shape[1] + gap + at.shape[1] - 2 + isi.shape[1]
+    lapis = np.zeros((h, w, 4), np.uint8)
+    yb = (h - mon.shape[0]) // 2
+    blit(lapis, mon, 0, yb)
+    blit(lapis, at, mon.shape[1] + gap, (h - at.shape[0]) // 2 + 2)
+    blit(lapis, isi, mon.shape[1] + gap + at.shape[1] - 2, (h - isi.shape[0]) // 2)
+    pad = 14
+    kanvas = np.zeros((h + pad * 2, w + pad * 2, 4), np.uint8)
+    # bayangan: satu lapis rapat + satu lapis lebar
+    # Bayangan dibuat dari SALINAN yang digeser, bukan blur: blur apa pun
+    # menyisakan kotak samar di sekitar teks (terlihat di atas kertas krem).
+    for kuat, dy, dx in ((0.30, 3, 0), (0.14, 6, 1)):
+        sh = (lapis[..., 3].astype(np.float32) / 255.0) * kuat
+        reg = kanvas[pad + dy:pad + dy + h, pad + dx:pad + dx + w]
+        reg[..., 3] = np.maximum(reg[..., 3], (sh * 255).astype(np.uint8))
+        reg[..., :3] = (54, 48, 40)
+    blit_c_rgba(kanvas, lapis, kanvas.shape[1] // 2, kanvas.shape[0] // 2)
+    # pangkas ke isi + margin: sisa kanvas kosong tidak perlu ikut ditempel
+    ys, xs = np.where(kanvas[..., 3] > 10)
+    m = 6
+    return kanvas[max(0, ys.min() - m):ys.max() + m,
+                  max(0, xs.min() - m):xs.max() + m].copy()
 
 
 @functools.lru_cache(maxsize=32)
@@ -353,50 +438,11 @@ def label_kategori(kat: str) -> np.ndarray:
 
 
 def hud(k, kategori: str, alpha: float = 1.0):
-    """Merek kiri atas + label kategori kanan atas (seperti acuan)."""
-    m = merek()
-    blit(k, m, 66, 44, alpha)
+    """Watermark kiri atas + label kategori kanan atas."""
+    m = watermark()
+    blit(k, m, 56, 34, 0.94 * alpha)
     lb = label_kategori(kategori)
-    blit(k, lb, W - 66 - lb.shape[1], 40, alpha)
-
-
-@functools.lru_cache(maxsize=8)
-def progres_spr(total: int = 7) -> np.ndarray:
-    """Bar progres segmen (bawah layar): 7 kotak, aktif jadi coral penuh."""
-    w, h = 1080, 24
-    spr = np.zeros((h, w, 4), np.uint8)
-    n = total
-    x0, x1 = 72, w - 72
-    gap = 12
-    bw = (x1 - x0 - gap * (n - 1)) / n
-    for i in range(n):
-        x = x0 + i * (bw + gap)
-        s = raster(int(bw), 8, lambda p, i=i: p.rrect(0, 0, bw, 8, 4, fill=KERTAS_3), ss=2)
-        blit(spr, s, int(x), 8, 0.55)
-    return spr
-
-
-def gambar_progres(k, indeks: int, frac: float, total: int = 7):
-    """Segmen progres: yang sudah lewat terisi coral, yang aktif terisi sebagian."""
-    n = total
-    x0, x1 = 72, W - 72
-    gap = 12
-    bw = (x1 - x0 - gap * (n - 1)) / n
-    for i in range(n):
-        x = x0 + i * (bw + gap)
-        if i < indeks:
-            f = 1.0
-        elif i == indeks:
-            f = clamp(frac)
-        else:
-            f = 0.0
-        # dasar
-        s = raster(int(bw), 8, lambda p: p.rrect(0, 0, bw, 8, 4, fill=KERTAS_3), ss=2)
-        blit(k, s, int(x), Z["progres"], 0.85)
-        if f > 0.01:
-            wf = max(8, bw * f)
-            s2 = raster(int(bw), 8, lambda p: p.rrect(0, 0, wf, 8, 4, fill=CORAL), ss=2)
-            blit(k, s2, int(x), Z["progres"], 1.0)
+    blit(k, lb, W - 60 - lb.shape[1], 42, alpha)
 
 
 def sumber_teks(k, t: str, alpha: float = 1.0):
@@ -529,26 +575,51 @@ def ikan(w=560, h=300, warna=NAVY, perut=None, bintik=True,
         p.poly(_haluskan([(x * w, y * h) for x, y in _SILUET], n=5), fill=warna)
 
     def detail(p):
-        p.line([(w * 0.228, h * 0.410), (w * 0.246, h * 0.700)],
-               shade(warna, 0.72), h * 0.014)
-        p.line([(w * 0.050, h * 0.552), (w * 0.136, h * 0.582)], TINTA, h * 0.017)
+        top = _haluskan([(x * w, y * h) for x, y in _SILUET[:18]], n=4)
+        terang = mix(warna, (255, 255, 255), 0.55)
+        pintar = mix(warna, (255, 255, 255), 0.38)
+        gelap = shade(warna, 0.74)
+        # ---- sirip punggung: tulang-tulang sirip
+        for i, (x0, y0, x1, y1) in enumerate((
+                (0.286, 0.300, 0.298, 0.145), (0.312, 0.296, 0.330, 0.132),
+                (0.338, 0.296, 0.352, 0.148), (0.564, 0.330, 0.576, 0.212),
+                (0.588, 0.330, 0.600, 0.205))):
+            p.line([(w * x0, h * y0), (w * x1, h * y1)], pintar + (150,), h * 0.008)
+        # ---- sirip dada: tulang sirip (ciri "lobed fin")
+        for i in range(5):
+            p.line([(w * (0.236 + i * 0.012), h * 0.760),
+                    (w * (0.214 + i * 0.026), h * 0.930)], pintar + (150,), h * 0.008)
+        # ---- ekor: tulang sirip menyebar dari batang ekor
+        for i, ty in enumerate((0.22, 0.34, 0.44, 0.56, 0.66, 0.78)):
+            p.line([(w * 0.800, h * 0.500), (w * 0.938, h * ty)], pintar + (120,), h * 0.007)
+        # ---- penutup insang: dua garis melengkung pendek (bukan busur penuh,
+        #      busur besar terbaca sebagai lingkaran di badan ikan)
+        p.line([(w * 0.226, h * 0.372), (w * 0.214, h * 0.520), (w * 0.244, h * 0.688)],
+               shade(warna, 0.70) + (210,), h * 0.013)
+        p.line([(w * 0.252, h * 0.400), (w * 0.240, h * 0.520), (w * 0.268, h * 0.660)],
+               gelap + (90,), h * 0.008)
+        # ---- sisik halus (dua baris samar)
+        for baris, (y0, jarak) in enumerate(((0.470, 0.030), (0.540, 0.034))):
+            for i in range(9):
+                cx = w * (0.270 + i * 0.048)
+                cy = h * (y0 + jarak * i * 0.12)
+                p.arc(cx, cy, cx + w * 0.040, cy + h * 0.040, 205, 335,
+                      gelap + (70,), h * 0.006)
+        # ---- mulut & bibir bawah
+        p.line([(w * 0.050, h * 0.552), (w * 0.136, h * 0.582)], TINTA + (235,), h * 0.017)
+        p.line([(w * 0.058, h * 0.588), (w * 0.128, h * 0.606)], gelap + (150,), h * 0.008)
+        # ---- mata bercincin emas
         p.circ(w * 0.152, h * 0.432, h * 0.055, fill=GOLD if mata_emas else perut)
+        p.circ(w * 0.152, h * 0.432, h * 0.055, outline=(120, 86, 20, 120), width=h * 0.006)
         p.circ(w * 0.152, h * 0.432, h * 0.029, fill=TINTA)
         p.circ(w * 0.144, h * 0.416, h * 0.010, fill=(252, 250, 244))
-        if sisik:
-            for i in range(7):
-                for j in range(3):
-                    cx = w * (0.28 + i * 0.052)
-                    cy2 = h * (0.44 + j * 0.055)
-                    p.arc(cx, cy2, cx + w * 0.05, cy2 + h * 0.05, 200, 340,
-                          shade(warna, 0.80), h * 0.006)
+        p.circ(w * 0.160, h * 0.442, h * 0.005, fill=(252, 250, 244, 170))
         if bintik:
             rr = rng(31)
             for i in range(16):
                 bx = w * rr.uniform(0.19, 0.60)
                 by = h * (0.315 + 0.070 * (bx / w)) + h * rr.uniform(0.0, 0.05)
                 p.circ(bx, by, h * rr.uniform(0.006, 0.010), fill=(250, 247, 238, 190))
-
     badan = raster(w, h, siluet, ss=2)
     M = badan[..., 3].astype(np.float32) / 255.0
     yy = np.arange(h, dtype=np.float32)[:, None] / max(1, h)
@@ -562,10 +633,21 @@ def ikan(w=560, h=300, warna=NAVY, perut=None, bintik=True,
         rgb[..., c] = rgb[..., c] * (1 - g) + perut[c] * g
     badan[..., :3] = np.clip(rgb, 0, 255).astype(np.uint8)
     det = raster(w, h, detail, ss=2)
+    # semua detail DIPOTONG ke bentuk badan: tanpa ini, tulang sirip dan garis
+    # insang mencuat keluar siluet (terlihat seperti rambut di tepi ikan).
+    mk = (M > 0.55)
+    det[..., 3] = (det[..., 3].astype(np.float32) * mk).astype(np.uint8)
     a = det[..., 3:4].astype(np.float32) / 255.0
     badan[..., :3] = (det[..., :3].astype(np.float32) * a +
                       badan[..., :3].astype(np.float32) * (1 - a)).astype(np.uint8)
-    badan[..., 3] = np.maximum(badan[..., 3], det[..., 3])
+    # ---- rim light: piksel tepi ATAS badan (mask digeser ke bawah lalu dikurangkan)
+    gs = 4
+    geser = np.zeros_like(M)
+    geser[gs:] = M[:-gs]
+    rim = np.clip(M - geser, 0, 1)[..., None]
+    badan[..., :3] = np.clip(badan[..., :3].astype(np.float32) +
+                             rim * np.array((150, 180, 205), np.float32) * 0.30,
+                             0, 255).astype(np.uint8)
     return badan
 
 
@@ -592,34 +674,100 @@ def manusia(h=520, warna=(96, 108, 118), tinggi_label=None) -> np.ndarray:
     return raster(w, h, gambar, ss=2)
 
 
+@functools.lru_cache(maxsize=6)
+def _laut_dasar(w: int, h: int, atas, bawah) -> np.ndarray:
+    """Gradasi laut mulus (float + dither) — bukan pita datar.
+
+    Versi pertama memakai 46 pita warna solid; di 1080p pita itu terlihat
+    sebagai tangga (banding). Gradasi float + derau ±1 tingkat menghilangkan
+    tangga tanpa menambah biaya encode berarti.
+    """
+    yy = np.linspace(0, 1, h, dtype=np.float32)[:, None]
+    xx = np.linspace(0, 1, w, dtype=np.float32)[None, :]
+    f = np.clip(yy, 0, 1) ** 0.82
+    a3 = np.array(atas, np.float32)[None, None, :]
+    b3 = np.array(bawah, np.float32)[None, None, :]
+    img = a3 + (b3 - a3) * f[..., None]
+    # cahaya dari kiri atas: sedikit lebih terang di kiri, meredup ke kanan
+    img = img * (1.04 - 0.10 * xx)[..., None]
+    # sinar permukaan (kaustik): beberapa pita diagonal lembut di 30 % atas
+    for i, (cx, wd, amt) in enumerate(((0.18, 0.16, 0.13), (0.42, 0.10, 0.09),
+                                       (0.68, 0.14, 0.07), (0.88, 0.09, 0.05))):
+        pita = np.exp(-(((xx - cx - yy * 0.18) / wd) ** 2)) * np.clip(1 - yy * 3.1, 0, 1)
+        img = img + (pita * 255 * amt)[..., None]
+    # vignette dalam kartu
+    r2 = np.clip(((xx - 0.5) * 1.5) ** 2 + ((yy - 0.5) * 1.1) ** 2, 0, 1.2)
+    img = img * (1.0 - 0.16 * r2)[..., None]
+    rr = np.random.default_rng(5)
+    img = img + rr.normal(0, 0.9, (h, w, 1)).astype(np.float32)
+    return np.clip(img, 0, 255).astype(np.uint8)
+
+
 def kolom_laut(w=420, h=760, atas=(178, 214, 230), bawah=(16, 44, 74),
                bintang=0, jarak_label=(), t=0.0, kedalaman=()):
-    """Kolom kedalaman laut: gradasi + garis kedalaman + ikan kecil.
+    """Kolom kedalaman laut: gradasi mulus + sinar + gelembung + garis kedalaman."""
+    k = _laut_dasar(int(w), int(h), tuple(atas), tuple(bawah)).copy()
 
-    `kedalaman` = daftar (fraksi_kedalaman, teks) untuk label meter (mis. 200 m).
-    """
-    def gambar(p):
-        # gradasi bertingkat (flat banding halus, bukan blur)
-        n = 46
-        for i in range(n):
-            f = i / (n - 1)
-            c = mix(atas, bawah, f ** 0.85)
-            p.rect(0, h * i / n, w, h * (i + 1) / n + 1, fill=c)
+    def hias(p):
         # permukaan bergelombang
-        p.rect(0, 0, w, h * 0.02, fill=(235, 246, 250))
+        p.rect(0, 0, w, max(2, h * 0.008), fill=(232, 246, 250, 200))
         for i, (f, _lab) in enumerate(kedalaman):
             yy = h * f
-            p.line([(0, yy), (w, yy)], (255, 255, 255, 90), 2.0)
+            p.line([(0, yy), (w, yy)], (255, 255, 255, 70), 1.6)
+        rr = rng(41)
         for i in range(bintang):
-            r = rng(100 + i)
-            x = float(r.uniform(0.05, 0.95) * w)
-            y = float(r.uniform(0.15, 0.95) * h)
-            p.circ(x, y, 2.2, fill=(255, 255, 255, 110))
-    spr = raster(w, h, gambar, ss=2)
-    # mask sudut membulat
-    m = mask_rounded(w, h, 26)
-    spr[..., 3] = (spr[..., 3].astype(np.uint16) * m // 255).astype(np.uint8)
+            x = float(rr.uniform(0.04, 0.96) * w)
+            y = float(rr.uniform(0.12, 0.96) * h)
+            r = float(rr.uniform(1.2, 2.6))
+            p.circ(x, y, r, fill=(255, 255, 255, int(rr.uniform(60, 130))))
+    lap = raster(int(w), int(h), hias, ss=2)
+    a = lap[..., 3:4].astype(np.float32) / 255.0
+    k = (lap[..., :3].astype(np.float32) * a + k.astype(np.float32) * (1 - a)).astype(np.uint8)
+    out = np.dstack([k, np.full((int(h), int(w)), 255, np.uint8)])
+    m = mask_rounded(int(w), int(h), 26)
+    out[..., 3] = (out[..., 3].astype(np.uint16) * m // 255).astype(np.uint8)
+    return out
+
+
+@functools.lru_cache(maxsize=8)
+def sinar_laut(w: int = 300, h: int = 900) -> np.ndarray:
+    """Berkas sinar lembut untuk laut (ditempel aditif, digeser pelan)."""
+    spr = np.zeros((h, w, 4), np.uint8)
+    yy = np.linspace(0, 1, h, dtype=np.float32)[:, None]
+    xx = np.linspace(-1, 1, w, dtype=np.float32)[None, :]
+    for cx, wd, amt in ((-0.35, 0.22, 0.55), (0.10, 0.14, 0.85), (0.55, 0.20, 0.45)):
+        a = np.exp(-(((xx - cx * (1 + yy * 0.5)) / wd) ** 2))
+        a *= np.clip(1.0 - yy * 0.85, 0, 1) * amt
+        spr[..., 3] = np.maximum(spr[..., 3], (a * 255).astype(np.uint8))
+    spr[..., :3] = 240
     return spr
+
+
+@functools.lru_cache(maxsize=24)
+def bayang_spr(w: int, h: int, blur: int = 14, kuat: float = 0.26) -> np.ndarray:
+    """Bayangan kontak berbentuk elips (dipakai di bawah ilustrasi & stiker).
+
+    Tanpa bayangan, ilustrasi tampak melayang di atas kartu. Elips lembut di
+    bawah objek cukup untuk memberi kesan menempel tanpa biaya blur per frame
+    (sprite-nya di-cache).
+    """
+    w, h = max(8, int(w)), max(12, int(h))
+    spr = raster(w, h, lambda p: p.ell(0, h * 0.30, w, h, fill=(60, 52, 44, 255)), ss=2)
+    a = I.gblur(spr[..., 3], blur).astype(np.float32) / 255.0 * kuat
+    spr[..., 3] = np.clip(a * 255, 0, 255).astype(np.uint8)
+    spr[..., :3] = (58, 50, 42)
+    return spr
+
+
+@functools.lru_cache(maxsize=12)
+def gelembung_spr(r: int = 6) -> np.ndarray:
+    """Gelembung kecil: cincin tipis + titik cahaya."""
+    n = int(r * 2 + 6)
+    return raster(n, n, lambda p: [
+        p.circ(n / 2, n / 2, r, outline=(255, 255, 255, 150), width=1.6),
+        p.circ(n / 2 - r * 0.35, n / 2 - r * 0.35, max(1.0, r * 0.22),
+               fill=(255, 255, 255, 200)),
+    ], ss=2)
 
 
 def mask_rounded(w, h, r):
@@ -793,6 +941,32 @@ def telur_embrio(w=360, h=200, n=5) -> np.ndarray:
 
 
 # =============================================================== 7. komposisi beranimasi
+_SKALA_CACHE: dict = {}
+
+
+def _skala(spr: np.ndarray, s: float) -> np.ndarray:
+    """Perkecil/perbesar sprite dengan cache.
+
+    Skala dibulatkan ke 40 langkah supaya hasilnya bisa dipakai ulang antar
+    frame (animasi 0,4 s = 24 frame, jauh lebih hemat). LANCZOS dipakai saat
+    mengecil agar garis huruf/tulang sirip tidak bergetar.
+    """
+    s = round(max(0.4, min(1.6, s)) * 40) / 40.0
+    key = (id(spr), s)
+    hit = _SKALA_CACHE.get(key)
+    if hit is not None:
+        return hit
+    from PIL import Image
+    nw = max(1, int(spr.shape[1] * s))
+    nh = max(1, int(spr.shape[0] * s))
+    im = Image.fromarray(spr, "RGBA").resize((nw, nh), Image.LANCZOS)
+    out = np.array(im)
+    if len(_SKALA_CACHE) > 240:
+        _SKALA_CACHE.clear()
+    _SKALA_CACHE[key] = out
+    return out
+
+
 class Lapis:
     """Satu elemen yang muncul pada waktu tertentu di dalam babak.
 
@@ -830,6 +1004,12 @@ class Komposisi:
         self.dasar = kertas_dasar().copy() if dasar is None else dasar.copy()
         self.pad = 30 if hidup else 0
         self.hidup = hidup
+        # Latar bergeser diambil dari `dasar` yang diperluas. Penting: dibuat
+        # SAAT PERTAMA dipakai (lazy), karena episode menambahkan watermark,
+        # tab, dan sumber ke `dasar` SESUDAH Komposisi dibuat. Snapshot di
+        # __init__ membuat HUD hilang sama sekali (bug nyata, terdeteksi lewat
+        # pemeriksaan "HUD hadir" di QC).
+        self.basis = None
         # butir debu: posisi & fase deterministik supaya render paralel identik
         rr = rng(97)
         self.debu = [(float(rr.uniform(0, W)), float(rr.uniform(0, H)),
@@ -867,10 +1047,14 @@ class Komposisi:
         """Ambil latar; kalau `hidup`, geser sedikit supaya tidak beku."""
         if not self.hidup:
             return self.dasar.copy()
+        if self.basis is None:
+            self.basis = np.pad(self.dasar, ((self.pad, self.pad),
+                                             (self.pad, self.pad), (0, 0)),
+                                mode="edge")
         pad = self.pad
         ox = int(round(pad + 6.0 * math.sin(lokal_t * 0.35)))
         oy = int(round(pad + 5.0 * math.cos(lokal_t * 0.28)))
-        k = kertas_pad(pad)[oy:oy + H, ox:ox + W].copy()
+        k = self.basis[oy:oy + H, ox:ox + W].copy()
         # debu kertas melayang (gerak sangat lambat, 1-2 px/detik)
         for (bx, by, r, fase, sp) in self.debu:
             dx = 14.0 * math.sin(lokal_t * 0.19 * sp + fase)
@@ -890,17 +1074,14 @@ class Komposisi:
             a = l.alpha
             x, y = l.x, l.y
             if l.anim == "pop":
-                s = 0.72 + 0.28 * I.eob(p)
+                s = 0.90 + 0.10 * I.eob(p)
                 spr = l.spr
                 if p < 0.999:
-                    # skala sprite murah: potong/regangkan lewat PIL hanya saat animasi
-                    from PIL import Image
-                    im = Image.fromarray(spr, "RGBA")
-                    nw, nh = max(1, int(spr.shape[1] * s)), max(1, int(spr.shape[0] * s))
-                    im = im.resize((nw, nh), Image.BILINEAR)
-                    spr = np.array(im)
-                    x = int(l.cx - nw // 2)
-                    y = int(l.cy - nh // 2)
+                    spr = _skala(spr, s)
+                    x = l.cx - spr.shape[1] / 2
+                    y = l.cy - spr.shape[0] / 2
+                    tempel_sub(k, spr, x, y, a * clamp(p * 2.6))
+                    continue
                 a = a * clamp(p * 3.2)
                 blit(k, spr, x, y, a)
             elif l.anim == "turun":
@@ -914,14 +1095,10 @@ class Komposisi:
                 blit(k, l.spr[:, :n], l.x, l.y, a)
             elif l.anim == "goyang":
                 dy = l.amp * math.sin(2 * math.pi * lokal_t / l.lam + l.fase)
-                s = 0.86 + 0.14 * I.eob(p)
+                s = 0.94 + 0.06 * I.eob(p)
                 spr = l.spr
                 if p < 0.999:
-                    from PIL import Image
-                    im = Image.fromarray(spr, "RGBA")
-                    nw, nh = max(1, int(spr.shape[1] * s)), max(1, int(spr.shape[0] * s))
-                    im = im.resize((nw, nh), Image.BILINEAR)
-                    spr = np.array(im)
+                    spr = _skala(spr, s)
                 tempel_sub(k, spr,
                            l.x + (l.spr.shape[1] - spr.shape[1]) / 2,
                            l.y + dy + (l.spr.shape[0] - spr.shape[0]) / 2,

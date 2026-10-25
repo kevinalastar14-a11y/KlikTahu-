@@ -46,8 +46,8 @@ sama (lihat §7).
    koran, grafik batang, termometer).
 5. **Stiker caption** hitam-putih atau coral (mis. "BENARKAH?", "JARANG JADI FOSIL").
 6. **Angka besar** di bawah (mis. `10,03 m`, `16,8 telapak tangan`, `73 persen`).
-7. **Bar progres segmen** di tepi bawah.
-8. **Sumber** kecil di atas progres.
+7. **Bar progres segmen** di tepi bawah — *di acuan*. **Tidak dipakai di v21** (lihat §2.1).
+8. **Sumber** kecil di tepi bawah.
 
 ### 1.5 Kelemahan yang terukur pada acuan
 | kelemahan | bukti |
@@ -63,8 +63,16 @@ sama (lihat §7).
 
 Kertas krem + gumpalan/cincin samar, tinta navy, coral sebagai aksen tunggal, tab FAKTA n/7,
 headline besar dengan satu kata distabilo, kartu ilustrasi vektor, stiker caption, angka besar,
-progres segmen, HUD merek + kategori. Semua itu dipertahankan **karena itulah yang membuat
-video lama mudah dikenali dan enak diikuti**.
+HUD merek + kategori. Semua itu dipertahankan **karena itulah yang membuat video lama mudah
+dikenali dan enak diikuti**.
+
+### 2.1 Yang sengaja TIDAK ditiru
+
+| unsur acuan | keputusan | alasan |
+|---|---|---|
+| bar progres segmen di bawah layar | **dihapus total** | pemilik meminta tidak ada indikator durasi; di Shorts bar progres memancing penonton menebak sisa waktu lalu swipe |
+| stabilo yang hanya menutup paruh bawah kata | **diganti blok penuh** | acuan sendiri memakai blok tinggi (mis. "SEBESAR APA"); blok yang hanya menutup paruh bawah terbaca sebagai garis bawah |
+| watermark `• KlikTahu` 16 px | **lencana K gradasi + `@KlikTahu`** | harus terbaca sebagai penanda kanal walau layar 4", tetapi tidak boleh bersaing dengan headline |
 
 ## 3. Yang dinaikkan (semua aspek kecuali resolusi — dan resolusi pun naik sesuai standar)
 

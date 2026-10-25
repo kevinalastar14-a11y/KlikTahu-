@@ -161,26 +161,59 @@ def _judul(komp, baris, t0=0.10, size=None, warna=TINTA, sorot=None, d=10.0):
     y0 = Z["headline"]
     for i, b in enumerate(baris):
         y = y0 + i * lh
+        spr = K.teks(b, warna, size, I.F_BOLD, -0.6)
         if sorot and sorot[0] == i:
+            # Ukuran stabilo diambil dari MASK kata itu sendiri, bukan dari
+            # perkiraan `size`: tinggi huruf kapital beda-beda per baris
+            # (tergantung _pas_judul) sehingga stabilo berbasis `size` bisa
+            # meleset ke bawah dan menggarisbawahi kata, bukan menyorotnya.
             kata = b.split()
             j = sorot[1]
             pre = " ".join(kata[:j])
-            lebar_pre = K.ukur(pre, size, I.F_BOLD, -0.6) if pre else 0
-            w_pre = K.ukur((pre + " ") if pre else "", size, I.F_BOLD, -0.6)
-            x0 = 74 + w_pre - (w_pre - lebar_pre if pre else 0) - 6
-            ww = K.ukur(kata[j], size, I.F_BOLD, -0.6) + 14
-            # sprite teks dipotong rapat (cap top ≈ 0,05*size, baseline ≈ 0,78*size)
-            # stabilo diletakkan di paruh bawah huruf dan melewati garis dasar,
-            # jadi tetap terlihat walau katanya pendek ("66", "2", "±500")
-            komp.tambah(K.highlighter_spr(int(ww), int(size * 0.52)),
-                        x0, y + int(size * 0.46), t0 + 0.30, 0.42, "tulis", alpha=0.95)
-        komp.tambah(K.teks(b, warna, size, I.F_BOLD, -0.6), 74, y, t0 + i * 0.07,
-                    0.30, "turun")
+            x_kata = 74 + (K.ukur(pre + " ", size, I.F_BOLD, -0.6) if pre else 0)
+            sk = K.teks(kata[j], warna, size, I.F_BOLD, -0.6)
+            m = sk[..., 3] > 40
+            ys, xs = np.nonzero(m)
+            kap = int(ys.max() - ys.min() + 1)
+            # Acuan channel lama menyorot HAMPIR SELURUH tinggi huruf (blok
+            # spidol penuh), bukan garis bawah tipis. Stabilo yang hanya
+            # menutup paruh bawah terbaca sebagai garis bawah, bukan sorotan.
+            # Blok stabilo harus MELEBIH tinggi huruf: kalau pas setinggi
+            # huruf, seluruh areanya tertutup glif tebal dan yang terlihat
+            # cuma garis di bawah kata. `highlighter_spr` menyisakan 10 %
+            # margin atas-bawah di dalam sprite, jadi ukurannya dikompensasi.
+            hh = int(kap * 1.48)
+            top = y + int(ys.min()) - int(kap * 0.25)
+            ww = int(xs.max() - xs.min() + 1) + 20
+            xx = x_kata + int(xs.min()) - 10
+            komp.tambah(K.highlighter_spr(ww, max(12, hh)),
+                        xx, top, t0 + 0.30, 0.42, "tulis", alpha=0.95)
+        komp.tambah(spr, 74, y, t0 + i * 0.07, 0.30, "turun")
     return y0 + lh * len(baris)
 
 
 def _kartu_besar(komp, t0=0.16):
     komp.kartu(70, Z["kartu_y0"], 940, Z["kartu_y1"] - Z["kartu_y0"], 48, KARTU, t0, 0.42)
+
+
+def _ilustrasi(komp, spr, x, y, t0=0.5, dur=0.36, anim="pop", bayang=0.22,
+               goyang=None):
+    """Tempel ilustrasi + bayangan kontak tipis di bawahnya.
+
+    `bayang` = fraksi tinggi sprite untuk lebar elips; 0 = tanpa bayangan.
+    """
+    if bayang > 0 and spr.shape[0] > 40:
+        if goyang:
+            komp.tambah(K.bayang_spr(int(spr.shape[1] * 0.82), int(spr.shape[0] * 0.16),
+                                    14, bayang), x + int(spr.shape[1] * 0.09),
+                        y + int(spr.shape[0] * 0.88), t0, dur, "fade")
+        else:
+            komp.tambah(K.bayang_spr(int(spr.shape[1] * 0.82), int(spr.shape[0] * 0.16),
+                                    14, bayang), x + int(spr.shape[1] * 0.09),
+                        y + int(spr.shape[0] * 0.88), t0, dur, anim)
+    if goyang:
+        return komp.goyang(spr, x, y, t0=t0, dur=dur, **goyang)
+    return komp.tambah(spr, x, y, t0, dur, anim)
 
 
 def _angka(komp, nilai, satuan, ket=None, t0=0.5, warna=CORAL, x=74, y=None):
@@ -244,22 +277,40 @@ def _bab1(d):
                              bintang=30), 110, 600, 0.14, 0.44, "fade")
     komp.tambah(K.teks("0 m", (255, 255, 255), 32, I.F_SEMI, 0.8), 138, 618,
                 0.30, 0.26, "fade", alpha=0.95)
-    komp.tambah(K.teks("500 m", (255, 255, 255), 32, I.F_SEMI, 0.8), 138, 1000,
-                0.38, 0.26, "fade", alpha=0.95)
-    ikan_spr = K.ikan(660, 330, warna=(28, 60, 92))
-    komp.goyang(ikan_spr, 250, 880, t0=0.26, amp=12.0, lam=2.6, fase=0.7, dur=0.40)
+    komp.tambah(K.teks("500 m", (255, 255, 255), 32, I.F_SEMI, 0.8), 138, 1010,
+                0.38, 0.26, "fade", alpha=0.90)
+    komp.tambah(K.teks("4.000 m", (255, 255, 255), 32, I.F_SEMI, 0.8), 700, 1188,
+                0.46, 0.26, "fade", alpha=0.85)
+    # sinar permukaan yang bergeser pelan (lapisan dinamis, bukan gambar statis)
+    sinar = K.sinar_laut()
 
-    def gerak(k, t):
-        if t < 0.26 * d:
+    def sinar_gerak(k, t):
+        if t < 0.18 * d:
             return
-        f = clamp((t - 0.26 * d) / 1.0)
-        K.tempel(k, ikan_spr, 250 - int(34 * eio(f)), 880 + int(9 * math.sin(t * 1.6)),
-                 0.99 * f)
-    komp.dinamis.append(gerak)
+        f = clamp((t - 0.18 * d) / 0.8)
+        dx = int(26 * math.sin(t * 0.45))
+        K.tempel(k, sinar, 300 + dx, 600, 0.12 * f)
+    komp.dinamis.append(sinar_gerak)
+    # gelembung naik (posisi & laju tetap supaya render paralel identik)
+    rr = K.rng(58)
+    gelem = [(float(rr.uniform(0.08, 0.92)), float(rr.uniform(0, 1)),
+              float(rr.uniform(0.6, 1.5)), int(rr.integers(4, 8))) for _ in range(16)]
+
+    def gelembung(k, t):
+        if t < 0.30 * d:
+            return
+        f = clamp((t - 0.30 * d) / 0.9)
+        for i, (fx, fasa, laju, r) in enumerate(gelem):
+            y = 1330 - ((t * 42 * laju + fasa * 700) % 700)
+            x = 130 + fx * 800 + 8 * math.sin(t * 1.1 + i)
+            K.tempel(k, K.gelembung_spr(r), int(x), int(y), 0.55 * f)
+    komp.dinamis.append(gelembung)
+    ikan_spr = K.ikan(680, 340, warna=(26, 58, 90), sisik=True)
+    _ilustrasi(komp, ikan_spr, 312, 878, 0.26, 0.40, "fade",
+               goyang=dict(amp=12.0, lam=2.6, fase=0.7))
     _stiker(komp, "SEHARUSNYA PUNAH", 146, 1244, 0.42 * d, "coral", 36, -3)
     _stiker(komp, "TAPI MASIH ADA", 508, 1338, 0.52 * d, "gelap", 36, 2.5)
     _angka(komp, "66", "JUTA TAHUN", "sejak hilang dari catatan fosil", 0.58 * d)
-    _strip_stiker(komp, "MASIH ADA", 0.64 * d)
     return komp
 
 
@@ -303,7 +354,7 @@ def _bab3(d):
     komp.tambah(K.kaca_pembesar(104, NAVY), 800, 600, 0.62, 0.32, "pop")
     komp.goyang(K.ikan(500, 250, warna=(38, 78, 118)), 430, 900, t0=0.44,
                 amp=8.0, lam=2.6, fase=2.6, dur=0.36)
-    komp.tambah(K.stiker("1,5 METER", "coral", 40, 4.0), 626, 792, 0.58, 0.30, "pop")
+    komp.tambah(K.stiker("1,5 METER", "coral", 40, 4.0), 640, 744, 0.58, 0.30, "pop")
     _stiker(komp, "MARJORIE COURTENAY-LATIMER", 126, 1176, 0.70 * d, "gelap", 31, -1.6)
     komp.tambah(K.teks("kurator museum, 24 tahun", TINTA_2, 32, I.F_MED, 0.3),
                 130, 1268, 0.76, 0.26, "fade")
@@ -469,11 +520,15 @@ def _bab9(d):
                     0.38 + i * 0.14, 0.26, "kiri")
         komp.tambah(K.teks(ket, TINTA_2, 32, I.F_MED, 0.2), 214, y + 54,
                     0.44 + i * 0.14, 0.26, "kiri")
-    komp.goyang(K.kartu(600, 180, 34, NAVY), 130, 1180, t0=0.62 * d, amp=4.0,
-                lam=3.4, fase=0.4, dur=0.36)
+    # `kartu()` mengembalikan sprite 600x180 + bantalan 34 px untuk bayangan,
+    # jadi koordinat tempelnya harus dikurangi bantalan itu. Dulu kartu ditaruh
+    # mentah di (130,1180) sehingga badannya meleset 34 px ke bawah dan
+    # memotong judul CTA (bug nyata).
+    komp.goyang(K.kartu(600, 180, 34, NAVY), 130 - 34, 1180 - 34,
+                t0=0.62 * d, amp=4.0, lam=3.4, fase=0.4, dur=0.36)
     komp.tambah(K.teks("IKUTI KlikTahu", (252, 248, 240), 50, I.F_BOLD, -0.4),
                 186, 1204, 0.86 * d, 0.28, "pop")
-    komp.tambah(K.teks("satu fakta baru, setiap hari", (204, 218, 232), 30, I.F_MED, 0.3),
+    komp.tambah(K.teks("satu fakta baru, setiap hari", (215, 228, 242), 30, I.F_MED, 0.3),
                 186, 1268, 0.92 * d, 0.24, "fade")
     _stiker(komp, "SIMPAN VIDEO INI", 176, 1408, 0.80 * d, "coral", 34, -2)
 
@@ -531,13 +586,6 @@ def frame(t: float) -> np.ndarray:
         K.sapuan(k, lt / 0.50, ROSE if idx % 2 == 0 else PASIR, 0.32)
     # kilau kertas melintas di tengah babak: menjaga layar tidak terasa beku
     K.kilau(k, lt, s["dur"] * 0.42, 1.8, 40, 1000, 545, 1420, 0.42)
-    # progres segmen di bawah
-    fakta = s["fakta"]
-    if fakta:
-        K.gambar_progres(k, fakta - 1, clamp(lt / s["dur"]), TOTAL_FAKTA)
-    else:
-        K.gambar_progres(k, 0 if idx == 0 else TOTAL_FAKTA - 1,
-                         1.0 if idx else clamp(lt / s["dur"]), TOTAL_FAKTA)
     return k
 
 

@@ -68,6 +68,26 @@ def _kartu_laut(k, x, y, w, h, r=48, ikan_w=700, dalam=0.62):
     return k
 
 
+def _sorot(k, spr, x, y, warna=None, alpha=0.95, pad_x=20, atas=0.16, bawah=0.20):
+    """Blok stabilo di belakang sprite teks; kembalikan tepi bawah blok (y).
+
+    Tinggi blok mengikuti *tinggi huruf kapital* sprite (mask alpha), bukan
+    ukuran font: Poppins punya ruang kosong atas/bawah yang berbeda-beda, jadi
+    stabilo berbasis `size` selalu meleset dan terbaca sebagai garis bawah.
+    """
+    warna = K.CORAL_T if warna is None else warna
+    m = spr[..., 3] > 40
+    ys, xs = np.nonzero(m)
+    kap = int(ys.max() - ys.min() + 1)
+    lebar = int(xs.max() - xs.min() + 1) + pad_x * 2
+    y0 = y + int(ys.min()) - int(kap * atas)
+    # `highlighter_spr` menyisakan 10 % margin atas-bawah di dalam sprite
+    hh = int(kap * (1 + atas + bawah) / 0.80)
+    y0 -= int(hh * 0.10)
+    I.blit(k, K.highlighter_spr(lebar, hh), x + int(xs.min()) - pad_x, y0, alpha)
+    return y0 + int(hh * 0.90)
+
+
 def buat_thumb_utama(mod, t_bg, out, atas, besar, angka, ket, kategori="HEWAN PURBA"):
     """Thumbnail utama: judul + kartu laut + angka (semua digambar baru).
 
@@ -80,17 +100,17 @@ def buat_thumb_utama(mod, t_bg, out, atas, besar, angka, ket, kategori="HEWAN PU
         I.blit(k, I.spr_text(b, K.TINTA, I.F_BOLD, 74, -0.6), 62, y)
         y += 90
     spr = I.spr_text(besar, K.CORAL, I.F_BOLD, 146, -1.4)
+    # stabilo di BELAKANG teks: gambar dulu baru tempel teksnya, dan ukurannya
+    # diambil dari mask teks (bukan dari `size`) supaya blok benar-benar
+    # menyorot kata, bukan jadi garis bawah.
+    yb = _sorot(k, spr, 58, y, pad_x=24, atas=0.16, bawah=0.20)
     I.blit(k, spr, 58, y)
-    # stabilo di BELAKANG teks: gambar dulu baru tempel teksnya
-    yt = y + int(146 * 0.74)
-    I.blit(k, K.highlighter_spr(spr.shape[1] + 26, int(146 * 0.30)), 50, yt, 0.95)
-    I.blit(k, spr, 58, y)
-    y = yt + int(146 * 0.30) + 18
+    y = yb + 18
     # kartu laut memenuhi sisa layar sampai angka
-    _kartu_laut(k, 56, y, 968, 880, 48, 800, 0.56)
+    _kartu_laut(k, 56, y, 968, 1000, 48, 880, 0.54)
     st = K.stiker(ket, "gelap", 36, -1.6)
-    I.blit(k, st, 78, y + 828)
-    ny = y + 928
+    I.blit(k, st, 78, y + 948)
+    ny = y + 1048
     n = I.spr_text(angka, K.NAVY, I.F_BOLD, 168, -2.4)
     I.blit(k, n, 58, ny)
     u = I.spr_text("JUTA TAHUN", K.TINTA, I.F_BOLD, 50, 1.2)
@@ -113,17 +133,22 @@ def buat_thumb_alt(mod, t_bg, out, atas, besar, kecil, kategori="HEWAN PURBA"):
         I.blit(k, I.spr_text(b, K.TINTA, I.F_BOLD, 72, -0.6), 62, y)
         y += 88
     spr = I.spr_text(besar, K.NAVY, I.F_BOLD, 132, -1.2)
+    _sorot(k, spr, 58, y, pad_x=22, atas=0.16, bawah=0.20)
     I.blit(k, spr, 58, y)
-    K.highlighter(k, 52, y + int(132 * 0.66), spr.shape[1] + 22, int(132 * 0.32),
-                  K.CORAL_T, 1.0)
-    y += spr.shape[0] + 24
-    _kartu_laut(k, 56, y, 968, 860, 48, 780, 0.55)
-    yy = y + 884
+    y += spr.shape[0] + 34
+    _kartu_laut(k, 56, y, 968, 1000, 48, 880, 0.54)
+    # teks di bawah kartu dihitung dari tepi bawah kartu (bukan angka tetap):
+    # menaikkan tinggi kartu pernah membuat dua baris ini menimpa gambar.
+    yy = y + 1000 + 46
     for b in kecil:
         I.blit(k, I.spr_text(b, K.TINTA_2, I.F_SEMI, 44, 0.3), 64, yy)
-        yy += 62
+        yy += 66
     st = K.stiker("DITEMUKAN LAGI · 1938", "coral", 34, 1.8)
-    I.blit(k, st, 64, yy + 12)
+    I.blit(k, st, 64, yy + 18)
+    kecil_pil = K.pil(f"{mod.daftar()['total'] / 60:.0f} MENIT · 7 FAKTA",
+                      K.KARTU_2, K.TINTA_2, 30, 26, 12, radius=14,
+                      garis=K.KERTAS_3, lebar=2.0)
+    I.blit(k, kecil_pil, 62, 1800)
     Image.fromarray(k).save(out, quality=95)
     return out
 

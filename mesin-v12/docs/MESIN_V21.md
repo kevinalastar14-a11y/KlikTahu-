@@ -111,8 +111,14 @@ K.tab_fakta(n, total)       K.highlighter_spr(w, h)   K.kilau(k, t, t0)
     **Δ maksimum per kotak 54x54 px** (ambang 1,2).
 
 26. **Stabilo harus digambar sebelum teksnya.** Urutan salah = teks tertutup
-    highlighter. Dan posisi vertikal stabilo dihitung dari *mask tight* teks
-    (cap top ±0,05·size, baseline ±0,78·size), bukan dari tinggi baris.
+    highlighter. Posisi dan ukurannya **wajib** diukur dari mask kata itu sendiri
+    (`K.teks(kata, ...)`, lalu `ys.max() - ys.min()` = tinggi kapital), bukan dari
+    `size`: `_pas_judul()` mengecilkan tiap baris berbeda, jadi stabilo berbasis
+    `size` bisa meleset 20–30 px dan berubah menjadi garis bawah.
+    Blok stabilo juga harus **lebih tinggi dari huruf** (≈1,5 × kapital, karena
+    `highlighter_spr()` menyisakan margin 10 % atas-bawah di dalam sprite).
+    Kalau tingginya pas setinggi huruf, glif tebal Poppins menutupi seluruh blok
+    dan yang terlihat hanya serpihan coral di bawah kata.
 
 27. **Jangan menumpuk teks di atas tangkapan layar untuk thumbnail.** Sisa elemen
     dari dalam video (stiker, angka babak) ikut terbawa. Thumbnail v21 dirakit
@@ -120,6 +126,24 @@ K.tab_fakta(n, total)       K.highlighter_spr(w, h)   K.kilau(k, t, t0)
 
 28. **Baris panjang harus dibungkus otomatis.** `I.wrap()` dipakai dengan pengecilan
     ukuran bertahap; teks 80+ karakter pernah menembus tepi kartu.
+
+29. **`tempel_sub()` tidak boleh menempel sprite yang sama 4× dengan bobot mentah.**
+    Empat tempelan berbobot 1/4 menghasilkan cakupan 0,68 (bukan 1), jadi sprite
+    tampak pucat dan latar menembus: kartu navy CTA terbaca abu-abu (85,108,129)
+    alih-alih (30,61,92). Bobot harus diubah menjadi alpha berurutan
+    (`k / sisa`, `sisa -= k`) supaya totalnya 1.
+
+30. **`kartu()` mengembalikan sprite + bantalan 34 px.** Kalau sprite itu ditempel
+    lewat `komp.goyang()`/`blit()` langsung, koordinatnya harus dikurangi 34
+    (`x-34, y-34`); kalau tidak, badan kartu meleset 34 px ke bawah dan menutupi
+    judul di dalamnya. `komp.kartu()` sudah menangani ini otomatis.
+
+31. **Snapshot `self.basis` di `Komposisi.__init__` membuang HUD.** Watermark, tab,
+    dan sumber digambar episode setelah `Komposisi` dibuat; basis harus *lazy*.
+
+32. **`ffmpeg` tidak ada di PATH sandbox.** `render_v20.ffmpeg()` sudah jatuh ke
+    `imageio_ffmpeg.get_ffmpeg_exe()`; untuk perintah manual pakai
+    `/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2`.
 
 ## 6. Alur produksi episode v21
 

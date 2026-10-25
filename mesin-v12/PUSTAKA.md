@@ -34,10 +34,14 @@
 ---
 
 ## Ep58 - Ikan yang Seharusnya Punah 66 Juta Tahun Lalu (coelacanth) — MESIN v21 "KERTAS"
-- Video: `keluaran/KlikTahu_Ep58_Coelacanth_v21.mp4` — **1080x1920 · 60 fps** · **124,63 s** · 54,7 MB (QC 24/24)
-- Gaya: meniru video short lama kanal (kertas krem, headline tinta, stabilo coral, tab FAKTA n/7,
-  kartu ilustrasi vektor, stiker, progres segmen). Semua aspek selain resolusi dinaikkan:
+- Video: `keluaran/KlikTahu_Ep58_Coelacanth_v21.mp4` — **1080x1920 · 60 fps** · **124,63 s** ·
+  52,2 MB · 3,4 Mb/s (QC 23/23 · ronde 2)
+- Gaya: meniru video short lama kanal (kertas krem, headline tinta, stabilo coral blok penuh,
+  tab FAKTA n/7, kartu ilustrasi vektor, stiker). Semua aspek selain resolusi dinaikkan:
   sumber per babak, dua koreksi mitos, sudut lokal Manado, musik latar + ducking, selalu ada gerak.
+- Ronde 2 (permintaan pemilik): watermark `@KlikTahu` baru (lencana K bergradasi), **bar progres
+  segmen dihapus**, kualitas naik lewat kode (bayangan kartu dua lapis, vignette kertas, kaustik
+  laut, sinar + gelembung, bayangan kontak, pop/goyang LANCZOS, detail ilustrasi dipotong mask).
 - Audio: `keluaran/KlikTahu_Ep58_audio.m4a` — VO pria Indonesia + musik latar, −14,0 LUFS · TP −1,9 · LRA 3,7
 - Analisis gaya & kebenaran isi: `pustaka/Ep58_Coelacanth/ANALISIS_GAYA.md` (pengukuran acuan
   240x426 · 30 fps · 58 kb/s · 144 s, dan apa yang diubah)
@@ -45,7 +49,7 @@
   `fakta_sumber.md`, `subtitle_id.srt` (46 baris), `thumb_utama.jpg`, `thumb_alt.jpg`,
   `lembar_pratinjau.jpg`
 - Mesin: `mesin_v21_kertas.py` (pustaka visual), `mesin_v21_ep58.py` (episode), `mesin_v21_musik.py`,
-  `pustaka_v21.py`; catatan teknis + jebakan 23–28 di `docs/MESIN_V21.md`
+  `pustaka_v21.py`; catatan teknis + jebakan 23–32 di `docs/MESIN_V21.md`
 - **Drive**: folder `KlikTahu_Produksi/Shorts/kliktahu-ep58-coelacanth`
   (`1T_kesoPZTVR86QnUnlZDErVFec2ahli5`) — video, audio, 2 thumbnail, lembar pratinjau,
   metadata, siap tempel, fakta & sumber, subtitle, analisis gaya. MP4/M4A **tidak** masuk repo.

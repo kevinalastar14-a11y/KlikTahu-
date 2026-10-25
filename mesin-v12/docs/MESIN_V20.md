@@ -89,13 +89,24 @@ selain loudnorm/limiter:
 Panjang sampel diperiksa di setiap tahap; `master()` memotong tepat di durasi
 sumber setelah loudnorm (loudnorm menambal padding).
 
-### Tiga cara mengisi jalur VO
+### Empat cara mengisi jalur VO
 
 | Jalur | Perintah | Catatan |
 |---|---|---|
-| TTS edge-tts | `python3 mesin_v20_suara.py --episode mesin_v20_ep56` | butuh jaringan |
-| **VO rekaman manusia** | `python3 mesin_v20_suara.py --episode mesin_v20_ep56 --dari-berkas vo.m4a` | satu berkas; dipotong **pada jeda**, bukan rata `len/n` |
-| Tanpa VO (bed saja) | `... --bed-only --target-lufs=-20` | dipakai kalau TTS & rekaman belum ada |
+| **Klip per babak** (dipakai Ep56) | `python3 mesin_v20_suara.py --episode mesin_v20_ep56 --dari-klip audio/vo/sumber` | satu berkas per babak (`01.mp3`…); **tidak ada pemotongan sinyal** — batas babak sudah benar sejak awal |
+| TTS edge-tts | `python3 mesin_v20_suara.py --episode mesin_v20_ep56` | butuh jaringan ke `speech.platform.bing.com` |
+| Rekaman manusia satu berkas | `... --dari-berkas vo.m4a` | dipotong **pada jeda**, bukan rata `len/n` |
+| Tanpa VO (bed saja) | `... --bed-only --target-lufs=-20` | kalau klip belum ada |
+
+Varian `kilat` memakai klip yang sama tetapi hanya babak terpilih
+(`audio/vo/sumber_kilat`, 6 berkas) + `KT_VARIANT=kilat`; `NASKAH` ikut
+difilter supaya jumlah klip dan jumlah babak selalu cocok.
+
+**QC audio sebelum render:** `python3 qc_vo.py --episode mesin_v20_ep56 \
+--sumber audio/vo/sumber --audio keluaran/KlikTahu_Ep56_audio.m4a` — 16 butir:
+jumlah klip, klip bisu, tepi klip (terpotong?), lubang hening, durasi wajar,
+VO muat di babaknya, VO terdengar di semua babak, clipping, **fase kanal**,
+**mono-sum**, loudness, true peak, durasi = timeline video, format.
 
 `batas_jeda()` mendeteksi jeda dengan RMS 20 ms (ambang adaptif persentil 15 +
 7 dB) lalu memilih jeda yang paling dekat dengan posisi proporsional naskah,
@@ -109,24 +120,21 @@ de-esser bekerja (desis murni → −3,0 dB), loudness −14,1 LUFS, TP −1,86 
 ## 6. Render
 
 ```bash
-# 1) audio (butuh jaringan untuk edge-tts / rekaman manusia)
+# 1) audio (butuh jaringan untuk edge-tts)
 python3 mesin_v20_suara.py --episode mesin_v20_ep56
-# 2) video 1080x1920 (2 inti, ~11 menit)
-KT_BUILD=/tmp/v20build python3 render_v20.py --episode ep56 --jobs 2 --preset slow --crf 18 \
-        --keluar keluaran/KlikTahu_Ep56_HypnicJerk_v20.mp4 --audio keluaran/KlikTahu_Ep56_audio.m4a
-# 3) QC 24 butir
-python3 qc_v20.py keluaran/KlikTahu_Ep56_HypnicJerk_v20.mp4 --episode ep56 \
-        --audio keluaran/KlikTahu_Ep56_audio.m4a --target-lufs=-20
-# 4) paket publikasi (thumbnail, metadata, SRT)
+
+# 2) render gambar + mux audio
+python3 render_v20.py --episode ep56 \
+    --keluar dist/KlikTahu_Ep56_HypnicJerk_v20.mp4 \
+    --audio dist/KlikTahu_Ep56_audio.m4a --jobs 2 --preset slow --crf 16
+
+# 3) QC
+python3 qc_v20.py dist/KlikTahu_Ep56_HypnicJerk_v20.mp4 --episode ep56 \
+    --audio dist/KlikTahu_Ep56_audio.m4a --json build_v20/qc.json
+
+# 4) paket publikasi
 python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
 ```
-
-> **Simpan hasil ke `keluaran/`, JANGAN ke `dist/`.** Folder bernama `dist`, `build`,
-> `out`, `target`, `node_modules` **tidak ikut tersimpan** di snapshot workspace —
-> video yang dirender ke `dist/` akan hilang dan pemilik tidak bisa membukanya.
-> `keluaran/` masuk `.gitignore` (binari tidak untuk git) tapi tetap tersimpan
-> sebagai berkas kerja. `KT_BUILD=/tmp/...` memindahkan potongan render ke luar
-> workspace supaya tidak menumpuk (potongan = ±2x ukuran video final).
 
 `--ukur` menampilkan biaya per babak; `--pratinjau 4` menulis 4 frame per babak
 + lembar kontak; `--potong 6` merender 6 detik pertama untuk uji cepat.
@@ -177,6 +185,19 @@ python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
     numpy melempar `ValueError: operands could not be broadcast`. Jalur VO tidak
     pernah dipakai sampai `--dari-berkas` diuji, jadi bug ini tidur lama.
     Buffer sekarang tepat `total*SR` dan hasil campuran di-clip ±1,0.
+16. **Blok DC `axis=-1` membalik polaritas satu kanal.** `saturasi()` menulis
+    `y - y.mean(axis=-1, keepdims=True)`; pada array `(n, 2)` itu berarti
+    rata-rata **antar-kanal per sampel**, bukan rata-rata sepanjang waktu.
+    Hasilnya kiri dan kanan saling menghapus: korelasi **−1,000**, dan begitu
+    diputar di speaker ponsel (mono-sum) audionya nyaris hilang. Bug ini lolos
+    dari semua QC lama karena tidak ada satu pun butir yang memeriksa fase.
+    Perbaikan: `axis=0` (per kanal), plus `assert` fase di `rantai()`, dua butir
+    baru di `qc_vo.py`, dan satu butir selftest.
+17. **`LEAD = 0,42 s` membuat audio lebih panjang dari video.** Video mulai di
+    0,000 s, audio VO di 0,42 s. Selisih itu tidak ada di video, jadi
+    `-shortest` saat mux **memotong ekor audio**, dan seluruh VO tertinggal
+    0,42 s dari visualnya (caption jalan lebih dulu). `LEAD` sekarang **0,0**:
+    durasi audio == durasi video sampai sampel terakhir.
 
 ## 8. Audit tata letak otomatis
 

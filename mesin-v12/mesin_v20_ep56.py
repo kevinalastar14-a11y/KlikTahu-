@@ -80,16 +80,16 @@ CAPTION = [
     "INI BUKAN PENYAKIT, CUKUP TIDUR TERATUR",
 ]
 NASKAH = [
-    "Pernah ngerasain kayak jatuh dari ketinggian, terus badan nyentak tepat sebelum tidur? Itu bukan mimpi.",
-    "Namanya hypnic jerk. Hampir semua orang pernah mengalaminya, tapi hampir nggak ada yang tahu namanya.",
-    "Sekitar tujuh dari sepuluh orang pernah mengalaminya. Satu dari sepuluh mengalaminya hampir tiap malam.",
-    "Biasanya di menit-menit pertama tidur, waktu otot mulai melemas dan napas melambat.",
-    "Waktu otot melemas, batang otak salah membaca sinyal, lalu mengirim perintah kejut ke seluruh tubuh.",
-    "Salah satu teorinya: ini sisa refleks leluhur primata. Waktu jatuh dari dahan, badan harus langsung menyambar.",
-    "Teori lain: otot yang melemas dibaca otak sebagai tanda jatuh, jadi otak mengejot badan supaya nggak nyungsep.",
-    "Kabar baiknya, ini normal dan bukan penyakit. Yang bikin sering cuma kurang tidur, kafein, dan stres.",
-    "Kalau mau lebih jarang: kurangi kopi sore, tidur di jam yang sama, dan jangan tidur larut semalaman.",
-    "Tubuhmu cuma ketinggalan zaman. Ini bukan penyakit — cuma perlu tidur lebih teratur. Simpan videonya.",
+    "Pernah merasa seperti jatuh dari ketinggian, lalu tubuh menyentak tepat sebelum tidur? Itu bukan mimpi.",
+    "Namanya hypnic jerk. Hampir semua orang pernah mengalaminya, tapi hampir tidak ada yang tahu namanya.",
+    "Sekitar tujuh dari sepuluh orang pernah merasakannya. Satu dari sepuluh mengalaminya hampir setiap malam.",
+    "Biasanya ini terjadi di menit-menit pertama tidur, saat otot mulai melemas dan napas melambat.",
+    "Ketika otot melemas, batang otak salah membaca sinyal, lalu mengirim perintah kejut ke seluruh tubuh.",
+    "Salah satu teorinya, ini sisa refleks leluhur primata. Saat jatuh dari dahan, tubuh harus langsung menyambar.",
+    "Teori lain, otot yang melemas dibaca otak sebagai tanda jatuh, jadi otak mengejutkan tubuh supaya tidak terjerembap.",
+    "Kabar baiknya, ini normal dan bukan penyakit. Yang membuatnya sering hanya kurang tidur, kafein, dan stres.",
+    "Kalau ingin lebih jarang, kurangi kopi sore, tidur di jam yang sama, dan jangan begadang semalaman.",
+    "Tubuhmu hanya ketinggalan zaman. Ini bukan penyakit, cuma perlu tidur lebih teratur. Simpan videonya.",
 ]
 
 # ---------------------------------------------------------------- waktu babak
@@ -637,8 +637,16 @@ SCENES = [_SEMUA[v] for v in PILIH]
 CAPTION = [CAPTION[i] for i in _IDX]
 BABAK = [BABAK[i] for i in _IDX]
 BAWAH = [BAWAH[i] for i in _IDX]
+# NASKAH ikut difilter: varian "kilat" hanya 6 babak, jadi naskah VO-nya juga
+# 6 bagian. Tanpa ini `--dari-klip` membandingkan 6 klip dengan 10 naskah.
+NASKAH = [NASKAH[i] for i in _IDX]
 for _i, _s in enumerate(SCENES):
     _s["dur"] = DUR[_i]
+# Durasi yang tampil di layar (panel data babak terakhir) dihitung dari timeline
+# asli. Dulu ditulis tangan "75 DETIK" dan langsung salah begitu VO mengubah
+# durasi babak.
+BAWAH = [[(l, (f"{TOTAL:.0f} DETIK" if v == "75 DETIK" else v)) for l, v in baris]
+         for baris in BAWAH]
 
 _LATAR_CACHE = {}
 

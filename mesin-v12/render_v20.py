@@ -41,7 +41,7 @@ import numpy as np
 BASE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE)
 W, H = 1080, 1920
-BUILD = os.environ.get("KT_BUILD") or os.path.join(BASE, "build_v20")
+BUILD = os.path.join(BASE, "build_v20")
 
 
 def ffmpeg():
@@ -202,13 +202,6 @@ def render_penuh(episode, keluar, audio=None, jobs=2, fps=60, crf=16,
         subprocess.run([ff, "-y", "-v", "error", "-i", video_only,
                         "-c", "copy", "-movflags", "+faststart", keluar], check=True)
     dt_mux = time.time() - t1
-
-    if not os.environ.get("KT_SIMPAN_PARTS"):
-        shutil.rmtree(parts_dir, ignore_errors=True)
-        try:
-            os.remove(video_only)
-        except OSError:
-            pass
 
     ukuran = os.path.getsize(keluar) / 1e6
     if verbose:

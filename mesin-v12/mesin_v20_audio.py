@@ -227,9 +227,21 @@ def kompresor(x, rasio=2.0, lutut=9.0, serang=0.012, lepas=0.220, makeup=0.0,
 
 
 def saturasi(x, drive=1.15):
-    """Saturasi tanh lembut: menambah harmonisa orde rendah (kehangatan)."""
+    """Saturasi tanh lembut: menambah harmonisa orde rendah (kehangatan).
+
+    BUG YANG PERNAH TERJADI (25 Okt 2026): blok DC ditulis
+    `y - y.mean(axis=-1, keepdims=True)` — pada array (n, 2) `axis=-1` berarti
+    rata-rata ANTAR-KANAL per sampel, bukan rata-rata sepanjang waktu. Kanal
+    kiri dan kanan jadi saling menghapus: keluaran stereo berkorelasi -1,0 dan
+    audio nyaris hilang begitu diputar di speaker ponsel yang menjumlah ke mono.
+    Blok DC yang benar = rata-rata sepanjang waktu (axis=0) per kanal.
+    """
     y = np.tanh(x * drive) / drive
-    return (y - y.mean(axis=-1, keepdims=True)).astype(np.float32)
+    if y.ndim > 1:
+        y = y - y.mean(axis=0, keepdims=True)
+    else:
+        y = y - y.mean()
+    return y.astype(np.float32)
 
 
 # ============================================================== 4. LU/FFMPEG
@@ -327,6 +339,14 @@ def rantai(x, sr=SR, verbose=True):
     puncak = float(np.abs(y).max())
     y = y / max(1e-9, puncak) * 10 ** (-1.5 / 20)      # normalisasi puncak dulu
     lap["normal"] = {"puncak_dbfs": round(float(20 * np.log10(np.abs(y).max() + 1e-9)), 2)}
+
+    # fase: kanal tidak boleh saling menghapus (lihat docstring saturasi)
+    if y.ndim > 1 and x.ndim > 1:
+        ra, rb = y[:, 0], y[:, 1]
+        if ra.std() > 1e-6 and rb.std() > 1e-6:
+            k = float(np.corrcoef(ra, rb)[0, 1])
+            lap["korelasi_kanal"] = round(k, 4)
+            assert k > 0.9, f"kanal stereo bertolak fase (korelasi {k:.2f})"
 
     # panjang tidak boleh berubah
     assert y.shape[0] == x.shape[0], "panjang audio berubah!"

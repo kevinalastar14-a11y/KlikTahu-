@@ -64,6 +64,15 @@ jobs:
           python mesin_v20_uji.py
           python mesin_v20_audio.py --uji-sintetis --detik 3
 
+      - name: QC audio VO (klip per babak + fase stereo)
+        run: |
+          set -euo pipefail
+          python mesin_v20_suara.py --episode mesin_v20_ep56 --dari-klip audio/vo/sumber \
+                 --keluar /tmp/uji_vo.m4a --target-lufs=-14
+          python qc_vo.py --episode mesin_v20_ep56 --sumber audio/vo/sumber \
+                 --audio /tmp/uji_vo.m4a --timing audio/vo/timing.json \
+                 --json /tmp/qc_vo.json
+
       - name: Selftest mesin analisis (offline)
         run: |
           set -euo pipefail
@@ -76,6 +85,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in AGEN.md PUSTAKA.md requirements.txt docs/MESIN_V20.md \
+                   qc_vo.py audio/vo/sumber/01.mp3 audio/vo/timing.json \
                    fonts/Poppins-Bold.ttf fonts/Poppins-Regular.ttf fonts/OFL.txt \
                    tools/render_lokal.sh; do
             [ -f "$f" ] || { echo "HILANG: $f"; exit 1; }

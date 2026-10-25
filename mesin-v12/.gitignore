@@ -14,8 +14,8 @@ parts/
 part_*.mp4
 video_master.mp4
 # hasil render yang diserahkan ke pemilik (binari, bukan kode).
-# PENTING: jangan tulis komentar di baris yang sama dengan pola — gitignore
-# menganggap seluruh baris sebagai pola, sehingga aturannya tidak pernah cocok.
+# PENTING: jangan taruh komentar di baris yang sama dengan pola — gitignore
+# menganggap seluruh baris sebagai pola sehingga aturannya tidak pernah cocok.
 keluaran/
 dist/
 *.mp4

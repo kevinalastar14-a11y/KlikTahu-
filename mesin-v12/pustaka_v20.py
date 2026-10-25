@@ -89,7 +89,7 @@ def buat_thumb_utama(ep, t_bg, judul_atas, judul_besar, angka, keterangan, out):
     if keterangan:
         C.tulis(kk, keterangan, 62, 1470, C.TEKS, 56, M.F_BOLD, 1.6)
         C.tulis(kk, keterangan, 62, 1470, C.TEKS, 56, M.F_BOLD, 1.6) if False else None
-    C.label_kecil(kk, "SAINS DALAM 75 DETIK · KlikTahu", 62, 1770, C.TEKS_2, 30, 1.0,
+    C.label_kecil(kk, f"SAINS DALAM {mod.daftar()['total']:.0f} DETIK · KlikTahu", 62, 1770, C.TEKS_2, 30, 1.0,
                   "kiri", 3.0)
     # garis aksen kiri
     C._isi(kk, 40, 1180, 46, 1300, C.GOLD)
@@ -181,17 +181,7 @@ META = dict(
     ],
     deskripsi="""Kamu pernah merasa seperti jatuh dari ketinggian, lalu badan nyentak tepat sebelum tidur? Itu punya nama: hypnic jerk — dan 7 dari 10 orang pernah mengalaminya.
 
-Di video ini:
-00:00 Rasa jatuh yang semua orang kenal
-00:07 Namanya: hypnic jerk
-00:15 Seberapa umum (7 dari 10)
-00:22 Kapan tepatnya terjadi
-00:30 Apa yang dilakukan batang otak
-00:38 Teori refleks primata
-00:46 Dua teori, satu mekanisme
-00:55 Pemicunya: kurang tidur, kafein, stres
-01:02 Cara membuatnya lebih jarang
-01:10 Kenapa tubuhmu masih bereaksi seperti ini
+{daftar_babak}
 
 Sumber: Sleep Medicine (2016) · American Academy of Sleep Medicine · riset University of Colorado. Ini informasi umum, bukan diagnosis. Kalau sentakan terjadi hampir tiap malam disertai kantuk berat, konsultasikan ke dokter.
 
@@ -209,8 +199,41 @@ Sumber: Sleep Medicine (2016) · American Academy of Sleep Medicine · riset Uni
 )
 
 
-def tulis_metadata(folder, extra=None):
+BABAK_VIDEO = [
+    "Rasa jatuh yang semua orang kenal",
+    "Namanya: hypnic jerk",
+    "Seberapa umum (7 dari 10)",
+    "Kapan tepatnya terjadi",
+    "Apa yang dilakukan batang otak",
+    "Teori refleks primata",
+    "Dua teori, satu mekanisme",
+    "Pemicunya: kurang tidur, kafein, stres",
+    "Cara membuatnya lebih jarang",
+    "Kenapa tubuhmu masih bereaksi seperti ini",
+]
+
+
+def daftar_babak(ep="mesin_v20_ep56"):
+    """Bab waktu untuk deskripsi YouTube — dihitung dari timing.json.
+
+    Ditulis tangan dulu, dan langsung melenceng begitu VO mengubah durasi babak
+    (00:00/00:07/00:15 tidak lagi cocok). Sekarang selalu ikut timing asli.
+    """
+    mod = importlib.import_module(ep)
+    teks = list(getattr(mod, "BABAK_VIDEO", BABAK_VIDEO))
+    mulai, ak = [], 0.0
+    for s in mod.daftar()["scenes"]:
+        mulai.append(ak)
+        ak += s["dur"]
+    baris = [f"{int(t // 60):02d}:{int(t % 60):02d} {judul}"
+             for t, judul in zip(mulai, teks)]
+    return "Di video ini:\n" + "\n".join(baris)
+
+
+def tulis_metadata(folder, extra=None, ep="mesin_v20_ep56"):
     m = dict(META)
+    if "{daftar_babak}" in m["deskripsi"]:
+        m["deskripsi"] = m["deskripsi"].replace("{daftar_babak}", daftar_babak(ep))
     if extra:
         m.update(extra)
     os.makedirs(folder, exist_ok=True)
@@ -301,7 +324,7 @@ def main(argv=None):
     print("[lembar] pratinjau...")
     lembar(ep, os.path.join(folder, "lembar_pratinjau.jpg"))
     print("[meta] metadata...")
-    tulis_metadata(folder)
+    tulis_metadata(folder, ep=ep)
     tulis_siap_tempel(folder, ep, {"video": a.video or "-", "audio": a.audio or "-"})
     print("[srt] subtitle Indonesia...")
     srt, nbaris = buat_srt(ep, os.path.join(folder, "subtitle_id.srt"))

@@ -16,6 +16,7 @@ Yang diuji:
   7. tata letak: tidak ada teks yang menabrak pita caption / keluar kanvas
   8. glif: tidak ada karakter yang jatuh ke kotak tofu (font v18)
   9. potong VO rekaman manusia pada jeda (bukan di tengah kata)
+ 10. rantai audio menjaga fase stereo (kanal tidak saling menghapus)
 """
 from __future__ import annotations
 
@@ -203,6 +204,27 @@ def main(argv=None):
         assert np.abs(y).max() <= 1.0, "clipping"
         return f"de-ess {lap['deess_maks_db']:.1f} dB"
     cek("rantai audio (panjang tetap)", audio)
+
+    def fase_stereo():
+        """Regresi: blok DC `axis=-1` pernah membuat kanal berkorelasi -1,0.
+
+        Akibatnya audio nyaris hilang di speaker ponsel (mono-sum). Uji ini
+        memastikan sinyal stereo identik tetap identik setelah rantai penuh.
+        """
+        import mesin_v20_audio as A
+        sr = A.SR
+        t = np.arange(int(sr * 1.5)) / sr
+        m = (0.2 * np.sin(2 * np.pi * 180 * t) * (0.6 + 0.4 * np.sin(2 * np.pi * 3 * t))).astype(np.float32)
+        x = np.stack([m, m], 1)
+        y, lap = A.rantai(x, verbose=False)
+        k = float(np.corrcoef(y[:, 0], y[:, 1])[0, 1])
+        mono = y.mean(1)
+        susut = 20 * np.log10(np.sqrt((y ** 2).mean()) + 1e-9) - \
+            20 * np.log10(np.sqrt((mono ** 2).mean()) + 1e-9)
+        assert k > 0.99, f"korelasi {k:.3f}"
+        assert abs(susut) < 0.5, f"mono-sum turun {susut:.2f} dB"
+        return f"korelasi {k:+.3f} · mono {susut:+.2f} dB"
+    cek("rantai audio menjaga fase stereo", fase_stereo)
 
     def audio_deess():
         import mesin_v20_audio as A

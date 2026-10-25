@@ -251,6 +251,24 @@ def _busur(k, cx, cy, r, frac, warna, alpha=1.0, tebal=0):
     blit(k.a, lap, int(cx - d / 2), int(cy - d / 2), alpha)
 
 
+def _piktogram_pas(k, x0, y0, x1, y1, isi, warna, prog):
+    """100 titik yang DIJAMIN muat dalam kotak (x0,y0)-(x1,y1).
+
+    Bug nyata: babak 3 memanggil `C.piktogram(..., kolom=10, jarak=86)`. Grid
+    10x10 dengan jarak 86 px setinggi 860 px, padahal panelnya cuma 400 px —
+    titik-titik meluber menutupi panel di bawahnya dan caption. Audit tata letak
+    tidak menangkapnya karena audit hanya memeriksa kotak TEKS.
+    """
+    for kolom, jarak, r in ((20, 44, 9), (10, 40, 7)):
+        baris = (100 + kolom - 1) // kolom
+        lebar = (kolom - 1) * jarak + 2 * r
+        tinggi = (baris - 1) * jarak + 2 * r
+        if lebar <= x1 - x0 and tinggi <= y1 - y0:
+            C.piktogram(k, x0 + r, y0 + r, kolom, baris, isi, warna, prog, r=r, jarak=jarak)
+            return baris * jarak
+    raise ValueError("kotak terlalu kecil untuk piktogram 100 titik")
+
+
 def _siap_debu():
     global _DEBU
     if _DEBU is None:
@@ -358,9 +376,9 @@ def _aktor_survei(k, t, dur):
     p = _masuk(t, 1.0, 0.35)
     C.panel(k, 62, 500, 956, 400, _masuk(t, 0.6, 0.15), aksen=C.GOLD, radius=28)
     C.label_kecil(k, "100 ORANG DEWASA", 100, 522, C.TEKS_3, 21, a0, "kiri", 2.4)
-    C.piktogram(k, 108, 574, 10, 10, 0.77, C.GOLD, p, r=13, jarak=86)
-    C.label_kecil(k, "SETUJU  77%", 100, 856, C.GOLD, 24, _masuk(t, 0.7, 1.1), "kiri", 2.0)
-    C.label_kecil(k, "TIDAK SETUJU  9%  ·  NETRAL  14%", 100, 890, C.TEKS_3, 21,
+    _piktogram_pas(k, 100, 556, 980, 772, 0.77, C.GOLD, p)
+    C.label_kecil(k, "SETUJU  77%", 100, 800, C.GOLD, 24, _masuk(t, 0.7, 1.1), "kiri", 2.0)
+    C.label_kecil(k, "TIDAK SETUJU  9%  ·  NETRAL  14%", 100, 836, C.TEKS_3, 21,
                   _masuk(t, 0.7, 1.1), "kiri", 1.8)
 
     b = _masuk(t, 0.7, 1.3)
@@ -731,17 +749,31 @@ META = {
             "cara kerja otak", "memori dan waktu", "efek oddball", "fakta sains",
             "psikologi waktu", "kliktahu", "sains indonesia"],
     "hashtag": ["#KlikTahu", "#Sains", "#Waktu", "#Otak", "#FaktaUnik"],
+    "komentar_pancing": "\"Rute baru apa yang mau kamu coba minggu ini?\"",
 }
 
-# Teks thumbnail (dipakai pustaka_v20.buat_thumb_utama).
+# Teks thumbnail (dipakai pustaka_v20.buat_thumb_utama / buat_thumb_alt).
 THUMB = {
     "atas": "SETAHUN TERASA",
     "besar": "MAKIN CEPAT?",
     "angka": "2%",
     "keterangan": "DARI HIDUPMU TIAP TAHUN",
-    "t_utama": 0.55,       # fraksi durasi babak hook
-    "t_alt": (1.15, 0.55),  # (detik masuk babak, fraksi durasi babak)
+    "band": ["BUKAN UMUR, TAPI PENANDA BARU", "OTAK MENCATAT HAL BARU"],
+    "alt_atas": "WAKTU MAKIN",
+    "alt_besar": "CEPAT?",
+    "alt_kecil": "BUKAN UMUR · KARENA INI",
+    "t_utama": 0.55,        # fraksi durasi babak hook
+    "t_alt": (0, 0.62),      # (indeks babak, fraksi durasi) -> jam besar babak 1
 }
+
+CATATAN_STRATEGI = [
+    "3 detik pertama: pertanyaan yang dialami semua orang dewasa (\"kenapa waktu makin cepat?\").",
+    "Babak 7 sengaja membantah penjelasan populer -> pemicu komentar \"ternyata bukan itu\".",
+    "Caption karaoke di semua babak: penonton Shorts sering menonton tanpa suara.",
+    "Satu ide per layar + panel data bawah supaya tidak ada ruang kosong.",
+    "Akhir menyatu ke awal (loop) -> waktu tonton bisa melewati durasi video.",
+    "Pancingan komentar: \"rute baru apa yang mau kamu coba minggu ini?\"",
+]
 
 # ================================================================ tabel
 SCENES = [

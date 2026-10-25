@@ -42,6 +42,27 @@ import numpy as np
 
 import mesin_v20_audio as A
 
+
+def _muat_episode(nama):
+    """Impor modul episode HANYA untuk membaca NASKAH.
+
+    Modul episode menolak dimuat kalau `timing.json` masih bertanda
+    "sementara" (penjaga supaya render tidak memakai durasi cadangan). Padahal
+    justru saat itulah pembangun audio harus jalan. Jadi selama impor ini saja
+    penjaga dilonggarkan lewat KT_SEMENTARA=1 — durasi tidak dipakai di sini,
+    `_rakit()` akan menimpa timing dengan hasil ukur klip yang sebenarnya.
+    """
+    import importlib
+    lama = os.environ.get("KT_SEMENTARA")
+    os.environ["KT_SEMENTARA"] = "1"
+    try:
+        return importlib.import_module(nama)
+    finally:
+        if lama is None:
+            os.environ.pop("KT_SEMENTARA", None)
+        else:
+            os.environ["KT_SEMENTARA"] = lama
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 SR = A.SR
 VOICE = os.environ.get("KT_VOICE", "id-ID-ArdiNeural")
@@ -365,7 +386,7 @@ def batas_jeda(y, n, sr=SR):
 def dari_berkas(modul_nama, path, keluar_m4a=None, folder=None, target_lufs=None):
     """Satu berkas VO rekaman -> potong per babak -> timing.json -> M4A siap mux."""
     import wave
-    mod = importlib.import_module(modul_nama)
+    mod = _muat_episode(modul_nama)
     naskah = list(mod.NASKAH)
     folder = folder or os.path.join(BASE, "audio", "vo")
     os.makedirs(folder, exist_ok=True)
@@ -444,7 +465,7 @@ def dari_klip(modul_nama, sumber, keluar_m4a=None, folder=None, target_lufs=None
     sejak awal, jadi tidak ada pemotongan sinyal sama sekali — hanya hening
     awal/akhir yang dibuang (pra 120 ms, pasca 320 ms).
     """
-    mod = importlib.import_module(modul_nama)
+    mod = _muat_episode(modul_nama)
     naskah = list(mod.NASKAH)
     folder = folder or _folder_timing(sumber)
     os.makedirs(folder, exist_ok=True)
@@ -514,7 +535,7 @@ def batas_jeda(y, n, sr=SR):
 
 def dari_berkas(modul_nama, path, keluar_m4a=None, folder=None, target_lufs=None):
     """Satu berkas VO rekaman manusia -> potong per babak (pada jeda) -> M4A."""
-    mod = importlib.import_module(modul_nama)
+    mod = _muat_episode(modul_nama)
     naskah = list(mod.NASKAH)
     folder = folder or os.path.join(BASE, "audio", "vo")
     os.makedirs(folder, exist_ok=True)
@@ -538,7 +559,7 @@ def dari_berkas(modul_nama, path, keluar_m4a=None, folder=None, target_lufs=None
 
 
 def jalankan(modul_nama, tanpa_tts=False, ulang=False, keluar_m4a=None):
-    mod = importlib.import_module(modul_nama)
+    mod = _muat_episode(modul_nama)
     naskah = list(mod.NASKAH)
     folder = os.path.join(BASE, "audio", "vo")
     os.makedirs(folder, exist_ok=True)

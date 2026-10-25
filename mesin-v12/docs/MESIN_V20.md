@@ -229,6 +229,23 @@ python3 pustaka_v20.py --episode ep56 --slug Ep56_HypnicJerk
     penjaga ini, pratinjau dan render memakai timeline yang tidak berhubungan
     dengan VO — persis kelas bug yang tidak terlihat sampai videonya ditonton.
 
+21. **Audit tata letak hanya melihat TEKS.** `C.AUDIT` mencatat kotak tinta
+    setiap `tulis`/`label_kecil`/`panah`, jadi tabrakan teks-vs-teks tertangkap.
+    Grafik TIDAK dicatat. Bug nyata di Ep57: `C.piktogram(..., kolom=10,
+    jarak=86)` = grid 10x10 setinggi 860 px di dalam panel 400 px, sehingga
+    titik-titik meluber menutupi panel berikutnya dan pita caption — dan audit
+    menyatakan "bersih". Yang menangkapnya adalah **lembar pratinjau**
+    (`lembar_pratinjau.jpg`), jadi berkas itu wajib dilihat sebelum unggah.
+    Perbaikan struktural: `_piktogram_pas(k, x0, y0, x1, y1, ...)` memilih
+    ukuran grid yang muat di kotak, dan melempar `ValueError` kalau tidak ada
+    yang muat. Jangan memanggil `C.piktogram` dengan `jarak` tulisan tangan.
+22. **Grid 2x2 thumbnail menyisakan ruang kosong.** Thumbnail yang dibuat dari
+    bingkai mesin (gambar di atas, angka di bawah) punya lubang ~350 px di
+    tengah. `THUMB["band"]` di modul episode mengisi lubang itu dengan pita
+    label + satu kalimat; `pustaka_v20` menggambar pita yang sama di thumbnail
+    utama dan alternatif. Tinggi panel mengikuti isi — panel 300 px untuk 2
+    baris teks terlihat seperti kotak kosong.
+
 ## 7b. Menambah episode baru (urutan yang benar)
 
 ```bash

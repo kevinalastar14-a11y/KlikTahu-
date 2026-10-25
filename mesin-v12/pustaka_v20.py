@@ -84,11 +84,20 @@ def buat_thumb_utama(ep, t_bg, judul_atas, judul_besar, angka, keterangan, out):
     _teks_kotak(im, judul_besar, 62, 290, 118, C.CYAN, 940, 2)
     arr = np.array(im.convert("RGB"))
     kk = C._KanvasDari(arr)
+    # Pita pembanding di tengah. Tanpa ini, thumbnail dengan gambar kecil di
+    # atas + angka di bawah menyisakan ~350 px kosong yang membuatnya terlihat
+    # belum jadi (keluhan pada versi Ep56).
+    band = getattr(mod, "THUMB", {}).get("band")
+    if band:
+        # tinggi panel mengikuti isi (dulu 300 px untuk 2 baris -> bawah kosong)
+        C.scrim(kk, 780, 1030, (150, 0), (4, 6, 14))
+        C.panel(kk, 56, 800, 968, 190, 1.0, aksen=C.VIOLET, radius=28)
+        C.label_kecil(kk, band[0], 100, 822, C.TEKS_3, 30, 1.0, "kiri", 3.0)
+        C.tulis(kk, band[1], 100, 868, C.VIOLET_L, 56, M.F_BOLD, 1.4)
     if angka:
         C.tulis(kk, angka, 62, 1180, C.GOLD, 236, M.F_BOLD, 2.0)
     if keterangan:
         C.tulis(kk, keterangan, 62, 1470, C.TEKS, 56, M.F_BOLD, 1.6)
-        C.tulis(kk, keterangan, 62, 1470, C.TEKS, 56, M.F_BOLD, 1.6) if False else None
     C.label_kecil(kk, f"SAINS DALAM {mod.daftar()['total']:.0f} DETIK · KlikTahu", 62, 1770, C.TEKS_2, 30, 1.0,
                   "kiri", 3.0)
     # garis aksen kiri
@@ -107,9 +116,21 @@ def buat_thumb_alt(ep, t_bg, out):
     kk = C._KanvasDari(arr)
     C.scrim(kk, 1080, 1920, (0, 238), (4, 6, 14))
     blit(arr, C.merek_spr("KlikTahu", 38), 58, 84)
-    C.tulis(kk, "KAMU MERASA JATUH?", 62, 1420, C.TEKS, 78, M.F_BOLD, 1.6)
-    C.tulis(kk, "INI SEBABNYA", 62, 1524, C.CYAN, 78, M.F_BOLD, 1.6)
-    C.label_kecil(kk, "HYPNIC JERK · 7 DARI 10 ORANG", 62, 1680, C.GOLD, 32, 1.0, "kiri", 2.8)
+    # Teks diambil dari THUMB modul episode (dulu ditulis tangan di sini,
+    # sehingga thumbnail episode baru tetap berbunyi "KAMU MERASA JATUH?").
+    th = getattr(mod, "THUMB", {})
+    baris1 = th.get("alt_atas", th.get("atas", "KAMU MERASA JATUH?"))
+    baris2 = th.get("alt_besar", "INI SEBABNYA")
+    kecil = th.get("alt_kecil", "HYPNIC JERK · 7 DARI 10 ORANG")
+    band = th.get("band")
+    if band:
+        C.scrim(kk, 780, 1030, (150, 0), (4, 6, 14))
+        C.panel(kk, 56, 800, 968, 190, 1.0, aksen=C.VIOLET, radius=28)
+        C.label_kecil(kk, band[0], 100, 822, C.TEKS_3, 30, 1.0, "kiri", 3.0)
+        C.tulis(kk, band[1], 100, 868, C.VIOLET_L, 56, M.F_BOLD, 1.4)
+    C.tulis(kk, baris1, 62, 1420, C.TEKS, 78, M.F_BOLD, 1.6)
+    C.tulis(kk, baris2, 62, 1524, C.CYAN, 78, M.F_BOLD, 1.6)
+    C.label_kecil(kk, kecil, 62, 1680, C.GOLD, 32, 1.0, "kiri", 2.8)
     Image.fromarray(arr).save(out, quality=94)
     return out
 
@@ -172,6 +193,13 @@ def buat_srt(ep, out, kata_per_baris=5):
 
 # ============================================================== metadata
 
+CATATAN_STRATEGI = [
+    "3 detik pertama: pertanyaan yang langsung dialami penonton (pola hook kanal ini).",
+    "Caption karaoke di semua babak: penonton Shorts sering menonton tanpa suara.",
+    "Satu ide per layar + panel data bawah supaya tidak ada ruang kosong.",
+    "Akhir menyatu ke awal (loop) -> waktu tonton bisa melewati durasi video.",
+]
+
 META = dict(
     judul="Kamu Merasa Jatuh Tepat Sebelum Tidur? Ternyata Ini Sebabnya",
     judul_alt=[
@@ -231,7 +259,14 @@ def daftar_babak(ep="mesin_v20_ep56"):
 
 
 def tulis_metadata(folder, extra=None, ep="mesin_v20_ep56"):
+    # Judul/deskripsi/tag diambil dari META milik modul episode kalau ada
+    # (modul Ep56 & seterusnya). Tanpa ini, METADATA.md episode baru akan
+    # berisi judul Ep56 — bug yang gampang lolos karena berkasnya tetap "ada".
+    mod = importlib.import_module(ep if ep.startswith("mesin_v20_") else f"mesin_v20_{ep}")
+    # META episode hanya perlu memuat yang berbeda (judul/deskripsi/tag);
+    # sisanya (kategori, bahasa, visibilitas) diwarisi META bawaan.
     m = dict(META)
+    m.update(getattr(mod, "META", {}))
     if "{daftar_babak}" in m["deskripsi"]:
         m["deskripsi"] = m["deskripsi"].replace("{daftar_babak}", daftar_babak(ep))
     if extra:
@@ -257,11 +292,8 @@ def tulis_metadata(folder, extra=None, ep="mesin_v20_ep56"):
     md.append("- Buat playlist: \"Tubuh & Sains Sehari-hari\"")
     md.append("- Centang: bukan konten anak-anak\n")
     md.append("## Catatan strategi\n")
-    md.append("- 3 detik pertama: rasa jatuh + sentakan (pola paling terbukti di kanal ini).")
-    md.append("- Caption karaoke di semua babak: penonton Shorts sering menonton tanpa suara.")
-    md.append("- Satu ide per layar + panel data bawah supaya tidak ada ruang kosong.")
-    md.append("- Akhir menyatu ke awal (loop) -> waktu tonton bisa melewati durasi video.")
-    md.append("- Kolom komentar disiapkan sebagai pancingan: \"jam berapa kamu paling sering nyentak?\"")
+    for baris in getattr(mod, "CATATAN_STRATEGI", CATATAN_STRATEGI):
+        md.append(f"- {baris}")
     p = os.path.join(folder, "METADATA.md")
     with open(p, "w") as f:
         f.write("\n".join(md))
@@ -269,6 +301,9 @@ def tulis_metadata(folder, extra=None, ep="mesin_v20_ep56"):
 
 
 def tulis_siap_tempel(folder, ep, hasil):
+    mod = importlib.import_module(ep if ep.startswith("mesin_v20_") else f"mesin_v20_{ep}")
+    meta = dict(META)
+    meta.update(getattr(mod, "META", {}))
     p = os.path.join(folder, "SIAP_TEMPEL.md")
     lines = [f"# Siap Tempel — {ep}\n",
              "## Berkas\n",
@@ -277,17 +312,17 @@ def tulis_siap_tempel(folder, ep, hasil):
              f"- Thumbnail utama: `thumb_utama.jpg`",
              f"- Thumbnail alternatif: `thumb_alt.jpg`",
              f"- Lembar pratinjau: `lembar_pratinjau.jpg`\n",
-             "## Judul\n", META["judul"], "",
+             "## Judul\n", meta["judul"], "",
              "## Deskripsi singkat (untuk kolom deskripsi)\n",
-             META["deskripsi"].split("\n\n")[0], "",
-             "## Tag\n", ", ".join(META["tag"]), "",
+             meta["deskripsi"].split("\n\n")[0], "",
+             "## Tag\n", ", ".join(meta["tag"]), "",
              "## Checklist unggah\n",
              "- [ ] Unggah MP4 (1080x1920, 60 fps, H.264 High, AAC 48 kHz)",
              "- [ ] Tempel judul + deskripsi + tag dari METADATA.md",
              "- [ ] Pilih thumbnail utama (uji A/B dengan thumb_alt bila tersedia)",
              "- [ ] Pastikan durasi < 3 menit (Shorts) dan tidak ada musik berlisensi",
              "- [ ] Tandai bukan konten anak-anak",
-             "- [ ] Komentar pertama disiapkan: \"Jam berapa kamu paling sering nyentak?\"",
+             f"- [ ] Komentar pertama disiapkan: {meta.get('komentar_pancing', '...')}",
              "- [ ] Tambahkan ke playlist seri \"Tubuh & Sains Sehari-hari\"", ""]
     with open(p, "w") as f:
         f.write("\n".join(lines))
@@ -315,12 +350,23 @@ def main(argv=None):
     # waktu latar: 0,62 s setelah sentakan (cincin kejut sudah hilang, wajah kaget masih ada)
     t_bg = a.t_bg if a.t_bg is not None else d["scenes"][0]["dur"] * 0.62 + 0.62
 
+    th = getattr(mod, "THUMB", {})
+    t_alt = th.get("t_alt")
+    if isinstance(t_alt, tuple):
+        # (indeks babak, fraksi durasi) -> bingkai babak itu. Dulu selalu
+        # memakai babak ke-2, jadi varian A/B untuk episode lain mengambil
+        # bingkai yang salah (kosong karena teksnya disembunyikan).
+        i_sc, frac = t_alt
+        t_alt = d["scenes"][i_sc]["mulai"] + d["scenes"][i_sc]["dur"] * frac
+    elif t_alt is None:
+        t_alt = d["scenes"][1]["mulai"] + 1.2
     print("[thumb] utama...")
-    buat_thumb_utama(ep, t_bg, "KAMU MERASA JATUH",
-                     "TEPAT SEBELUM TIDUR?", "7/10",
-                     "ORANG PERNAH MERASAKANNYA", os.path.join(folder, "thumb_utama.jpg"))
+    buat_thumb_utama(ep, t_bg, th.get("atas", "KAMU MERASA JATUH"),
+                     th.get("besar", "TEPAT SEBELUM TIDUR?"), th.get("angka", "7/10"),
+                     th.get("keterangan", "ORANG PERNAH MERASAKANNYA"),
+                     os.path.join(folder, "thumb_utama.jpg"))
     print("[thumb] alternatif...")
-    buat_thumb_alt(ep, d["scenes"][1]["mulai"] + 1.2, os.path.join(folder, "thumb_alt.jpg"))
+    buat_thumb_alt(ep, t_alt, os.path.join(folder, "thumb_alt.jpg"))
     print("[lembar] pratinjau...")
     lembar(ep, os.path.join(folder, "lembar_pratinjau.jpg"))
     print("[meta] metadata...")

@@ -34,6 +34,30 @@
 
 ---
 
+## Ep57 - Kenapa Waktu Terasa Makin Cepat Saat Dewasa? — MESIN v20
+- Video: `keluaran/KlikTahu_Ep57_Waktu_v20.mp4` — **1080x1920 · 60 fps** · **90,05 s** · 68,9 MB
+  (varian `penuh` 10 babak, QC 24/24)
+- Varian pendek: `keluaran/KlikTahu_Ep57_Waktu_v20_kilat.mp4` — **54,44 s** · 42,0 MB
+  (6 babak, `KT_VARIAN=kilat`, QC 24/24)
+- Audio: `keluaran/KlikTahu_Ep57_audio.m4a` — **VO pria Indonesia** + SFX + ambien,
+  AAC 320k 48 kHz, −14,0 LUFS / TP −2,0 dBTP; QC VO 15/16 (klip babak 2 = 12,16 s,
+  sedikit di atas batas kewajaran 12 s; isi kalimat utuh, bukan cacat audio)
+- Sumber VO: `audio/vo57/sumber/01.mp3 … 10.mp3` + `audio/vo57/timing.json`
+  (folder audio KHUSUS Ep57 — jebakan 19); varian kilat `audio/vo57_kilat/`
+- Pratinjau 720p: `..._v20_720p.mp4` **8,32 MB** · `..._kilat_720p.mp4` **5,17 MB**
+- Teks siap tempel: `pustaka/Ep57_Waktu/METADATA.md` + `SIAP_TEMPEL.md`
+- Thumbnail: `pustaka/Ep57_Waktu/thumb_utama.jpg` (angka 2% + pita pembanding)
+  + `thumb_alt.jpg` (uji A/B) + `lembar_pratinjau.jpg`
+- Subtitle: `pustaka/Ep57_Waktu/subtitle_id.srt` — 13 baris
+- 10 babak: jam dipercepat -> teori proporsional (20% vs 2%) -> survei 77% dari 918 orang ->
+  otak menghitung dari penanda baru -> efek oddball -> studi 577 orang (Comm. Biology 2025) ->
+  mitos memori lama dibantah studi 2026 -> rasa terburu-buru 10% vs usia 1-4% ->
+  tiga cara memperlambat waktu -> penutup loop
+- Sumber: Communications Biology (Sept 2025, 577 orang 18-88), Memory & Cognition (2026,
+  120 dewasa), survei Ruth Ogden (2023, 918 orang), Friedman & Janssen (2010)
+
+---
+
 ## Ep56 - Kamu Merasa Jatuh Tepat Sebelum Tidur? (Hypnic Jerk) — MESIN v20
 - Video: `keluaran/KlikTahu_Ep56_HypnicJerk_v20.mp4` — 1080x1920 · 60 fps · **79,32 s** · 58,3 MB (varian `penuh`, QC 24/24)
 - Varian pendek: `keluaran/KlikTahu_Ep56_HypnicJerk_v20_kilat.mp4` — **48,08 s** · 35,8 MB (6 babak, `KT_VARIAN=kilat`, QC 24/24)

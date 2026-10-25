@@ -55,6 +55,11 @@
   tiga cara memperlambat waktu -> penutup loop
 - Sumber: Communications Biology (Sept 2025, 577 orang 18-88), Memory & Cognition (2026,
   120 dewasa), survei Ruth Ogden (2023, 918 orang), Friedman & Janssen (2010)
+- **Drive (tujuan akhir, BUKAN GitHub):** `KlikTahu_Produksi/Shorts/kliktahu-ep57-waktu`
+  — folder id `1tB7e9JzkwcAA5anlZOAEMYNXmqu_rUwJ`, 13 berkas: video penuh & kilat
+  (+720p), audio M4A terpisah, METADATA.md, SIAP_TEMPEL.md, 2 thumbnail, lembar
+  pratinjau, subtitle SRT, dan arsip klip VO per babak. Aturan pemilik (25 Okt 2026):
+  video & metadata ke Drive, **tidak** ke GitHub Release dan tidak disimpan di repo.
 
 ---
 
